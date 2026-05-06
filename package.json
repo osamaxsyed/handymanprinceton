@@ -9,7 +9,8 @@
     "build:fast": "npm run generate-sitemap && vite build",
     "build:dev": "vite build --mode development",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "prerender": "node scripts/prerender.js",
+    "ensure-chrome": "node -e \"require('child_process').execSync('npx puppeteer browsers install chrome', { stdio: 'inherit' })\"",
+    "prerender": "npm run ensure-chrome && node scripts/prerender.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
