@@ -126,7 +126,7 @@ services.forEach((service) => {
 locations.forEach((location) => {
   const url = `/service-areas/${location.slug}`;
   const title = `Handyman ${location.name} NJ | Licensed Local Repairs & Remodels`;
-  const description = `Professional handyman services in ${location.name}, NJ. Kitchen remodels, bathroom renovations, home repairs, and more. Licensed & insured. Free estimates!`;
+  const description = `Professional handyman services in ${location.name}, NJ. Kitchen remodels, bathroom remodels, home repairs, and more. Licensed & insured. Free estimates!`;
   const breadcrumb = buildBreadcrumbList([
     { name: 'Home', item: SITE },
     { name: 'Service Areas', item: `${SITE}/service-areas` },
@@ -153,6 +153,9 @@ routes.push({
   },
 });
 
+// All non-dynamic routes from src/App.tsx. Each gets a full Puppeteer-rendered
+// prerender plus unique <head> tags via injectMetadata, ensuring no route
+// falls through to the SPA shell with the homepage canonical.
 const standalonePages = [
   {
     slug: 'pergolas',
@@ -168,6 +171,76 @@ const standalonePages = [
     slug: 'backyard-studios',
     title: 'Backyard Studios & Home Offices in Central NJ | Princeton Handyman',
     description: 'Custom-built insulated backyard studios, home offices, and garden offices across Central New Jersey. Licensed, insured, built by a 15-year construction veteran. Limited early-project pricing.',
+  },
+  {
+    slug: 'handyman-services',
+    title: 'Handyman Services in Princeton & Central NJ | Princeton Handyman',
+    description: 'Full list of handyman services: plumbing repairs, electrical work, carpentry, painting, drywall, and more. Licensed and insured. Serving Princeton, West Windsor, Lawrence, Montgomery, and surrounding NJ towns.',
+  },
+  {
+    slug: 'remodels',
+    title: 'Kitchen & Bathroom Remodels in Princeton & Central NJ | Princeton Handyman',
+    description: 'Expert kitchen and bathroom remodeling services in Princeton and Central NJ. Full renovations, tile work, vanity installs, cabinet upgrades, and more. Licensed and insured. Free estimates.',
+  },
+  {
+    slug: 'about',
+    title: 'About Us | Princeton Handyman',
+    description: 'Meet the team behind Princeton Handyman. Licensed, bonded, and insured with 15+ years of experience serving Mercer and Somerset counties with quality home repair and remodeling services.',
+  },
+  {
+    slug: 'portfolio',
+    title: 'Project Portfolio | Princeton Handyman',
+    description: 'See our completed kitchen remodels, bathroom remodels, and home repair projects across Princeton, West Windsor, Montgomery, and Central NJ. Before and after photos included.',
+  },
+  {
+    slug: 'faq',
+    title: 'Frequently Asked Questions | Princeton Handyman',
+    description: 'Got questions about our handyman services? Find answers about pricing, scheduling, service areas, and what to expect from Princeton Handyman.',
+  },
+  {
+    slug: 'get-estimate',
+    title: 'Get a Free Estimate | Princeton Handyman',
+    description: 'Request a free, no-obligation estimate for handyman services, kitchen remodels, bathroom remodels, and home repairs in Princeton and Central NJ.',
+  },
+  {
+    slug: 'book-repair',
+    title: 'Book a Quick Repair | Princeton Handyman',
+    description: 'Schedule a quick home repair with Princeton Handyman. Fast, reliable service for plumbing fixes, electrical work, carpentry, and more in Mercer and Somerset counties.',
+  },
+  {
+    slug: 'bathroom-refresh',
+    title: '1-Day Bathroom Refresh Service | Princeton Handyman',
+    description: "Transform your bathroom in just one day. Single-sink specialty with zero-hassle Lowe's concierge pickup. Get your instant estimate for labor and logistics.",
+  },
+  {
+    slug: 'bathroom-remodel',
+    title: 'Bathroom Remodel in Princeton & Central NJ | Princeton Handyman',
+    description: 'Bathroom remodels in Princeton and Central NJ. Tile, vanities, fixtures, lighting, tub-to-shower conversions. Licensed and insured. Free estimates.',
+  },
+  {
+    slug: 'bathroom-remodel-calculator',
+    title: 'Bathroom Remodel Cost Calculator | Princeton Handyman',
+    description: 'Get an instant estimate for your bathroom remodel. Premium bathroom remodels for Princeton, Cranbury, Montgomery, and Central NJ. Calculate your project cost in seconds.',
+  },
+  {
+    slug: 'rack-configurator',
+    title: 'Custom Garage Storage Rack Builder | Princeton Handyman',
+    description: 'Build your perfect garage storage solution in seconds. Pick your size, see your price instantly, and transform your cluttered garage into an organized workspace.',
+  },
+  {
+    slug: 'privacy',
+    title: 'Privacy Policy | Princeton Handyman',
+    description: 'Read the privacy policy for Princeton Handyman. Learn how we collect, use, and protect your personal information.',
+  },
+  {
+    slug: 'terms',
+    title: 'Terms of Service | Princeton Handyman',
+    description: 'Terms of service for Princeton Handyman. Review the terms and conditions that apply to our handyman and home remodeling services in Central NJ.',
+  },
+  {
+    slug: 'sitemap',
+    title: 'Sitemap | Princeton Handyman',
+    description: 'Browse all pages on the Princeton Handyman website, services, service areas, and more.',
   },
 ];
 

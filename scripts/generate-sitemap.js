@@ -22,6 +22,7 @@ const staticPages = [
   { url: '/portfolio', priority: '0.8', changefreq: 'weekly' },
   { url: '/faq', priority: '0.7', changefreq: 'monthly' },
   { url: '/book-repair', priority: '0.8', changefreq: 'monthly' },
+  { url: '/bathroom-remodel', priority: '0.9', changefreq: 'monthly' },
   { url: '/bathroom-remodel-calculator', priority: '0.9', changefreq: 'monthly' },
   { url: '/bathroom-refresh', priority: '0.8', changefreq: 'monthly' },
   { url: '/pergolas', priority: '0.9', changefreq: 'monthly' },

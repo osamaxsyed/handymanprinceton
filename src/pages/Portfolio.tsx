@@ -28,7 +28,7 @@ const Portfolio = () => {
     {
       title: "Luxury Bathroom Upgrade",
       location: "Woodbridge, NJ",
-      description: "Master bathroom renovation featuring Kohler bathtub, vanity, porcelain floors, and custom tile work.",
+      description: "Master bathroom remodel featuring Kohler bathtub, vanity, porcelain floors, and custom tile work.",
       image: bathroomImage,
       beforeImage: bathroomBeforeImage,
       hasSlider: true,
@@ -52,7 +52,7 @@ const Portfolio = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Project Portfolio | Princeton Handyman"
-        description="See completed kitchen remodels, bathroom renovations, and home repair projects across Princeton, Plainsboro, West Windsor & Central NJ. Before & after photos."
+        description="See completed kitchen remodels, bathroom remodels, and home repair projects across Princeton, Plainsboro, West Windsor & Central NJ. Before & after photos."
         canonical="/portfolio"
       />
       <Header />

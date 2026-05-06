@@ -21,7 +21,7 @@ const BathroomRefresh = () => {
         title="1-Day Bathroom Refresh Service"
         description="Transform your bathroom in just one day. Single-sink specialty with zero-hassle Lowe's concierge pickup. Get your instant estimate."
         canonical="/bathroom-refresh"
-        keywords="bathroom refresh, one day bathroom remodel, bathroom renovation, single sink vanity, Lowe's bathroom, bathroom upgrade, quick bathroom makeover"
+        keywords="bathroom refresh, one day bathroom remodel, bathroom remodel, single sink vanity, Lowe's bathroom, bathroom upgrade, quick bathroom makeover"
       />
       <Header />
 

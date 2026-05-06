@@ -2,7 +2,7 @@ import { Phone, Mail } from "lucide-react";
 
 const FAQ = () => {
   const faqs = [
-    { question: "What areas do you serve?", answer: "We provide handyman services throughout Central New Jersey, including Princeton, Plainsboro, West Windsor, Lawrence Township, Montgomery, Hopewell Borough, Pennington, Kingston, South Brunswick, Robbinsville, East Windsor, and surrounding Mercer County towns. If you're unsure if we serve your area, please give us a call." },
+    { question: "What areas do you serve?", answer: "We provide handyman services throughout Central New Jersey, including Princeton, South Brunswick, Cranbury, Plainsboro, East Windsor, West Windsor, Lawrence Township, Robbinsville, Pennington, and Montgomery, and surrounding Mercer County towns. If you're unsure if we serve your area, please give us a call." },
     { question: "Are you licensed and insured?", answer: "Yes — fully licensed (NJ HIC #13VH13918800), bonded, and insured. We carry general liability insurance and workers' compensation. License verification is available on request." },
     { question: "How do you provide estimates?", answer: "Free estimates for most projects. Submit through our online form and we typically respond within 24 hours. For complex projects, we may schedule an in-person consultation to provide the most accurate quote." },
     { question: "What types of projects do you handle?", answer: "Wide range — kitchen and bathroom remodels, general repairs, electrical, plumbing, painting, carpentry, deck staining, and maintenance. We're now also building pergolas, custom sheds, and backyard studios." },

@@ -47,7 +47,7 @@ const BathroomRemodelCalculator = () => {
       title: "Master Bath",
       subtitle: "Luxury Suite",
       priceRange: { min: 15000, max: 35000 },
-      description: "Premium master bathroom renovation",
+      description: "Premium master bathroom remodel",
       recommended: true,
     },
   ];

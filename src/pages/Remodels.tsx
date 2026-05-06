@@ -28,7 +28,7 @@ const Remodels = () => {
 
   const projects = [
     { title: "Kitchen Remodel", image: kitchenImage, beforeImage: kitchenBeforeImage, category: "Kitchen" },
-    { title: "Bathroom Renovation", image: bathroomImage, beforeImage: bathroomBeforeImage, category: "Bathroom" },
+    { title: "Bathroom Remodel", image: bathroomImage, beforeImage: bathroomBeforeImage, category: "Bathroom" },
   ];
 
   return (

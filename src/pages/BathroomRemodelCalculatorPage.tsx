@@ -12,9 +12,9 @@ const BathroomRemodelCalculatorPage = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Bathroom Remodel Cost Calculator | Princeton Handyman"
-        description="Get an instant estimate for your bathroom renovation. Premium bathroom remodels for Princeton, Plainsboro, West Windsor, and Central NJ. Calculate your project cost in seconds."
+        description="Get an instant estimate for your bathroom remodel. Premium bathroom remodels for Princeton, Plainsboro, West Windsor, and Central NJ. Calculate your project cost in seconds."
         canonical="/bathroom-remodel-calculator"
-        keywords="bathroom remodel cost, bathroom renovation calculator, bathroom remodel estimate, master bath remodel, luxury bathroom, bathroom cost calculator, NJ bathroom contractor"
+        keywords="bathroom remodel cost, bathroom remodel calculator, bathroom remodel estimate, master bath remodel, luxury bathroom, bathroom cost calculator, NJ bathroom contractor"
       />
       <Header />
 
@@ -32,7 +32,7 @@ const BathroomRemodelCalculatorPage = () => {
               <span className="text-background/70">Cost Calculator.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              Instant, personalized estimate for your bathroom renovation. From powder rooms to luxury master baths.
+              Instant, personalized estimate for your bathroom remodel. From powder rooms to luxury master baths.
             </p>
             <div className="flex flex-wrap gap-3">
               {["Free Estimate", "No Obligation", "Premium Results"].map((badge) => (
@@ -67,7 +67,7 @@ const BathroomRemodelCalculatorPage = () => {
             </div>
             <div className="grid md:grid-cols-2 gap-4 md:gap-6">
               {[
-                ["15+ Years Experience", "Licensed and insured professionals with over 15 years of bathroom renovation experience throughout Central NJ."],
+                ["15+ Years Experience", "Licensed and insured professionals with over 15 years of bathroom remodel experience throughout Central NJ."],
                 ["Premium Quality", "Serving Princeton, Plainsboro, West Windsor, and surrounding affluent communities with high-end craftsmanship."],
                 ["Transparent Pricing", "No hidden fees. Detailed quotes with clear breakdowns of materials, labor, and timeline."],
                 ["Efficient Execution", "Most bathroom remodels completed in 1–3 weeks with minimal disruption to your daily routine."],
@@ -109,12 +109,12 @@ const BathroomRemodelCalculatorPage = () => {
               Serving Premium Homes Throughout Central NJ
             </h2>
             <p className="font-body text-base text-background/80 mb-10">
-              High-end bathroom renovations for discerning homeowners in:
+              High-end bathroom remodels for discerning homeowners in:
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {[
-                "Princeton", "Plainsboro", "West Windsor", "Lawrence Township", "Montgomery",
-                "Skillman", "Hopewell Borough", "Pennington", "Kingston", "South Brunswick",
+                "Princeton", "South Brunswick", "Cranbury", "Plainsboro", "East Windsor",
+                "West Windsor", "Lawrence Township", "Robbinsville", "Pennington", "Montgomery",
               ].map((city) => (
                 <span
                   key={city}

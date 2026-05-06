@@ -41,7 +41,7 @@ const BackyardStudios = () => {
     {
       question: "What areas do you serve?",
       answer:
-        "We build backyard studios across Central New Jersey: Princeton, Plainsboro, West Windsor, Lawrence Township, Montgomery, Skillman, Hopewell Borough, Pennington, Rocky Hill, Kingston, South Brunswick, Robbinsville, East Windsor, and surrounding Mercer County towns.",
+        "We build backyard studios across Central New Jersey: Princeton, South Brunswick, Cranbury, Plainsboro, East Windsor, West Windsor, Lawrence Township, Robbinsville, Pennington, and Montgomery, and surrounding Mercer County towns.",
     },
   ];
 

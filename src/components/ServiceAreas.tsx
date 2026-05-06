@@ -4,18 +4,15 @@ import { Link } from "react-router-dom";
 const ServiceAreas = () => {
   const cities = [
     { name: "Princeton", slug: "princeton" },
+    { name: "South Brunswick", slug: "south-brunswick" },
+    { name: "Cranbury", slug: "cranbury" },
     { name: "Plainsboro", slug: "plainsboro" },
+    { name: "East Windsor", slug: "east-windsor" },
     { name: "West Windsor", slug: "west-windsor" },
     { name: "Lawrence Township", slug: "lawrence-township" },
-    { name: "Montgomery", slug: "montgomery" },
-    { name: "Skillman", slug: "skillman" },
-    { name: "Hopewell Borough", slug: "hopewell-borough" },
-    { name: "Pennington", slug: "pennington" },
-    { name: "Rocky Hill", slug: "rocky-hill" },
-    { name: "Kingston", slug: "kingston" },
-    { name: "South Brunswick", slug: "south-brunswick" },
     { name: "Robbinsville", slug: "robbinsville" },
-    { name: "East Windsor", slug: "east-windsor" },
+    { name: "Pennington", slug: "pennington" },
+    { name: "Montgomery", slug: "montgomery" },
   ];
 
   return (

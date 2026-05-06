@@ -8,7 +8,7 @@ const GetEstimate = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Get a Free Estimate | Princeton Handyman"
-        description="Request a free, no-obligation estimate for handyman services, kitchen remodels, bathroom renovations, and home repairs in Princeton and Central NJ. Call (609) 516-0098."
+        description="Request a free, no-obligation estimate for handyman services, kitchen remodels, bathroom remodels, and home repairs in Princeton and Central NJ. Call (609) 516-0098."
         canonical="/get-estimate"
       />
       <Header />

@@ -1,132 +1,187 @@
 [
   {
-    "slug": "princeton",
-    "name": "Princeton",
+    "slug": "south-brunswick",
+    "name": "South Brunswick",
     "state": "NJ",
-    "zipCodes": ["08540", "08542", "08544"],
-    "description": "Premier handyman and remodeling services for Princeton homeowners. Expert craftsmanship for historic estates near Nassau Street, Western Section colonials, and modern Princeton properties.",
-    "neighborhoods": ["Western Section", "Riverside", "Jugtown", "Littlebrook", "Community Park North", "John-Witherspoon"],
-    "localContext": "Princeton's housing stock is one of the most distinctive in New Jersey, ranging from 18th and 19th century properties along Nassau Street and Mercer Street to gracious early 20th-century homes in the Western Section and Riverside, and contemporary builds toward Province Line Road. Older Princeton homes often have original plaster walls, century-old plumbing branch lines, and trim profiles you simply can't buy off the shelf — work that requires a contractor who knows how to source matching materials and patch in seamlessly. Princeton homeowners also operate under one of the more demanding Historic Preservation Commissions in the state, and we routinely coordinate the documentation and approvals required for exterior changes in the historic district. Whether it's a kitchen update in a Witherspoon-Jackson row home or a full bathroom remodel in a Riverside Tudor, we bring the level of precision Princeton properties deserve.",
-    "priority": 1.0
+    "zipCodes": [
+      "08824",
+      "08852",
+      "08810"
+    ],
+    "description": "Comprehensive handyman and home improvement services throughout South Brunswick. Serving Kendall Park, Monmouth Junction, Dayton, and Kingston.",
+    "neighborhoods": [
+      "Kendall Park",
+      "Monmouth Junction",
+      "Dayton",
+      "Kingston",
+      "Deans"
+    ],
+    "localContext": "South Brunswick Township spans a large area with distinct communities: the established post-war neighborhoods of Kendall Park and Monmouth Junction, the newer luxury subdivisions in Dayton, and the rural-village feel of Kingston. Kendall Park homes from the 1950s and 1960s are at the age where bathrooms still have original tile, kitchens have small footprints in need of opening up, and original windows are leaking heat \u2014 all of which we handle routinely. Newer Dayton homes often need post-builder upgrades: better trim, real hardwood replacing builder-grade laminate, and primary baths that go beyond the basic developer package. South Brunswick has an efficient building department and we work with it regularly. Homeowners across the township tend to invest seriously in their properties, and we deliver craftsmanship that holds up over the long term.",
+    "priority": 0.85
+  },
+  {
+    "slug": "cranbury",
+    "name": "Cranbury",
+    "state": "NJ",
+    "zipCodes": [
+      "08512"
+    ],
+    "description": "Custom handyman and remodeling services for Cranbury homeowners, from historic Main Street properties to estates along Cranbury Neck Road. Detail-focused work for one of Mercer County's most preserved historic villages.",
+    "neighborhoods": [
+      "Historic Village",
+      "Cranbury Station",
+      "Cranbury Neck",
+      "Old Trenton Road"
+    ],
+    "localContext": "Cranbury is one of the smallest and most carefully preserved townships in central New Jersey, with a Historic Village section listed on the National Register and an active Historic Preservation Commission that reviews exterior work on properties in the district. Many of the homes along Main Street, Maplewood Avenue, and around the Cranbury Inn date to the 18th and 19th centuries and require contractors who understand how to work with original wide-plank floors, hand-cut joinery, and plaster systems without compromising character. Outside the village, properties along Cranbury Neck Road and Old Trenton Road tend toward larger estates with carriage houses and outbuildings that often need bathroom additions, kitchen updates, or carpentry restoration. We bring the slower, more deliberate approach Cranbury work calls for, and we coordinate HPC documentation when required.",
+    "priority": 0.9
   },
   {
     "slug": "plainsboro",
     "name": "Plainsboro Township",
     "state": "NJ",
-    "zipCodes": ["08536"],
+    "zipCodes": [
+      "08536"
+    ],
     "description": "Reliable handyman and remodeling services for Plainsboro Township homes and townhomes. Expert care for Princeton Collection, Ravens Crest, and Schalks Crossing properties.",
-    "neighborhoods": ["Princeton Collection", "Ravens Crest", "Schalks Crossing", "Plainsboro Village", "Fox Run"],
-    "localContext": "Plainsboro Township is dominated by master-planned communities and townhome developments built between the 1980s and early 2000s — Princeton Collection, Ravens Crest, Schalks Crossing, and Fox Run are all reaching the age where original builder-grade kitchens, laminate countertops, and basic bathroom tile are due for serious upgrades. We've completed dozens of kitchen and bathroom renovations across these communities and know the unit layouts well enough to quote accurately from photos. Plainsboro townhomes also come with HOA architectural review for any exterior or structural changes — we handle the submission paperwork and have working relationships with property managers throughout the township. With Princeton Forrestal Village and the University Medical Center driving steady demand, Plainsboro homes hold their value when renovated thoughtfully, and we focus on upgrades that actually move the needle on resale.",
+    "neighborhoods": [
+      "Princeton Collection",
+      "Ravens Crest",
+      "Schalks Crossing",
+      "Plainsboro Village",
+      "Fox Run"
+    ],
+    "localContext": "Plainsboro Township is dominated by master-planned communities and townhome developments built between the 1980s and early 2000s \u2014 Princeton Collection, Ravens Crest, Schalks Crossing, and Fox Run are all reaching the age where original builder-grade kitchens, laminate countertops, and basic bathroom tile are due for serious upgrades. We've completed dozens of kitchen and bathroom renovations across these communities and know the unit layouts well enough to quote accurately from photos. Plainsboro townhomes also come with HOA architectural review for any exterior or structural changes \u2014 we handle the submission paperwork and have working relationships with property managers throughout the township. With Princeton Forrestal Village and the University Medical Center driving steady demand, Plainsboro homes hold their value when renovated thoughtfully, and we focus on upgrades that actually move the needle on resale.",
     "priority": 0.95
+  },
+  {
+    "slug": "east-windsor",
+    "name": "East Windsor",
+    "state": "NJ",
+    "zipCodes": [
+      "08520"
+    ],
+    "description": "Reliable handyman and remodeling services for East Windsor Township. Expert work on Hightstown-area homes, Twin Rivers, and surrounding neighborhoods.",
+    "neighborhoods": [
+      "Twin Rivers",
+      "Hickory Acres",
+      "Etra",
+      "Princeton Manor",
+      "Wyckoffs Mills area"
+    ],
+    "localContext": "East Windsor Township includes the planned community of Twin Rivers \u2014 one of the first large-scale planned developments in the country \u2014 alongside more conventional subdivisions in Hickory Acres and Princeton Manor, and rural properties near Etra and Wyckoffs Mills. Twin Rivers townhomes are now over 50 years old, and many original kitchens, bathrooms, HVAC systems, and windows are due for major updates \u2014 we've completed multiple Twin Rivers renovations and know the unit floor plans. The free-standing single-family homes in East Windsor's other neighborhoods are typically 1960s through 1990s construction, ranging from Cape Cods needing modernization to colonials due for their first major remodel. East Windsor's building department is straightforward, and we handle the permitting on every project that requires it. Homeowners here look for trustworthy, no-nonsense contractors, and we've earned strong word-of-mouth across the township.",
+    "priority": 0.85
   },
   {
     "slug": "west-windsor",
     "name": "West Windsor",
     "state": "NJ",
-    "zipCodes": ["08550"],
+    "zipCodes": [
+      "08550"
+    ],
     "description": "Premium handyman and home improvement services for West Windsor Township. Expert renovations for Princeton Junction, Berrien City, and Grovers Mill homes.",
-    "neighborhoods": ["Princeton Junction", "Berrien City", "Grovers Mill", "Dutch Neck", "Penns Neck"],
-    "localContext": "West Windsor Township covers a wide range of housing — from custom executive homes in the Princeton Junction commuter belt to older farmhouses near Grovers Mill and newer luxury developments off Bear Brook Road. Many West Windsor homes were built in the 1990s and 2000s with high-end finishes that are now showing their age: oak cabinetry that's lost favor, master baths with builder-grade tile, and decks that need refinishing or replacement. West Windsor homeowners — many of whom commute into Manhattan from Princeton Junction — value contractors who communicate by email, send detailed estimates, and stick to schedule. We've completed projects throughout Berrien City, Dutch Neck, and the developments near Penns Neck, and we coordinate carefully with West Windsor's building department for any work requiring permits.",
+    "neighborhoods": [
+      "Princeton Junction",
+      "Berrien City",
+      "Grovers Mill",
+      "Dutch Neck",
+      "Penns Neck"
+    ],
+    "localContext": "West Windsor Township covers a wide range of housing \u2014 from custom executive homes in the Princeton Junction commuter belt to older farmhouses near Grovers Mill and newer luxury developments off Bear Brook Road. Many West Windsor homes were built in the 1990s and 2000s with high-end finishes that are now showing their age: oak cabinetry that's lost favor, master baths with builder-grade tile, and decks that need refinishing or replacement. West Windsor homeowners \u2014 many of whom commute into Manhattan from Princeton Junction \u2014 value contractors who communicate by email, send detailed estimates, and stick to schedule. We've completed projects throughout Berrien City, Dutch Neck, and the developments near Penns Neck, and we coordinate carefully with West Windsor's building department for any work requiring permits.",
     "priority": 0.9
+  },
+  {
+    "slug": "princeton",
+    "name": "Princeton",
+    "state": "NJ",
+    "zipCodes": [
+      "08540",
+      "08542",
+      "08544"
+    ],
+    "description": "Premier handyman and remodeling services for Princeton homeowners. Expert craftsmanship for historic estates near Nassau Street, Western Section colonials, and modern Princeton properties.",
+    "neighborhoods": [
+      "Western Section",
+      "Riverside",
+      "Jugtown",
+      "Littlebrook",
+      "Community Park North",
+      "John-Witherspoon"
+    ],
+    "localContext": "Princeton's housing stock is one of the most distinctive in New Jersey, ranging from 18th and 19th century properties along Nassau Street and Mercer Street to gracious early 20th-century homes in the Western Section and Riverside, and contemporary builds toward Province Line Road. Older Princeton homes often have original plaster walls, century-old plumbing branch lines, and trim profiles you simply can't buy off the shelf \u2014 work that requires a contractor who knows how to source matching materials and patch in seamlessly. Princeton homeowners also operate under one of the more demanding Historic Preservation Commissions in the state, and we routinely coordinate the documentation and approvals required for exterior changes in the historic district. Whether it's a kitchen update in a Witherspoon-Jackson row home or a full bathroom remodel in a Riverside Tudor, we bring the level of precision Princeton properties deserve.",
+    "priority": 1.0
   },
   {
     "slug": "lawrence-township",
     "name": "Lawrence Township",
     "state": "NJ",
-    "zipCodes": ["08648"],
+    "zipCodes": [
+      "08648"
+    ],
     "description": "Trusted handyman and remodeling services for Lawrence Township. Quality work for Lawrenceville Village, Eldridge Park, and Colonial Lakelands homes.",
-    "neighborhoods": ["Lawrenceville Village", "Eldridge Park", "Colonial Lakelands", "Lawrence Square Village", "Slackwood"],
-    "localContext": "Lawrence Township stretches along the Route 1 corridor between Princeton and Trenton, with a housing mix that reflects its long history: pre-war colonials and Victorians in Lawrenceville Village, mid-century ranches and Cape Cods in Eldridge Park and Slackwood, and newer construction in Colonial Lakelands and the developments off Princeton Pike. Older Lawrence homes often have galvanized supply lines that are reaching end-of-life, original wood windows that need restoration or replacement, and bathrooms with original 1950s tile work. The township's permit process is straightforward and we know the inspectors. Lawrenceville Village in particular has architectural review requirements for visible exterior work — we factor that into project timelines so homeowners aren't surprised. Whether it's a kitchen update in a Lawrenceville colonial or a bathroom remodel in a Colonial Lakelands ranch, we deliver work that fits the home.",
+    "neighborhoods": [
+      "Lawrenceville Village",
+      "Eldridge Park",
+      "Colonial Lakelands",
+      "Lawrence Square Village",
+      "Slackwood"
+    ],
+    "localContext": "Lawrence Township stretches along the Route 1 corridor between Princeton and Trenton, with a housing mix that reflects its long history: pre-war colonials and Victorians in Lawrenceville Village, mid-century ranches and Cape Cods in Eldridge Park and Slackwood, and newer construction in Colonial Lakelands and the developments off Princeton Pike. Older Lawrence homes often have galvanized supply lines that are reaching end-of-life, original wood windows that need restoration or replacement, and bathrooms with original 1950s tile work. The township's permit process is straightforward and we know the inspectors. Lawrenceville Village in particular has architectural review requirements for visible exterior work \u2014 we factor that into project timelines so homeowners aren't surprised. Whether it's a kitchen update in a Lawrenceville colonial or a bathroom remodel in a Colonial Lakelands ranch, we deliver work that fits the home.",
+    "priority": 0.9
+  },
+  {
+    "slug": "robbinsville",
+    "name": "Robbinsville",
+    "state": "NJ",
+    "zipCodes": [
+      "08691"
+    ],
+    "description": "Trusted handyman and remodeling services for Robbinsville Township. Quality work for Town Center, Foxmoor, and surrounding subdivisions.",
+    "neighborhoods": [
+      "Town Center",
+      "Foxmoor",
+      "Washington Town Center",
+      "Sharon",
+      "Windsor"
+    ],
+    "localContext": "Robbinsville Township has grown rapidly since the early 2000s, with Town Center and Washington Town Center bringing walkable mixed-use development to what had been a more rural part of Mercer County. Most Robbinsville housing is newer \u2014 colonials, townhomes, and condos from the 1990s onward \u2014 meaning the projects here are different from older communities: builder-grade upgrades, finished basements, deck additions, and primary bathroom enhancements rather than full historic renovations. The newer townhome communities often have HOA architectural review for any exterior changes, and we handle that paperwork as part of our standard scope. Robbinsville is also known for its strong commuter base, and homeowners here value contractors who provide written estimates, schedule by email, and complete work on time without surprises \u2014 exactly how we operate.",
+    "priority": 0.85
+  },
+  {
+    "slug": "pennington",
+    "name": "Pennington",
+    "state": "NJ",
+    "zipCodes": [
+      "08534"
+    ],
+    "description": "Premium handyman and remodeling services for Pennington Borough and surrounding areas. Quality work for historic and contemporary homes.",
+    "neighborhoods": [
+      "Main Street Historic District",
+      "Brookside",
+      "Curlis Lake",
+      "Hopewell Township areas"
+    ],
+    "localContext": "Pennington Borough is a charming small town with a Main Street historic district of well-preserved Victorians, Colonial Revivals, and early-20th-century farmhouses, surrounded by the more rural sections of Hopewell Township that share the 08534 ZIP. Pennington homeowners are typically long-term residents who invest seriously in their homes \u2014 kitchen renovations here often include custom cabinetry and stone countertops, and bathroom remodels lean toward classic, timeless designs rather than passing trends. The Borough's permit process is friendly and quick, but exterior work in the historic district may require Historic Preservation review. We've completed numerous projects throughout Pennington \u2014 from front porch reconstructions on Main Street to full kitchen renovations in Brookside \u2014 and we've earned a reputation for tidy job sites and on-schedule completion in this tight-knit community.",
     "priority": 0.9
   },
   {
     "slug": "montgomery",
     "name": "Montgomery Township",
     "state": "NJ",
-    "zipCodes": ["08502", "08540", "08558"],
+    "zipCodes": [
+      "08502",
+      "08540",
+      "08558"
+    ],
     "description": "Premium handyman and remodeling services for Montgomery Township. Expert work on Belle Mead, Skillman, and Blawenburg homes.",
-    "neighborhoods": ["Belle Mead", "Skillman", "Blawenburg", "Montgomery Knoll", "Cherry Brook"],
-    "localContext": "Montgomery Township is one of the most affluent communities in Somerset County, with large-lot single-family homes spread across Belle Mead, Skillman, and Blawenburg, plus newer luxury subdivisions like Montgomery Knoll and Cherry Brook. Many Montgomery homes sit on three- or five-acre parcels with private wells, septic systems, and propane heat — meaning our handyman work here often extends to outbuildings, well pump pressure tanks, water filtration replacements, and exterior repairs after winter storms. The newer custom homes built in the 2000s often have high-end millwork, coffered ceilings, and built-ins that demand careful matching during any renovation. Montgomery homeowners expect a high standard of craftsmanship and clean job sites, and we've built a strong referral network throughout this township by delivering exactly that. Permits in Montgomery require attention to detail, and we coordinate with the building department whenever a project requires sign-off.",
+    "neighborhoods": [
+      "Belle Mead",
+      "Skillman",
+      "Blawenburg",
+      "Montgomery Knoll",
+      "Cherry Brook"
+    ],
+    "localContext": "Montgomery Township is one of the most affluent communities in Somerset County, with large-lot single-family homes spread across Belle Mead, Skillman, and Blawenburg, plus newer luxury subdivisions like Montgomery Knoll and Cherry Brook. Many Montgomery homes sit on three- or five-acre parcels with private wells, septic systems, and propane heat \u2014 meaning our handyman work here often extends to outbuildings, well pump pressure tanks, water filtration replacements, and exterior repairs after winter storms. The newer custom homes built in the 2000s often have high-end millwork, coffered ceilings, and built-ins that demand careful matching during any renovation. Montgomery homeowners expect a high standard of craftsmanship and clean job sites, and we've built a strong referral network throughout this township by delivering exactly that. Permits in Montgomery require attention to detail, and we coordinate with the building department whenever a project requires sign-off.",
     "priority": 0.95
-  },
-  {
-    "slug": "skillman",
-    "name": "Skillman",
-    "state": "NJ",
-    "zipCodes": ["08558"],
-    "description": "Quality handyman services for Skillman homes. Specialized care for the rural and estate properties of this Montgomery Township community.",
-    "neighborhoods": ["Hopewell-Princeton Road area", "Mountain View", "Skillman Village", "Camp Meeting Avenue area"],
-    "localContext": "Skillman sits within Montgomery Township and carries a distinctive rural character — wooded lots, longer driveways, and a mix of historic farmhouses, custom-built executive homes, and a few horse properties. Many Skillman homes are well off municipal services, relying on private wells, septic systems, and propane, so our work here often involves utility-room repairs, generator transfer switch wiring assistance, and exterior work like deck restoration and shed construction. The historic farmhouses around Camp Meeting Avenue and Hopewell-Princeton Road frequently have hand-hewn beams, original plank flooring, and irregular framing that requires a careful, experienced approach. Skillman homeowners tend to be long-term owners who value contractors that show up on time, communicate clearly, and respect their property — and we've built a strong reputation in this community by operating exactly that way.",
-    "priority": 0.85
-  },
-  {
-    "slug": "hopewell-borough",
-    "name": "Hopewell Borough",
-    "state": "NJ",
-    "zipCodes": ["08525"],
-    "description": "Specialized handyman services for Hopewell Borough's historic homes. Expert care for Victorian, Colonial Revival, and pre-war properties.",
-    "neighborhoods": ["Broad Street Historic District", "East Broad Street", "West Broad Street", "Princeton Avenue area"],
-    "localContext": "Hopewell Borough is a small, walkable historic village with one of the best-preserved 19th-century streetscapes in central New Jersey — most of the housing along Broad Street and the surrounding blocks dates to the late 1800s and early 1900s, including Victorians, Italianates, and Colonial Revivals. These homes have features that demand specialized craftsmanship: original plaster walls and crown molding, hand-built staircases, antique hardware, and trim profiles that need to be milled to match. Hopewell Borough also has an active Historic Preservation Commission, and exterior work requires Certificate of Appropriateness review — we've been through this process multiple times and know how to prepare submissions that get approved. Inside the homes, original knob-and-tube wiring and aging plumbing are common — we work alongside our licensed electrical and plumbing partners to bring these systems up to code without compromising the home's character.",
-    "priority": 0.9
-  },
-  {
-    "slug": "pennington",
-    "name": "Pennington",
-    "state": "NJ",
-    "zipCodes": ["08534"],
-    "description": "Premium handyman and remodeling services for Pennington Borough and surrounding areas. Quality work for historic and contemporary homes.",
-    "neighborhoods": ["Main Street Historic District", "Brookside", "Curlis Lake", "Hopewell Township areas"],
-    "localContext": "Pennington Borough is a charming small town with a Main Street historic district of well-preserved Victorians, Colonial Revivals, and early-20th-century farmhouses, surrounded by the more rural sections of Hopewell Township that share the 08534 ZIP. Pennington homeowners are typically long-term residents who invest seriously in their homes — kitchen renovations here often include custom cabinetry and stone countertops, and bathroom remodels lean toward classic, timeless designs rather than passing trends. The Borough's permit process is friendly and quick, but exterior work in the historic district may require Historic Preservation review. We've completed numerous projects throughout Pennington — from front porch reconstructions on Main Street to full kitchen renovations in Brookside — and we've earned a reputation for tidy job sites and on-schedule completion in this tight-knit community.",
-    "priority": 0.9
-  },
-  {
-    "slug": "rocky-hill",
-    "name": "Rocky Hill",
-    "state": "NJ",
-    "zipCodes": ["08553"],
-    "description": "Expert handyman services for Rocky Hill Borough's compact community of historic and modern homes.",
-    "neighborhoods": ["Washington Street area", "Princeton Avenue area", "Crescent Avenue area"],
-    "localContext": "Rocky Hill is one of the smallest boroughs in New Jersey — barely a square mile — but it has a distinctive character with a historic core of 18th and 19th century homes near Washington Street and a mix of mid-century and newer construction along Princeton Avenue and Crescent Avenue. Many Rocky Hill homes have Princeton mailing addresses and Princeton-area expectations, but the borough has its own building department and permitting process that we know well. The older homes here often feature original stone foundations, hand-hewn beams, and irregular framing — work that calls for an experienced, careful approach. Rocky Hill is a tight community where word-of-mouth matters, and we've built a strong local reputation through clean work, clear communication, and respect for the homes we work on.",
-    "priority": 0.8
-  },
-  {
-    "slug": "kingston",
-    "name": "Kingston",
-    "state": "NJ",
-    "zipCodes": ["08528"],
-    "description": "Quality handyman services for Kingston, NJ. Expert work on historic canal-village homes and contemporary properties along Route 27.",
-    "neighborhoods": ["Heathcote", "Kingston Village", "Laurel Avenue area", "Main Street area"],
-    "localContext": "Kingston straddles the line between South Brunswick and Franklin Township along the Delaware and Raritan Canal — a historic mill village with a tight cluster of 18th and 19th century homes near the canal and Lake Carnegie, plus newer suburban-style housing radiating outward. Older Kingston homes have features that demand careful work: stone foundations, original wood floors, undersized electrical service, and bathrooms that haven't been touched in decades. We've worked on canal-adjacent properties where moisture management is a key concern, and we recommend specific tile, grout, and waterproofing systems that hold up to the conditions. Kingston homeowners value contractors who understand that these aren't cookie-cutter homes — they need cookie-cutter solutions to be adapted, and that's exactly what we do.",
-    "priority": 0.85
-  },
-  {
-    "slug": "south-brunswick",
-    "name": "South Brunswick",
-    "state": "NJ",
-    "zipCodes": ["08824", "08852", "08810"],
-    "description": "Comprehensive handyman and home improvement services throughout South Brunswick. Serving Kendall Park, Monmouth Junction, Dayton, and Kingston.",
-    "neighborhoods": ["Kendall Park", "Monmouth Junction", "Dayton", "Kingston", "Deans"],
-    "localContext": "South Brunswick Township spans a large area with distinct communities: the established post-war neighborhoods of Kendall Park and Monmouth Junction, the newer luxury subdivisions in Dayton, and the rural-village feel of Kingston. Kendall Park homes from the 1950s and 1960s are at the age where bathrooms still have original tile, kitchens have small footprints in need of opening up, and original windows are leaking heat — all of which we handle routinely. Newer Dayton homes often need post-builder upgrades: better trim, real hardwood replacing builder-grade laminate, and primary baths that go beyond the basic developer package. South Brunswick has an efficient building department and we work with it regularly. Homeowners across the township tend to invest seriously in their properties, and we deliver craftsmanship that holds up over the long term.",
-    "priority": 0.85
-  },
-  {
-    "slug": "robbinsville",
-    "name": "Robbinsville",
-    "state": "NJ",
-    "zipCodes": ["08691"],
-    "description": "Trusted handyman and remodeling services for Robbinsville Township. Quality work for Town Center, Foxmoor, and surrounding subdivisions.",
-    "neighborhoods": ["Town Center", "Foxmoor", "Washington Town Center", "Sharon", "Windsor"],
-    "localContext": "Robbinsville Township has grown rapidly since the early 2000s, with Town Center and Washington Town Center bringing walkable mixed-use development to what had been a more rural part of Mercer County. Most Robbinsville housing is newer — colonials, townhomes, and condos from the 1990s onward — meaning the projects here are different from older communities: builder-grade upgrades, finished basements, deck additions, and primary bathroom enhancements rather than full historic renovations. The newer townhome communities often have HOA architectural review for any exterior changes, and we handle that paperwork as part of our standard scope. Robbinsville is also known for its strong commuter base, and homeowners here value contractors who provide written estimates, schedule by email, and complete work on time without surprises — exactly how we operate.",
-    "priority": 0.85
-  },
-  {
-    "slug": "east-windsor",
-    "name": "East Windsor",
-    "state": "NJ",
-    "zipCodes": ["08520"],
-    "description": "Reliable handyman and remodeling services for East Windsor Township. Expert work on Hightstown-area homes, Twin Rivers, and surrounding neighborhoods.",
-    "neighborhoods": ["Twin Rivers", "Hickory Acres", "Etra", "Princeton Manor", "Wyckoffs Mills area"],
-    "localContext": "East Windsor Township includes the planned community of Twin Rivers — one of the first large-scale planned developments in the country — alongside more conventional subdivisions in Hickory Acres and Princeton Manor, and rural properties near Etra and Wyckoffs Mills. Twin Rivers townhomes are now over 50 years old, and many original kitchens, bathrooms, HVAC systems, and windows are due for major updates — we've completed multiple Twin Rivers renovations and know the unit floor plans. The free-standing single-family homes in East Windsor's other neighborhoods are typically 1960s through 1990s construction, ranging from Cape Cods needing modernization to colonials due for their first major remodel. East Windsor's building department is straightforward, and we handle the permitting on every project that requires it. Homeowners here look for trustworthy, no-nonsense contractors, and we've earned strong word-of-mouth across the township.",
-    "priority": 0.85
   }
 ]

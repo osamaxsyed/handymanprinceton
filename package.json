@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run generate-sitemap && vite build",
-    "build:full": "npm run generate-sitemap && vite build && npm run prerender",
+    "build": "npm run generate-sitemap && vite build && npm run prerender",
+    "build:fast": "npm run generate-sitemap && vite build",
     "build:dev": "vite build --mode development",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "prerender": "node scripts/prerender.js",

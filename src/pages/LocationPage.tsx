@@ -29,7 +29,7 @@ const LocationPage = () => {
   }
 
   const pageTitle = `Handyman ${locationData.name} NJ | Licensed Local Repairs & Remodels`;
-  const pageDescription = `Professional handyman services in ${locationData.name}, NJ. Kitchen remodels, bathroom renovations, home repairs, pergolas, custom sheds. Licensed & insured. Free estimates! Call (609) 516-0098`;
+  const pageDescription = `Professional handyman services in ${locationData.name}, NJ. Kitchen remodels, bathroom remodels, home repairs, pergolas, custom sheds. Licensed & insured. Free estimates! Call (609) 516-0098`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

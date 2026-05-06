@@ -14,7 +14,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SEO
         canonical="/"
-        keywords="handyman Princeton NJ, home repair Plainsboro, kitchen remodel West Windsor, bathroom renovation Lawrence Township, licensed contractor Central NJ, general repairs Mercer County"
+        keywords="handyman Princeton NJ, home repair Plainsboro, kitchen remodel West Windsor, bathroom remodel Lawrence Township, licensed contractor Central NJ, general repairs Mercer County"
       />
       <Header />
       <main>

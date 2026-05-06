@@ -13,7 +13,7 @@ const TermsOfService = () => {
       intro: "Princeton Handyman provides professional handyman and home improvement services including:",
       list: [
         "General home repairs and maintenance",
-        "Kitchen and bathroom renovations",
+        "Kitchen and bathroom remodels",
         "Outdoor structures (pergolas, sheds, backyard studios)",
         "Electrical and plumbing work",
         "Painting and finishing services",

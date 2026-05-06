@@ -161,7 +161,7 @@ const ServiceLocationPage = () => {
         </section>
 
         {/* Bathroom calculator CTA */}
-        {service === "bathroom-renovation" && (
+        {service === "bathroom-remodel" && (
           <section className="py-20 bg-muted heavy-border-b">
             <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
               <div className="bento-card bg-background p-8 md:p-12 text-center">
@@ -169,7 +169,7 @@ const ServiceLocationPage = () => {
                   Get Your Bathroom Estimate
                 </h2>
                 <p className="font-body text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Use our interactive calculator for an instant price range on your {locationData.name} bathroom renovation.
+                  Use our interactive calculator for an instant price range on your {locationData.name} bathroom remodel.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button onClick={() => navigate("/bathroom-remodel-calculator")} className="brutalist-cta">

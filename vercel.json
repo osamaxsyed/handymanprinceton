@@ -32,6 +32,96 @@
       "permanent": true
     },
     {
+      "source": "/service-areas/skillman",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/:service/skillman",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/hopewell-borough",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/:service/hopewell-borough",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/rocky-hill",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/:service/rocky-hill",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/kingston",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/:service/kingston",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-renovation/:city",
+      "destination": "/bathroom-remodel/:city",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-renovation",
+      "destination": "/bathroom-remodel",
+      "permanent": true
+    },
+    {
+      "source": "/electrical-services/:city",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/electrical-services",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/tile-installation/:city",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/tile-installation",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/ceiling-fan-installation/:city",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/ceiling-fan-installation",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services/:city",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
       "source": "/:path+/",
       "destination": "/:path+",
       "permanent": true

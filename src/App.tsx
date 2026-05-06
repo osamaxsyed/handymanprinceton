@@ -18,6 +18,7 @@ import Sitemap from "./pages/Sitemap";
 import BookRepair from "./pages/BookRepair";
 import RackConfigurator from "./pages/RackConfigurator";
 import BathroomRefresh from "./pages/BathroomRefresh";
+import BathroomRemodel from "./pages/BathroomRemodel";
 import BathroomRemodelCalculatorPage from "./pages/BathroomRemodelCalculatorPage";
 import Pergolas from "./pages/Pergolas";
 import CustomSheds from "./pages/CustomSheds";
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/book-repair" element={<BookRepair />} />
           <Route path="/rack-configurator" element={<RackConfigurator />} />
           <Route path="/bathroom-refresh" element={<BathroomRefresh />} />
+          <Route path="/bathroom-remodel" element={<BathroomRemodel />} />
           <Route path="/bathroom-remodel-calculator" element={<BathroomRemodelCalculatorPage />} />
           <Route path="/pergolas" element={<Pergolas />} />
           <Route path="/custom-sheds" element={<CustomSheds />} />
