@@ -1,0 +1,560 @@
+[
+  {
+    "slug": "kitchen-remodeling",
+    "name": "Kitchen Remodeling",
+    "shortName": "Kitchen Remodel",
+    "description": "Kitchen upgrades including cabinets, backsplash, appliances, and fixtures.",
+    "icon": "Home",
+    "features": [
+      "Cabinet installation & adjustments",
+      "Backsplash tile work",
+      "Appliance installation",
+      "Faucet replacement",
+      "Sink and fixture upgrades",
+      "Garbage disposal replacement",
+      "Kitchen lighting",
+      "Hood vent replacement",
+      "Caulking and grout repair"
+    ],
+    "averageTimeline": "1-3 weeks",
+    "priceRange": "$$-$$$",
+    "priority": 1.0,
+    "faqs": [
+      {
+        "question": "How long does a kitchen remodel take?",
+        "answer": "Most kitchen remodels in Central NJ take between 1 and 3 weeks depending on scope. A backsplash replacement or cabinet refacing can be done in 2–3 days, while a full gut renovation with new cabinets, countertops, and flooring typically runs 2–3 weeks. We provide a detailed project schedule before any work begins."
+      },
+      {
+        "question": "Do I need permits for a kitchen remodel in NJ?",
+        "answer": "Cosmetic updates like cabinet painting, backsplash installation, and appliance swaps generally don't require permits in New Jersey. However, structural changes, moving plumbing or gas lines, or adding circuits require permits through your local municipality. We handle the permit coordination process for you on any work that requires it."
+      },
+      {
+        "question": "What is the most cost-effective kitchen upgrade?",
+        "answer": "Cabinet refacing and new hardware typically offer the best return on investment for NJ homeowners — you get a dramatic visual transformation at 30–50% of the cost of full cabinet replacement. Backsplash tile work and updated lighting fixtures are also high-impact, low-cost upgrades that significantly modernize a kitchen."
+      },
+      {
+        "question": "Can you match existing cabinetry if I'm only replacing part of my kitchen?",
+        "answer": "Yes. We have extensive experience matching existing cabinet styles, wood tones, and finishes for partial kitchen updates. We source from multiple cabinet suppliers to find the closest match, and in cases where an exact match isn't available, we can recommend complementary finishes that give your kitchen a cohesive, intentional look."
+      }
+    ]
+  },
+  {
+    "slug": "bathroom-renovation",
+    "name": "Bathroom Renovation",
+    "shortName": "Bathroom Remodel",
+    "description": "Bathroom upgrades including vanities, tiling, fixtures, and improvements.",
+    "icon": "Droplets",
+    "features": [
+      "Vanity installation",
+      "Tile installation & grout repair",
+      "Toilet replacement & seals",
+      "Wall fixture updates",
+      "Shower door installation",
+      "Bathroom fan installation",
+      "Bathroom lighting",
+      "Undersink plumbing"
+    ],
+    "averageTimeline": "1-2 weeks",
+    "priceRange": "$$-$$$",
+    "priority": 1.0,
+    "faqs": [
+      {
+        "question": "How long does a bathroom renovation take?",
+        "answer": "A full bathroom renovation in New Jersey typically takes 1–2 weeks. A vanity swap or toilet replacement can be completed in a single day, while full tile work, new fixtures, and a shower conversion usually runs 7–10 business days. We'll give you a precise schedule during your free estimate."
+      },
+      {
+        "question": "What's the difference between a bathroom refresh and a full renovation?",
+        "answer": "A refresh focuses on cosmetic upgrades — new vanity, updated fixtures, fresh grout, and paint — and can often be done in 1–2 days. A full renovation replaces tile, updates plumbing rough-ins, installs new shower systems, and may involve drywall work. We offer both services and can help you determine which fits your budget and goals."
+      },
+      {
+        "question": "Do I need a permit to renovate a bathroom in NJ?",
+        "answer": "Cosmetic work like vanity replacement, toilet swaps, and fixture updates typically don't require permits in New Jersey. However, moving plumbing lines, adding electrical circuits, or making structural changes do require permits. We coordinate permit applications with your local building department when required."
+      },
+      {
+        "question": "Can you convert a tub to a walk-in shower?",
+        "answer": "Yes — tub-to-shower conversions are one of our most popular bathroom projects. We handle everything from waterproofing and tile work to installing a new shower pan, glass doors, and fixtures. Most tub-to-shower conversions take 3–5 days and dramatically increase both the functionality and resale value of your bathroom."
+      }
+    ]
+  },
+  {
+    "slug": "handyman-services",
+    "name": "Handyman Services",
+    "shortName": "Handyman",
+    "description": "General home repairs, maintenance, and small projects handled by experienced professionals.",
+    "icon": "Wrench",
+    "features": [
+      "Drywall repair",
+      "Door adjustments",
+      "Window repairs",
+      "Fixture installation",
+      "Minor plumbing repairs",
+      "Caulking and sealing",
+      "General maintenance"
+    ],
+    "averageTimeline": "Same day - 3 days",
+    "priceRange": "$",
+    "priority": 0.9,
+    "faqs": [
+      {
+        "question": "What kinds of jobs does a handyman handle?",
+        "answer": "Our handyman services cover a wide range of small-to-medium home repairs: drywall patching, door and window adjustments, fixture installation, caulking, minor plumbing repairs (like leaky faucets or running toilets), gutter cleaning, weatherstripping, and general maintenance tasks. If you have a punch list of items, we can often knock them all out in a single visit."
+      },
+      {
+        "question": "How much does a handyman cost in Central NJ?",
+        "answer": "Handyman rates in Central New Jersey typically range from $75–$150 per hour depending on the complexity of work. Many small jobs — like hanging a TV, replacing a light fixture, or patching drywall — can be completed in 1–2 hours. We provide upfront estimates before starting any work so there are never surprise charges."
+      },
+      {
+        "question": "Are you licensed and insured for handyman work in NJ?",
+        "answer": "Yes. Princeton Handyman is fully licensed, bonded, and insured in New Jersey. We carry general liability insurance and workers' compensation coverage on all jobs. You can request proof of insurance at any time."
+      },
+      {
+        "question": "Can you handle a list of small repairs in one visit?",
+        "answer": "Absolutely — that's one of the most efficient ways to use our handyman services. We can tackle your entire punch list in a single visit: hanging shelves, fixing a sticky door, patching a hole in drywall, replacing a faucet, and more. Just send us your list and we'll estimate the total time and cost upfront."
+      }
+    ]
+  },
+  {
+    "slug": "home-repairs",
+    "name": "Home Repairs",
+    "shortName": "Home Repair",
+    "description": "Quick and reliable repair services for all types of home maintenance needs.",
+    "icon": "Hammer",
+    "features": [
+      "Drywall repair",
+      "Wood rot repair",
+      "Water damage repair",
+      "Weatherproofing",
+      "Deck and fence repairs",
+      "Door and window repairs",
+      "General maintenance"
+    ],
+    "averageTimeline": "Same day - 1 week",
+    "priceRange": "$-$$",
+    "priority": 0.9,
+    "faqs": [
+      {
+        "question": "What types of home repairs do you handle?",
+        "answer": "We handle a broad range of home repairs including drywall damage, wood rot, water-damaged surfaces, weatherproofing, deck boards, door and window issues, and general wear-and-tear repairs. If something in your home is broken, loose, leaking, or deteriorating, we can most likely fix it quickly and at a fair price."
+      },
+      {
+        "question": "How quickly can you respond to a home repair request in NJ?",
+        "answer": "For most home repairs, we can typically schedule a visit within 1–3 business days. For urgent situations — like a broken door that won't close or a leaking fixture — we do our best to accommodate same-day or next-day service. Call us directly at (609) 516-0098 for urgent requests."
+      },
+      {
+        "question": "How do I know if a repair is worth fixing vs. replacing?",
+        "answer": "That's one of the first things we assess during our estimate. For example, a door with a damaged frame may need full replacement, while a door that just sticks or won't latch usually just needs an adjustment. We always give you an honest recommendation — we won't push for a larger job if a simple repair is the right solution."
+      },
+      {
+        "question": "Do you handle water damage repairs?",
+        "answer": "Yes. We repair the physical damage caused by water — replacing rotted wood, patching drywall, resealing surfaces, and restoring structural integrity to affected areas. We also identify and fix the source of the leak when it's within our scope (e.g., faulty caulking, damaged flashing, leaking fixtures). For major flooding or mold remediation, we can refer you to specialists."
+      }
+    ]
+  },
+  {
+    "slug": "painting-services",
+    "name": "Painting Services",
+    "shortName": "Painting",
+    "description": "Spot painting, touch-ups, and deck staining services.",
+    "icon": "PaintBucket",
+    "features": [
+      "Spot painting & touch-ups",
+      "Paint prep and blending",
+      "Deck staining",
+      "Exterior trim painting",
+      "Texture matching",
+      "Small area painting",
+      "Paint repairs"
+    ],
+    "averageTimeline": "1-3 days",
+    "priceRange": "$-$$",
+    "priority": 0.8,
+    "faqs": [
+      {
+        "question": "Can you match existing wall paint for touch-ups?",
+        "answer": "Yes — paint matching is one of our specialties. We use color-matching technology and can work with your existing paint cans if you have them. For older paint, we'll take a chip to the paint store for a professional color match. The goal is always a seamless blend, not a visible patch."
+      },
+      {
+        "question": "How long does exterior trim painting take?",
+        "answer": "Exterior trim painting for a typical Central NJ home takes 1–2 days depending on the number of windows, doors, and linear footage of trim. We handle all prep work — scraping, sanding, priming — before applying finish coats. Proper prep is what separates a paint job that lasts 2 years from one that lasts 10."
+      },
+      {
+        "question": "When is the best time to stain a deck in New Jersey?",
+        "answer": "Late spring through early fall is the best window for deck staining in NJ — ideally when temperatures are between 50–90°F and there's no rain forecast for 24–48 hours after application. We schedule deck staining jobs around the weather to ensure proper adhesion and long-lasting results."
+      },
+      {
+        "question": "Do you do full room painting or just touch-ups?",
+        "answer": "We specialize in spot painting, touch-ups, and smaller painting projects rather than whole-house interior painting. This includes accent walls, patched drywall areas, trim and baseboards, doors, ceilings, and exterior touch-ups. For large-scale interior painting projects, we're happy to refer you to a trusted local painting contractor."
+      }
+    ]
+  },
+  {
+    "slug": "flooring-installation",
+    "name": "Flooring Installation",
+    "shortName": "Flooring",
+    "description": "LVT (luxury vinyl tile) installation and single room wood floor refinishing.",
+    "icon": "Drill",
+    "features": [
+      "LVT installation (full rooms)",
+      "Vinyl plank flooring",
+      "Single room wood floor refinishing",
+      "Baseboard installation & repair",
+      "Quarter round installation",
+      "Transition strip installation",
+      "Floor prep work"
+    ],
+    "averageTimeline": "2-5 days",
+    "priceRange": "$$-$$$",
+    "priority": 0.8,
+    "faqs": [
+      {
+        "question": "What is LVT flooring and is it right for my home?",
+        "answer": "LVT (luxury vinyl tile) is a highly durable, waterproof flooring that realistically mimics the look of hardwood or stone. It's an excellent choice for kitchens, bathrooms, basements, and high-traffic areas in NJ homes because it holds up to moisture and heavy use without warping or scratching. It's also significantly less expensive than real hardwood."
+      },
+      {
+        "question": "How long does flooring installation take?",
+        "answer": "A standard bedroom or living room (200–400 sq ft) typically takes 1–2 days including prep, installation, and trim work. Larger areas or rooms requiring significant subfloor prep may take 3–5 days. We provide a precise timeline during your estimate based on the specific room and materials you've chosen."
+      },
+      {
+        "question": "Do you remove old flooring before installing new flooring?",
+        "answer": "Yes — removal of old flooring (carpet, vinyl, laminate) is included in most flooring projects and factored into your estimate. In some cases, new LVT can be installed directly over existing flooring if it's level and in good condition. We assess the subfloor condition during your estimate and recommend the best approach."
+      },
+      {
+        "question": "Can you refinish just one room of hardwood floors?",
+        "answer": "Yes. We offer single-room hardwood floor refinishing for homeowners who need to refresh one area — like a bedroom after a furniture rearrangement, or a hallway after heavy wear. We'll match the sheen level to your existing floors as closely as possible. Note that refinishing produces dust and fumes, so ventilation planning is part of the job."
+      }
+    ]
+  },
+  {
+    "slug": "electrical-services",
+    "name": "Electrical Services",
+    "shortName": "Electrical",
+    "description": "Fixture replacement and outlet upgrades (no in-wall electrical work).",
+    "icon": "Lightbulb",
+    "features": [
+      "Light fixture replacement",
+      "Ceiling fan installation",
+      "Outlet upgrades (existing locations)",
+      "Light switch replacement",
+      "Smart home device installation",
+      "Smoke detector installation",
+      "GFCI outlet installation"
+    ],
+    "averageTimeline": "Same day - 2 days",
+    "priceRange": "$-$$",
+    "priority": 0.8,
+    "faqs": [
+      {
+        "question": "What electrical work can a handyman legally do in NJ?",
+        "answer": "In New Jersey, handymen can legally perform low-voltage electrical work such as replacing light fixtures, ceiling fans, outlets, and switches at existing electrical locations. Work that requires opening walls, running new circuits, or modifying your electrical panel must be done by a licensed electrician. We'll always be upfront about what's within our scope."
+      },
+      {
+        "question": "How long does ceiling fan installation take?",
+        "answer": "A standard ceiling fan installation (replacing an existing light fixture) typically takes 1–2 hours. If the ceiling box needs to be upgraded to a fan-rated box, add another 30–60 minutes. We can usually install 2–4 ceiling fans in a single visit, making it efficient to upgrade multiple rooms at once."
+      },
+      {
+        "question": "Can you install smart switches and smart home devices?",
+        "answer": "Yes. We install smart light switches, smart dimmers, Nest thermostats, Ring doorbells, and similar smart home devices. We can also help with basic setup and pairing to your home network. These are popular upgrades for NJ homeowners looking to add convenience and energy efficiency without major electrical work."
+      },
+      {
+        "question": "What is a GFCI outlet and where do I need them in my NJ home?",
+        "answer": "GFCI (Ground Fault Circuit Interrupter) outlets are required by NJ code in bathrooms, kitchens, garages, outdoor areas, and anywhere near water. They protect against electrical shock by cutting power instantly when they detect a ground fault. If your home was built before the mid-1990s, you likely have outdated outlets in these areas that should be upgraded for safety and code compliance."
+      }
+    ]
+  },
+  {
+    "slug": "door-installation",
+    "name": "Door Installation",
+    "shortName": "Doors",
+    "description": "Interior and exterior door replacement, adjustments, and hardware upgrades.",
+    "icon": "DoorOpen",
+    "features": [
+      "Exterior door replacement",
+      "Interior door replacement",
+      "Door alignment & adjustments",
+      "Door hardware upgrades",
+      "Weatherstripping",
+      "Lock installation",
+      "Window sill repair"
+    ],
+    "averageTimeline": "1-2 days",
+    "priceRange": "$-$$",
+    "priority": 0.7,
+    "faqs": [
+      {
+        "question": "How long does door installation take?",
+        "answer": "A standard interior door replacement takes 2–4 hours. An exterior door with new hardware, weatherstripping, and adjustment to the frame typically takes 4–6 hours. We can usually complete 2–3 door installations in a single day, making it efficient to upgrade multiple doors at once."
+      },
+      {
+        "question": "Do I need a permit to replace a door in NJ?",
+        "answer": "Replacing a door in its existing opening generally doesn't require a permit in New Jersey. However, if you're widening a doorway, changing the opening size, or making structural modifications to the surrounding wall, a permit may be required. We'll let you know during the estimate if your specific project needs one."
+      },
+      {
+        "question": "Why is my door sticking or not closing properly?",
+        "answer": "Doors stick and misalign for several reasons: seasonal wood expansion, settling of the house foundation, worn hinges, or a warped frame. In NJ's humid summers and cold winters, this is especially common. We diagnose the root cause first — often a simple hinge adjustment or minor planing fixes the problem without needing a full replacement."
+      },
+      {
+        "question": "What exterior door materials do you recommend for New Jersey homes?",
+        "answer": "For NJ's climate — humid summers, cold winters, and frequent rain — we generally recommend fiberglass or steel exterior doors over wood. Fiberglass doesn't warp, rot, or require painting, and modern versions are virtually indistinguishable from real wood. Steel doors offer excellent security and insulation. We help you weigh options during your free estimate."
+      }
+    ]
+  },
+  {
+    "slug": "carpentry-services",
+    "name": "Carpentry Services",
+    "shortName": "Carpentry",
+    "description": "Trim replacement, shelving, and general carpentry work.",
+    "icon": "Hammer",
+    "features": [
+      "Trim replacement & repair",
+      "Baseboard installation",
+      "Custom shelving",
+      "Wood rot repair",
+      "Exterior trim work",
+      "Deck repairs",
+      "General woodworking"
+    ],
+    "averageTimeline": "2-5 days",
+    "priceRange": "$-$$",
+    "priority": 0.7,
+    "faqs": [
+      {
+        "question": "What carpentry services do you offer?",
+        "answer": "We handle a wide range of carpentry work: replacing damaged baseboards and trim, installing custom shelving and storage solutions, repairing wood rot on exterior and interior surfaces, building out closets, repairing deck boards and railings, and general finish carpentry. If it involves wood, we can most likely help."
+      },
+      {
+        "question": "How do you handle wood rot repair?",
+        "answer": "Wood rot is common in NJ homes, especially around windows, doors, and exterior trim that get repeated moisture exposure. We remove the rotted wood, treat the surrounding area to stop further decay, and replace it with new wood or Azek (a composite that won't rot). The repaired area is primed and painted to match the existing surface."
+      },
+      {
+        "question": "Can you build custom shelving in my home?",
+        "answer": "Yes. We design and build custom shelving for closets, garages, living rooms, home offices, and laundry rooms. Custom shelving is built to fit your exact space and storage needs — far more useful than off-the-shelf wire racks. We use quality materials and finish everything cleanly so it looks like it was always part of the home."
+      },
+      {
+        "question": "How much does trim replacement cost in Central NJ?",
+        "answer": "Trim and baseboard replacement typically runs $5–$12 per linear foot installed in New Jersey, depending on the profile complexity and whether painting is included. A full room of baseboards (say, 60 linear feet) usually costs $300–$700 installed. We provide itemized estimates so you know exactly what you're paying for."
+      }
+    ]
+  },
+  {
+    "slug": "cabinet-installation",
+    "name": "Cabinet Installation",
+    "shortName": "Cabinets",
+    "description": "Cabinet installation, adjustments, and hardware upgrades.",
+    "icon": "Home",
+    "features": [
+      "Cabinet installation",
+      "Cabinet adjustments",
+      "Pull replacements & adjustments",
+      "Hardware installation",
+      "Soft-close upgrades",
+      "Cabinet repairs",
+      "Vanity installation"
+    ],
+    "averageTimeline": "2-5 days",
+    "priceRange": "$$",
+    "priority": 0.7,
+    "faqs": [
+      {
+        "question": "Can you install cabinets I've purchased myself?",
+        "answer": "Yes. We install cabinets from IKEA, Home Depot, Lowe's, and other suppliers, as well as custom or semi-custom cabinets from kitchen designers. You supply the cabinets; we handle delivery coordination, layout, leveling, securing to walls, and installing doors and hardware. This is a popular option for homeowners who want to manage their own material costs."
+      },
+      {
+        "question": "How long does cabinet installation take?",
+        "answer": "A typical kitchen's worth of cabinets (upper and lower) takes 2–4 days to install properly, including leveling, shimming, securing, and installing doors and hardware. Bathroom vanity installation is usually a half-day job. We don't rush cabinet installs — precision matters for doors to hang correctly and drawers to operate smoothly."
+      },
+      {
+        "question": "What are soft-close hinges and are they worth upgrading to?",
+        "answer": "Soft-close hinges use a hydraulic mechanism to gently pull cabinet doors shut, preventing slamming. They're one of the most popular and affordable cabinet upgrades — typically $3–$8 per hinge, and we can swap out an entire kitchen's hinges in a few hours. They dramatically reduce noise and extend the life of your cabinet doors and frames."
+      },
+      {
+        "question": "My cabinet doors are crooked — can you fix that without replacing the cabinets?",
+        "answer": "In most cases, yes. Crooked cabinet doors are usually caused by hinge wear or slight shifts in the cabinet box over time. European-style hinges (used in most modern cabinets) have adjustment screws that allow precise up/down, left/right, and in/out correction without any tools beyond a screwdriver. We can typically straighten an entire kitchen's worth of doors in 1–2 hours."
+      }
+    ]
+  },
+  {
+    "slug": "tile-installation",
+    "name": "Tile Installation",
+    "shortName": "Tiling",
+    "description": "Ceramic, porcelain, and stone tile installation for floors, walls, and backsplashes.",
+    "icon": "Drill",
+    "features": [
+      "Backsplash installation",
+      "Floor tile installation",
+      "Shower tile work",
+      "Bathroom tile",
+      "Kitchen tile",
+      "Grout repair",
+      "Tile repairs"
+    ],
+    "averageTimeline": "3-7 days",
+    "priceRange": "$$",
+    "priority": 0.7,
+    "faqs": [
+      {
+        "question": "How long does tile installation take?",
+        "answer": "A kitchen backsplash typically takes 1–2 days. Bathroom floor tile runs 2–3 days. A full shower tile surround is 3–5 days including waterproofing, setting, and grouting. All tile work requires cure time before grouting and before the space can be used — we schedule accordingly and give you a clear timeline upfront."
+      },
+      {
+        "question": "What's the difference between ceramic, porcelain, and natural stone tile?",
+        "answer": "Ceramic tile is affordable and easy to work with, best for low-moisture wall applications. Porcelain is denser, less porous, and more durable — ideal for floors, showers, and high-traffic areas in NJ homes. Natural stone (marble, travertine, slate) is beautiful but requires sealing and more maintenance. We'll help you choose the right material for your specific application and budget."
+      },
+      {
+        "question": "Can you repair cracked or missing grout?",
+        "answer": "Yes. Cracked, stained, or missing grout is one of the most common tile repair requests we get. We remove the damaged grout, clean the joints, and regrout with color-matched grout for a fresh appearance. In many cases, regrouting restores the look of tile without replacing any tiles at all."
+      },
+      {
+        "question": "Do I need to waterproof behind shower tile?",
+        "answer": "Absolutely — and this is where many DIY tile jobs fail. In New Jersey, building code requires proper waterproofing membranes behind shower tile to prevent water from reaching the wall framing. We use industry-standard waterproofing systems (like Schluter Kerdi or RedGard) on every shower tile job to ensure long-term protection against water damage and mold."
+      }
+    ]
+  },
+  {
+    "slug": "ceiling-fan-installation",
+    "name": "Ceiling Fan Installation",
+    "shortName": "Ceiling Fans",
+    "description": "Professional ceiling fan installation and replacement services.",
+    "icon": "Lightbulb",
+    "features": [
+      "Standard fan installation",
+      "Large fan installation",
+      "Fan replacement",
+      "Electrical box installation",
+      "Remote control setup",
+      "Fan balancing",
+      "Light kit installation"
+    ],
+    "averageTimeline": "Same day",
+    "priceRange": "$",
+    "priority": 0.6,
+    "faqs": [
+      {
+        "question": "Can you install a ceiling fan where there's currently just a light fixture?",
+        "answer": "Yes, but the electrical box in the ceiling must be fan-rated to support the weight and movement. Standard light fixture boxes are not rated for fans. We check the existing box first — if it needs upgrading, we swap it for a fan-rated brace and box before installing your fan. This is a common and straightforward part of the installation."
+      },
+      {
+        "question": "How long does ceiling fan installation take?",
+        "answer": "A single ceiling fan installation (replacing an existing fan or light fixture) typically takes 45–90 minutes. Installing multiple fans in one visit is the most cost-effective approach — we can usually do 3–5 fans in a single day. If any new wiring is needed, timeline and cost increase accordingly."
+      },
+      {
+        "question": "My ceiling fan wobbles — do I need to replace it?",
+        "answer": "Usually not. Wobbling ceiling fans are most often caused by unbalanced blades — a very common issue that's easily fixed. We offer fan balancing as a standalone service: we check blade angle, tighten all screws, and use a balancing kit if needed. This usually costs a fraction of replacing the fan and solves the problem completely."
+      },
+      {
+        "question": "What size ceiling fan do I need for my room?",
+        "answer": "Fan sizing is based on room square footage: rooms up to 75 sq ft need a 29–36\" fan; 76–144 sq ft need a 36–42\" fan; 144–225 sq ft need a 44\" fan; and larger rooms benefit from 52\" or larger. For rooms with low ceilings (under 8'), a flush-mount (hugger) fan is required. We'll recommend the right size and style during your estimate."
+      }
+    ]
+  },
+  {
+    "slug": "drywall-repair",
+    "name": "Drywall Repair",
+    "shortName": "Drywall",
+    "description": "Professional drywall patching, repair, and finishing services.",
+    "icon": "Hammer",
+    "features": [
+      "Hole patching",
+      "Crack repair",
+      "Water damage repair",
+      "Texture matching",
+      "Full panel replacement",
+      "Finishing and sanding",
+      "Paint-ready prep"
+    ],
+    "averageTimeline": "1-3 days",
+    "priceRange": "$",
+    "priority": 0.6,
+    "faqs": [
+      {
+        "question": "How long does drywall repair take?",
+        "answer": "Small hole patches (under 6\") can often be completed in a single visit, including compound application and sanding, though they need 24 hours to fully dry before painting. Larger repairs or water-damaged areas may require 2–3 days to allow for multiple compound coats to dry and cure. We finish every repair paint-ready so you can roll right into painting."
+      },
+      {
+        "question": "Can you match popcorn or textured ceilings?",
+        "answer": "Yes — texture matching is a specialty of ours. We match common NJ ceiling textures including popcorn (acoustic), orange peel, knockdown, and smooth finishes. Perfect texture matching requires experience and the right tools; a mismatched patch is usually obvious from an angle. We take the time to get the texture right before priming."
+      },
+      {
+        "question": "How do I know if my drywall damage is cosmetic or structural?",
+        "answer": "Cosmetic damage includes nail pops, small holes, hairline cracks, and surface gouges — all easily repairable. Structural concerns involve large cracks (especially diagonal cracks near corners of windows and doors), cracks that reappear after being repaired, or sagging drywall. We assess the underlying cause of any damage during our estimate and address it properly so the repair lasts."
+      },
+      {
+        "question": "My drywall was damaged by water — can it just be patched?",
+        "answer": "It depends on the extent of the damage and whether the moisture source has been fixed. If the drywall is soft, crumbling, or shows mold, it needs to be removed and replaced — not patched. Patching over water-damaged drywall without fixing the source is a temporary fix that leads to recurring problems. We always assess the moisture situation before recommending a repair approach."
+      }
+    ]
+  },
+  {
+    "slug": "deck-staining",
+    "name": "Deck Staining",
+    "shortName": "Deck Staining",
+    "description": "Deck staining, sealing, and repair services for wood decks.",
+    "icon": "PaintBucket",
+    "features": [
+      "Deck staining",
+      "Sealing & protection",
+      "Deck repairs",
+      "Railing staining",
+      "Board replacement",
+      "Wood restoration",
+      "Surface prep"
+    ],
+    "averageTimeline": "2-3 days",
+    "priceRange": "$$",
+    "priority": 0.6,
+    "faqs": [
+      {
+        "question": "How often should I stain my deck in New Jersey?",
+        "answer": "Most wood decks in NJ need to be restained every 2–3 years, depending on sun exposure, foot traffic, and the type of stain used. Decks on the south or west side of a home (more sun exposure) may need attention more frequently. A simple water test tells you if it's time: if water no longer beads on the surface, the sealer has worn off and it's time to restain."
+      },
+      {
+        "question": "Do you need to power wash a deck before staining?",
+        "answer": "Yes — proper prep is the most important part of a long-lasting deck stain. We clean the deck thoroughly to remove dirt, mildew, and old stain, then allow it to dry completely (usually 24–48 hours) before applying any product. Staining over a dirty or wet deck is the leading cause of premature peeling and failure."
+      },
+      {
+        "question": "What's the difference between deck stain and deck paint?",
+        "answer": "Stain penetrates the wood grain and allows it to breathe, which makes it more forgiving in NJ's humid climate — it doesn't peel the way paint does. Paint sits on the surface, provides more color uniformity, and hides wood imperfections, but once it peels (and it will), it requires stripping before repainting. We generally recommend stain for natural wood decks and can guide you through product selection."
+      },
+      {
+        "question": "Can you replace just a few damaged deck boards?",
+        "answer": "Yes. Board replacement is a common part of deck restoration — we remove rotted or severely damaged boards, sister new joists if needed, and install matching replacement boards. We then stain the entire deck for a uniform appearance. Replacing a few bad boards is almost always more cost-effective than a full deck replacement."
+      }
+    ]
+  },
+  {
+    "slug": "fence-repair",
+    "name": "Fence Repair",
+    "shortName": "Fence Repair",
+    "description": "Fence and gate repair and replacement services.",
+    "icon": "Hammer",
+    "features": [
+      "Fence panel replacement",
+      "Gate repairs",
+      "Post replacement",
+      "Fence board replacement",
+      "Hardware replacement",
+      "Privacy fence repairs",
+      "Minor structural repairs"
+    ],
+    "averageTimeline": "1-2 days",
+    "priceRange": "$-$$",
+    "priority": 0.5,
+    "faqs": [
+      {
+        "question": "What are the most common fence repairs in NJ?",
+        "answer": "The most common fence repairs we handle in Central New Jersey are: rotted or leaning fence posts, damaged or missing fence boards/panels, broken or sagging gates, and corroded or missing hardware. Winter freeze-thaw cycles and NJ's clay-heavy soil cause a lot of post-heaving and structural movement that leads to these issues."
+      },
+      {
+        "question": "How do I know if my fence post needs to be replaced?",
+        "answer": "Signs a fence post needs replacement: it leans noticeably and won't stay upright when pushed straight, the base is rotted or crumbling, or it has broken at the soil line (a common failure point). Posts that are just slightly out of plumb can sometimes be re-set and secured with concrete without full replacement."
+      },
+      {
+        "question": "Can you repair a fence gate that won't close properly?",
+        "answer": "Yes — sagging or misaligned gates are one of our most common fence calls. Gates sag when their hinges wear, when the post leans, or when the gate frame twists over time. We diagnose the cause first, then either re-hang the gate on existing hardware, replace worn hinges, or install a diagonal brace to prevent future sagging."
+      },
+      {
+        "question": "Do I need a permit to repair my fence in NJ?",
+        "answer": "Repairing an existing fence (replacing boards, fixing a gate, resetting posts) generally does not require a permit in New Jersey. Installing a new fence or significantly changing its height or location typically does. Requirements vary by municipality, so if you're adding a new fence section, check with your local building department or ask us — we're familiar with permit requirements across Central NJ towns."
+      }
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.handymanprinceton.com"
+        }
+      ],
+      "destination": "https://handymanprinceton.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/concrete-grinding-trip-hazard/:slug*",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/concrete-grinding-trip-hazard",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/handyman-services",
+      "permanent": true
+    },
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
