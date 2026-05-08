@@ -10,7 +10,7 @@ const StructuredData = () => {
     "logo": "https://handymanprinceton.com/logo.png",
     "url": "https://handymanprinceton.com",
     "telephone": "+16095160098",
-    "email": "eastbrunswickhandyman@gmail.com",
+    "email": "osama@handymanprinceton.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -90,7 +90,7 @@ const StructuredData = () => {
       "@type": "ContactPoint",
       "telephone": "+16095160098",
       "contactType": "customer service",
-      "email": "eastbrunswickhandyman@gmail.com",
+      "email": "osama@handymanprinceton.com",
       "areaServed": "US",
       "availableLanguage": "English"
     }

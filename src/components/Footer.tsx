@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const services = [
-    { name: "Pergolas", href: "/pergolas" },
-    { name: "Custom Sheds", href: "/custom-sheds" },
-    { name: "Backyard Studios", href: "/backyard-studios" },
+    { name: "Bathroom Remodeling", href: "/bathroom-remodel" },
+    { name: "Kitchen Remodeling", href: "/kitchen-remodeling" },
+    { name: "Aging-in-Place", href: "/aging-in-place" },
     { name: "Handyman Services", href: "/handyman-services" },
-    { name: "Remodels", href: "/remodels" },
-    { name: "Book Quick Repair", href: "/book-repair" },
   ];
 
   const serviceAreas = [
@@ -30,7 +28,7 @@ const Footer = () => {
               Princeton / Handyman
             </div>
             <p className="text-sm opacity-80 leading-relaxed mb-6">
-              Licensed, bonded, insured. 15+ years building, repairing, and remodeling across Central New Jersey.
+              Licensed NJ home improvement contractor serving Princeton and central New Jersey. Operated by Central Jersey Home Services LLC. NJ HIC #13VH13918800.
             </p>
             <div className="flex flex-col gap-2 text-sm opacity-80">
               <span className="font-headline font-bold uppercase tracking-wider text-xs">Licensed • Bonded • Insured</span>
@@ -94,11 +92,11 @@ const Footer = () => {
                 <span className="font-headline font-bold tracking-wider">(609) 516-0098</span>
               </a>
               <a
-                href="mailto:eastbrunswickhandyman@gmail.com"
+                href="mailto:osama@handymanprinceton.com"
                 className="flex items-center gap-3 hover:opacity-100 transition-opacity"
               >
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span className="text-xs">eastbrunswickhandyman@gmail.com</span>
+                <span className="text-xs">osama@handymanprinceton.com</span>
               </a>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 flex-shrink-0" />

@@ -164,21 +164,6 @@ generatedCount++;
 // shell with the homepage canonical.
 const standalonePages = [
   {
-    slug: 'pergolas',
-    title: 'Custom Pergolas in Central NJ | Princeton Handyman',
-    description: 'Custom-built cedar and composite pergolas across Central New Jersey. Licensed, insured, and built by a 15-year construction veteran. Spring 2026 booking open with early-project pricing.',
-  },
-  {
-    slug: 'custom-sheds',
-    title: 'Custom Sheds in Central NJ | Princeton Handyman',
-    description: 'Custom-built storage sheds and modern barn-style sheds across Central New Jersey. Licensed, insured, built by a 15-year construction veteran. Limited early-project pricing.',
-  },
-  {
-    slug: 'backyard-studios',
-    title: 'Backyard Studios & Home Offices in Central NJ | Princeton Handyman',
-    description: 'Custom-built insulated backyard studios, home offices, and garden offices across Central New Jersey. Licensed, insured, built by a 15-year construction veteran. Limited early-project pricing.',
-  },
-  {
     slug: 'handyman-services',
     title: 'Handyman Services in Princeton & Central NJ | Princeton Handyman',
     description: 'Full list of handyman services: plumbing repairs, electrical work, carpentry, painting, drywall, and more. Licensed and insured. Serving Princeton, West Windsor, Lawrence, Montgomery, and surrounding NJ towns.',
@@ -190,8 +175,8 @@ const standalonePages = [
   },
   {
     slug: 'about',
-    title: 'About Us | Princeton Handyman',
-    description: 'Meet the team behind Princeton Handyman. Licensed, bonded, and insured with 15+ years of experience serving Mercer and Somerset counties with quality home repair and remodeling services.',
+    title: 'About | Princeton Handyman',
+    description: 'Princeton Handyman is operated by Osama Syed under Central Jersey Home Services LLC. Licensed, insured, and locally accountable. NJ HIC #13VH13918800.',
   },
   {
     slug: 'portfolio',
@@ -209,11 +194,6 @@ const standalonePages = [
     description: 'Request a free, no-obligation estimate for handyman services, kitchen remodels, bathroom remodels, and home repairs in Princeton and Central NJ.',
   },
   {
-    slug: 'book-repair',
-    title: 'Book a Quick Repair | Princeton Handyman',
-    description: 'Schedule a quick home repair with Princeton Handyman. Fast, reliable service for plumbing fixes, electrical work, carpentry, and more in Mercer and Somerset counties.',
-  },
-  {
     slug: 'bathroom-refresh',
     title: '1-Day Bathroom Refresh Service | Princeton Handyman',
     description: "Transform your bathroom in just one day. Single-sink specialty with zero-hassle Lowe's concierge pickup. Get your instant estimate for labor and logistics.",
@@ -222,6 +202,16 @@ const standalonePages = [
     slug: 'bathroom-remodel',
     title: 'Bathroom Remodel in Princeton & Central NJ | Princeton Handyman',
     description: 'Bathroom remodels in Princeton and Central NJ. Tile, vanities, fixtures, lighting, tub-to-shower conversions. Licensed and insured. Free estimates.',
+  },
+  {
+    slug: 'kitchen-remodeling',
+    title: 'Kitchen Remodeling in Princeton & Central NJ | Princeton Handyman',
+    description: 'Licensed kitchen remodeling in Princeton and Central NJ. Cabinets, countertops, tile, plumbing and electrical coordination, finish carpentry. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'aging-in-place',
+    title: 'Aging-in-Place Home Modifications in Central NJ | Princeton Handyman',
+    description: 'Aging-in-place home modifications across Central New Jersey. Walk-in showers, grab bars, wider doorways, no-step entries. Licensed NJ contractor pursuing CAPS certification. NJ HIC #13VH13918800.',
   },
   {
     slug: 'bathroom-remodel-calculator',

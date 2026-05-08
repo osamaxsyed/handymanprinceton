@@ -125,7 +125,7 @@ const TermsOfService = () => {
                 For questions about these terms or our services, contact us:
               </p>
               <ul className="space-y-2 font-body text-base text-background/90">
-                <li><span className="font-headline font-bold uppercase tracking-wider text-xs text-background/70 mr-2">Email:</span> eastbrunswickhandyman@gmail.com</li>
+                <li><span className="font-headline font-bold uppercase tracking-wider text-xs text-background/70 mr-2">Email:</span> osama@handymanprinceton.com</li>
                 <li><span className="font-headline font-bold uppercase tracking-wider text-xs text-background/70 mr-2">Phone:</span> (609) 516-0098</li>
                 <li><span className="font-headline font-bold uppercase tracking-wider text-xs text-background/70 mr-2">Address:</span> 3 Sophie St, Parlin, NJ 08859</li>
               </ul>

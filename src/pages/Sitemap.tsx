@@ -10,21 +10,15 @@ const Sitemap = () => {
       category: "Main Pages",
       links: [
         { name: "Home", path: "/" },
+        { name: "Bathroom Remodeling", path: "/bathroom-remodel" },
+        { name: "Kitchen Remodeling", path: "/kitchen-remodeling" },
+        { name: "Aging-in-Place", path: "/aging-in-place" },
         { name: "Handyman Services", path: "/handyman-services" },
         { name: "Remodels", path: "/remodels" },
         { name: "About Us", path: "/about" },
         { name: "Portfolio", path: "/portfolio" },
         { name: "FAQ", path: "/faq" },
         { name: "Get Estimate", path: "/get-estimate" },
-        { name: "Book Quick Repair", path: "/book-repair" },
-      ],
-    },
-    {
-      category: "Outdoor Structures",
-      links: [
-        { name: "Custom Pergolas", path: "/pergolas" },
-        { name: "Custom Sheds", path: "/custom-sheds" },
-        { name: "Backyard Studios", path: "/backyard-studios" },
       ],
     },
     {
@@ -122,7 +116,7 @@ const Sitemap = () => {
                 (609) 516-0098
               </a>
               <a
-                href="mailto:eastbrunswickhandyman@gmail.com"
+                href="mailto:osama@handymanprinceton.com"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground transition-all rounded-none"
               >
                 <Mail className="h-4 w-4" />

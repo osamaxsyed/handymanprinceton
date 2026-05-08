@@ -67,7 +67,7 @@ const BathroomRemodelCalculatorPage = () => {
             </div>
             <div className="grid md:grid-cols-2 gap-4 md:gap-6">
               {[
-                ["15+ Years Experience", "Licensed and insured professionals with over 15 years of bathroom remodel experience throughout Central NJ."],
+                ["Licensed NJ Contractor", "Licensed and insured New Jersey home improvement contractor. NJ HIC #13VH13918800. Bathroom remodels across central New Jersey."],
                 ["Premium Quality", "Serving Princeton, Plainsboro, West Windsor, and surrounding affluent communities with high-end craftsmanship."],
                 ["Transparent Pricing", "No hidden fees. Detailed quotes with clear breakdowns of materials, labor, and timeline."],
                 ["Efficient Execution", "Most bathroom remodels completed in 1–3 weeks with minimal disruption to your daily routine."],

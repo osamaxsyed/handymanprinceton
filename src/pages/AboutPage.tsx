@@ -7,8 +7,8 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Us | Princeton Handyman"
-        description="Meet the team behind Princeton Handyman. Licensed, bonded & insured with 15+ years of experience serving Central NJ with quality home repair and remodeling services."
+        title="About | Princeton Handyman"
+        description="Princeton Handyman is operated by Osama Syed under Central Jersey Home Services LLC. Licensed, insured, and locally accountable. NJ HIC #13VH13918800."
         canonical="/about"
       />
       <Header />

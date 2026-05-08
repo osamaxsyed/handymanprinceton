@@ -13,7 +13,7 @@ const CredentialsSection = () => {
           <div className="relative heavy-border bg-muted aspect-[4/3] overflow-hidden">
             <img
               src={excavatorImage}
-              alt="Syed Brothers — Princeton Handyman"
+              alt="Princeton Handyman job site in Central NJ"
               className="w-full h-full object-cover"
             />
           </div>
@@ -27,18 +27,18 @@ const CredentialsSection = () => {
             </h2>
 
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              Owned and operated by the Syed Brothers. Combining 15+ years of experience in home repairs, remodeling, and Central NJ construction. Fully licensed home-improvement contractor.
+              Princeton Handyman is operated by Osama Syed under Central Jersey Home Services LLC, a fully licensed New Jersey home improvement contractor. Backed by over 15 years of hands-on construction and home renovation experience across Central NJ. Locally owned, fully insured, and accountable for every job.
             </p>
 
             <div className="grid grid-cols-3 gap-4 mb-8 heavy-border bg-muted">
               <div className="p-5 text-center border-r-2 border-foreground">
                 <Award className="h-6 w-6 mx-auto mb-2 text-foreground" />
-                <div className="font-headline font-black text-2xl text-foreground">15+</div>
-                <div className="font-headline font-bold uppercase tracking-wider text-[10px] text-muted-foreground">Years</div>
+                <div className="font-headline font-black text-2xl text-foreground">NJ</div>
+                <div className="font-headline font-bold uppercase tracking-wider text-[10px] text-muted-foreground">Licensed</div>
               </div>
               <div className="p-5 text-center border-r-2 border-foreground">
                 <Shield className="h-6 w-6 mx-auto mb-2 text-foreground" />
-                <div className="font-headline font-black text-2xl text-foreground">100%</div>
+                <div className="font-headline font-black text-2xl text-foreground">Full</div>
                 <div className="font-headline font-bold uppercase tracking-wider text-[10px] text-muted-foreground">Insured</div>
               </div>
               <div className="p-5 text-center">
@@ -49,7 +49,7 @@ const CredentialsSection = () => {
             </div>
 
             <p className="font-headline font-bold uppercase tracking-wider text-xs text-muted-foreground mb-6">
-              NJ HIC # 13VH13918800
+              NJ HIC #13VH13918800
             </p>
 
             <button onClick={() => navigate("/about")} className="brutalist-cta-secondary">

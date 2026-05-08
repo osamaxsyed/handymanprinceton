@@ -14,19 +14,17 @@ const Header = () => {
   const navigate = useNavigate();
 
   const servicesMenu = [
-    { name: "Pergolas", href: "/pergolas" },
-    { name: "Custom Sheds", href: "/custom-sheds" },
-    { name: "Backyard Studios", href: "/backyard-studios" },
-    { name: "Handyman Services", href: "/handyman-services" },
-    { name: "Remodels", href: "/remodels" },
-    { name: "Bathroom Refresh", href: "/bathroom-refresh" },
-    { name: "Bathroom Calculator", href: "/bathroom-remodel-calculator" },
-    { name: "Book Quick Repair", href: "/book-repair" },
+    { name: "Bathroom Remodeling", href: "/bathroom-remodel", external: false },
+    { name: "Kitchen Remodeling", href: "/kitchen-remodeling", external: false },
+    { name: "Aging-in-Place", href: "/aging-in-place", external: false },
+    { name: "ADUs (Garden State ADU)", href: "https://gardenstateadu.com", external: true },
+    { name: "Handyman Services", href: "/handyman-services", external: false },
+    { name: "Bathroom Refresh", href: "/bathroom-refresh", external: false },
+    { name: "Bathroom Calculator", href: "/bathroom-remodel-calculator", external: false },
   ];
 
   const navLinks = [
     { name: "About", href: "/about" },
-    { name: "Portfolio", href: "/portfolio" },
     { name: "Service Areas", href: "/service-areas" },
     { name: "FAQ", href: "/faq" },
   ];
@@ -56,7 +54,13 @@ const Header = () => {
               {servicesMenu.map((item) => (
                 <DropdownMenuItem
                   key={item.name}
-                  onClick={() => navigate(item.href)}
+                  onClick={() => {
+                    if (item.external) {
+                      window.open(item.href, "_blank", "noopener,noreferrer");
+                    } else {
+                      navigate(item.href);
+                    }
+                  }}
                   className="cursor-pointer font-headline font-bold uppercase tracking-wider text-xs rounded-none focus:bg-foreground focus:text-background"
                 >
                   {item.name}
@@ -113,19 +117,35 @@ const Header = () => {
             </button>
             {isServicesOpen && (
               <div className="bg-muted border-b border-border">
-                {servicesMenu.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      setIsServicesOpen(false);
-                    }}
-                    className="block pl-10 pr-6 py-3 font-headline font-semibold uppercase tracking-wider text-xs border-b border-border last:border-b-0 hover:bg-foreground hover:text-background transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {servicesMenu.map((item) =>
+                  item.external ? (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesOpen(false);
+                      }}
+                      className="block pl-10 pr-6 py-3 font-headline font-semibold uppercase tracking-wider text-xs border-b border-border last:border-b-0 hover:bg-foreground hover:text-background transition-colors"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesOpen(false);
+                      }}
+                      className="block pl-10 pr-6 py-3 font-headline font-semibold uppercase tracking-wider text-xs border-b border-border last:border-b-0 hover:bg-foreground hover:text-background transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                )}
               </div>
             )}
 

@@ -15,14 +15,12 @@ import FAQPage from "./pages/FAQPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Sitemap from "./pages/Sitemap";
-import BookRepair from "./pages/BookRepair";
 import RackConfigurator from "./pages/RackConfigurator";
 import BathroomRefresh from "./pages/BathroomRefresh";
 import BathroomRemodel from "./pages/BathroomRemodel";
 import BathroomRemodelCalculatorPage from "./pages/BathroomRemodelCalculatorPage";
-import Pergolas from "./pages/Pergolas";
-import CustomSheds from "./pages/CustomSheds";
-import BackyardStudios from "./pages/BackyardStudios";
+import KitchenRemodeling from "./pages/KitchenRemodeling";
+import AgingInPlace from "./pages/AgingInPlace";
 import NotFound from "./pages/NotFound";
 import ServiceAreasPage from "./pages/ServiceAreasPage";
 import LocationPage from "./pages/LocationPage";
@@ -46,14 +44,12 @@ const App = () => (
           <Route path="/about" element={<AboutPage />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/faq" element={<FAQPage />} />
-          <Route path="/book-repair" element={<BookRepair />} />
           <Route path="/rack-configurator" element={<RackConfigurator />} />
           <Route path="/bathroom-refresh" element={<BathroomRefresh />} />
           <Route path="/bathroom-remodel" element={<BathroomRemodel />} />
           <Route path="/bathroom-remodel-calculator" element={<BathroomRemodelCalculatorPage />} />
-          <Route path="/pergolas" element={<Pergolas />} />
-          <Route path="/custom-sheds" element={<CustomSheds />} />
-          <Route path="/backyard-studios" element={<BackyardStudios />} />
+          <Route path="/kitchen-remodeling" element={<KitchenRemodeling />} />
+          <Route path="/aging-in-place" element={<AgingInPlace />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/sitemap" element={<Sitemap />} />

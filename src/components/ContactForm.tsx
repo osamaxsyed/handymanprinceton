@@ -74,29 +74,15 @@ const ContactForm = () => {
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Sidebar */}
             <aside className="lg:col-span-1 lg:order-1 space-y-6">
-              <div className="bento-card bg-foreground text-background p-6">
-                <Calendar className="h-7 w-7 text-background mb-4" />
-                <h3 className="brutalist-headline text-xl text-background mb-2">Or Book Direct</h3>
-                <p className="font-body text-sm text-background/80 mb-4">
-                  Fixed-price repairs on our calendar.
-                </p>
-                <button
-                  onClick={() => navigate("/book-repair")}
-                  className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-xs px-5 py-3 bg-background text-foreground border-b-4 border-background/40 hover:bg-background/90 active:translate-y-0.5 active:border-b-0 transition-all rounded-none w-full"
-                >
-                  Book Quick Repair
-                </button>
-              </div>
-
               <div className="bento-card p-6">
                 <div className="brutalist-section-eyebrow mb-3">Direct Contact</div>
                 <a href="tel:6095160098" className="flex items-center gap-3 font-headline font-bold text-foreground hover:text-muted-foreground transition-colors mb-3">
                   <Phone className="h-5 w-5" />
                   (609) 516-0098
                 </a>
-                <a href="mailto:eastbrunswickhandyman@gmail.com" className="flex items-center gap-3 font-body text-sm text-muted-foreground hover:text-foreground transition-colors break-all">
+                <a href="mailto:osama@handymanprinceton.com" className="flex items-center gap-3 font-body text-sm text-muted-foreground hover:text-foreground transition-colors break-all">
                   <Mail className="h-4 w-4 flex-shrink-0" />
-                  eastbrunswickhandyman@gmail.com
+                  osama@handymanprinceton.com
                 </a>
               </div>
 

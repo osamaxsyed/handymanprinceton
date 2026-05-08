@@ -1,4 +1,4 @@
-import { Calendar, ArrowRight, Phone } from "lucide-react";
+import { Calendar, ArrowRight, Phone, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-handyman.jpg";
 
@@ -18,23 +18,43 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 w-full px-6 md:px-10 py-24 max-w-6xl mx-auto">
-        <div className="inline-flex flex-wrap items-center gap-x-3 gap-y-2 mb-8 bg-foreground/40 backdrop-blur-sm px-4 py-2 border-l-4 border-background">
+        <h1 className="brutalist-headline text-5xl md:text-7xl lg:text-8xl text-background leading-[0.95] mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+          Princeton
+          <br />
+          <span className="text-background/80">Bathroom Remodeling</span>
+        </h1>
+
+        <p className="font-headline font-bold uppercase tracking-wider text-sm md:text-base text-background/80 mb-8">
+          Kitchens · ADUs · Aging-in-Place · Home Repairs
+        </p>
+
+        <div className="inline-flex flex-col gap-2 mb-8 bg-foreground/40 backdrop-blur-sm px-5 py-4 border-l-4 border-background">
           <span className="font-headline font-black uppercase tracking-[0.15em] text-[10px] md:text-xs text-background">
             Licensed • Bonded • Insured
           </span>
           <span className="font-headline font-bold uppercase tracking-wider text-[10px] text-background/70">
             NJ HIC #13VH13918800
           </span>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-3.5 w-3.5"
+                  fill="#fbbc04"
+                  color="#fbbc04"
+                  strokeWidth={1}
+                />
+              ))}
+            </div>
+            <span className="font-headline font-bold uppercase tracking-wider text-[10px] text-background/80">
+              5.0 on Google
+            </span>
+          </div>
         </div>
 
-        <h1 className="brutalist-headline text-5xl md:text-7xl lg:text-8xl text-background leading-[0.95] mb-8 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
-          Central NJ Handyman.
-          <br />
-          <span className="text-background/70">Pergolas, Sheds, and the Work in Between.</span>
-        </h1>
-
         <p className="font-body text-lg md:text-xl text-background/90 max-w-2xl mb-10 border-l-4 border-background pl-5 py-1 leading-relaxed">
-          The Syed Brothers — combined 15+ years of repairs, remodels, and now custom outdoor structures across Mercer County. Owner-operated.
+          Bathroom and kitchen remodels, ADUs, aging-in-place, and the everyday repairs in between.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">

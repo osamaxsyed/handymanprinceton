@@ -5,7 +5,6 @@ import kitchenImage from "@/assets/kitchen-remodel.jpg";
 import kitchenBeforeImage from "@/assets/kitchen-remodel-before.jpg";
 import bathroomImage from "@/assets/bathroom-remodel.jpg";
 import bathroomBeforeImage from "@/assets/bathroom-remodel-before.jpg";
-import generalImage from "@/assets/general-repairs.jpg";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { useNavigate } from "react-router-dom";
 import { Phone, ArrowRight } from "lucide-react";
@@ -16,35 +15,23 @@ const Portfolio = () => {
   const projects = [
     {
       title: "Modern Kitchen Renovation",
-      location: "Woodbridge, NJ",
+      location: "Central NJ",
       description: "Complete kitchen transformation with new cabinets, quartz countertops, subway tile backsplash, and stainless steel appliances.",
       image: kitchenImage,
       beforeImage: kitchenBeforeImage,
       hasSlider: true,
       timeline: "3 Weeks",
       services: ["Kitchen Remodel", "Electrical", "Plumbing", "Painting"],
-      testimonial: "The team exceeded our expectations. Our kitchen is now the heart of our home.",
     },
     {
       title: "Luxury Bathroom Upgrade",
-      location: "Woodbridge, NJ",
+      location: "Central NJ",
       description: "Master bathroom remodel featuring Kohler bathtub, vanity, porcelain floors, and custom tile work.",
       image: bathroomImage,
       beforeImage: bathroomBeforeImage,
       hasSlider: true,
       timeline: "2 Weeks",
       services: ["Bathroom Remodel", "Tiling", "Plumbing", "Electrical"],
-      testimonial: "Professional work and attention to detail. We love our spa-like bathroom.",
-    },
-    {
-      title: "Home Repair & Maintenance",
-      location: "Edison, NJ",
-      description: "Comprehensive home maintenance including drywall repair, interior painting, fixture updates, and deck restoration.",
-      image: generalImage,
-      hasSlider: false,
-      timeline: "1 Week",
-      services: ["General Repairs", "Painting", "Carpentry", "Pressure Washing"],
-      testimonial: "Reliable service and fair pricing. They fixed everything on our to-do list.",
     },
   ];
 
@@ -68,29 +55,8 @@ const Portfolio = () => {
               <span className="text-background/70">Real Builds, Real Homes.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl border-l-4 border-background pl-5">
-              The quality craftsmanship and attention to detail that sets Princeton Handyman apart. From full kitchen remodels to one-day repairs.
+              A close look at the kitchens, bathrooms, and renovations we've built. Real photos, real timelines, real materials.
             </p>
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className="bg-background heavy-border-b">
-          <div className="w-full max-w-7xl mx-auto px-6 md:px-10">
-            <div className="grid grid-cols-3 heavy-border-b">
-              {[
-                ["5.0", "Google Rating"],
-                ["15+", "Years Combined"],
-                ["23+", "Cities Served"],
-              ].map(([num, label], i) => (
-                <div
-                  key={label}
-                  className={`p-8 md:p-12 text-center ${i < 2 ? "border-r-2 border-foreground" : ""}`}
-                >
-                  <div className="brutalist-headline text-4xl md:text-6xl text-foreground mb-2">{num}</div>
-                  <div className="font-headline font-bold uppercase tracking-wider text-xs text-muted-foreground">{label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -138,10 +104,6 @@ const Portfolio = () => {
                       ))}
                     </div>
                   </div>
-
-                  <blockquote className="border-l-4 border-foreground pl-4 font-body italic text-muted-foreground mb-6">
-                    "{p.testimonial}"
-                  </blockquote>
 
                   <button onClick={() => navigate("/get-estimate")} className="brutalist-cta-secondary w-fit">
                     Start Your Project <ArrowRight className="h-4 w-4" />

@@ -1,25 +1,27 @@
 import { Star, ArrowRight } from "lucide-react";
 
 const Testimonials = () => {
-  // Real Google reviews. Add new ones to the top of the array as they come in.
+  // Real Google reviews collected through East Brunswick Handyman, the
+  // sister brand operated by the same licensed contractor (Central Jersey
+  // Home Services LLC, NJ HIC #13VH13918800).
   const reviews = [
     {
       quote:
-        "The level of precision Princeton Handyman brings to facility improvements is top-tier. Drywall, painting, custom door installs, and weekend scheduling that kept patient care uninterrupted — meticulous, reliable, highly skilled.",
-      name: "Mana Physical Therapy NJ",
-      location: "East Brunswick + Lake Como/Belmar, NJ",
+        "The level of precision East Brunswick Handyman brings to facility improvements is top-tier. He managed extensive drywall work and painting with a flawless finish, handled the technical task of cutting and installing brand-new doors at our East Brunswick and Lake Como/Belmar offices, and his ability to schedule major projects on weekends ensured patient care was uninterrupted.",
+      name: "Mana Physical Therapy",
+      location: "Central NJ",
     },
     {
       quote:
-        "We have used Osama's services several times in the last year. He is reliable and knows what is needed to fix the problem. I will confidently call him for future services.",
-      name: "Mazhar Habib",
-      location: "Repeat Customer",
+        "Professional, knowledgeable, and easy to coordinate with throughout the process. He demonstrated a strong understanding of construction practices, especially when addressing structural considerations on site. His attention to detail and willingness to collaborate helped ensure the project moved forward efficiently and safely.",
+      name: "Joseph A.",
+      location: "Central NJ",
     },
     {
       quote:
-        "Osama creatively and efficiently fixed the interior woodworkings of my dining couch. It's actually more sturdy now than before. If you're in Edison or Mercer County, you should always at least get an estimate from this guy — he can walk you through the most efficient way to fix your home repair or remodel work.",
-      name: "Faisal Mansuri",
-      location: "Edison, NJ",
+        "Osama creatively and efficiently fixed the interior woodworkings of my dining couch. It's actually more sturdy now than before. If you're in Edison or Middlesex County, you should always at least get an estimate from this guy. He can walk you through the most efficient way to fix your home repair or remodel work.",
+      name: "Faisal M.",
+      location: "Central NJ",
     },
   ];
 
@@ -31,7 +33,7 @@ const Testimonials = () => {
           <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
             5.0 Stars on Google
           </h2>
-          <div className="flex items-center justify-center gap-1">
+          <div className="flex items-center justify-center gap-1 mb-4">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
@@ -42,15 +44,16 @@ const Testimonials = () => {
               />
             ))}
           </div>
+          <p className="font-body text-sm md:text-base text-background/80 max-w-2xl mx-auto">
+            Reviews collected through our sister brand, East Brunswick Handyman, operated by the same licensed contractor.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           {reviews.map((r, i) => (
             <figure
               key={i}
-              className={`bg-background text-foreground heavy-border p-6 md:p-8 flex flex-col ${
-                i === 0 ? "md:col-span-3 lg:col-span-1 lg:row-span-1" : ""
-              }`}
+              className="bg-background text-foreground heavy-border p-6 md:p-8 flex flex-col"
             >
               <div className="flex items-center gap-1 mb-5">
                 {[...Array(5)].map((_, j) => (
@@ -83,7 +86,7 @@ const Testimonials = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-headline font-bold uppercase tracking-wider text-sm text-background border-b-2 border-background hover:gap-3 transition-all pb-1"
           >
-            Read More Reviews on Google
+            Read More Reviews on East Brunswick Handyman's Google
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

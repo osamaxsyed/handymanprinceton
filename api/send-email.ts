@@ -20,11 +20,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER, // Your email
-        pass: process.env.EMAIL_PASSWORD, // Your app password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
+    const inboxAddress = 'osama@handymanprinceton.com';
     const SITE_TAG = '[Princeton]';
     const SITE_NAME = 'handymanprinceton.com';
 
@@ -47,11 +48,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Send email
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Send to yourself
+      from: `Princeton Handyman <${inboxAddress}>`,
+      to: inboxAddress,
       subject: emailSubject,
       html: emailBody,
-      replyTo: email, // Allow easy reply to customer
+      replyTo: email,
     });
 
     return res.status(200).json({ success: true, message: 'Email sent successfully' });

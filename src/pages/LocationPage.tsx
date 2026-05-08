@@ -180,7 +180,7 @@ const LocationPage = () => {
             <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {[
                 ["Licensed & Insured", "Fully licensed (NJ HIC #13VH13918800), bonded, and insured for all handyman services in NJ."],
-                ["Local Expertise", `15+ years serving ${locationData.name} and Central NJ. We know local codes and the unique needs of homes here.`],
+                ["Local Expertise", `Licensed contractor serving ${locationData.name} and central NJ. We know local codes and the unique needs of homes here.`],
                 ["Quality Guaranteed", "We stand behind our work with a 1-year labor warranty and a commitment to customer satisfaction."],
               ].map(([title, body]) => (
                 <div key={title} className="bento-card bg-background p-6">

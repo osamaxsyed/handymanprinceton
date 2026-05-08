@@ -9,8 +9,8 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Princeton Handyman | Licensed Home Repair & Remodeling Services",
-  description = "Professional handyman services in Princeton, NJ. Licensed, bonded & insured. Kitchen remodels, bathroom remodels, general repairs. 15+ years experience. Free estimates!",
+  title = "Princeton Handyman | Home Improvement Contractor",
+  description = "Licensed NJ home improvement contractor in Princeton. Bathroom remodels, kitchen remodels, aging-in-place, ADUs, and trusted home repairs. NJ HIC #13VH13918800.",
   canonical,
   ogImage = "https://handymanprinceton.com/og-image.jpg",
   keywords
