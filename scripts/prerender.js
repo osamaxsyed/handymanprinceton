@@ -19,6 +19,16 @@ if (!existsSync(distDir)) {
 
 const baseHtml = readFileSync(indexHtmlPath, 'utf8');
 
+// SSR bundle built by `vite build --ssr src/entry-server.tsx --outDir dist-ssr`.
+// Renders the real React tree per route so every page ships full body HTML,
+// not just unique <head> tags.
+const ssrEntryPath = join(__dirname, '../dist-ssr/entry-server.js');
+if (!existsSync(ssrEntryPath)) {
+  console.log('⚠️  dist-ssr/entry-server.js not found. Run the SSR build first (npm run build).');
+  process.exit(1);
+}
+const { render } = await import(ssrEntryPath);
+
 const ensureDir = (dir) => {
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
 };
@@ -70,14 +80,15 @@ const buildFaqSchema = (faqs) => ({
   })),
 });
 
-// Generate per-page HTML by overwriting the head tags of dist/index.html.
-// The body stays as the SPA root div; React hydrates client-side.
-// This is the same pattern East Brunswick uses. It's not as strong as full
-// SSR (Cause #3 not solved) but it ships unique <head> tags per URL, which
-// is what fixes Causes #1 and #2.
+// Generate per-page HTML by overwriting the head tags of dist/index.html and
+// injecting the server-rendered body for the route into the root div. React
+// takes over client-side via createRoot().render() (replace, not hydrate), so
+// crawlers see full content in the initial HTML with zero hydration risk.
 const generateHtml = (title, description, url, extraSchemaBlocks = []) => {
   const canonical = `${SITE}${url || ''}`;
+  const appHtml = render(url || '/');
   let html = baseHtml
+    .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content=".*?"/, `<meta name="description" content="${description}"`)
     .replace(/<link rel="canonical" href=".*?"/, `<link rel="canonical" href="${canonical}"`)
@@ -252,6 +263,14 @@ standalonePages.forEach((page) => {
   writeFileSync(join(pageDir, 'index.html'), html, 'utf8');
   generatedCount++;
 });
+
+// Homepage: dist/index.html keeps its own head tags but gets the rendered body.
+const homepageHtml = baseHtml.replace(
+  '<div id="root"></div>',
+  `<div id="root">${render('/')}</div>`,
+);
+writeFileSync(indexHtmlPath, homepageHtml, 'utf8');
+generatedCount++;
 
 console.log(`✅ Prerendering completed!`);
 console.log(`📄 Generated ${generatedCount} HTML files`);
