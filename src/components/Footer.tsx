@@ -87,9 +87,9 @@ const Footer = () => {
               Contact
             </h4>
             <div className="space-y-4 text-sm opacity-90">
-              <a href="tel:6095160098" className="flex items-center gap-3 hover:opacity-100 transition-opacity">
+              <a href="tel:6093750098" className="flex items-center gap-3 hover:opacity-100 transition-opacity">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span className="font-headline font-bold tracking-wider">(609) 516-0098</span>
+                <span className="font-headline font-bold tracking-wider">(609) 375-0098</span>
               </a>
               <a
                 href="mailto:osama@handymanprinceton.com"

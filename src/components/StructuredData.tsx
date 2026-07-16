@@ -9,7 +9,7 @@ const StructuredData = () => {
     "image": "https://handymanprinceton.com/logo.png",
     "logo": "https://handymanprinceton.com/logo.png",
     "url": "https://handymanprinceton.com",
-    "telephone": "+16095160098",
+    "telephone": "+16093750098",
     "email": "osama@handymanprinceton.com",
     "priceRange": "$$",
     "address": {
@@ -88,7 +88,7 @@ const StructuredData = () => {
     "logo": "https://handymanprinceton.com/logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+16095160098",
+      "telephone": "+16093750098",
       "contactType": "customer service",
       "email": "osama@handymanprinceton.com",
       "areaServed": "US",

@@ -335,7 +335,7 @@ const BathroomRefreshConfigurator = () => {
                   </p>
                   <div className="bg-background p-4 rounded border-2 border-primary">
                     <p className="text-2xl font-bold text-center text-primary">
-                      (609) 516-0098
+                      (609) 375-0098
                     </p>
                   </div>
                   <p className="text-xs text-muted-foreground">

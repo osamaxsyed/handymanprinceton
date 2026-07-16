@@ -42,9 +42,9 @@ const BathroomRemodel = () => {
               <button onClick={() => navigate("/get-estimate")} className="brutalist-cta">
                 Get a Free Estimate <ArrowRight className="h-4 w-4" />
               </button>
-              <a href="tel:6095160098" className="brutalist-cta-secondary">
+              <a href="tel:6093750098" className="brutalist-cta-secondary">
                 <Phone className="h-4 w-4" />
-                (609) 516-0098
+                (609) 375-0098
               </a>
             </div>
           </div>
@@ -177,9 +177,9 @@ const BathroomRemodel = () => {
               <button onClick={() => navigate("/get-estimate")} className="brutalist-cta">
                 Get Free Estimate <ArrowRight className="h-4 w-4" />
               </button>
-              <a href="tel:6095160098" className="brutalist-cta-on-dark">
+              <a href="tel:6093750098" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
-                Call (609) 516-0098
+                Call (609) 375-0098
               </a>
             </div>
           </div>

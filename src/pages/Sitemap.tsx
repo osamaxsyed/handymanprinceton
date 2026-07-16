@@ -109,11 +109,11 @@ const Sitemap = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:6095160098"
+                href="tel:6093750098"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-background text-foreground border-b-4 border-background/40 hover:bg-background/90 active:translate-y-0.5 active:border-b-0 transition-all rounded-none"
               >
                 <Phone className="h-4 w-4" />
-                (609) 516-0098
+                (609) 375-0098
               </a>
               <a
                 href="mailto:osama@handymanprinceton.com"

@@ -76,9 +76,9 @@ const ContactForm = () => {
             <aside className="lg:col-span-1 lg:order-1 space-y-6">
               <div className="bento-card p-6">
                 <div className="brutalist-section-eyebrow mb-3">Direct Contact</div>
-                <a href="tel:6095160098" className="flex items-center gap-3 font-headline font-bold text-foreground hover:text-muted-foreground transition-colors mb-3">
+                <a href="tel:6093750098" className="flex items-center gap-3 font-headline font-bold text-foreground hover:text-muted-foreground transition-colors mb-3">
                   <Phone className="h-5 w-5" />
-                  (609) 516-0098
+                  (609) 375-0098
                 </a>
                 <a href="mailto:osama@handymanprinceton.com" className="flex items-center gap-3 font-body text-sm text-muted-foreground hover:text-foreground transition-colors break-all">
                   <Mail className="h-4 w-4 flex-shrink-0" />

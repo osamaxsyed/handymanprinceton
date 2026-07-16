@@ -58,11 +58,11 @@ const ServiceAreas = () => {
             View All Areas <ArrowRight className="h-4 w-4" />
           </Link>
           <a
-            href="tel:6095160098"
+            href="tel:6093750098"
             className="font-headline font-bold uppercase tracking-wider text-sm text-muted-foreground inline-flex items-center gap-2 hover:text-foreground transition-colors"
           >
             <Phone className="h-4 w-4" />
-            Don't see your city? Call (609) 516-0098
+            Don't see your city? Call (609) 375-0098
           </a>
         </div>
       </div>
