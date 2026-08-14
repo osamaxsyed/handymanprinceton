@@ -161,6 +161,22 @@ const LocationPage = () => {
               <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
                 {locationData.localContext}
               </p>
+              {locationData.slug === "princeton" && (
+                <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
+                  When a project calls for heavy equipment rather than hand
+                  tools — land clearing, grading and drainage work, or digging a
+                  foundation or addition footing — our partner company{" "}
+                  <a
+                    href="https://princetonexcavation.com/"
+                    className="underline text-foreground hover:text-muted-foreground"
+                  >
+                    Princeton Excavation
+                  </a>{" "}
+                  handles residential excavation and earthwork across the
+                  Princeton area with tight-access machines sized for
+                  established lots.
+                </p>
+              )}
               <div className="flex flex-wrap gap-2">
                 {locationData.neighborhoods.map((n: string) => (
                   <span key={n} className="font-headline font-bold uppercase tracking-wider text-[10px] text-foreground border-2 border-foreground px-3 py-1">
