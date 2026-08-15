@@ -15,7 +15,6 @@ const currentDate = new Date().toISOString().split('T')[0];
 // Static pages
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
-  { url: '/handyman-services', priority: '0.9', changefreq: 'monthly' },
   { url: '/remodels', priority: '0.9', changefreq: 'monthly' },
   { url: '/get-estimate', priority: '0.9', changefreq: 'monthly' },
   { url: '/about', priority: '0.7', changefreq: 'monthly' },

@@ -5,8 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import StructuredData from "./components/StructuredData";
+import StickyCallBar from "./components/StickyCallBar";
 import Index from "./pages/Index";
-import HandymanServices from "./pages/HandymanServices";
 import Remodels from "./pages/Remodels";
 import GetEstimate from "./pages/GetEstimate";
 import AboutPage from "./pages/AboutPage";
@@ -37,7 +37,6 @@ const App = () => (
       <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/handyman-services" element={<HandymanServices />} />
           <Route path="/remodels" element={<Remodels />} />
           <Route path="/get-estimate" element={<GetEstimate />} />
           <Route path="/about" element={<AboutPage />} />
@@ -61,6 +60,10 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        {/* Mobile ranks ~9 positions better than desktop on this property
+            (18.6 vs 27.0, 90d GSC), so phone visitors are the majority of
+            what we actually have. Keep the call one tap away on every page. */}
+        <StickyCallBar />
     </TooltipProvider>
   </QueryClientProvider>
 );

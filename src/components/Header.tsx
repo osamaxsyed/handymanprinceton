@@ -18,7 +18,7 @@ const Header = () => {
     { name: "Kitchen Remodeling", href: "/kitchen-remodeling", external: false },
     { name: "Aging-in-Place", href: "/aging-in-place", external: false },
     { name: "ADUs (Garden State ADU)", href: "https://gardenstateadu.com", external: true },
-    { name: "Handyman Services", href: "/handyman-services", external: false },
+    { name: "Handyman Services", href: "/#services", external: false },
     { name: "Bathroom Refresh", href: "/bathroom-refresh", external: false },
     { name: "Bathroom Calculator", href: "/bathroom-remodel-calculator", external: false },
   ];

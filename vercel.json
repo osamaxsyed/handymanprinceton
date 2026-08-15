@@ -13,12 +13,12 @@
     },
     {
       "source": "/concrete-grinding-trip-hazard/:slug*",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/concrete-grinding-trip-hazard",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "source": "/services",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -83,42 +83,42 @@
     },
     {
       "source": "/electrical-services/:city",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/electrical-services",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/tile-installation/:city",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/tile-installation",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/ceiling-fan-installation/:city",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/ceiling-fan-installation",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/painting-services/:city",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/painting-services",
-      "destination": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -139,6 +139,11 @@
     {
       "source": "/backyard-studios",
       "destination": "https://gardenstateadu.com",
+      "permanent": true
+    },
+    {
+      "source": "/handyman-services",
+      "destination": "/",
       "permanent": true
     },
     {

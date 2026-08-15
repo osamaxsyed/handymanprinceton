@@ -175,11 +175,6 @@ generatedCount++;
 // shell with the homepage canonical.
 const standalonePages = [
   {
-    slug: 'handyman-services',
-    title: 'Handyman Services in Princeton & Central NJ | Princeton Handyman',
-    description: 'Full list of handyman services: plumbing repairs, electrical work, carpentry, painting, drywall, and more. Licensed and insured. Serving Princeton, West Windsor, Lawrence, Montgomery, and surrounding NJ towns.',
-  },
-  {
     slug: 'remodels',
     title: 'Kitchen & Bathroom Remodels in Princeton & Central NJ | Princeton Handyman',
     description: 'Expert kitchen and bathroom remodeling services in Princeton and Central NJ. Full renovations, tile work, vanity installs, cabinet upgrades, and more. Licensed and insured. Free estimates.',
