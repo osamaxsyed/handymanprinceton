@@ -1,136 +1,111 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+// EBH footer, ported for Princeton: truck mark, services, towns by GSC demand
+// order, contact column, LLC attribution.
 import { Link } from "react-router-dom";
+import { ShieldCheck } from "lucide-react";
+import site from "@/data/site";
 
 const Footer = () => {
   const services = [
+    { name: "Tub-to-Shower Conversion", href: "/tub-to-shower-conversion" },
     { name: "Bathroom Remodeling", href: "/bathroom-remodel" },
-    { name: "Kitchen Remodeling", href: "/kitchen-remodeling" },
-    { name: "Aging-in-Place", href: "/aging-in-place" },
+    { name: "Walk-In Showers", href: "/walk-in-showers" },
+    { name: "Grab Bar Installation", href: "/grab-bar-installation" },
     { name: "Handyman Visit ($295)", href: "/handyman" },
+    { name: "Drywall Repair", href: "/drywall-repair" },
+    { name: "Commercial Handyman", href: "/commercial-handyman" },
+    { name: "Property Managers", href: "/property-managers" },
   ];
 
+  // Demand order from GSC (REBUILD_SPEC): Princeton via the homepage itself.
   const serviceAreas = [
     { name: "Princeton", slug: "princeton" },
-    { name: "Plainsboro", slug: "plainsboro" },
     { name: "West Windsor", slug: "west-windsor" },
+    { name: "Robbinsville", slug: "robbinsville" },
     { name: "Lawrence Township", slug: "lawrence-township" },
-    { name: "Montgomery", slug: "montgomery" },
-    { name: "Pennington", slug: "pennington" },
+    { name: "Plainsboro", slug: "plainsboro" },
+    { name: "South Brunswick", slug: "south-brunswick" },
   ];
 
   return (
-    <footer className="bg-foreground text-background heavy-border-t" role="contentinfo">
-      <div className="w-full px-6 md:px-10 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
-          {/* Brand */}
-          <div>
-            <div className="font-headline font-black italic tracking-tighter text-xl uppercase mb-6">
-              Princeton / Handyman
-            </div>
-            <p className="text-sm opacity-80 leading-relaxed mb-6">
-              Licensed NJ home improvement contractor serving Princeton and central New Jersey. Operated by Central Jersey Home Services LLC. NJ HIC #13VH13918800.
-            </p>
-            <div className="flex flex-col gap-2 text-sm opacity-80">
-              <span className="font-headline font-bold uppercase tracking-wider text-xs">Licensed • Bonded • Insured</span>
-            </div>
-          </div>
+    <footer className="bg-background border-t border-border" role="contentinfo">
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <img src="/mark-truck-red.png" alt="Illustration of the red work truck" className="w-[132px] h-auto mb-3.5" />
+          <p className="font-body text-[12.5px] tracking-[0.2em] uppercase text-[#795B41] font-semibold mb-0.5">
+            Princeton
+          </p>
+          <p className="font-headline font-bold text-2xl tracking-[-0.01em] text-foreground mb-3.5">
+            Handyman<span className="text-primary">.</span>
+          </p>
+          <p className="font-body text-[17px] leading-relaxed text-muted-foreground">
+            Owner-led craftsmanship with big-company systems: flat prices, on-my-way texts, a
+            one-year warranty. Operated by {site.legalName}.
+          </p>
+        </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-headline font-black uppercase tracking-wider text-sm mb-5 pb-3 border-b-2 border-background/20">
-              Services
-            </h4>
-            <ul className="space-y-2">
-              {services.map((s) => (
-                <li key={s.name}>
-                  <Link
-                    to={s.href}
-                    className="text-sm opacity-80 hover:opacity-100 hover:underline underline-offset-4 decoration-2 transition-opacity"
-                  >
-                    {s.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Service areas */}
-          <div>
-            <h4 className="font-headline font-black uppercase tracking-wider text-sm mb-5 pb-3 border-b-2 border-background/20">
-              Service Areas
-            </h4>
-            <ul className="space-y-2">
-              {serviceAreas.map((a) => (
-                <li key={a.slug}>
-                  <Link
-                    to={`/service-areas/${a.slug}`}
-                    className="text-sm opacity-80 hover:opacity-100 hover:underline underline-offset-4 decoration-2 transition-opacity"
-                  >
-                    {a.name}, NJ
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  to="/service-areas"
-                  className="text-sm font-headline font-bold uppercase tracking-wider hover:underline underline-offset-4 decoration-2"
-                >
-                  All Areas →
+        <div>
+          <p className="brutalist-section-eyebrow mb-3">Services</p>
+          <ul className="space-y-2 list-none p-0 m-0">
+            {services.map((s) => (
+              <li key={s.href}>
+                <Link to={s.href} className="font-body text-[17px] text-muted-foreground hover:text-primary transition-colors">
+                  {s.name}
                 </Link>
               </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
+        </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="font-headline font-black uppercase tracking-wider text-sm mb-5 pb-3 border-b-2 border-background/20">
-              Contact
-            </h4>
-            <div className="space-y-4 text-sm opacity-90">
-              <a href="tel:6093750098" className="flex items-center gap-3 hover:opacity-100 transition-opacity">
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <span className="font-headline font-bold tracking-wider">(609) 375-0098</span>
-              </a>
-              <a
-                href="mailto:osama@handymanprinceton.com"
-                className="flex items-center gap-3 hover:opacity-100 transition-opacity"
-              >
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                <span className="text-xs">osama@handymanprinceton.com</span>
-              </a>
-              <div className="flex items-center gap-3">
-                <MapPin className="h-4 w-4 flex-shrink-0" />
-                <span>Princeton and Mercer County, NJ</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Clock className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p>Mon–Fri 7AM–6PM</p>
-                  <p className="opacity-75 text-xs">Sat 8AM–4PM</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div>
+          <p className="brutalist-section-eyebrow mb-3">Where I work</p>
+          <ul className="space-y-2 list-none p-0 m-0">
+            {serviceAreas.map((a) => (
+              <li key={a.slug}>
+                <Link to={`/service-areas/${a.slug}`} className="font-body text-[17px] text-muted-foreground hover:text-primary transition-colors">
+                  {a.name}, NJ
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link to="/service-areas" className="font-body text-[17px] font-semibold text-foreground hover:text-primary transition-colors">
+                All towns &rarr;
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="brutalist-section-eyebrow mb-3">Reach me</p>
+          <p className="mb-1">
+            <a href={site.phoneHref} className="font-body text-xl font-semibold text-primary hover:text-[#7E1215] no-underline">
+              {site.phoneDisplay}
+            </a>
+          </p>
+          <p className="mb-4">
+            <a href={site.smsHref} className="font-body text-[17px] text-muted-foreground hover:text-primary no-underline">
+              Text a photo of your job
+            </a>
+          </p>
+          <p className="inline-flex items-center gap-2 font-body text-[17px] text-[#2E4A3B] font-semibold mb-1.5">
+            <ShieldCheck className="h-[19px] w-[19px]" />
+            Licensed &amp; Insured
+          </p>
+          <p className="font-body text-[17px] text-muted-foreground m-0">{site.license}</p>
         </div>
       </div>
-
-      {/* Bottom bar */}
-      <div className="border-t-2 border-background/20">
-        <div className="w-full px-6 md:px-10 py-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="font-headline font-bold uppercase tracking-wider text-xs opacity-70">
-            © {new Date().getFullYear()} Princeton Handyman. Forged in Central NJ.
-          </div>
-          <div className="flex flex-wrap justify-center gap-6 text-xs">
-            <Link to="/privacy" className="font-headline font-bold uppercase tracking-wider opacity-70 hover:opacity-100 hover:underline underline-offset-4">
-              Privacy
-            </Link>
-            <Link to="/terms" className="font-headline font-bold uppercase tracking-wider opacity-70 hover:opacity-100 hover:underline underline-offset-4">
-              Terms
-            </Link>
-            <Link to="/sitemap" className="font-headline font-bold uppercase tracking-wider opacity-70 hover:opacity-100 hover:underline underline-offset-4">
-              Sitemap
-            </Link>
-          </div>
+      <div className="max-w-6xl mx-auto px-5 md:px-8 pb-8">
+        <div className="pt-5 border-t border-border flex flex-wrap justify-between gap-3">
+          <p className="font-body text-[16px] text-muted-foreground m-0">
+            &copy; {new Date().getFullYear()} {site.brand}. Estimates are free and the
+            price is agreed before work starts.
+          </p>
+          <p className="font-body text-[16px] text-muted-foreground m-0">
+            <Link to="/careers" className="hover:text-primary">We're Hiring</Link>
+            {" "}&middot;{" "}
+            <Link to="/privacy" className="hover:text-primary">Privacy</Link>
+            {" "}&middot;{" "}
+            <Link to="/terms" className="hover:text-primary">Terms</Link>
+          </p>
         </div>
       </div>
     </footer>

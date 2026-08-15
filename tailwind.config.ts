@@ -75,8 +75,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        headline: ['Epilogue', 'system-ui', 'sans-serif'],
-        body: ['"Work Sans"', 'system-ui', 'sans-serif'],
+        headline: ['Bitter', 'Georgia', 'serif'],
+        body: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

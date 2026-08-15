@@ -1,184 +1,126 @@
-import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+// EBH header, ported for Princeton: same lockup, services dropdown, nav row,
+// and the phone number as the top-right primary action.
+import { ChevronDown, Phone } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import site from "@/data/site";
+
+type MenuEntry = { group: string } | { name: string; href: string; external?: boolean };
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const navigate = useNavigate();
 
-  const servicesMenu = [
-    { name: "Bathroom Remodeling", href: "/bathroom-remodel", external: false },
-    { name: "Kitchen Remodeling", href: "/kitchen-remodeling", external: false },
-    { name: "Aging-in-Place", href: "/aging-in-place", external: false },
-    { name: "ADUs (Garden State ADU)", href: "https://gardenstateadu.com", external: true },
-    { name: "Handyman Visit ($295)", href: "/handyman", external: false },
-    { name: "Bathroom Refresh", href: "/bathroom-refresh", external: false },
-    { name: "Bathroom Calculator", href: "/bathroom-remodel-calculator", external: false },
+  const servicesMenu: MenuEntry[] = [
+    { group: "Bathrooms" },
+    { name: "Tub-to-Shower Conversion", href: "/tub-to-shower-conversion" },
+    { name: "Walk-In Showers", href: "/walk-in-showers" },
+    { name: "Grab Bar Installation", href: "/grab-bar-installation" },
+    { name: "Bathroom Remodeling", href: "/bathroom-remodel" },
+    { group: "Around the House" },
+    { name: "Handyman Visit ($295)", href: "/handyman" },
+    { name: "Drywall Repair", href: "/drywall-repair" },
+    { name: "Carpentry & Cabinets", href: "/carpentry" },
+    { group: "" },
+    { name: "All services", href: "/handyman" },
   ];
 
   const navLinks = [
     { name: "About", href: "/about" },
-    { name: "Service Areas", href: "/service-areas" },
+    { name: "Towns Served", href: "/service-areas" },
     { name: "FAQ", href: "/faq" },
+    { name: "Book a Visit", href: "/book" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-background heavy-border-b" role="banner">
-      <div className="w-full px-6 md:px-10 py-5 flex justify-between items-center">
-        {/* Brand lockup, EBH treatment: red truck mark + town eyebrow over "Handyman." */}
+    <header className="sticky top-0 z-[60] bg-background/95 backdrop-blur border-b border-border" role="banner">
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-3 flex justify-between items-center gap-4">
         <Link to="/" className="flex items-center gap-3">
           <img src="/mark-truck-red.png" alt="" className="w-[64px] md:w-[74px] h-auto flex-none" />
           <span className="flex flex-col items-start gap-0">
-            <span className="font-body text-[12.5px] tracking-[0.2em] uppercase text-[#795B41] font-semibold">
-              Princeton
-            </span>
-            <span className="font-headline font-bold text-2xl leading-none tracking-[-0.01em] text-foreground">
-              Handyman<span className="text-primary">.</span>
-            </span>
+          <span className="font-body text-[12.5px] tracking-[0.2em] uppercase text-[#795B41] font-semibold">
+            Princeton
+          </span>
+          <span className="font-headline font-bold text-2xl leading-none tracking-[-0.01em] text-foreground">
+            Handyman<span className="text-primary">.</span>
+          </span>
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-2" aria-label="Main navigation">
+        <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 font-headline font-bold uppercase tracking-wider text-xs px-4 py-2 hover:bg-foreground hover:text-background transition-colors duration-75 active:translate-y-0.5 outline-none">
+            <DropdownMenuTrigger className="flex items-center gap-1.5 font-body font-medium text-lg px-3.5 py-3 rounded-[10px] text-foreground hover:bg-muted transition-colors outline-none">
               Services
-              <ChevronDown className="h-3 w-3" />
+              <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="start"
-              className="w-64 rounded-none border-2 border-foreground bg-background shadow-none"
+              className="w-72 rounded-[14px] border border-border bg-card shadow-[0_12px_30px_rgba(60,45,25,.12)]"
             >
-              {servicesMenu.map((item) => (
-                <DropdownMenuItem
-                  key={item.name}
-                  onClick={() => {
-                    if (item.external) {
-                      window.open(item.href, "_blank", "noopener,noreferrer");
-                    } else {
-                      navigate(item.href);
-                    }
-                  }}
-                  className="cursor-pointer font-headline font-bold uppercase tracking-wider text-xs rounded-none focus:bg-foreground focus:text-background"
-                >
-                  {item.name}
-                </DropdownMenuItem>
-              ))}
+              {servicesMenu.map((item, i) =>
+                "group" in item ? (
+                  <div key={item.group || "sep-" + i}>
+                    {i > 0 && <DropdownMenuSeparator />}
+                    {item.group && (
+                      <DropdownMenuLabel className="font-body text-[13px] uppercase tracking-[0.12em] text-[#795B41]">
+                        {item.group}
+                      </DropdownMenuLabel>
+                    )}
+                  </div>
+                ) : (
+                  <DropdownMenuItem
+                    key={item.name}
+                    onClick={() => {
+                      if (item.external) window.open(item.href, "_blank", "noopener,noreferrer");
+                      else navigate(item.href);
+                    }}
+                    className="font-body text-[17px] py-2.5 px-3 rounded-[8px] cursor-pointer"
+                  >
+                    {item.name}
+                  </DropdownMenuItem>
+                )
+              )}
             </DropdownMenuContent>
           </DropdownMenu>
-
-          {navLinks.map((link) => (
+          {navLinks.map((l) => (
             <Link
-              key={link.name}
-              to={link.href}
-              className="font-headline font-bold uppercase tracking-wider text-xs px-4 py-2 hover:bg-foreground hover:text-background transition-colors duration-75 active:translate-y-0.5"
+              key={l.href}
+              to={l.href}
+              className="font-body font-medium text-lg px-3.5 py-3 rounded-[10px] text-foreground hover:bg-muted transition-colors"
             >
-              {link.name}
+              {l.name}
             </Link>
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => navigate("/get-estimate")}
-            className="hidden md:inline-flex brutalist-cta px-6 py-3"
-          >
-            Get Estimate
-          </button>
-
-          {/* Mobile menu toggle */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 border-2 border-foreground"
-            aria-label="Toggle mobile menu"
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
+        <a
+          href={site.phoneHref}
+          className="inline-flex items-center gap-2 min-h-[52px] px-4 md:px-5 py-3 rounded-[12px] bg-primary text-primary-foreground font-body font-semibold text-lg whitespace-nowrap shadow-[0_2px_0_rgba(122,18,21,.5)] hover:bg-[#8E1418] transition-colors"
+        >
+          <Phone className="h-[19px] w-[19px]" />
+          <span className="hidden sm:inline">{site.phoneDisplay}</span>
+          <span className="sm:hidden">Call</span>
+        </a>
       </div>
 
-      {/* Mobile nav */}
-      {isMenuOpen && (
-        <nav
-          className="lg:hidden border-t-2 border-foreground bg-background"
-          aria-label="Mobile navigation"
-        >
-          <div className="flex flex-col">
-            <button
-              onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="w-full flex items-center justify-between px-6 py-4 font-headline font-bold uppercase tracking-wider text-sm border-b border-border hover:bg-foreground hover:text-background transition-colors"
-            >
-              <span>Services</span>
-              <ChevronDown className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
-            </button>
-            {isServicesOpen && (
-              <div className="bg-muted border-b border-border">
-                {servicesMenu.map((item) =>
-                  item.external ? (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        setIsServicesOpen(false);
-                      }}
-                      className="block pl-10 pr-6 py-3 font-headline font-semibold uppercase tracking-wider text-xs border-b border-border last:border-b-0 hover:bg-foreground hover:text-background transition-colors"
-                    >
-                      {item.name}
-                    </a>
-                  ) : (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        setIsServicesOpen(false);
-                      }}
-                      className="block pl-10 pr-6 py-3 font-headline font-semibold uppercase tracking-wider text-xs border-b border-border last:border-b-0 hover:bg-foreground hover:text-background transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  )
-                )}
-              </div>
-            )}
-
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="px-6 py-4 font-headline font-bold uppercase tracking-wider text-sm border-b border-border hover:bg-foreground hover:text-background transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-
-            <div className="p-6">
-              <button
-                onClick={() => {
-                  navigate("/get-estimate");
-                  setIsMenuOpen(false);
-                }}
-                className="brutalist-cta w-full"
-              >
-                Get Estimate
-              </button>
-            </div>
-          </div>
-        </nav>
-      )}
+      {/* Mobile: always-visible scrollable nav row */}
+      <div className="lg:hidden flex gap-1 overflow-x-auto px-3 pb-2.5 border-t border-border/60 [scrollbar-width:none]">
+        {[{ name: "Home", href: "/" }, { name: "Bathrooms", href: "/bathroom-remodel" }, { name: "Tub-to-Shower", href: "/tub-to-shower-conversion" }, { name: "Handyman $295", href: "/handyman" }, ...navLinks].map((l) => (
+          <Link
+            key={l.href}
+            to={l.href}
+            className="flex-none font-body font-medium text-[17px] px-3 py-2.5 text-muted-foreground whitespace-nowrap"
+          >
+            {l.name}
+          </Link>
+        ))}
+      </div>
     </header>
   );
 };

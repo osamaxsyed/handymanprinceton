@@ -8,23 +8,23 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 42 15% 95%;
-    --foreground: 158 25% 20%;
+    --background: 39 52% 96%;
+    --foreground: 24 14% 15%;
 
-    --card: 42 20% 97%;
-    --card-foreground: 158 25% 20%;
+    --card: 40 100% 99%;
+    --card-foreground: 24 14% 15%;
 
     --popover: 42 20% 97%;
     --popover-foreground: 158 25% 20%;
 
     --primary: 358 73% 38%;
-    --primary-foreground: 42 20% 97%;
+    --primary-foreground: 30 67% 97%;
 
     --secondary: 42 20% 90%;
     --secondary-foreground: 158 25% 20%;
 
-    --muted: 42 20% 92%;
-    --muted-foreground: 158 15% 45%;
+    --muted: 37 43% 92%;
+    --muted-foreground: 32 8% 33%;
 
     --accent: 158 30% 25%;
     --accent-foreground: 42 20% 97%;
@@ -32,7 +32,7 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 42 20% 97%;
 
-    --border: 42 15% 85%;
+    --border: 37 32% 84%;
     --input: 42 15% 88%;
     --ring: 158 25% 20%;
 
@@ -144,32 +144,34 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Brutalist redesign utilities */
-  .heavy-border-b { border-bottom: 4px solid hsl(var(--foreground)); }
-  .heavy-border-t { border-top: 4px solid hsl(var(--foreground)); }
-  .heavy-border { border: 2px solid hsl(var(--foreground)); }
+  /* Warm-craftsman redesign (claude_design b7129fe2). Class names kept from the
+     brutalist era so every page reskins without JSX churn; the definitions are
+     the new language: cream surfaces, walnut text/panels, Tacoma red actions. */
+  .heavy-border-b { border-bottom: 1px solid hsl(var(--border)); }
+  .heavy-border-t { border-top: 1px solid hsl(var(--border)); }
+  .heavy-border { border: 1px solid hsl(var(--border)); }
 
   .brutalist-cta {
-    @apply inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-foreground text-background border-b-4 border-foreground/40 hover:bg-foreground/90 active:translate-y-0.5 active:border-b-0 transition-all rounded-none;
+    @apply inline-flex items-center justify-center gap-2.5 font-body font-semibold text-lg px-7 py-4 min-h-[60px] bg-primary text-primary-foreground rounded-[14px] shadow-[0_2px_0_rgba(122,18,21,.5),0_8px_20px_rgba(168,26,31,.16)] hover:bg-[#8E1418] transition-colors;
+  }
+
+  .brutalist-cta-secondary {
+    @apply inline-flex items-center justify-center gap-2.5 font-body font-semibold text-lg px-7 py-4 min-h-[60px] bg-card text-foreground rounded-[14px] border-2 border-[#D9CDB9] hover:border-[#B9A98E] transition-colors;
   }
 
   .brutalist-cta-on-dark {
     @apply inline-flex items-center justify-center gap-2.5 font-body font-semibold text-lg px-7 py-4 min-h-[60px] bg-primary text-primary-foreground rounded-[14px] hover:bg-[#8E1418] transition-colors;
   }
 
-  .brutalist-cta-secondary {
-    @apply inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-background text-foreground border-2 border-foreground hover:bg-foreground hover:text-background active:translate-y-0.5 transition-all rounded-none;
-  }
-
   .brutalist-section-eyebrow {
-    @apply font-headline font-black uppercase tracking-[0.2em] text-xs text-muted-foreground mb-3;
+    @apply font-body font-semibold uppercase tracking-[0.14em] text-sm text-[#795B41] mb-3;
   }
 
   .brutalist-headline {
-    @apply font-headline font-black uppercase tracking-tight;
+    @apply font-headline font-semibold normal-case tracking-[-0.01em];
   }
 
   .bento-card {
-    @apply relative overflow-hidden border-2 border-foreground bg-card transition-colors hover:border-foreground;
+    @apply relative overflow-hidden border border-border bg-card rounded-[18px] shadow-[0_6px_18px_rgba(60,45,25,.05)] transition-colors hover:border-[#C9B99C];
   }
 }
