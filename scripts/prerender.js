@@ -183,6 +183,21 @@ generatedCount++;
 // shell with the homepage canonical.
 const standalonePages = [
   {
+    slug: 'storage-sheds',
+    title: 'Storage Shed Assembly & Repair Princeton NJ | Level Base',
+    description: 'Prefab shed assembly, base prep, permits checked, and repairs to sheds that lean. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'careers',
+    title: 'Now Hiring Carpenters & Handymen | Princeton Handyman',
+    description: 'Hiring skilled craftsmen and helpers around Princeton and Mercer County NJ. Booked flat-rate jobs for established handymen, hourly work for helpers. Apply online.',
+  },
+  {
+    slug: 'book',
+    title: 'Book a Handyman Visit in Princeton NJ | Pick a Slot',
+    description: 'Pick your flat-rate package, send your list and photos, and request a morning or afternoon slot. Confirmed within 24 hours. Princeton and Mercer County NJ.',
+  },
+  {
     slug: 'drywall-repair',
     title: 'Drywall Repair Princeton NJ | Patches That Disappear',
     description: 'Holes, cracks, ceilings, water damage, and the plaster walls older Princeton homes are full of. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',

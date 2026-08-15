@@ -11,7 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { formType, name, email, phone, address, serviceType, description, preferredDate, submittedAt } = req.body;
 
     // Validate required fields
-    if (!name || !email) {
+    if (!name || (!email && !phone)) {
       return res.status(400).json({ error: 'Name and email are required' });
     }
 

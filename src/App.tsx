@@ -18,6 +18,9 @@ import DrywallRepair from "./pages/DrywallRepair";
 import Carpentry from "./pages/Carpentry";
 import CommercialHandyman from "./pages/CommercialHandyman";
 import PropertyManagers from "./pages/PropertyManagers";
+import StorageSheds from "./pages/StorageSheds";
+import Careers from "./pages/Careers";
+import Book from "./pages/Book";
 import GetEstimate from "./pages/GetEstimate";
 import AboutPage from "./pages/AboutPage";
 import Portfolio from "./pages/Portfolio";
@@ -57,6 +60,9 @@ const App = () => (
           <Route path="/carpentry" element={<Carpentry />} />
           <Route path="/commercial-handyman" element={<CommercialHandyman />} />
           <Route path="/property-managers" element={<PropertyManagers />} />
+          <Route path="/storage-sheds" element={<StorageSheds />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/book" element={<Book />} />
           <Route path="/remodels" element={<Remodels />} />
           <Route path="/get-estimate" element={<GetEstimate />} />
           <Route path="/about" element={<AboutPage />} />

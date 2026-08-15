@@ -103,10 +103,9 @@ const Handyman = () => {
               Materials show up at cost on the invoice, and the truck carries the common
               hardware, so a mid-visit supply run is the exception, not the rule.
             </p>
-            {/* TODO: switch to /book once the booking engine is ported for Princeton */}
             <div className="mt-8">
-              <Link to="/get-estimate" className="brutalist-cta w-fit">
-                Get your free estimate <ArrowRight className="h-5 w-5" />
+              <Link to="/book" className="brutalist-cta w-fit">
+                Book your slot online <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>

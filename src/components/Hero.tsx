@@ -1,78 +1,146 @@
-import { Calendar, ArrowRight, Phone, Star } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import heroImage from "@/assets/hero-handyman.jpg";
+import { useState } from "react";
+import { Phone, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
+import heroImage from "@/assets/hero-osama.jpg";
+import site from "@/data/site";
 
+// Ported from EBH's dual-path hero (Call/Text left, 3-field quick form right).
+// Princeton differences: the H1 leads with the head term ("princeton handyman",
+// 617 impressions at pos 31 with zero clicks, is THE target), and there is no
+// Google-rating badge because Princeton has no GBP yet. The trust chip credits
+// the same licensed team honestly instead of implying a local rating.
 const Hero = () => {
-  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [details, setDetails] = useState("");
+  const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    setState("sending");
+    try {
+      const r = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "estimate",
+          name, phone, description: details,
+          serviceType: "Hero quick form",
+          sourcePage: "homepage-hero",
+          submittedAt: new Date().toISOString(),
+        }),
+      });
+      setState(r.ok ? "done" : "error");
+    } catch {
+      setState("error");
+    }
+  }
 
   return (
-    <section className="relative w-full min-h-[640px] md:min-h-[720px] flex items-center justify-center overflow-hidden heavy-border-b bg-foreground">
-      {/* Background photo */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Professional handyman at work in Central New Jersey"
-          className="w-full h-full object-cover object-[center_35%] opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-foreground/80"></div>
-      </div>
+    <>
+      <section className="py-10 md:py-16">
+        <div className="w-full max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div>
+            <p className="brutalist-section-eyebrow mb-3">Princeton & Mercer County, New Jersey</p>
+            <h1 className="font-headline font-semibold text-4xl md:text-5xl leading-[1.14] tracking-[-0.015em] text-foreground mb-5">
+              Licensed Handyman &amp; Home Repairs in Princeton, NJ
+            </h1>
+            <p className="font-body text-xl leading-relaxed text-muted-foreground max-w-xl mb-7">
+              Owner-led, local, and priced flat before the work starts. The same licensed team
+              behind East Brunswick Handyman, now serving Princeton, West Windsor, Robbinsville,
+              and Lawrence. Never a stranger from an app.
+            </p>
 
-      <div className="relative z-10 w-full px-6 md:px-10 py-24 max-w-6xl mx-auto">
-        <h1 className="brutalist-headline text-5xl md:text-7xl lg:text-8xl text-background leading-[0.95] mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
-          Princeton
-          <br />
-          <span className="text-background/80">Bathroom Remodeling</span>
-        </h1>
-
-        <p className="font-headline font-bold uppercase tracking-wider text-sm md:text-base text-background/80 mb-8">
-          Kitchens · ADUs · Aging-in-Place · Home Repairs
-        </p>
-
-        <div className="inline-flex flex-col gap-2 mb-8 bg-foreground/40 backdrop-blur-sm px-5 py-4 border-l-4 border-background">
-          <span className="font-headline font-black uppercase tracking-[0.15em] text-[10px] md:text-xs text-background">
-            Licensed • Bonded • Insured
-          </span>
-          <span className="font-headline font-bold uppercase tracking-wider text-[10px] text-background/70">
-            NJ HIC #13VH13918800
-          </span>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="h-3.5 w-3.5"
-                  fill="#fbbc04"
-                  color="#fbbc04"
-                  strokeWidth={1}
-                />
-              ))}
+            <div className="flex flex-wrap gap-3.5 mb-4">
+              <a href={site.phoneHref} className="brutalist-cta">
+                <Phone className="h-5 w-5" />
+                Call {site.phoneDisplay}
+              </a>
+              <a href={site.smsHref} className="brutalist-cta-secondary">
+                <MessageSquare className="h-5 w-5" />
+                Text a Photo of Your Job
+              </a>
             </div>
-            <span className="font-headline font-bold uppercase tracking-wider text-[10px] text-background/80">
-              5.0 on Google
-            </span>
+
+            <div className="flex flex-wrap items-center gap-4 pt-5 mt-2 border-t border-border">
+              <div className="font-body text-[17px] text-foreground/85">
+                <span className="inline-flex items-center gap-2">
+                  <CheckCircle2 className="h-[18px] w-[18px] text-[#2E4A3B]" />
+                  Licensed &amp; Insured
+                </span>
+                <span className="block text-muted-foreground text-base">{site.license}</span>
+              </div>
+              <div className="font-body text-[17px] text-foreground/85">
+                <span className="inline-flex items-center gap-2">
+                  <CheckCircle2 className="h-[18px] w-[18px] text-[#2E4A3B]" />
+                  {site.legalName}
+                </span>
+                <span className="block text-muted-foreground text-base">
+                  The team behind East Brunswick Handyman
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bento-card overflow-hidden">
+            <img src={heroImage} alt="Osama, owner of Princeton Handyman, on a job site"
+              className="w-full h-48 md:h-56 object-cover object-[65%_30%]" />
+            <p className="font-body text-[15px] text-muted-foreground px-6 md:px-8 pt-3 m-0">
+              That's Osama, the owner. He answers the phone.
+            </p>
+            <div className="p-6 md:p-8 pt-4">
+            {state === "done" ? (
+              <div className="text-center py-8">
+                <CheckCircle2 className="h-10 w-10 text-[#2E4A3B] mx-auto mb-3" />
+                <p className="brutalist-headline text-2xl text-foreground mb-2">Got it, {name.split(" ")[0] || "thanks"}.</p>
+                <p className="font-body text-lg text-muted-foreground">
+                  We reply the same day during business hours. Faster answer:{" "}
+                  <a href={site.phoneHref} className="text-primary underline">call now</a>.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={submit}>
+                <p className="brutalist-headline text-2xl text-foreground mb-1">Get a free estimate</p>
+                <p className="font-body text-base text-muted-foreground mb-5">
+                  Fast, easy, no obligation. The price is agreed before any work begins.
+                </p>
+                <div className="grid gap-3.5">
+                  <input value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your name"
+                    className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
+                  <input value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" placeholder="Phone number"
+                    className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
+                  <textarea value={details} onChange={(e) => setDetails(e.target.value)} required rows={3}
+                    placeholder="What needs doing? A sentence is plenty."
+                    className="rounded-[12px] border-2 border-[#E0D5C2] bg-background p-4 font-body text-lg" />
+                  <button type="submit" disabled={state === "sending"} className="brutalist-cta w-full disabled:opacity-50">
+                    {state === "sending" ? "Sending…" : "Get my free estimate"} <ArrowRight className="h-5 w-5" />
+                  </button>
+                </div>
+                {state === "error" && (
+                  <p className="font-body text-base text-primary mt-3">
+                    Could not send. Call or text {site.phoneDisplay} instead.
+                  </p>
+                )}
+                <p className="font-body text-sm text-muted-foreground mt-3 m-0">
+                  By submitting, you agree we may text you about your request
+                  (msg &amp; data rates may apply, reply STOP to opt out). Your
+                  information is never shared.
+                </p>
+              </form>
+            )}
+            </div>
           </div>
         </div>
+      </section>
 
-        <p className="font-body text-lg md:text-xl text-background/90 max-w-2xl mb-10 border-l-4 border-background pl-5 py-1 leading-relaxed">
-          Bathroom and kitchen remodels, ADUs, aging-in-place, and the everyday repairs in between.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button onClick={() => navigate("/get-estimate")} className="brutalist-cta">
-            <Calendar className="h-4 w-4" />
-            Request an Estimate
-            <ArrowRight className="h-4 w-4" />
-          </button>
-          <a
-            href="tel:6093750098"
-            className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground active:translate-y-0.5 transition-all rounded-none"
-          >
-            <Phone className="h-4 w-4" />
-            (609) 375-0098
-          </a>
+      {/* Risk-reversal strip */}
+      <section className="bg-foreground text-background py-3.5">
+        <div className="w-full max-w-6xl mx-auto px-5 md:px-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 font-body text-[15.5px] text-background/90">
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Price agreed before any work begins</span>
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />One-year labor warranty</span>
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Licensed &amp; insured, {site.license}</span>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
