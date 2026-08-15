@@ -6,7 +6,7 @@ const Footer = () => {
     { name: "Bathroom Remodeling", href: "/bathroom-remodel" },
     { name: "Kitchen Remodeling", href: "/kitchen-remodeling" },
     { name: "Aging-in-Place", href: "/aging-in-place" },
-    { name: "Handyman Services", href: "/#services" },
+    { name: "Handyman Visit ($295)", href: "/handyman" },
   ];
 
   const serviceAreas = [

@@ -92,167 +92,88 @@ Device: desktop 5,863 impr at pos 27.0, mobile 3,944 at pos 18.6. **Mobile ranks
 
 ---
 
-## Strategy
+## Strategy — REVISED 2026-08-15 (owner decision)
 
-EBH's problem was 200 dead pages diluting a strong homepage. **Princeton's problem is
-the opposite: the pages work, the domain has no authority to lift them off page 3.**
+**Princeton replicates EBH outright: same look and feel, same service catalog,
+same flat URL architecture.** The business model is a scalable multi-town
+operation under one LLC (the Ace Handyman pattern): one standardized service
+catalog, one design system, one pricing ladder, replicated per town domain.
+Earlier drafts of this spec preserved Princeton's combo-page architecture; that
+is superseded by this decision.
 
-Everything below serves one goal: move "princeton handyman" and its variants from
-position ~31 to page 1. Depth and internal linking around the head term, not more
-page count.
+The duplicate-content rule from the factory doctrine applies in full: same
+slugs and page structure across brands, but ALL prose rewritten through the
+Princeton/Mercer County market lens. Never ship swapped-town copy. Cross-site
+shingle overlap must stay under 15% per same-slug page.
 
-### 1. Fix the head term first **[HIGHEST PRIORITY]**
+### Target architecture (mirrors EBH's shipped sitemap, 45 URLs)
 
-`/` at position 25.5 and `/handyman-services` (583 impressions, ZERO clicks, position
-38.7) are competing for the same intent. Google is splitting signals between them.
+Flat service pages off the root:
+`/handyman` `/drywall-repair` `/carpentry` `/commercial-handyman`
+`/property-managers` `/bathroom-remodel` `/bathroom-refresh`
+`/tub-to-shower-conversion` `/walk-in-showers` `/grab-bar-installation`
+`/shower-doors` `/backsplash` `/aging-in-place` `/storage-sheds`
+plus `/book` `/get-estimate` `/about` `/portfolio` `/faq` `/careers`
+`/privacy` `/terms` `/service-areas`
 
-- Make the homepage the definitive "Princeton handyman" page. H1: "Licensed Handyman
-  in Princeton, NJ". Full service scope, pricing anchor, trust row, real reviews once
-  supplied.
-- Merge `/handyman-services` into `/` with a 301. It has 583 impressions it cannot
-  convert and it cannibalizes the homepage.
-- Point every combo and location page's brand anchor at `/` in sentence one.
+Town pages (demand order from GSC): princeton, west-windsor, robbinsville,
+lawrence-township, plainsboro, south-brunswick. Existing extra towns stay live
+but demoted.
 
-Expected effect is consolidation of ~1,900 impressions of head-term signal onto one URL.
+Combos: keep ONLY the click earners, exactly as EBH retained its 9 survivors:
+`/handyman-services/west-windsor` (3 clicks), `/home-repairs/princeton` (3),
+`/handyman-services/east-windsor` (2), `/deck-staining/east-windsor` (2), and
+the seven single-click combos. Everything else redirects to its flat service
+page. Sequence rule: redirects ship in the SAME deploy as the flat pages that
+replace them, never before.
 
-### 2. Title and meta rewrite on stranded high-impression pages **[CHEAPEST WIN]**
+### Migration map (old Princeton URL -> new)
 
-These have impressions and zero clicks. Rewrite titles and metas before building
-anything new. Same reasoning as EBH's `/bathroom-remodel` fix.
+- `/handyman-services` -> `/` (already done)
+- `/:service/:town` thin tail -> flat `/{service}` page (301)
+- `/home-repairs/*` -> `/handyman` except `/home-repairs/princeton` (kept, earner)
+- `/remodels` -> `/bathroom-remodel`
+- `/kitchen-remodeling` -> retained but demoted (EBH dropped kitchen; Princeton
+  keeps the page live off-nav until 90-day data says otherwise)
 
-| Page | Impr | Pos |
-|---|---|---|
-| `/service-areas/robbinsville` | 719 | 26.1 |
-| `/handyman-services` | 583 | 38.7 (merging to `/`) |
-| `/flooring-installation/east-windsor` | 576 | 24.9 |
-| `/door-installation/princeton` | 445 | 23.7 |
-| `/service-areas` | 397 | 50.1 |
-| `/fence-repair/princeton` | 253 | 25.2 |
-| `/bathroom-renovation/robbinsville` | 223 | 14.2 |
-| `/deck-staining/princeton` | 215 | 23.0 |
+### Design port
 
-### 3. Town pages in demand order **[DIFFERS FROM EBH]**
+- EBH red primary (`--primary: 358 73% 38%`) replaces Princeton's green primary.
+  All other tokens already identical.
+- Components to port: HomeOffers, GoogleReview, LocalTestimonials, TodoBlock,
+  FaqSchema, Header/Footer nav structure ($295 Visit as a nav item), Book page.
+- StickyCallBar: done.
+- Logo: same red-truck wordmark treatment, "Princeton Handyman" lockup.
 
-EBH ordered towns by *clicks earned*. Princeton has too few clicks for that to be
-meaningful, so order by **impression demand**, which is the available signal:
+### Pricing (confirmed by owner)
 
-1. `/service-areas/princeton` — 3,060 impr (1,838 on the page itself)
-2. `/service-areas/west-windsor` — 1,167
-3. `/service-areas/robbinsville` — 754
-4. `/service-areas/lawrence-township` — 116
-5. `/service-areas/plainsboro` — 89
-6. `/service-areas/south-brunswick` — 89
+$295 Visit / $525 Half Day / $995 Full Day, flat, no hourly rate. Identical to
+EBH by design: one price sheet for the whole operation.
 
-Demote, keep live, do not invest: East Windsor, Pennington, Cranbury, Montgomery,
-Skillman, Hopewell.
+### Reviews (owner decision 2026-08-15)
 
-Robbinsville is the surprise: 754 impressions and it also owns the two best
-bathroom-remodeling positions on the site (16.9 and 13.1). Treat it as a real
-secondary market, not a filler town.
+EBH reviews shown with honest attribution (same LLC, East Brunswick service
+area). No EBH GBP link. Princeton customers will review the Princeton GBP once
+it exists.
 
-### 4. Striking-distance service pages
+### What stays measured, not assumed
 
-Queries at position 5-25 with real impressions. These are one authority push from
-page 1, and several have no dedicated page:
+The eight stranded high-impression pages (title/meta rewrites) and the
+striking-distance terms (home repair services pos 7.2, cabinet repair pos 12.4)
+still get their fixes inside the new architecture: cabinet work lives on
+`/carpentry` (EBH pattern: carpentry-cabinets merged), home repairs on
+`/handyman`.
 
-| Query | Impr | Pos | Has page? |
-|---|---|---|---|
-| handyman near me | 423 | 22.5 | homepage |
-| drywall repair near me | 187 | 23.2 | thin |
-| local handyman | 169 | 13.3 | homepage |
-| home repair services | 100 | **7.2** | no — build |
-| cabinet repair near me | 104 | 12.4 | no — build |
-| fence repair near me | 86 | 9.7 | thin |
-| door installation | 60 | 9.2 | thin |
-| cabinet repair | 54 | 10.2 | no — build |
+## Order of work — REVISED
 
-Build `/cabinet-repair` and strengthen `/drywall-repair`, `/fence-repair`,
-`/door-installation`. "home repair services" at **position 7.2** is the single closest
-term to page 1 on the whole site.
-
-Also note a real West Windsor wood-floor cluster (84 + 65 + 61 impressions across
-"wood floor repair / installation west windsor nj") and a Robbinsville stair-refinishing
-term (66 impr, pos 24.8). One consolidated flooring page for West Windsor is justified
-by demand under the query-mining rule (>=30 impr, >=4 variants, zero clicks).
-
-### 5. Combo pages — keep and deepen **[DIFFERS FROM EBH]**
-
-Do not run EBH's noindex sweep. Combos are the top click earner here. Instead:
-
-- Keep all 102 live.
-- Deepen only the ones with demonstrated impressions (the table in §2).
-- Any combo still at zero clicks after 90 days from this rebuild gets noindexed,
-  per the standing query-mining policy. Measure, then cut.
-
-### 6. Booking engine
-
-Port `~/code/ebh-booking` (request-then-confirm slots on Google Calendar, nodemailer).
-Needs its own calendar and credentials for the Princeton operation. Add `/book` route
-mirroring EBH's `Book.tsx`.
-
----
-
-## Pricing
-
-EBH's live pricing (verified in code 2026-08-15, NOT the figures in EBH's own
-REBUILD_SPEC.md which are stale) is a flat three-tier ladder with no hourly rate:
-
-| Tier | Price | Scope |
-|---|---|---|
-| Handyman Visit | **$295** | Up to 2 hours of skilled work |
-| Half Day | **$525** | |
-| Full Day | **$995** | |
-
-Positioning copy: "Flat packages, agreed before work starts. No hourly meters, no
-surprise line items. Materials at cost, shown on your invoice." Bathroom projects
-get one fixed written price at a free in-home estimate.
-
-Note: EBH's spec document still says "$275 visit, $125/hr after". That model was
-replaced. Do not reintroduce an hourly rate anywhere; the current FAQ explicitly
-sells against hourly billing.
-
-**[NEEDS OWNER INPUT]** Whether Princeton uses the same three figures or a
-higher ladder for the wealthier market. Do not write pricing copy until confirmed.
-
----
-
-## Tech SEO
-
-- Stack is already correct: Vite + React + react-router with SSR prerender
-  (`npm run build` runs `build:ssr` then `prerender.js`). Every route ships static HTML.
-  Do not rebuild the stack.
-- Data is driven by `src/data/services.json`, `locations.json`,
-  `unique-city-content.json`, consumed by `scripts/prerender.js` and
-  `scripts/generate-sitemap.js`. Most changes are data edits plus new page components.
-- HomeAndConstructionBusiness JSON-LD sitewide with correct NAP and license.
-  Service schema per service page. FAQPage on FAQ only.
-- Verify www 308 and self-canonicals (the network-wide www audit found a silently
-  missing redirect on Middletown; confirm Princeton's is set).
-- Mobile ranks better than desktop here. Mobile CWV is the priority.
-
----
-
-## Order of work
-
-1. Confirm pricing with owner. Confirm www 308 on the domain.
-2. Merge `/handyman-services` into `/` with 301. Rebuild the homepage as the
-   definitive Princeton handyman page.
-3. Title and meta rewrite across the eight stranded pages in §2.
-4. Town pages in demand order: Princeton, West Windsor, Robbinsville.
-5. New service pages: `/cabinet-repair`, `/home-repair-services`; strengthen
-   drywall, fence, door.
-6. West Windsor flooring cluster page.
-7. Booking engine port with its own calendar.
-8. Schema, sitemap, mobile CWV pass.
-9. Measure at 6 weeks. Decide combo noindex with evidence, not assumption.
-
-Commit per page. Finish by outputting one consolidated TODO list of everything
-the owner must supply (photos, reviews, pricing confirmation, GBP setup).
-
----
-
-## Out of scope for the code
-
-Google Business Profile (service-area). Manual. Caution: multiple service-area
-businesses under one LLC in the same category need genuinely distinct, minimally
-overlapping service areas or Google may suppress them.
+1. Design tokens: red primary. DONE items: sticky bar, site.ts, head-term merge.
+2. Port page shells from EBH with Princeton-lens copy: /handyman first (it is
+   the head-term support page), then money pages (tub-to-shower, grab-bars,
+   walk-in-showers, shower-doors, backsplash), then feeders (drywall-repair,
+   carpentry, commercial-handyman, property-managers).
+3. Routes + nav + footer to EBH structure.
+4. Redirect map for the combo tail, shipped WITH the flat pages.
+5. Sitemap regeneration; verify ~45 URLs; earned combos preserved.
+6. Book page + booking engine port (own calendar).
+7. Pressure test per factory P7, including cross-site shingle scan vs EBH.
+8. Deploy on approval; measure at 6 weeks.

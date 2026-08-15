@@ -15,6 +15,7 @@ const currentDate = new Date().toISOString().split('T')[0];
 // Static pages
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
+  { url: '/handyman', priority: '0.9', changefreq: 'monthly' },
   { url: '/remodels', priority: '0.9', changefreq: 'monthly' },
   { url: '/get-estimate', priority: '0.9', changefreq: 'monthly' },
   { url: '/about', priority: '0.7', changefreq: 'monthly' },
@@ -39,8 +40,16 @@ const locationPages = locations.map(location => ({
 
 // Generate service-location pages
 const serviceLocationPages = [];
+const comboPlan = JSON.parse(readFileSync(join(__dirname, '../src/data/combo-plan.json'), 'utf8'));
+const comboAllowed = (serviceSlug, locationSlug) => {
+  if (comboPlan.deferred.includes(serviceSlug)) return true;
+  const keep = comboPlan.keep[serviceSlug] || [];
+  return keep.includes(locationSlug);
+};
+
 services.forEach(service => {
   locations.forEach(location => {
+    if (!comboAllowed(service.slug, location.slug)) return;
     serviceLocationPages.push({
       url: `/${service.slug}/${location.slug}`,
       priority: ((service.priority + location.priority) / 2).toFixed(1),

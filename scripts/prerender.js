@@ -109,9 +109,20 @@ const generateHtml = (title, description, url, extraSchemaBlocks = []) => {
 
 let generatedCount = 0;
 
+
+// Combo migration plan: keep earners, defer un-ported services, drop the rest
+// (their URLs 301 in vercel.json). See src/data/combo-plan.json.
+const comboPlan = JSON.parse(readFileSync(join(__dirname, '../src/data/combo-plan.json'), 'utf8'));
+const comboAllowed = (serviceSlug, locationSlug) => {
+  if (comboPlan.deferred.includes(serviceSlug)) return true;
+  const keep = comboPlan.keep[serviceSlug] || [];
+  return keep.includes(locationSlug);
+};
+
 // Service x location pages
 services.forEach((service) => {
   locations.forEach((location) => {
+    if (!comboAllowed(service.slug, location.slug)) return;
     const url = `/${service.slug}/${location.slug}`;
     const title = `${service.name} in ${location.name}, ${location.state} | Princeton Handyman`;
     const description = `Professional ${service.name.toLowerCase()} services in ${location.name}, NJ. ${service.description} Licensed, insured. Free estimates!`;
@@ -174,6 +185,11 @@ generatedCount++;
 // a self-referencing canonical, ensuring no route falls through to the SPA
 // shell with the homepage canonical.
 const standalonePages = [
+  {
+    slug: 'handyman',
+    title: 'Handyman & Home Repairs in Princeton NJ | $295 Visit',
+    description: 'A flat $295 visit covers up to 2 hours of skilled work: sticking doors, plaster and drywall, fixtures, the whole list. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
   {
     slug: 'remodels',
     title: 'Kitchen & Bathroom Remodels in Princeton & Central NJ | Princeton Handyman',

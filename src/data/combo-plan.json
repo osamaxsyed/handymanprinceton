@@ -1,0 +1,18 @@
+{
+  "_comment": "Combo-page migration plan (REBUILD_SPEC, revised 2026-08-15). keep = GSC click earners that stay live, mirroring EBH's 9 survivors. deferred = services whose flat replacement page is not ported yet; their full town matrix keeps generating until it is, so no combo 404s before its replacement exists. Any service in neither list generates only its keep towns and its tail 301s in vercel.json.",
+  "keep": {
+    "home-repairs": ["princeton", "south-brunswick"],
+    "handyman-services": ["west-windsor", "east-windsor", "cranbury", "pennington", "plainsboro"],
+    "bathroom-remodel": ["robbinsville"],
+    "kitchen-remodeling": []
+  },
+  "deferred": [
+    "flooring-installation",
+    "door-installation",
+    "carpentry-services",
+    "cabinet-installation",
+    "drywall-repair",
+    "fence-repair",
+    "deck-staining"
+  ]
+}
