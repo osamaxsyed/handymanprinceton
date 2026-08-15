@@ -1,18 +1,24 @@
 {
-  "_comment": "Combo-page migration plan (REBUILD_SPEC, revised 2026-08-15). keep = GSC click earners that stay live, mirroring EBH's 9 survivors. deferred = services whose flat replacement page is not ported yet; their full town matrix keeps generating until it is, so no combo 404s before its replacement exists. Any service in neither list generates only its keep towns and its tail 301s in vercel.json.",
-  "keep": {
-    "home-repairs": ["princeton", "south-brunswick"],
-    "handyman-services": ["west-windsor", "east-windsor", "cranbury", "pennington", "plainsboro"],
-    "bathroom-remodel": ["robbinsville"],
-    "kitchen-remodeling": []
-  },
-  "deferred": [
-    "flooring-installation",
-    "door-installation",
-    "carpentry-services",
-    "cabinet-installation",
-    "drywall-repair",
-    "fence-repair",
-    "deck-staining"
+  "_comment": "EBH mechanism (aligned 2026-08-15): ALL service x town combo pages stay built and browsable, but only the allowlist below is indexable. Everything else serves noindex,follow so equity still flows while the matrix is hidden from Google. Sitemap includes only allowlisted combos. Reversible: a combo that starts earning in a GSC mining pass gets flipped back with a one-line edit here. Sources: 14 click earners (90d GSC 2026-08-15) + 5 high-impression striking-distance combos from REBUILD_SPEC section 2. handyman-services/princeton stays noindexed deliberately: it competes with the homepage for the head term post-merge.",
+  "indexable": [
+    "handyman-services/west-windsor",
+    "handyman-services/east-windsor",
+    "handyman-services/cranbury",
+    "handyman-services/pennington",
+    "handyman-services/plainsboro",
+    "home-repairs/princeton",
+    "home-repairs/south-brunswick",
+    "deck-staining/east-windsor",
+    "cabinet-installation/princeton",
+    "carpentry-services/plainsboro",
+    "door-installation/west-windsor",
+    "drywall-repair/robbinsville",
+    "fence-repair/south-brunswick",
+    "flooring-installation/cranbury",
+    "bathroom-remodel/robbinsville",
+    "flooring-installation/east-windsor",
+    "door-installation/princeton",
+    "fence-repair/princeton",
+    "deck-staining/princeton"
   ]
 }

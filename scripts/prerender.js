@@ -84,7 +84,7 @@ const buildFaqSchema = (faqs) => ({
 // injecting the server-rendered body for the route into the root div. React
 // takes over client-side via createRoot().render() (replace, not hydrate), so
 // crawlers see full content in the initial HTML with zero hydration risk.
-const generateHtml = (title, description, url, extraSchemaBlocks = []) => {
+const generateHtml = (title, description, url, extraSchemaBlocks = [], indexable = true) => {
   const canonical = `${SITE}${url || ''}`;
   const appHtml = render(url || '/');
   let html = baseHtml
@@ -92,6 +92,7 @@ const generateHtml = (title, description, url, extraSchemaBlocks = []) => {
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content=".*?"/, `<meta name="description" content="${description}"`)
     .replace(/<link rel="canonical" href=".*?"/, `<link rel="canonical" href="${canonical}"`)
+    .replace(/<meta name="robots" content=".*?"/, `<meta name="robots" content="${indexable ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' : 'noindex, follow'}"`)
     .replace(/<meta property="og:url" content=".*?"/, `<meta property="og:url" content="${canonical}"`)
     .replace(/<meta property="og:title" content=".*?"/, `<meta property="og:title" content="${title}"`)
     .replace(/<meta property="og:description" content=".*?"/, `<meta property="og:description" content="${description}"`)
@@ -110,19 +111,15 @@ const generateHtml = (title, description, url, extraSchemaBlocks = []) => {
 let generatedCount = 0;
 
 
-// Combo migration plan: keep earners, defer un-ported services, drop the rest
-// (their URLs 301 in vercel.json). See src/data/combo-plan.json.
+// EBH noindex-allowlist mechanism: every combo builds and renders, but only
+// allowlisted earners are indexable. See src/data/combo-plan.json.
 const comboPlan = JSON.parse(readFileSync(join(__dirname, '../src/data/combo-plan.json'), 'utf8'));
-const comboAllowed = (serviceSlug, locationSlug) => {
-  if (comboPlan.deferred.includes(serviceSlug)) return true;
-  const keep = comboPlan.keep[serviceSlug] || [];
-  return keep.includes(locationSlug);
-};
+const comboIndexable = (serviceSlug, locationSlug) =>
+  comboPlan.indexable.includes(`${serviceSlug}/${locationSlug}`);
 
 // Service x location pages
 services.forEach((service) => {
   locations.forEach((location) => {
-    if (!comboAllowed(service.slug, location.slug)) return;
     const url = `/${service.slug}/${location.slug}`;
     const title = `${service.name} in ${location.name}, ${location.state} | Princeton Handyman`;
     const description = `Professional ${service.name.toLowerCase()} services in ${location.name}, NJ. ${service.description} Licensed, insured. Free estimates!`;
@@ -138,7 +135,7 @@ services.forEach((service) => {
       blocks.push(buildFaqSchema(service.faqs));
     }
 
-    const html = generateHtml(title, description, url, blocks);
+    const html = generateHtml(title, description, url, blocks, comboIndexable(service.slug, location.slug));
     const pageDir = join(distDir, service.slug, location.slug);
     ensureDir(pageDir);
     writeFileSync(join(pageDir, 'index.html'), html, 'utf8');
@@ -185,6 +182,11 @@ generatedCount++;
 // a self-referencing canonical, ensuring no route falls through to the SPA
 // shell with the homepage canonical.
 const standalonePages = [
+  {
+    slug: 'tub-to-shower-conversion',
+    title: 'Tub to Shower Conversion Princeton NJ | Fixed Price, 4 Days',
+    description: 'Swap the unused tub for a walk-in shower in four working days. One written price covering demo, waterproofing, glass, and haul-away. Princeton, West Windsor, Robbinsville. NJ HIC #13VH13918800.',
+  },
   {
     slug: 'handyman',
     title: 'Handyman & Home Repairs in Princeton NJ | $295 Visit',

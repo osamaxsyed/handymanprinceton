@@ -72,13 +72,8 @@
       "permanent": true
     },
     {
-      "source": "/bathroom-renovation/robbinsville",
-      "destination": "/bathroom-remodel/robbinsville",
-      "permanent": true
-    },
-    {
-      "source": "/bathroom-renovation/:city((?!robbinsville$)[a-z-]+)",
-      "destination": "/bathroom-remodel",
+      "source": "/bathroom-renovation/:city",
+      "destination": "/bathroom-remodel/:city",
       "permanent": true
     },
     {
@@ -149,31 +144,6 @@
     {
       "source": "/handyman-services",
       "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/home-repairs/:city((?!princeton$|south-brunswick$)[a-z-]+)",
-      "destination": "/handyman",
-      "permanent": true
-    },
-    {
-      "source": "/home-repairs",
-      "destination": "/handyman",
-      "permanent": true
-    },
-    {
-      "source": "/handyman-services/:city((?!west-windsor$|east-windsor$|cranbury$|pennington$|plainsboro$)[a-z-]+)",
-      "destination": "/handyman",
-      "permanent": true
-    },
-    {
-      "source": "/kitchen-remodeling/:city([a-z-]+)",
-      "destination": "/kitchen-remodeling",
-      "permanent": true
-    },
-    {
-      "source": "/bathroom-remodel/:city((?!robbinsville$)[a-z-]+)",
-      "destination": "/bathroom-remodel",
       "permanent": true
     },
     {

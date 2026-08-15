@@ -9,6 +9,7 @@ import StickyCallBar from "./components/StickyCallBar";
 import Index from "./pages/Index";
 import Remodels from "./pages/Remodels";
 import Handyman from "./pages/Handyman";
+import TubToShowerConversion from "./pages/TubToShowerConversion";
 import GetEstimate from "./pages/GetEstimate";
 import AboutPage from "./pages/AboutPage";
 import Portfolio from "./pages/Portfolio";
@@ -39,6 +40,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/handyman" element={<Handyman />} />
+          <Route path="/tub-to-shower-conversion" element={<TubToShowerConversion />} />
           <Route path="/remodels" element={<Remodels />} />
           <Route path="/get-estimate" element={<GetEstimate />} />
           <Route path="/about" element={<AboutPage />} />
