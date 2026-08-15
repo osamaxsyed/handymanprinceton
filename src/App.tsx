@@ -14,6 +14,10 @@ import GrabBarInstallation from "./pages/GrabBarInstallation";
 import WalkInShowers from "./pages/WalkInShowers";
 import ShowerDoors from "./pages/ShowerDoors";
 import Backsplash from "./pages/Backsplash";
+import DrywallRepair from "./pages/DrywallRepair";
+import Carpentry from "./pages/Carpentry";
+import CommercialHandyman from "./pages/CommercialHandyman";
+import PropertyManagers from "./pages/PropertyManagers";
 import GetEstimate from "./pages/GetEstimate";
 import AboutPage from "./pages/AboutPage";
 import Portfolio from "./pages/Portfolio";
@@ -49,6 +53,10 @@ const App = () => (
           <Route path="/walk-in-showers" element={<WalkInShowers />} />
           <Route path="/shower-doors" element={<ShowerDoors />} />
           <Route path="/backsplash" element={<Backsplash />} />
+          <Route path="/drywall-repair" element={<DrywallRepair />} />
+          <Route path="/carpentry" element={<Carpentry />} />
+          <Route path="/commercial-handyman" element={<CommercialHandyman />} />
+          <Route path="/property-managers" element={<PropertyManagers />} />
           <Route path="/remodels" element={<Remodels />} />
           <Route path="/get-estimate" element={<GetEstimate />} />
           <Route path="/about" element={<AboutPage />} />

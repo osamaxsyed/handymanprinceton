@@ -183,6 +183,26 @@ generatedCount++;
 // shell with the homepage canonical.
 const standalonePages = [
   {
+    slug: 'drywall-repair',
+    title: 'Drywall Repair Princeton NJ | Patches That Disappear',
+    description: 'Holes, cracks, ceilings, water damage, and the plaster walls older Princeton homes are full of. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'carpentry',
+    title: 'Carpentry & Cabinet Repair Princeton NJ | Small Jobs Welcome',
+    description: 'Cabinet repair, trim, shelving, railings, rot, and doors: the small carpentry work bigger crews ignore. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'commercial-handyman',
+    title: 'Commercial Handyman Princeton NJ | Offices & Facilities',
+    description: 'Facility punch lists for offices, medical suites, and retail around Princeton and the Route 1 corridor. After-hours scheduling, COI on file. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'property-managers',
+    title: 'Handyman for Property Managers Princeton NJ | Turnovers',
+    description: 'Standing punch-list accounts, make-readies, and tenant coordination for rentals around Princeton, Lawrence, and West Windsor. Photo-verified, COI on file. NJ HIC #13VH13918800.',
+  },
+  {
     slug: 'grab-bar-installation',
     title: 'Grab Bar Installation Princeton NJ | Done in One Visit',
     description: 'Grab bars fastened into studs and rated anchors for showers, tubs, and toilets. Princeton, West Windsor, Plainsboro, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
