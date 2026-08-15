@@ -1,3 +1,9 @@
+// Princeton service catalog. Same scope as the EBH catalog but re-phrased per
+// the factory duplicate-content rule (data-level overlap across brands must
+// stay under 1%). Exclusions mirror EBH's legal/scope boundaries exactly even
+// where the wording differs. Note: water heater replacement is excluded
+// consistently here (the EBH file listed it both ways; gas work belongs to a
+// licensed plumber).
 export interface ServiceCategory {
   title: string;
   icon: string;
@@ -10,141 +16,141 @@ export const handymanServices: ServiceCategory[] = [
     title: "Kitchen",
     icon: "🍳",
     weDo: [
-      "Hood Vent Replacement",
-      "Cabinet adjustments & installations",
-      "Pull adjustments",
-      "Furnace filter replacement",
-      "Faucet replacement",
-      "Leak investigation",
-      "Water filter installations",
-      "Garbage disposal replacement",
-      "Backsplash",
-      "Caulking/grout repair",
-      "Appliance installation",
-      "Undersink plumbing and p-traps"
+      "Range hood swap-outs",
+      "Cabinet doors realigned, hardware installed",
+      "Drawer pulls and knobs set straight",
+      "Kitchen faucet swaps",
+      "Tracking down slow leaks under the sink",
+      "Under-sink water filter hookups",
+      "Garbage disposal replacements",
+      "Backsplash tile",
+      "Re-caulking and grout touch-ups",
+      "Dishwasher and appliance hookups",
+      "P-traps and under-sink drain fittings",
+      "Furnace filter swaps"
     ],
     weDontDo: [
-      "Custom cabinet modifications",
-      "Countertop installation",
-      "Gas appliance installation or troubleshooting",
-      "Appliance service or repair"
+      "Modifying or rebuilding cabinets",
+      "Setting countertops",
+      "Anything involving a gas line or gas appliance",
+      "Repairing appliances themselves"
     ]
   },
   {
     title: "Bathroom",
     icon: "🚿",
     weDo: [
-      "Bathroom upgrades",
-      "Vanity installation",
-      "Toilet seals and total replacements",
-      "Updating wall fixtures",
-      "Tiling",
-      "Grout",
-      "Shower door installation",
-      "Bathroom fans",
-      "Undersink plumbing and p-traps",
-      "Shower diverter valve"
+      "Bathroom refresh work",
+      "Vanities set and plumbed",
+      "Toilets re-sealed or replaced outright",
+      "Towel bars, hooks, and wall fixtures",
+      "Tile setting",
+      "Grout renewal",
+      "Glass shower doors hung",
+      "Exhaust fan swaps",
+      "P-traps and under-sink fittings",
+      "Shower diverter swaps"
     ],
     weDontDo: [
-      "Shower or tub refinishing or replacements",
-      "Shower temperature valve replacement"
+      "Refinishing or swapping tubs and shower shells",
+      "Shower mixing-valve replacement"
     ]
   },
   {
     title: "Walls",
     icon: "🖼️",
     weDo: [
-      "Drywall repair services from things as significant as a plumbing access hole to minor things like dents, dings, and scrapes",
-      "Spot paint to make the repairs blend right in",
-      "Trim replacement or repair",
-      "Hang pictures and mirrors",
-      "TV mounting"
+      "Drywall and plaster repairs, from access holes down to dings and scuffs",
+      "Blending spot paint over the repair",
+      "Trim swapped or mended",
+      "Mirrors and picture walls hung level",
+      "TVs mounted on studs"
     ],
     weDontDo: [
-      "Paint full rooms",
-      "Crown molding installation or repair",
-      "Hang full rooms of drywall"
+      "Whole-room painting",
+      "Crown molding",
+      "Boarding entire rooms"
     ]
   },
   {
     title: "Floors",
     icon: "🏠",
     weDo: [
-      "LVT (luxury vinyl tile) installation for full rooms",
-      "Baseboard replacement & repair",
-      "Single room wood floor refinishing"
+      "Full-room luxury vinyl plank installs",
+      "Baseboard runs replaced or patched",
+      "Refinishing a single room of hardwood"
     ],
     weDontDo: [
-      "LVT spot repairs"
+      "Patch repairs in existing LVT"
     ]
   },
   {
     title: "Garage",
     icon: "🚗",
     weDo: [
-      "Water heater strap installation",
-      "Concrete crack repairs",
-      "Minor garage door repairs",
-      "HVAC filter replacements",
-      "Window AC units"
+      "Seismic strapping on water heaters",
+      "Filling and sealing concrete cracks",
+      "Small garage door fixes",
+      "HVAC filter changes",
+      "Window AC units in and out"
     ],
     weDontDo: [
-      "Water heater replacement",
-      "Non window air conditioning installs"
+      "Swapping the water heater itself",
+      "Split systems or any non-window AC install"
     ]
   },
   {
     title: "Windows & Doors",
     icon: "🚪",
     weDo: [
-      "Exterior door replacement",
-      "Interior door replacement",
-      "Door alignment and adjustments",
-      "Window replacement",
-      "Window sill repair",
-      "Weatherstripping"
+      "Entry doors replaced",
+      "Interior doors replaced",
+      "Doors planed and adjusted to close right",
+      "Window replacements",
+      "Rotted sill repairs",
+      "Weatherseal and draft fixes"
     ],
     weDontDo: [
-      "Fix or replace glass panels in old doors"
+      "Re-glazing glass panes in old doors"
     ]
   },
   {
     title: "Fixtures & Upgrades",
     icon: "💡",
     weDo: [
-      "Lighting fixture replacements",
-      "Outlet upgrades",
-      "Sink Faucet Installations",
-      "Light switches",
-      "Ceiling fan installation",
-      "Smart home upgrades",
-      "Smoke detectors",
-      "Water Heater Replacement"
+      "Light fixtures swapped",
+      "Outlet and receptacle swap-outs",
+      "Faucet installs",
+      "Switch and dimmer swaps",
+      "Ceiling fans hung on rated boxes",
+      "Smart thermostats, doorbells, and locks",
+      "Smoke and CO detectors"
     ],
     weDontDo: [
-      "Any in-wall electrical work",
-      "Moving/adding wires, outlets, or switches that require in-wall electrical",
-      "Fuse box or panel changes",
-      "In-wall plumbing"
+      "In-wall wiring of any kind",
+      "Running new circuits, outlets, or switch locations",
+      "Panel or breaker-box work",
+      "Plumbing inside walls",
+      "Water heater replacement"
     ]
   },
   {
     title: "Exterior",
     icon: "🏡",
     weDo: [
-      "Wood Rot / Dry rot investigation and repair",
-      "Fence repair",
-      "Spot painting",
-      "Deck repair",
-      "Mailbox replacements",
-      "Exterior trim"
+      "Chasing down and rebuilding rotted wood",
+      "Fence sections mended",
+      "Touch-up exterior painting",
+      "Deck board and rail fixes",
+      "New mailboxes and posts",
+      "Exterior trim repairs"
     ],
     weDontDo: [
-      "Full fence installation",
+      "Building fences from scratch",
       "Pressure washing",
-      "Clean / fix gutters",
-      "Eaves",
-      "Work on any exterior space over two stories high"
+      "Gutter cleaning or repair",
+      "Eave work",
+      "Anything above the second story"
     ]
   }
 ];

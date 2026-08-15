@@ -12,9 +12,9 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, Phone, Wrench, MapPin, Clock } from "lucide-react";
 
 const HELPER_SCALE = [
-  { rate: "$20", level: "Helper / No Experience", detail: "Show up, work hard, learn. Carry material, demo, clean up." },
-  { rate: "$25", level: "General Labor", detail: "Comfortable on tools. Can be handed a task and finish it." },
-  { rate: "$30", level: "Carpenter", detail: "Frame, trim, hang doors. Accurate cuts without hand holding." },
+  { rate: "$20", level: "Helper / No Experience", detail: "Turn up ready to work: haul material, swing a demo hammer, leave the site clean." },
+  { rate: "$25", level: "General Labor", detail: "At home on tools. Takes a task in the morning and hands it back done." },
+  { rate: "$30", level: "Carpenter", detail: "Framing, trim, door hanging. Cuts land accurate without supervision." },
 ];
 
 const TRACKS = [
@@ -137,10 +137,10 @@ const Careers = () => {
               <span className="text-background/70">Pays Well.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl border-l-4 border-background pl-5">
-              A licensed Princeton-area shop with more booked work than we can finish. Run your
-              own handyman or trade business? We keep good craftsmen busy: jobs arrive pre-sized
-              with photos and the customer already booked. No lead fees, no invoicing, no chasing
-              checks. Not running your own shop yet? We bring on helpers for bigger jobs too.
+              A licensed shop working Princeton and Mercer County with a calendar fuller than
+              our crew. If you run your own trade or handyman operation, we hand you jobs already
+              photographed, scoped, and booked, with a dollar figure attached before you accept.
+              Still building your skills? Helpers join the crew on the bigger jobs.
             </p>
           </div>
         </section>
@@ -153,17 +153,17 @@ const Careers = () => {
                 <Clock className="h-6 w-6 mb-3" />
                 <div className="brutalist-section-eyebrow mb-2">The Work</div>
                 <p className="font-body text-base text-muted-foreground">
-                  Standardized flat-rate visits with the job pre-sized before you arrive:
-                  photos, scope, and materials sorted up front. Your calendar fills, you
-                  work it, weekends are yours.
+                  Flat-rate visits, each sized from customer photos before your boots hit
+                  the driveway. Scope and materials are settled in advance. You work the
+                  calendar; the weekend stays yours.
                 </p>
               </div>
               <div className="bento-card p-6">
                 <Wrench className="h-6 w-6 mb-3" />
                 <div className="brutalist-section-eyebrow mb-2">Bring Your Tools</div>
                 <p className="font-body text-base text-muted-foreground">
-                  You bring your hand and power tools and your truck. We supply materials
-                  and any specialty equipment the job needs.
+                  Your truck, your hand and power tools. Materials and any specialty
+                  gear a job calls for come from us.
                 </p>
               </div>
               <div className="bento-card p-6">
@@ -187,8 +187,8 @@ const Careers = () => {
                 How Pay Works
               </h2>
               <p className="font-body text-lg text-muted-foreground mt-4 max-w-2xl">
-                Two ways in, depending on where you are. Either way: paid every Friday,
-                on time, every time.
+                Two doors in, depending on where you stand today. Both pay out every
+                Friday without fail.
               </p>
             </div>
 
@@ -199,15 +199,15 @@ const Careers = () => {
                   Fixed Pay Per Job
                 </h3>
                 <p className="font-body text-base text-muted-foreground">
-                  You're already in business: registered, insured, your own truck and
-                  tools. We hand you booked jobs, pre-sized with photos and scope, and a
-                  fixed dollar figure you see before you say yes. Do good work, get paid
-                  Friday. No lead fees, no invoicing, no chasing checks, no showing up to
-                  bid against four other guys.
+                  You are registered, insured, and equipped. What we add is the part
+                  you hate: booked customers, jobs scoped from photos, and a fixed number
+                  shown before you commit. Deliver clean work and Friday pays you. Nobody
+                  charges you for leads, nobody makes you invoice, nobody lines you up
+                  against four other bids.
                 </p>
                 <p className="font-body text-base text-muted-foreground mt-4">
-                  Numbers depend on the job, so we go over real examples when we talk.
-                  Text photos of your work to start that conversation.
+                  Real jobs carry real numbers, so the examples come out when we talk.
+                  Open with photos of your work.
                 </p>
               </div>
 
@@ -217,8 +217,8 @@ const Careers = () => {
                   Hourly, On the Crew
                 </h3>
                 <p className="font-body text-base text-muted-foreground mb-5">
-                  Helpers come on for bigger jobs. Rate is set by what you can actually
-                  do, not how long you've been around. Show me on the first job and move up.
+                  The crew takes helpers when the job is big enough. Pay follows what
+                  your hands can do, not your resume. Prove it on job one and climb.
                 </p>
                 <div className="space-y-0 border-2 border-foreground">
                   {HELPER_SCALE.map((tier, i) => (

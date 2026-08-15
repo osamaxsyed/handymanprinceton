@@ -26,7 +26,6 @@ const staticPages = [
   { url: '/commercial-handyman', priority: '0.8', changefreq: 'monthly' },
   { url: '/property-managers', priority: '0.8', changefreq: 'monthly' },
   { url: '/storage-sheds', priority: '0.7', changefreq: 'monthly' },
-  { url: '/careers', priority: '0.5', changefreq: 'monthly' },
   { url: '/book', priority: '0.8', changefreq: 'monthly' },
   { url: '/remodels', priority: '0.9', changefreq: 'monthly' },
   { url: '/get-estimate', priority: '0.9', changefreq: 'monthly' },

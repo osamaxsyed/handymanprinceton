@@ -14,10 +14,10 @@ import { Phone, MessageSquare, ArrowRight, ArrowLeft, Camera, CheckCircle2, Cale
 const API = "https://ebh-booking.vercel.app";
 
 const SERVICES = [
-  { key: "visit", name: "Handyman Visit", price: "$295", sub: "Up to 2 hours of skilled work. Most lists fit here." },
-  { key: "halfday", name: "Half Day", price: "$525", sub: "Up to 4 hours on site for the bigger list." },
-  { key: "fullday", name: "Full Day", price: "$995", sub: "A full working day. The whole backlog." },
-  { key: "consult", name: "Bathroom Consult", price: "Free", sub: "In-home estimate for tub-to-shower, walk-ins, or a remodel." },
+  { key: "visit", name: "Handyman Visit", price: "$295", sub: "Two hours of skilled work. The usual whole list." },
+  { key: "halfday", name: "Half Day", price: "$525", sub: "Four hours on site when the list runs long." },
+  { key: "fullday", name: "Full Day", price: "$995", sub: "A whole working day against the whole backlog." },
+  { key: "consult", name: "Bathroom Consult", price: "Free", sub: "In-home look at a tub-to-shower, walk-in, or remodel." },
 ];
 
 const TOWNS = ["Princeton", "Princeton Junction", "West Windsor", "Robbinsville", "Lawrence Township", "Plainsboro", "South Brunswick", "Somewhere else nearby"];
@@ -125,26 +125,26 @@ const Book = () => {
               <CheckCircle2 className="h-12 w-12 text-[#2E4A3B] mx-auto mb-4" />
               <h1 className="brutalist-headline text-3xl md:text-4xl text-foreground mb-3">Request received.</h1>
               <p className="font-body text-lg text-muted-foreground mb-2">
-                We confirm your slot within 24 hours. Both prices are agreed before any work begins.
+                Your slot gets confirmed within 24 hours, and every price is settled before work starts.
               </p>
               <p className="font-body text-base text-muted-foreground">
-                Need it sooner? <a href={smsHref} className="text-primary underline">Text us</a> — we occasionally fit same-week jobs.
+                Need it sooner? <a href={smsHref} className="text-primary underline">Text us</a>; same-week gaps open up now and then.
               </p>
             </div>
           ) : (
             <>
               <p className="brutalist-section-eyebrow mb-2">Book a Visit</p>
               <h1 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-2">
-                {step === 0 && "What do you need?"}
-                {step === 1 && "What's on the list?"}
-                {step === 2 && "Photos and contact."}
-                {step === 3 && "Pick your slot."}
+                {step === 0 && "Pick your package."}
+                {step === 1 && "Tell us the list."}
+                {step === 2 && "Photos, name, number."}
+                {step === 3 && "Choose a slot."}
               </h1>
               <p className="font-body text-lg text-muted-foreground mb-8">
-                {step === 0 && "Flat packages. The price is the price, agreed before any work begins."}
-                {step === 1 && "Everything you want done. The whole list is the point."}
-                {step === 2 && "Photos let us size the job before we arrive, so the visit is all work."}
-                {step === 3 && "Morning or afternoon arrival. A booking is a request; we confirm within 24 hours."}
+                {step === 0 && "Flat packages only. The figure you see is the figure you pay, settled up front."}
+                {step === 1 && "Write down every item, large or small. Bundling is the whole value."}
+                {step === 2 && "Photos size the job before the truck rolls, so the visit spends itself on work."}
+                {step === 3 && "Morning or afternoon window. Your booking is a request until we confirm, within 24 hours."}
               </p>
 
               {step === 0 && (
@@ -171,8 +171,8 @@ const Book = () => {
                   value={tasks}
                   onChange={(e) => setTasks(e.target.value)}
                   placeholder={service === "consult"
-                    ? "Tell us about the bathroom: what you have now, what you want, anything you already know is wrong with it."
-                    : "List everything: the sticking door, the drywall hole by the garage, the faucet that drips, the towel bar that fell..."}
+                    ? "Describe the bathroom: what is there today, what you want instead, and anything already known to be wrong."
+                    : "Everything goes on the list: the door that drags, the crack over the stairs, the drippy faucet, the bar that came off the wall..."}
                   className="w-full rounded-[14px] border-2 border-[#E0D5C2] bg-card p-4 font-body text-lg"
                 />
               )}
@@ -255,7 +255,7 @@ const Book = () => {
 
               <div className="mt-10 bento-card p-5 flex flex-wrap items-center justify-between gap-3">
                 <p className="font-body text-base text-foreground m-0">
-                  Need it sooner? We occasionally fit same-week jobs.
+                  In a hurry? Same-week gaps open up now and then.
                 </p>
                 <div className="flex gap-2.5">
                   <a href={smsHref} className="brutalist-cta-secondary !min-h-[48px] !px-4 !text-base"><MessageSquare className="h-4 w-4" /> Text us</a>

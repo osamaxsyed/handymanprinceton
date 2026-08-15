@@ -191,6 +191,10 @@ const standalonePages = [
     slug: 'careers',
     title: 'Now Hiring Carpenters & Handymen | Princeton Handyman',
     description: 'Hiring skilled craftsmen and helpers around Princeton and Mercer County NJ. Booked flat-rate jobs for established handymen, hourly work for helpers. Apply online.',
+    // The application form is structurally identical to EBH's (labels and
+    // questionnaire options), which pushes cross-site shingle overlap past the
+    // 15% rule. A hiring form is a utility page, not a ranking page: noindex.
+    indexable: false,
   },
   {
     slug: 'book',
@@ -325,7 +329,7 @@ standalonePages.forEach((page) => {
     { name: 'Home', item: SITE },
     { name: page.title.split(' | ')[0], item: `${SITE}${url}` },
   ]);
-  const html = generateHtml(page.title, page.description, url, [breadcrumb]);
+  const html = generateHtml(page.title, page.description, url, [breadcrumb], page.indexable !== false);
   const pageDir = join(distDir, page.slug);
   ensureDir(pageDir);
   writeFileSync(join(pageDir, 'index.html'), html, 'utf8');

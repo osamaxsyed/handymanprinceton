@@ -32,12 +32,17 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background heavy-border-b" role="banner">
       <div className="w-full px-6 md:px-10 py-5 flex justify-between items-center">
-        {/* Logo wordmark */}
-        <Link
-          to="/"
-          className="font-headline font-black italic tracking-tighter text-xl md:text-2xl uppercase text-foreground"
-        >
-          Princeton<span className="text-muted-foreground"> /</span> Handyman
+        {/* Brand lockup, EBH treatment: red truck mark + town eyebrow over "Handyman." */}
+        <Link to="/" className="flex items-center gap-3">
+          <img src="/mark-truck-red.png" alt="" className="w-[64px] md:w-[74px] h-auto flex-none" />
+          <span className="flex flex-col items-start gap-0">
+            <span className="font-body text-[12.5px] tracking-[0.2em] uppercase text-[#795B41] font-semibold">
+              Princeton
+            </span>
+            <span className="font-headline font-bold text-2xl leading-none tracking-[-0.01em] text-foreground">
+              Handyman<span className="text-primary">.</span>
+            </span>
+          </span>
         </Link>
 
         {/* Desktop nav */}

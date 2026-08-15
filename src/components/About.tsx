@@ -5,8 +5,8 @@ const About = () => {
   const navigate = useNavigate();
 
   const credentials = [
-    "Licensed — NJ Home Improvement Contractor #13VH13918800",
-    "Insured — fully insured contractor",
+    "Licensed: NJ Home Improvement Contractor #13VH13918800",
+    "Insured: general liability coverage",
     "Bonded with the state of New Jersey",
     "5.0 on Google across customer reviews (collected through East Brunswick Handyman)",
     "Pursuing CAPS Certification (NAHB), targeted for Summer 2026",
