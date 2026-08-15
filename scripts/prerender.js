@@ -183,6 +183,26 @@ generatedCount++;
 // shell with the homepage canonical.
 const standalonePages = [
   {
+    slug: 'grab-bar-installation',
+    title: 'Grab Bar Installation Princeton NJ | Done in One Visit',
+    description: 'Grab bars fastened into studs and rated anchors for showers, tubs, and toilets. Princeton, West Windsor, Plainsboro, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'walk-in-showers',
+    title: 'Walk-In Shower Installation Princeton NJ | Written Pricing',
+    description: 'Low-threshold walk-in showers with benches and anchored bars, engineered for safety without the institutional look. Princeton, West Windsor, Robbinsville. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'shower-doors',
+    title: 'Shower Door Installation Princeton NJ | Measure-First Service',
+    description: 'Framed, semi-frameless, and frameless shower doors measured, hung, and sealed. Princeton, West Windsor, Robbinsville, Lawrence, Plainsboro. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'backsplash',
+    title: 'Backsplash Installation Princeton NJ | 1-2 Day Tile Jobs',
+    description: 'Kitchen and vanity backsplash tile set straight and grouted tight, outlets and edges included. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
     slug: 'tub-to-shower-conversion',
     title: 'Tub to Shower Conversion Princeton NJ | Fixed Price, 4 Days',
     description: 'Swap the unused tub for a walk-in shower in four working days. One written price covering demo, waterproofing, glass, and haul-away. Princeton, West Windsor, Robbinsville. NJ HIC #13VH13918800.',

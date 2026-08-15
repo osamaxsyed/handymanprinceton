@@ -10,6 +10,10 @@ import Index from "./pages/Index";
 import Remodels from "./pages/Remodels";
 import Handyman from "./pages/Handyman";
 import TubToShowerConversion from "./pages/TubToShowerConversion";
+import GrabBarInstallation from "./pages/GrabBarInstallation";
+import WalkInShowers from "./pages/WalkInShowers";
+import ShowerDoors from "./pages/ShowerDoors";
+import Backsplash from "./pages/Backsplash";
 import GetEstimate from "./pages/GetEstimate";
 import AboutPage from "./pages/AboutPage";
 import Portfolio from "./pages/Portfolio";
@@ -41,6 +45,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/handyman" element={<Handyman />} />
           <Route path="/tub-to-shower-conversion" element={<TubToShowerConversion />} />
+          <Route path="/grab-bar-installation" element={<GrabBarInstallation />} />
+          <Route path="/walk-in-showers" element={<WalkInShowers />} />
+          <Route path="/shower-doors" element={<ShowerDoors />} />
+          <Route path="/backsplash" element={<Backsplash />} />
           <Route path="/remodels" element={<Remodels />} />
           <Route path="/get-estimate" element={<GetEstimate />} />
           <Route path="/about" element={<AboutPage />} />
