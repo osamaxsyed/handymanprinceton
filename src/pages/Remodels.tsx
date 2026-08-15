@@ -21,7 +21,7 @@ const Remodels = () => {
 
   const processSteps = [
     { num: "01", title: "Share Your Vision", body: "Submit your remodel ideas through our inquiry form or call to discuss goals." },
-    { num: "02", title: "Walkthrough", body: "On-site walkthrough — we discuss vision, take measurements, provide recommendations." },
+    { num: "02", title: "Walkthrough", body: "On-site walkthrough: we discuss vision, take measurements, provide recommendations." },
     { num: "03", title: "Estimate & Retainer", body: "Comprehensive written estimate. 20% retainer secures your spot on our schedule." },
     { num: "04", title: "Build", body: "Demolition to final touches, with regular communication every step of the way." },
   ];
@@ -51,7 +51,7 @@ const Remodels = () => {
               <span className="text-background/70">Excited to be Home Again.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              You don't need to buy a new house to love your space. A thoughtful remodel transforms how you feel about your home — kitchens, baths, basements, decks.
+              You don't need to buy a new house to love your space. A thoughtful remodel transforms how you feel about your home: kitchens, baths, basements, decks.
             </p>
             <button onClick={() => navigate("/get-estimate")} className="brutalist-cta bg-background text-foreground border-background/30">
               Inquire About Remodel Options <ArrowRight className="h-4 w-4" />
@@ -73,7 +73,7 @@ const Remodels = () => {
               <div className="brutalist-section-eyebrow text-background/70">Our Solution</div>
               <h2 className="brutalist-headline text-2xl text-background mb-4">We specialize in small to medium remodels.</h2>
               <p className="font-body text-background/85 leading-relaxed mb-4">
-                Licensed, bonded, and insured general contractors who care about projects of all sizes — from a single bathroom to full basement build-outs.
+                A licensed and insured NJ home improvement contractor that cares about projects of all sizes, from a single bathroom to full basement build-outs.
               </p>
               <div className="flex items-center gap-2 font-headline font-bold uppercase tracking-wider text-xs">
                 <CheckCircle2 className="h-4 w-4" />

@@ -164,8 +164,8 @@ const LocationPage = () => {
               {locationData.slug === "princeton" && (
                 <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
                   When a project calls for heavy equipment rather than hand
-                  tools — land clearing, grading and drainage work, or digging a
-                  foundation or addition footing — our partner company{" "}
+                  tools (land clearing, grading and drainage work, or digging a
+                  foundation or addition footing), our partner company{" "}
                   <a
                     href="https://princetonexcavation.com/"
                     className="underline text-foreground hover:text-muted-foreground"

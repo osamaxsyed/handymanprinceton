@@ -2,18 +2,18 @@ import { Phone, Mail } from "lucide-react";
 
 const FAQ = () => {
   const faqs = [
-    { question: "What areas do you serve?", answer: "We provide handyman services throughout Central New Jersey, including Princeton, South Brunswick, Cranbury, Plainsboro, East Windsor, West Windsor, Lawrence Township, Robbinsville, Pennington, and Montgomery, and surrounding Mercer County towns. If you're unsure if we serve your area, please give us a call." },
-    { question: "Are you licensed and insured?", answer: "Yes — fully licensed (NJ HIC #13VH13918800), bonded, and insured. We carry general liability insurance and workers' compensation. License verification is available on request." },
-    { question: "How do you provide estimates?", answer: "Free estimates for most projects. Submit through our online form and we typically respond within 24 hours. For complex projects, we may schedule an in-person consultation to provide the most accurate quote." },
-    { question: "What types of projects do you handle?", answer: "Wide range — kitchen and bathroom remodels, general repairs, electrical, plumbing, painting, carpentry, deck staining, and maintenance. We're now also building pergolas, custom sheds, and backyard studios." },
-    { question: "Do you offer emergency services?", answer: "Yes, for urgent issues like plumbing leaks, electrical problems, or security concerns. We charge a premium for after-hours emergency calls but are available 24/7 when you need us most." },
-    { question: "How long do projects typically take?", answer: "Varies by scope. Small repairs: a few hours. Larger renovations: several weeks. Pergolas: 3–7 days. Sheds: 2–5 days. Backyard studios: 2–4 weeks. We provide a detailed timeline with your estimate." },
-    { question: "Do you provide warranties on your work?", answer: "Yes — one-year labor warranty on all our work. If any workmanship issues arise within a year of completion, we'll return to fix it at no charge. Material warranties are provided by the manufacturer." },
-    { question: "What should I expect during the project?", answer: "Clear communication throughout. We'll confirm work details before starting, keep you updated on progress, clean up daily, and walk through the completed work with you." },
-    { question: "How do you price your services?", answer: "Pricing depends on project scope, materials, and time required. Transparent, line-itemed pricing — no hidden fees. Smaller jobs get hourly rates; larger projects get fixed-price quotes." },
-    { question: "What payment methods do you accept?", answer: "Cash, checks, and all major credit cards. Larger projects typically require a small deposit to schedule the work, with the balance due upon completion." },
-    { question: "Do I need to be home during the work?", answer: "Preferably for the initial consultation and final walkthrough. For routine work, we can arrange access without you present if needed." },
-    { question: "How far in advance should I schedule?", answer: "Simple repairs can usually be scheduled within a week. Larger projects may require 2–4 weeks lead time. Pergola/shed/studio builds: book 4–8 weeks in advance for spring/summer slots." },
+    { question: "How is the work priced?", answer: "In flat blocks settled before anyone starts: $295 for the Visit (up to 2 hours of skilled work), $525 for the Half Day, $995 for the Full Day. Bathroom projects such as a tub-to-shower conversion carry one written price from a free in-home estimate. Materials are billed at cost and itemized. Nothing runs on an hourly meter." },
+    { question: "Which towns do you cover?", answer: "Princeton and Princeton Junction sit at the center. West Windsor, Robbinsville, Lawrence Township, Plainsboro, and South Brunswick are all regular territory, and neighboring Mercer County towns are usually workable. On the border? Call and we will tell you straight." },
+    { question: "Are you licensed and insured?", answer: "Yes. Central Jersey Home Services LLC is a licensed New Jersey home improvement contractor, NJ HIC #13VH13918800, insured with general liability coverage. Verification is available whenever you want it." },
+    { question: "Who actually shows up?", answer: "Osama, the owner, or one of the vetted craftsmen who work to his standard. You get a name and an on-the-way text first, the visit follows the list you sent, and the room is cleaned before the door closes behind us." },
+    { question: "What kind of work do you take on?", answer: "Bathrooms are the specialty: tub-to-shower conversions, walk-in showers, grab bars, and remodels. Around the rest of the house: drywall and plaster repair, carpentry and cabinet repair, doors, backsplash tile, shed assembly, and the entire small-repair list. Offices and rentals get punch-list service too." },
+    { question: "Do you handle plumbing or electrical?", answer: "Only the minor repairs the law allows inside handyman scope: faucet and fixture swaps, p-traps, outlet and switch replacements. New wiring, panels, gas, or in-wall plumbing belong to the licensed trades, and we will say so up front rather than improvise." },
+    { question: "How quickly can I get a visit?", answer: "Most visits land within the week. We are not an emergency line: a burst pipe or a sparking panel needs the licensed emergency trade first, and we handle the repairs that come after." },
+    { question: "Is there a warranty?", answer: "One year on labor. If our workmanship gives out inside twelve months, we return and put it right at no cost. Materials carry their manufacturers' warranties." },
+    { question: "How do I get an estimate?", answer: "Text photos of the job to the number at the top of the page, call, or use the estimate form. Photos are the shortcut: most jobs can be sized and priced from them without an extra trip." },
+    { question: "How can I pay?", answer: "Card, check, or cash. Bathroom projects start with a materials deposit; everything else is settled after the walkthrough at the end." },
+    { question: "Do I have to be home during the work?", answer: "The first visit works best with a short walkthrough together. After that, arranged access is routine, especially for rentals and offices, and you get photos when the list is closed." },
+    { question: "How far ahead should I book?", answer: "Repair visits usually fit inside the week. Bathroom conversions get scheduled at the estimate, typically a few weeks out. The online booking page shows the real calendar." },
   ];
 
   return (
@@ -57,7 +57,7 @@ const FAQ = () => {
         <div className="w-full max-w-3xl mx-auto px-6 md:px-10 text-center">
           <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">Still Have Questions?</h2>
           <p className="font-body text-lg text-background/80 mb-10">
-            Can't find what you're looking for? Just call or email — we respond fast.
+            Can't find what you're looking for? Just call or text and we respond fast.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

@@ -6,7 +6,7 @@ const Footer = () => {
     { name: "Bathroom Remodeling", href: "/bathroom-remodel" },
     { name: "Kitchen Remodeling", href: "/kitchen-remodeling" },
     { name: "Aging-in-Place", href: "/aging-in-place" },
-    { name: "Handyman Services", href: "/handyman-services" },
+    { name: "Handyman Visit ($295)", href: "/handyman" },
   ];
 
   const serviceAreas = [
@@ -100,7 +100,7 @@ const Footer = () => {
               </a>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
-                <span>Central NJ — Mercer County</span>
+                <span>Princeton and Mercer County, NJ</span>
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="h-4 w-4 flex-shrink-0 mt-0.5" />

@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 42 20% 97%;
     --popover-foreground: 158 25% 20%;
 
-    --primary: 158 25% 20%;
+    --primary: 358 73% 38%;
     --primary-foreground: 42 20% 97%;
 
     --secondary: 42 20% 90%;
@@ -151,6 +151,10 @@ All colors MUST be HSL.
 
   .brutalist-cta {
     @apply inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-foreground text-background border-b-4 border-foreground/40 hover:bg-foreground/90 active:translate-y-0.5 active:border-b-0 transition-all rounded-none;
+  }
+
+  .brutalist-cta-on-dark {
+    @apply inline-flex items-center justify-center gap-2.5 font-body font-semibold text-lg px-7 py-4 min-h-[60px] bg-primary text-primary-foreground rounded-[14px] hover:bg-[#8E1418] transition-colors;
   }
 
   .brutalist-cta-secondary {

@@ -15,7 +15,18 @@ const currentDate = new Date().toISOString().split('T')[0];
 // Static pages
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
-  { url: '/handyman-services', priority: '0.9', changefreq: 'monthly' },
+  { url: '/handyman', priority: '0.9', changefreq: 'monthly' },
+  { url: '/tub-to-shower-conversion', priority: '0.9', changefreq: 'monthly' },
+  { url: '/grab-bar-installation', priority: '0.9', changefreq: 'monthly' },
+  { url: '/walk-in-showers', priority: '0.9', changefreq: 'monthly' },
+  { url: '/shower-doors', priority: '0.8', changefreq: 'monthly' },
+  { url: '/backsplash', priority: '0.8', changefreq: 'monthly' },
+  { url: '/drywall-repair', priority: '0.8', changefreq: 'monthly' },
+  { url: '/carpentry', priority: '0.8', changefreq: 'monthly' },
+  { url: '/commercial-handyman', priority: '0.8', changefreq: 'monthly' },
+  { url: '/property-managers', priority: '0.8', changefreq: 'monthly' },
+  { url: '/storage-sheds', priority: '0.7', changefreq: 'monthly' },
+  { url: '/book', priority: '0.8', changefreq: 'monthly' },
   { url: '/remodels', priority: '0.9', changefreq: 'monthly' },
   { url: '/get-estimate', priority: '0.9', changefreq: 'monthly' },
   { url: '/about', priority: '0.7', changefreq: 'monthly' },
@@ -40,8 +51,13 @@ const locationPages = locations.map(location => ({
 
 // Generate service-location pages
 const serviceLocationPages = [];
+const comboPlan = JSON.parse(readFileSync(join(__dirname, '../src/data/combo-plan.json'), 'utf8'));
+const comboIndexable = (serviceSlug, locationSlug) =>
+  comboPlan.indexable.includes(`${serviceSlug}/${locationSlug}`);
+
 services.forEach(service => {
   locations.forEach(location => {
+    if (!comboIndexable(service.slug, location.slug)) return;
     serviceLocationPages.push({
       url: `/${service.slug}/${location.slug}`,
       priority: ((service.priority + location.priority) / 2).toFixed(1),

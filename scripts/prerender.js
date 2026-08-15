@@ -84,7 +84,7 @@ const buildFaqSchema = (faqs) => ({
 // injecting the server-rendered body for the route into the root div. React
 // takes over client-side via createRoot().render() (replace, not hydrate), so
 // crawlers see full content in the initial HTML with zero hydration risk.
-const generateHtml = (title, description, url, extraSchemaBlocks = []) => {
+const generateHtml = (title, description, url, extraSchemaBlocks = [], indexable = true) => {
   const canonical = `${SITE}${url || ''}`;
   const appHtml = render(url || '/');
   let html = baseHtml
@@ -92,6 +92,7 @@ const generateHtml = (title, description, url, extraSchemaBlocks = []) => {
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content=".*?"/, `<meta name="description" content="${description}"`)
     .replace(/<link rel="canonical" href=".*?"/, `<link rel="canonical" href="${canonical}"`)
+    .replace(/<meta name="robots" content=".*?"/, `<meta name="robots" content="${indexable ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' : 'noindex, follow'}"`)
     .replace(/<meta property="og:url" content=".*?"/, `<meta property="og:url" content="${canonical}"`)
     .replace(/<meta property="og:title" content=".*?"/, `<meta property="og:title" content="${title}"`)
     .replace(/<meta property="og:description" content=".*?"/, `<meta property="og:description" content="${description}"`)
@@ -108,6 +109,13 @@ const generateHtml = (title, description, url, extraSchemaBlocks = []) => {
 };
 
 let generatedCount = 0;
+
+
+// EBH noindex-allowlist mechanism: every combo builds and renders, but only
+// allowlisted earners are indexable. See src/data/combo-plan.json.
+const comboPlan = JSON.parse(readFileSync(join(__dirname, '../src/data/combo-plan.json'), 'utf8'));
+const comboIndexable = (serviceSlug, locationSlug) =>
+  comboPlan.indexable.includes(`${serviceSlug}/${locationSlug}`);
 
 // Service x location pages
 services.forEach((service) => {
@@ -127,7 +135,7 @@ services.forEach((service) => {
       blocks.push(buildFaqSchema(service.faqs));
     }
 
-    const html = generateHtml(title, description, url, blocks);
+    const html = generateHtml(title, description, url, blocks, comboIndexable(service.slug, location.slug));
     const pageDir = join(distDir, service.slug, location.slug);
     ensureDir(pageDir);
     writeFileSync(join(pageDir, 'index.html'), html, 'utf8');
@@ -175,9 +183,73 @@ generatedCount++;
 // shell with the homepage canonical.
 const standalonePages = [
   {
-    slug: 'handyman-services',
-    title: 'Handyman Services in Princeton & Central NJ | Princeton Handyman',
-    description: 'Full list of handyman services: plumbing repairs, electrical work, carpentry, painting, drywall, and more. Licensed and insured. Serving Princeton, West Windsor, Lawrence, Montgomery, and surrounding NJ towns.',
+    slug: 'storage-sheds',
+    title: 'Storage Shed Assembly & Repair Princeton NJ | Level Base',
+    description: 'Prefab shed assembly, base prep, permits checked, and repairs to sheds that lean. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'careers',
+    title: 'Now Hiring Carpenters & Handymen | Princeton Handyman',
+    description: 'Hiring skilled craftsmen and helpers around Princeton and Mercer County NJ. Booked flat-rate jobs for established handymen, hourly work for helpers. Apply online.',
+    // The application form is structurally identical to EBH's (labels and
+    // questionnaire options), which pushes cross-site shingle overlap past the
+    // 15% rule. A hiring form is a utility page, not a ranking page: noindex.
+    indexable: false,
+  },
+  {
+    slug: 'book',
+    title: 'Book a Handyman Visit in Princeton NJ | Pick a Slot',
+    description: 'Pick your flat-rate package, send your list and photos, and request a morning or afternoon slot. Confirmed within 24 hours. Princeton and Mercer County NJ.',
+  },
+  {
+    slug: 'drywall-repair',
+    title: 'Drywall Repair Princeton NJ | Patches That Disappear',
+    description: 'Holes, cracks, ceilings, water damage, and the plaster walls older Princeton homes are full of. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'carpentry',
+    title: 'Carpentry & Cabinet Repair Princeton NJ | Small Jobs Welcome',
+    description: 'Cabinet repair, trim, shelving, railings, rot, and doors: the small carpentry work bigger crews ignore. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'commercial-handyman',
+    title: 'Commercial Handyman Princeton NJ | Offices & Facilities',
+    description: 'Facility punch lists for offices, medical suites, and retail around Princeton and the Route 1 corridor. After-hours scheduling, COI on file. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'property-managers',
+    title: 'Handyman for Property Managers Princeton NJ | Turnovers',
+    description: 'Standing punch-list accounts, make-readies, and tenant coordination for rentals around Princeton, Lawrence, and West Windsor. Photo-verified, COI on file. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'grab-bar-installation',
+    title: 'Grab Bar Installation Princeton NJ | Done in One Visit',
+    description: 'Grab bars fastened into studs and rated anchors for showers, tubs, and toilets. Princeton, West Windsor, Plainsboro, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'walk-in-showers',
+    title: 'Walk-In Shower Installation Princeton NJ | Written Pricing',
+    description: 'Low-threshold walk-in showers with benches and anchored bars, engineered for safety without the institutional look. Princeton, West Windsor, Robbinsville. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'shower-doors',
+    title: 'Shower Door Installation Princeton NJ | Measure-First Service',
+    description: 'Framed, semi-frameless, and frameless shower doors measured, hung, and sealed. Princeton, West Windsor, Robbinsville, Lawrence, Plainsboro. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'backsplash',
+    title: 'Backsplash Installation Princeton NJ | 1-2 Day Tile Jobs',
+    description: 'Kitchen and vanity backsplash tile set straight and grouted tight, outlets and edges included. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'tub-to-shower-conversion',
+    title: 'Tub to Shower Conversion Princeton NJ | Fixed Price, 4 Days',
+    description: 'Swap the unused tub for a walk-in shower in four working days. One written price covering demo, waterproofing, glass, and haul-away. Princeton, West Windsor, Robbinsville. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'handyman',
+    title: 'Handyman & Home Repairs in Princeton NJ | $295 Visit',
+    description: 'A flat $295 visit covers up to 2 hours of skilled work: sticking doors, plaster and drywall, fixtures, the whole list. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
   },
   {
     slug: 'remodels',
@@ -257,7 +329,7 @@ standalonePages.forEach((page) => {
     { name: 'Home', item: SITE },
     { name: page.title.split(' | ')[0], item: `${SITE}${url}` },
   ]);
-  const html = generateHtml(page.title, page.description, url, [breadcrumb]);
+  const html = generateHtml(page.title, page.description, url, [breadcrumb], page.indexable !== false);
   const pageDir = join(distDir, page.slug);
   ensureDir(pageDir);
   writeFileSync(join(pageDir, 'index.html'), html, 'utf8');

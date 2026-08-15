@@ -26,7 +26,7 @@ const ServiceAreas = () => {
             </h2>
           </div>
           <p className="font-body text-base md:text-lg text-muted-foreground md:max-w-md">
-            Central NJ — Mercer County and surrounding areas.
+            Princeton, Mercer County, and the surrounding towns.
           </p>
         </div>
 

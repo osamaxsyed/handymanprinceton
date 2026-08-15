@@ -9,15 +9,15 @@ const ServicesOverview = () => {
   const navigate = useNavigate();
 
   const additionalServices = [
-    { name: "Handyman Services", path: "/handyman-services" },
-    { name: "Home Repairs", path: "/home-repairs/princeton" },
-    { name: "Drywall Repair", path: "/drywall-repair/princeton" },
-    { name: "Carpentry", path: "/carpentry-services/princeton" },
-    { name: "Cabinet Installation", path: "/cabinet-installation/princeton" },
-    { name: "Door Installation", path: "/door-installation/princeton" },
-    { name: "Flooring Installation", path: "/flooring-installation/princeton" },
-    { name: "Deck Staining", path: "/deck-staining/princeton" },
-    { name: "Fence Repair", path: "/fence-repair/princeton" },
+    { name: "Handyman Visit ($295)", path: "/handyman" },
+    { name: "Drywall Repair", path: "/drywall-repair" },
+    { name: "Carpentry & Cabinets", path: "/carpentry" },
+    { name: "Grab Bar Installation", path: "/grab-bar-installation" },
+    { name: "Walk-In Showers", path: "/walk-in-showers" },
+    { name: "Shower Doors", path: "/shower-doors" },
+    { name: "Backsplash & Tile", path: "/backsplash" },
+    { name: "Storage Sheds", path: "/storage-sheds" },
+    { name: "Commercial Handyman", path: "/commercial-handyman" },
   ];
 
   return (

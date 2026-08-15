@@ -5,9 +5,22 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import StructuredData from "./components/StructuredData";
+import StickyCallBar from "./components/StickyCallBar";
 import Index from "./pages/Index";
-import HandymanServices from "./pages/HandymanServices";
 import Remodels from "./pages/Remodels";
+import Handyman from "./pages/Handyman";
+import TubToShowerConversion from "./pages/TubToShowerConversion";
+import GrabBarInstallation from "./pages/GrabBarInstallation";
+import WalkInShowers from "./pages/WalkInShowers";
+import ShowerDoors from "./pages/ShowerDoors";
+import Backsplash from "./pages/Backsplash";
+import DrywallRepair from "./pages/DrywallRepair";
+import Carpentry from "./pages/Carpentry";
+import CommercialHandyman from "./pages/CommercialHandyman";
+import PropertyManagers from "./pages/PropertyManagers";
+import StorageSheds from "./pages/StorageSheds";
+import Careers from "./pages/Careers";
+import Book from "./pages/Book";
 import GetEstimate from "./pages/GetEstimate";
 import AboutPage from "./pages/AboutPage";
 import Portfolio from "./pages/Portfolio";
@@ -37,7 +50,19 @@ const App = () => (
       <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/handyman-services" element={<HandymanServices />} />
+          <Route path="/handyman" element={<Handyman />} />
+          <Route path="/tub-to-shower-conversion" element={<TubToShowerConversion />} />
+          <Route path="/grab-bar-installation" element={<GrabBarInstallation />} />
+          <Route path="/walk-in-showers" element={<WalkInShowers />} />
+          <Route path="/shower-doors" element={<ShowerDoors />} />
+          <Route path="/backsplash" element={<Backsplash />} />
+          <Route path="/drywall-repair" element={<DrywallRepair />} />
+          <Route path="/carpentry" element={<Carpentry />} />
+          <Route path="/commercial-handyman" element={<CommercialHandyman />} />
+          <Route path="/property-managers" element={<PropertyManagers />} />
+          <Route path="/storage-sheds" element={<StorageSheds />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/book" element={<Book />} />
           <Route path="/remodels" element={<Remodels />} />
           <Route path="/get-estimate" element={<GetEstimate />} />
           <Route path="/about" element={<AboutPage />} />
@@ -61,6 +86,10 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        {/* Mobile ranks ~9 positions better than desktop on this property
+            (18.6 vs 27.0, 90d GSC), so phone visitors are the majority of
+            what we actually have. Keep the call one tap away on every page. */}
+        <StickyCallBar />
     </TooltipProvider>
   </QueryClientProvider>
 );
