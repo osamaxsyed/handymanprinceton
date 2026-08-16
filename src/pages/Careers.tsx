@@ -20,7 +20,7 @@ const HELPER_SCALE = [
 const TRACKS = [
   "I run my own handyman or trade business",
   "Skilled on tools, looking for hourly work",
-  "Helper — ready to work and learn",
+  "Helper, ready to work and learn",
 ];
 
 const TOOL_BRANDS = ["Milwaukee", "DeWalt", "Makita", "Ryobi", "Other"];
@@ -397,7 +397,7 @@ const Careers = () => {
                         </RadioGroup>
                       </div>
                       <p className="font-body text-xs text-muted-foreground md:col-span-2">
-                        Not there yet on either? Apply anyway — plenty of good craftsmen start
+                        Not there yet on either? Apply anyway. Plenty of good craftsmen start
                         on the hourly side while they get set up.
                       </p>
                     </div>

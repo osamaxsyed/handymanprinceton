@@ -20,7 +20,10 @@ const HomeOffers = () => (
         <div className="bento-card p-7 md:p-9 flex flex-col">
           <p className="brutalist-section-eyebrow mb-2">Most popular</p>
           <h3 className="brutalist-headline text-2xl text-foreground mb-1">Handyman Visit</h3>
-          <p className="font-headline font-bold text-[40px] leading-none text-primary mb-4">{site.pricing.visit}</p>
+          <div className="flex items-baseline gap-3 mb-4 flex-wrap">
+            <p className="font-headline font-bold text-[40px] leading-none text-primary m-0">{site.pricing.visit}</p>
+            <p className="font-body text-lg text-muted-foreground m-0">franchise rate <span className="line-through decoration-[1.5px]">$350</span></p>
+          </div>
           <p className="font-body text-lg text-foreground/85 mb-4">
             Up to 2 hours of skilled work against your whole to-do list.
           </p>

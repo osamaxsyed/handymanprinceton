@@ -13,11 +13,13 @@ import { Phone, MessageSquare, ArrowRight, ArrowLeft, Camera, CheckCircle2, Cale
 
 const API = "https://ebh-booking.vercel.app";
 
+// "was" = Ace Handyman Services' published package rate for the same hours,
+// checked August 2026 (see the homepage comparison). A labeled anchor.
 const SERVICES = [
-  { key: "visit", name: "Handyman Visit", price: "$295", sub: "Two hours of skilled work. The usual whole list." },
-  { key: "halfday", name: "Half Day", price: "$525", sub: "Four hours on site when the list runs long." },
-  { key: "fullday", name: "Full Day", price: "$995", sub: "A whole working day against the whole backlog." },
-  { key: "consult", name: "Bathroom Consult", price: "Free", sub: "In-home look at a tub-to-shower, walk-in, or remodel." },
+  { key: "visit", name: "Handyman Visit", price: "$295", was: "$350", sub: "Two hours of skilled work. The usual whole list." },
+  { key: "halfday", name: "Half Day", price: "$525", was: "$600", sub: "Four hours on site when the list runs long." },
+  { key: "fullday", name: "Full Day", price: "$995", was: "$1,100", sub: "A whole working day against the whole backlog." },
+  { key: "consult", name: "Bathroom Consult", price: "Free", was: "", sub: "In-home look at a tub-to-shower, walk-in, or remodel." },
 ];
 
 const TOWNS = ["Princeton", "Princeton Junction", "West Windsor", "Robbinsville", "Lawrence Township", "Plainsboro", "South Brunswick", "Somewhere else nearby"];
@@ -159,7 +161,12 @@ const Book = () => {
                         <span className="brutalist-headline text-xl text-foreground block">{s.name}</span>
                         <span className="font-body text-base text-muted-foreground">{s.sub}</span>
                       </span>
-                      <span className="font-headline font-bold text-2xl text-primary whitespace-nowrap">{s.price}</span>
+                      <span className="flex flex-col items-end flex-none">
+                        {s.was && (
+                          <span className="font-body text-sm text-muted-foreground whitespace-nowrap">franchise rate <span className="line-through decoration-[1.5px]">{s.was}</span></span>
+                        )}
+                        <span className="font-headline font-bold text-2xl text-primary whitespace-nowrap">{s.price}</span>
+                      </span>
                     </button>
                   ))}
                 </div>
