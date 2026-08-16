@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "What does drywall repair cost around Princeton?",
     answer:
-      "A door-knob hole, a settlement crack, a few screw pops: repairs like these fit inside the $295 visit, and the visit usually swallows several of them at once. A room's worth of damage moves to the flat Half Day ($525) or Full Day ($995). Ceilings and water damage get a written price at the estimate, because what is behind the board decides the job.",
+      "A door-knob hole, a settlement crack, a few screw pops: repairs like these fit inside the $295 visit, and the visit usually swallows several of them at once. A room's worth of damage moves to the flat Half Day ($495) or Full Day ($895). Ceilings and water damage get a written price at the estimate, because what is behind the board decides the job.",
   },
   {
     question: "Will I be able to see where the patch was?",

@@ -147,7 +147,7 @@ replace them, never before.
 
 ### Pricing (confirmed by owner)
 
-$295 Visit / $525 Half Day / $995 Full Day, flat, no hourly rate. Identical to
+$295 Visit / $495 Half Day / $895 Full Day, flat, no hourly rate. Identical to
 EBH by design: one price sheet for the whole operation.
 
 ### Reviews (owner decision 2026-08-15)

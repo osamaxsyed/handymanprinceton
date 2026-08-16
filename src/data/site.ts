@@ -38,8 +38,8 @@ export const site = {
   // No hourly rate anywhere: the FAQ sells against hourly billing.
   pricing: {
     visit: "$295",
-    halfDay: "$525",
-    fullDay: "$995",
+    halfDay: "$495",
+    fullDay: "$895",
     visitScope: "Up to 2 hours of skilled work",
   },
 

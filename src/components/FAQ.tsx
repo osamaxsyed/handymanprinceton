@@ -2,7 +2,7 @@ import { Phone, Mail } from "lucide-react";
 
 const FAQ = () => {
   const faqs = [
-    { question: "How is the work priced?", answer: "In flat blocks settled before anyone starts: $295 for the Visit (up to 2 hours of skilled work), $525 for the Half Day, $995 for the Full Day. Bathroom projects such as a tub-to-shower conversion carry one written price from a free in-home estimate. Materials are billed at cost and itemized. Nothing runs on an hourly meter." },
+    { question: "How is the work priced?", answer: "In flat blocks settled before anyone starts: $295 for the Visit (up to 2 hours of skilled work), $495 for the Half Day, $895 for the Full Day. Bathroom projects such as a tub-to-shower conversion carry one written price from a free in-home estimate. Materials are billed at cost and itemized. Nothing runs on an hourly meter." },
     { question: "Which towns do you cover?", answer: "Princeton and Princeton Junction sit at the center. West Windsor, Robbinsville, Lawrence Township, Plainsboro, and South Brunswick are all regular territory, and neighboring Mercer County towns are usually workable. On the border? Call and we will tell you straight." },
     { question: "Are you licensed and insured?", answer: "Yes. Central Jersey Home Services LLC is a licensed New Jersey home improvement contractor, NJ HIC #13VH13918800, insured with general liability coverage. Verification is available whenever you want it." },
     { question: "Who actually shows up?", answer: "Osama, the owner, or one of the vetted craftsmen who work to his standard. You get a name and an on-the-way text first, the visit follows the list you sent, and the room is cleaned before the door closes behind us." },

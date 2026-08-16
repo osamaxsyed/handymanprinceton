@@ -17,8 +17,8 @@ const API = "https://ebh-booking.vercel.app";
 // checked August 2026 (see the homepage comparison). A labeled anchor.
 const SERVICES = [
   { key: "visit", name: "Handyman Visit", price: "$295", was: "$350", sub: "Two hours of skilled work. The usual whole list." },
-  { key: "halfday", name: "Half Day", price: "$525", was: "$600", sub: "Four hours on site when the list runs long." },
-  { key: "fullday", name: "Full Day", price: "$995", was: "$1,100", sub: "A whole working day against the whole backlog." },
+  { key: "halfday", name: "Half Day", price: "$495", was: "$600", sub: "Four hours on site when the list runs long." },
+  { key: "fullday", name: "Full Day", price: "$895", was: "$1,100", sub: "A whole working day against the whole backlog." },
   { key: "consult", name: "Bathroom Consult", price: "Free", was: "", sub: "In-home look at a tub-to-shower, walk-in, or remodel." },
 ];
 

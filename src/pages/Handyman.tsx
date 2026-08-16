@@ -27,7 +27,7 @@ const Handyman = () => {
           {
             question: "What does a handyman visit cost in Princeton?",
             answer:
-              "We price in flat blocks instead of by the hour: $295 for the Visit (up to 2 hours of skilled work), $525 for a Half Day, $995 for a Full Day. Nearly every to-do list fits the Visit, and if yours looks bigger we say so before starting, not on the invoice. Materials are billed at cost.",
+              "We price in flat blocks instead of by the hour: $295 for the Visit (up to 2 hours of skilled work), $495 for a Half Day, $895 for a Full Day. Nearly every to-do list fits the Visit, and if yours looks bigger we say so before starting, not on the invoice. Materials are billed at cost.",
           },
           {
             question: "How should I prepare my list?",

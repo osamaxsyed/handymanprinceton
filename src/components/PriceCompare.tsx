@@ -6,8 +6,8 @@ import { Fragment } from "react";
 
 const ROWS = [
   { hours: "2 hours", them: "$350", us: "$295", save: "$55 stays with you" },
-  { hours: "4 hours", them: "$600", us: "$525", save: "$75 stays with you" },
-  { hours: "Full day", them: "$1,100", us: "$995", save: "$105 stays with you" },
+  { hours: "4 hours", them: "$600", us: "$495", save: "$105 stays with you" },
+  { hours: "Full day", them: "$1,100", us: "$895", save: "$205 stays with you" },
 ];
 
 const PriceCompare = () => (

@@ -15,7 +15,7 @@ const faqs = [
   {
     question: "What do small carpentry jobs cost?",
     answer:
-      "Almost all of them land inside the $295 visit: a cabinet hinge rebuilt, a run of baseboard swapped, a handrail re-anchored, a door planed to close right. When the project grows into a build, it moves to the flat Half Day ($525), Full Day ($995), or a written estimate. The number always comes before the sawdust.",
+      "Almost all of them land inside the $295 visit: a cabinet hinge rebuilt, a run of baseboard swapped, a handrail re-anchored, a door planed to close right. When the project grows into a build, it moves to the flat Half Day ($495), Full Day ($895), or a written estimate. The number always comes before the sawdust.",
   },
   {
     question: "Do you repair cabinets or only install new ones?",
