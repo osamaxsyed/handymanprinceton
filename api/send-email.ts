@@ -55,6 +55,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       replyTo: email,
     });
 
+    // Email receipt to the customer, mirroring the booking flow: the text is the
+    // moment, the email is the record they can find again later. Best-effort and
+    // skipped for job applications.
+    if (email && !isApplication) {
+      try {
+        await transporter.sendMail({
+          from: `Princeton Handyman <${inboxAddress}>`,
+          replyTo: inboxAddress,
+          to: email,
+          subject: `We got your request - Princeton Handyman`,
+          html: `
+            <p>Thanks ${esc(String(name).trim().split(/\s+/)[0])}, your estimate request is in.</p>
+            <p>Osama reviews these personally and gets back to you the same business day.
+               If you have photos of the job, text them to (609) 375-0098: it is the fastest
+               way to get you a real price without a second trip.</p>
+            <h3 style="margin-bottom:6px">Flat pricing, agreed before any work starts</h3>
+            <p style="margin-top:0">Handyman Visit $295 (up to 2 hours) &middot; Half Day $495 &middot; Full Day $895<br>
+               Bathroom projects get one fixed written price at a free in-home estimate.
+               Materials at cost. No hourly meters.</p>
+            <p>- Princeton Handyman &middot; NJ HIC #13VH13918800<br>
+               <a href="https://handymanprinceton.com">handymanprinceton.com</a></p>`,
+        });
+      } catch (receiptError) {
+        console.error('Customer receipt email failed (form still delivered):', receiptError);
+      }
+    }
+
     // Auto-acknowledge estimate requests by text from the Quo line (the same
     // number Osama texts from, so replies land in his normal thread). Photos
     // are the point: EBH prices from photos. Best-effort — never fails the
