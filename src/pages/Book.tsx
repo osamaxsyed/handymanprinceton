@@ -86,7 +86,7 @@ const Book = () => {
       const r = await fetch(`${API}/api/request`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ service, tasks, photos, name, phone, email, town, date: slot.date, window: slot.window }),
+        body: JSON.stringify({ brand: "princeton", service, tasks, photos, name, phone, email, town, date: slot.date, window: slot.window }),
       });
       const d = await r.json();
       if (r.status === 409) {

@@ -55,6 +55,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       replyTo: email,
     });
 
+    // Auto-acknowledge estimate requests by text from the Quo line (the same
+    // number Osama texts from, so replies land in his normal thread). Photos
+    // are the point: EBH prices from photos. Best-effort — never fails the
+    // form submission, and job applications are excluded.
+    const quoKey = process.env.QUO_API_KEY;
+    const quoFrom = process.env.QUO_PHONE_NUMBER_ID;
+    const digits = String(phone || '').replace(/\D/g, '');
+    const e164 =
+      digits.length === 10 ? `+1${digits}`
+      : digits.length === 11 && digits.startsWith('1') ? `+${digits}`
+      : null;
+    if (quoKey && quoFrom && e164 && !isApplication) {
+      const firstName = String(name).trim().split(/\s+/)[0];
+      try {
+        await fetch('https://api.openphone.com/v1/messages', {
+          method: 'POST',
+          headers: { Authorization: quoKey, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: quoFrom,
+            to: [e164],
+            content:
+              `Hi ${firstName}, this is Princeton Handyman — we got your estimate request and Osama will reach out shortly. ` +
+              `If you have photos of the job, reply with them here. It helps us get you a price faster.`,
+          }),
+        });
+      } catch (smsError) {
+        console.error('Quo auto-text failed (form still delivered):', smsError);
+      }
+    }
+
     return res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('Error sending email:', error);
