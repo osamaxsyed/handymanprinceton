@@ -29,6 +29,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const SITE_TAG = '[Princeton]';
     const SITE_NAME = 'handymanprinceton.com';
 
+    const isApplication = formType === 'application';
+
+    // Form values land in an HTML email, so escape before interpolating.
+    const esc = (v: unknown) =>
+      String(v ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
     const emailSubject = formType === 'booking'
       ? `${SITE_TAG} New Booking Request from ${name}`
       : `${SITE_TAG} New Estimate Request from ${name}`;
@@ -47,6 +58,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     `;
 
     // Send email
+    // The owner notification is the only send the HTTP response waits on.
     await transporter.sendMail({
       from: `Princeton Handyman <${inboxAddress}>`,
       to: inboxAddress,
@@ -58,9 +70,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Email receipt to the customer, mirroring the booking flow: the text is the
     // moment, the email is the record they can find again later. Best-effort and
     // skipped for job applications.
+    const followUps: Promise<unknown>[] = [];
+
     if (email && !isApplication) {
-      try {
-        await transporter.sendMail({
+      followUps.push(
+        transporter.sendMail({
           from: `Princeton Handyman <${inboxAddress}>`,
           replyTo: inboxAddress,
           to: email,
@@ -76,10 +90,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                Materials at cost. No hourly meters.</p>
             <p>- Princeton Handyman &middot; NJ HIC #13VH13918800<br>
                <a href="https://handymanprinceton.com">handymanprinceton.com</a></p>`,
-        });
-      } catch (receiptError) {
-        console.error('Customer receipt email failed (form still delivered):', receiptError);
-      }
+        }).catch((receiptError) => {
+          console.error('Customer receipt email failed (form still delivered):', receiptError);
+        })
+      );
     }
 
     // Auto-acknowledge estimate requests by text from the Quo line (the same
@@ -95,8 +109,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       : null;
     if (quoKey && quoFrom && e164 && !isApplication) {
       const firstName = String(name).trim().split(/\s+/)[0];
-      try {
-        await fetch('https://api.openphone.com/v1/messages', {
+      followUps.push(
+        fetch('https://api.openphone.com/v1/messages', {
           method: 'POST',
           headers: { Authorization: quoKey, 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -106,10 +120,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               `Hi ${firstName}, this is Princeton Handyman — we got your estimate request and Osama will reach out shortly. ` +
               `If you have photos of the job, reply with them here. It helps us get you a price faster.`,
           }),
-        });
-      } catch (smsError) {
-        console.error('Quo auto-text failed (form still delivered):', smsError);
-      }
+        }).catch((smsError) => {
+          console.error('Quo auto-text failed (form still delivered):', smsError);
+        })
+      );
+    }
+
+    // Bounded wait: give the follow-ups a moment to finish, but never let a
+    // slow SMTP or SMS round trip run the function into Vercel's 10s ceiling
+    // and surface as a failure to a customer whose request already landed.
+    if (followUps.length) {
+      await Promise.race([
+        Promise.allSettled(followUps),
+        new Promise((resolve) => setTimeout(resolve, 2500)),
+      ]);
     }
 
     return res.status(200).json({ success: true, message: 'Email sent successfully' });
