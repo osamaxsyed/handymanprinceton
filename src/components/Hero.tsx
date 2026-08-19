@@ -106,7 +106,7 @@ const Hero = () => {
                 <div className="grid gap-3.5">
                   <input value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your name"
                     className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
-                  <input value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" placeholder="Phone number"
+                  <input value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" inputMode="tel" autoComplete="tel" placeholder="Mobile number (we text you back)"
                     className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
                   <textarea value={details} onChange={(e) => setDetails(e.target.value)} required rows={3}
                     placeholder="What needs doing? A sentence is plenty."

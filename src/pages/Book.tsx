@@ -197,8 +197,13 @@ const Book = () => {
                     <input type="file" accept="image/*" multiple className="hidden" onChange={(e) => onFiles(e.target.files)} />
                   </label>
                   <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
-                  <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" placeholder="Phone number" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
+                  <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" inputMode="tel" autoComplete="tel" placeholder="Mobile number (for text updates)" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
                   <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email (for your confirmation)" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
+                  <p className="font-body text-sm text-muted-foreground m-0">
+                    We text this number with your booking confirmation and a reminder the day
+                    before. Msg &amp; data rates may apply, reply STOP to opt out. We never share
+                    your information.
+                  </p>
                   <select value={town} onChange={(e) => setTown(e.target.value)} className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg">
                     <option value="">Your town</option>
                     {TOWNS.map((t) => <option key={t} value={t}>{t}</option>)}
