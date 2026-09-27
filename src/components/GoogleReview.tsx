@@ -1,11 +1,13 @@
 // A single real Google review, styled per the redesign. Quotes come verbatim
-// from the GBP export (docs/gbp/) — never edit review text beyond truncation.
+// from the GBP export — never edit review text beyond truncation. On this site
+// every review was earned under the East Brunswick Handyman profile (same LLC,
+// same crew); the `detail` prop carries that attribution.
 import { Star } from "lucide-react";
 
 type Props = {
   quote: string;
   name: string;
-  detail?: string; // e.g. "Bathroom remodel, Piscataway"
+  detail?: string; // e.g. "Pantry shelving, via East Brunswick Handyman"
 };
 
 const GoogleReview = ({ quote, name, detail }: Props) => (

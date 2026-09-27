@@ -1,25 +1,25 @@
-// Booking flow per docs/OPERATING_BRIEF.md: intake first, and a booking is a REQUEST
-// (never an instant confirmation).
+// Booking flow (EBH structure): intake first, and a booking is a REQUEST,
+// never an instant confirmation.
 //
-// 2026-09-17: the slot picker is gone. Scheduling lives in Housecall Pro now, so the
-// ebh-booking slot feed and "EBH Jobs" calendar this page used to read (retired 2026-09-22) is no longer the schedule; offering
-// its windows would let a customer "book" a time nobody is holding. The request goes
-// through the same /api/send-email path as the estimate form; we reply by text with a
-// time. Photos are asked for by that reply (the auto-text), not uploaded here.
+// No slot picker. Scheduling lives in Housecall Pro; offering calendar windows
+// here would let a customer "book" a time nobody is holding. The request goes
+// through the same /api/send-email path as the estimate form (formType
+// "booking"); we reply by text with a time. Photos are asked for by that reply.
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Phone, MessageSquare, ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { CORE_TOWNS, EXTENDED_TOWNS, WARRANTY } from "@/data/coreServices";
+import { site } from "@/data/site";
 
 const SERVICES = [
-  { key: "visit", name: "Handyman Visit", price: "$295", was: "$350", sub: "Two hours of skilled work. The usual whole list." },
-  { key: "halfday", name: "Half Day", price: "$495", was: "$600", sub: "Four hours on site when the list runs long." },
-  { key: "fullday", name: "Full Day", price: "$895", was: "$1,100", sub: "A whole working day against the whole backlog." },
-  { key: "consult", name: "Bathroom Consult", price: "Free", was: "", sub: "In-home look at a tub-to-shower, walk-in, or remodel." },
+  { key: "visit", name: "Handyman Visit", price: "$345", sub: "Up to two hours of general repairs. Most lists land here; specialty installs are quoted per job." },
+  { key: "halfday", name: "Half Day", price: "$595", sub: "Up to four hours on site for the longer list." },
+  { key: "fullday", name: "Full Day", price: "$1,095", sub: "A full working day. The whole backlog in one go." },
 ];
 
-const TOWNS = ["Princeton", "Princeton Junction", "West Windsor", "Robbinsville", "Lawrence Township", "Plainsboro", "South Brunswick", "Somewhere else nearby"];
+const TOWNS = [...CORE_TOWNS.map((t) => t.name), ...EXTENDED_TOWNS.map((t) => t.name), "Another nearby town"];
 
 const Book = () => {
   const [step, setStep] = useState(0);
@@ -34,7 +34,7 @@ const Book = () => {
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
 
-  const smsHref = `sms:6093750098?&body=${encodeURIComponent("Hi, I'd like to book a visit. Here's what I need done: ")}`;
+  const smsHref = `sms:${site.phoneRaw}?&body=${encodeURIComponent("Hi, I'd like to request a visit. Here's my list: ")}`;
   const pkg = SERVICES.find((s) => s.key === service);
 
   async function submit() {
@@ -59,12 +59,12 @@ const Book = () => {
       });
       if (!r.ok) {
         const d = await r.json().catch(() => ({}));
-        setError(d.error || "Something went wrong. Call or text us instead.");
+        setError(d.error || "That didn't go through. Call or text us instead.");
       } else {
         setDone(true);
       }
     } catch {
-      setError("Could not send your request. Call or text us instead.");
+      setError("We couldn't send your request. Call or text us instead.");
     }
     setSubmitting(false);
   }
@@ -78,8 +78,8 @@ const Book = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Book a Handyman Visit in Princeton NJ | Request a Time"
-        description="Pick your flat-rate package, send your list, and tell us when works. We text you back with a time, usually the same day. Princeton and Mercer County NJ."
+        title="Request a Handyman Visit in Princeton NJ | Flat-Rate, Reply by Text"
+        description="Choose a flat-rate block, send your list, and tell us which days work. We text you a time, usually the same business day. Princeton, West Windsor, Plainsboro, Lawrence and Mercer County."
         canonical="/book"
       />
       <Header />
@@ -89,29 +89,29 @@ const Book = () => {
           {done ? (
             <div className="bento-card p-8 md:p-10 text-center">
               <CheckCircle2 className="h-12 w-12 text-[#2E4A3B] mx-auto mb-4" />
-              <h1 className="brutalist-headline text-3xl md:text-4xl text-foreground mb-3">Request received.</h1>
+              <h1 className="brutalist-headline text-3xl md:text-4xl text-foreground mb-3">Got your request.</h1>
               <p className="font-body text-lg text-muted-foreground mb-2">
-                We text you back with a time, usually the same business day. Your labor price is agreed before any work begins; any materials are quoted with it, at cost.
+                We text back with a time, normally the same business day. The labor price is fixed before any work begins; anything we supply is quoted with it, at cost.
               </p>
               <p className="font-body text-base text-muted-foreground mb-2">
-                If you have photos of the jobs, reply to that text with them — it helps us size the visit.
+                Have photos of the jobs? Reply to that text with them, it helps us size the visit. {WARRANTY}.
               </p>
               <p className="font-body text-base text-muted-foreground">
-                Need it sooner? <a href={smsHref} className="text-primary underline">Text us</a>. We occasionally fit same-week jobs.
+                In a hurry? <a href={smsHref} className="text-primary underline">Text us</a>. Same-week openings do come up.
               </p>
             </div>
           ) : (
             <>
-              <p className="brutalist-section-eyebrow mb-2">Book a Visit</p>
+              <p className="brutalist-section-eyebrow mb-2">Request a Visit</p>
               <h1 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-2">
-                {step === 0 && "What do you need?"}
-                {step === 1 && "What's on the list?"}
-                {step === 2 && "Where and when?"}
+                {step === 0 && "Which block fits?"}
+                {step === 1 && "What needs doing?"}
+                {step === 2 && "Where, and when works?"}
               </h1>
               <p className="font-body text-lg text-muted-foreground mb-8">
-                {step === 0 && "Flat packages. The labor price is the price, agreed before any work begins. Materials at cost, quoted with it."}
-                {step === 1 && "Everything you want done. The whole list is the point."}
-                {step === 2 && "Tell us what days work. A booking is a request; we text you a time, usually the same day."}
+                {step === 0 && "Flat blocks of time. The labor price is fixed before any work begins; materials are quoted with it, at cost."}
+                {step === 1 && "Put down every item. The full list is what makes a flat block worth it."}
+                {step === 2 && "Give us a few days or times that suit you. This is a request; we reply by text with a confirmed time, usually the same day."}
               </p>
 
               {step === 0 && (
@@ -139,7 +139,7 @@ const Book = () => {
                   rows={7}
                   value={tasks}
                   onChange={(e) => setTasks(e.target.value)}
-                  placeholder="List everything: the sticking door, the drywall hole by the garage, the faucet that drips, the towel bar that fell..."
+                  placeholder="One line per item: the bedroom door that catches, the hole behind the bathroom door, the kitchen faucet that drips, the shelf that needs to go up..."
                   className="w-full rounded-[14px] border-2 border-[#E0D5C2] bg-card p-4 font-body text-lg"
                 />
               )}
@@ -147,15 +147,15 @@ const Book = () => {
               {step === 2 && (
                 <div className="grid gap-5">
                   <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
-                  <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" inputMode="tel" autoComplete="tel" placeholder="Mobile number (we text you a time)" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
-                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email (optional, for your confirmation)" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
+                  <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" inputMode="tel" autoComplete="tel" placeholder="Mobile number (we confirm the time by text)" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
+                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email (optional, for a written copy)" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
                   <select value={town} onChange={(e) => setTown(e.target.value)} className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg">
                     <option value="">Your town</option>
                     {TOWNS.map((t) => <option key={t} value={t}>{t}</option>)}
                   </select>
-                  <input value={when} onChange={(e) => setWhen(e.target.value)} placeholder="Days or times that work (e.g. weekday mornings, any Saturday)" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
+                  <input value={when} onChange={(e) => setWhen(e.target.value)} placeholder="Days or times that suit you (weekday mornings, next Saturday...)" className="min-h-[56px] rounded-[12px] border-2 border-[#E0D5C2] bg-card px-4 font-body text-lg" />
                   <p className="font-body text-sm text-muted-foreground m-0">
-                    We text this number to set a time and with a reminder the day before. Msg &amp; data rates may apply, reply STOP to opt out. We never share your information.
+                    We use this number to confirm a time and send a reminder the day before. Msg &amp; data rates may apply; reply STOP to opt out. Your details are never shared.
                   </p>
                   {error && <p className="font-body text-base text-primary m-0">{error}</p>}
                 </div>
@@ -174,18 +174,18 @@ const Book = () => {
                 )}
                 {step === 2 && (
                   <button disabled={!canSubmit || submitting} onClick={submit} className="brutalist-cta !min-h-[52px] disabled:opacity-40">
-                    {submitting ? "Sending…" : "Request a visit"} <ArrowRight className="h-5 w-5" />
+                    {submitting ? "Sending…" : "Send the request"} <ArrowRight className="h-5 w-5" />
                   </button>
                 )}
               </div>
 
               <div className="mt-10 bento-card p-5 flex flex-wrap items-center justify-between gap-3">
                 <p className="font-body text-base text-foreground m-0">
-                  Need it sooner? We occasionally fit same-week jobs.
+                  Need it this week? Openings do come up.
                 </p>
                 <div className="flex gap-2.5">
                   <a href={smsHref} className="brutalist-cta-secondary !min-h-[48px] !px-4 !text-base"><MessageSquare className="h-4 w-4" /> Text us</a>
-                  <a href="tel:6093750098" className="brutalist-cta !min-h-[48px] !px-4 !text-base"><Phone className="h-4 w-4" /> Call</a>
+                  <a href={site.phoneHref} className="brutalist-cta !min-h-[48px] !px-4 !text-base"><Phone className="h-4 w-4" /> Call</a>
                 </div>
               </div>
             </>

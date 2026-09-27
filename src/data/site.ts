@@ -21,35 +21,26 @@ export const site = {
 
   domain: "handymanprinceton.com",
   url: "https://handymanprinceton.com",
+  email: "osama@handymanprinceton.com",
 
-  // Primary market plus the towns that actually carry search demand,
-  // ordered by 90d GSC impressions (see REBUILD_SPEC.md).
   primaryCity: "Princeton",
-  towns: [
-    "Princeton",
-    "West Windsor",
-    "Robbinsville",
-    "Lawrence Township",
-    "Plainsboro",
-    "South Brunswick",
-  ],
 
-  // Flat pricing ladder. Matches EBH exactly (confirmed by owner 2026-08-15).
+  // Flat pricing ladder. Matches EBH (raised 2026-09 to $345/$595/$1,095).
   // No hourly rate anywhere: the FAQ sells against hourly billing.
   pricing: {
-    visit: "$295",
-    halfDay: "$495",
-    fullDay: "$895",
-    visitScope: "Up to 2 hours of skilled work",
+    visit: "$345",
+    halfDay: "$595",
+    fullDay: "$1,095",
+    visitScope: "Up to 2 hours of general repairs",
   },
 
   // Reviews shown on this site are real reviews of Central Jersey Home Services
-  // LLC earned by the East Brunswick operation. They must ALWAYS be attributed
-  // as such. Never present them as Princeton customers and never show an
-  // aggregate star rating implying a Princeton rating. Princeton customers will
-  // be asked for reviews on the Princeton GBP once it exists (owner, 2026-08-15).
+  // LLC earned through the East Brunswick operation. They must ALWAYS be
+  // attributed as such. Never present them as Princeton customers and never show
+  // an aggregate star rating implying a Princeton rating. Princeton customers
+  // will be asked for reviews on the Princeton GBP once it exists (owner, 2026-08-15).
   reviewAttribution:
-    "Reviews for Central Jersey Home Services LLC, from our East Brunswick service area.",
+    "Google reviews for Central Jersey Home Services LLC, collected through our East Brunswick Handyman brand. Same crew, same license.",
 } as const;
 
 export default site;

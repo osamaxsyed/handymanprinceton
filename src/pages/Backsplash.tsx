@@ -1,5 +1,3 @@
-// Ported from EBH (structure verbatim, prose rewritten through the
-// Princeton/Mercer lens per the factory duplicate-content rule).
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -7,33 +5,32 @@ import FaqSchema from "@/components/FaqSchema";
 import TodoBlock from "@/components/TodoBlock";
 import { ArrowRight, Phone, Grid3X3, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import site from "@/data/site";
 
 const faqs = [
   {
-    question: "What does a kitchen backsplash cost to install?",
+    question: "What does a backsplash cost to install?",
     answer:
-      "Square footage and tile choice set the number, and the number is written into the estimate before day one. A typical counter-to-cabinet kitchen run is a one to two day job; a vanity wall often wraps in an afternoon. Tile itself is billed at cost, right on the quote where you can see it.",
+      "A typical kitchen run is a one or two day job with a single written price based on the wall area and the tile you pick. The tile itself goes on the quote at cost. A short accent wall or a bathroom vanity backsplash is often finished in a day.",
   },
   {
-    question: "Is it fine if I pick out the tile on my own?",
+    question: "Do I have to buy the tile through you?",
     answer:
-      "Encouraged, even. You choose what you will look at every morning; we take care of layout, cutting, setting, and grout. Before you check out, we tell you the quantity to order, with enough spare that one cracked tile mid-job does not become a matching hunt six weeks later.",
+      "No, and most people prefer to choose their own. Bring home the tile you like and we take care of layout, cutting, setting, and grouting. We will tell you the quantity to order, including the extra box that saves the day when a piece cracks.",
   },
   {
-    question: "How long is my kitchen out of action?",
+    question: "How many days does it take?",
     answer:
-      "It never fully is. Mortar and tile go up the first day, grout follows once things cure, and your counters, range, and floors stay masked off the whole time. You can cook dinner the same evening the tile is set.",
+      "Tile goes up on the first day, grout follows on the second once the thinset has cured. The kitchen stays usable throughout, and the counters and range are covered while we cut.",
   },
   {
-    question: "What happens at the outlets?",
+    question: "What happens at the outlets and switches?",
     answer:
-      "Tight, clean cuts around every box, and box extenders fitted so the outlets sit flush with the new tile plane instead of sunken behind it. If an outlet turns out to need genuine electrical replacement, that gets coordinated with the right trade, not fudged.",
+      "Tile is cut cleanly around each box and the boxes are brought forward with extenders so the cover plates sit flat on the new surface. If a device itself needs replacing, that gets handled correctly rather than improvised behind the tile.",
   },
   {
-    question: "What tile style holds up best?",
+    question: "Which tile should I pick?",
     answer:
-      "Subway earns its reputation: cheap, classic, and tolerant of old walls. Mosaic sheets flex around imperfections, which suits the older plaster common near Princeton. Large-format panels look sleek but demand a dead-flat wall, so we check yours before you fall in love with them.",
+      "Subway tile is classic and hides small wall waves. Mosaic sheets are forgiving on uneven walls. Large-format tile looks crisp but needs a flat wall and careful layout. Send a photo of the kitchen and we will give you an honest opinion before you buy.",
   },
 ];
 
@@ -42,8 +39,8 @@ const Backsplash = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Backsplash Installation Princeton NJ | 1-2 Day Tile Jobs"
-        description="Kitchen and vanity backsplash tile set straight and grouted tight, outlets and edges included. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800."
+        title="Backsplash Installation in Princeton NJ | Kitchen & Bath Tile"
+        description="Kitchen and vanity backsplash tile set straight, cut clean around outlets, and grouted tight in one to two days. Princeton, West Windsor, Plainsboro, Lawrence NJ. Licensed and insured."
         canonical="/backsplash"
       />
       <FaqSchema faqs={faqs} />
@@ -59,22 +56,22 @@ const Backsplash = () => {
             <h1 className="brutalist-headline text-4xl md:text-7xl text-background mb-6 leading-[0.95]">
               Backsplash Installation.
               <br />
-              <span className="text-background/70">Small Job. Whole New Kitchen.</span>
+              <span className="text-background/70">Two Days. A Different Kitchen.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              Two days of careful tile from
-              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit"> Princeton Handyman</Link> and the
-              room reads renovated. Level lines, mitered corners, grout that stays where it was put,
-              in Princeton, West Windsor, Robbinsville, and Lawrence Township kitchens.
+              A backsplash is the smallest tile job with the biggest payoff, and
+              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit"> Princeton Handyman</Link> sets
+              them with level courses, tight cuts, and clean grout lines in Princeton, West Windsor,
+              Plainsboro, Lawrence Township, and Montgomery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={site.phoneHref} className="brutalist-cta">
+              <a href="tel:6093750098" className="brutalist-cta">
                 <Phone className="h-5 w-5" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
-              <a href={site.smsHref} className="brutalist-cta-on-dark">
+              <a href="sms:6093750098" className="brutalist-cta-on-dark">
                 <MessageSquare className="h-5 w-5" />
-                Text a Photo of Your Wall
+                Text a Photo of the Kitchen
               </a>
             </div>
           </div>
@@ -84,19 +81,19 @@ const Backsplash = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Scope</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Inside the Quote.
+              Everything in the Price.
             </h2>
             <div className="grid md:grid-cols-2 gap-3">
               {[
-                "Full kitchen runs, counter to cabinet",
-                "Vanity and bathroom accent walls",
+                "Full kitchen runs from countertop to upper cabinets",
+                "Vanity and powder-room backsplashes",
                 "Subway, mosaic sheet, and large-format tile",
-                "Precise openings at outlets and window trim",
-                "Box extenders so outlets sit flush",
-                "Cracked tile swaps and regrout work",
-                "Grout, caulked transitions, sealed edges",
-                "Tear-out of the old splash and wall prep",
-                "Masking over counters and appliances throughout",
+                "Precise cuts at outlets, windows, and cabinet returns",
+                "Outlet and switch boxes extended flush with the tile",
+                "Loose tile and crumbling grout on an existing backsplash repaired",
+                "Grouted, caulked at the counter, and edges sealed",
+                "Old backsplash stripped and the wall prepped",
+                "Counters, range, and sink protected while we work",
               ].map((f) => (
                 <div key={f} className="bento-card bg-background p-5 flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-foreground flex-shrink-0 mt-0.5" />
@@ -107,46 +104,27 @@ const Backsplash = () => {
           </div>
         </section>
 
-        {/* Section is all placeholders — hidden in production until content lands */}
+        {/* Section is all placeholders, hidden in production until content lands */}
         {import.meta.env.DEV && (
           <section className="py-20 bg-muted heavy-border-b">
             <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
               <div className="brutalist-section-eyebrow">Recent Work</div>
               <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-                Recent Backsplashes.
+                Recent Tile Jobs.
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
-                <TodoBlock note="Photo of a finished Princeton-area kitchen backsplash, town in caption and alt text." />
-                <TodoBlock note="One review from a backsplash or tile customer: real text plus first name and town." />
+                <TodoBlock note="Photo of a completed kitchen backsplash, with the town in the caption and alt text." />
+                <TodoBlock note="A review from a backsplash or tile customer: verbatim text plus first name and town." />
               </div>
             </div>
           </section>
         )}
 
-        <section className="py-20 bg-background heavy-border-b">
-          <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
-            <div className="bento-card bg-foreground text-background p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div>
-                <h2 className="brutalist-headline text-2xl md:text-3xl text-background mb-2">
-                  Same Trowel, Bigger Rooms.
-                </h2>
-                <p className="font-body text-base text-background/80 max-w-xl">
-                  The tile skills on your backsplash are the same ones that rebuild bathrooms.
-                  Remodels and tub-to-shower conversions carry one fixed written price each.
-                </p>
-              </div>
-              <Link to="/bathroom-remodel" className="brutalist-cta-on-dark flex-shrink-0">
-                Bathroom Remodels <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </section>
-
         <section className="py-20 bg-muted heavy-border-b">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">FAQ</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Backsplash Questions.
+              Backsplash, Answered.
             </h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
@@ -162,18 +140,18 @@ const Backsplash = () => {
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
-              Tile Already in the Cart?
+              Tile Sitting in the Garage?
             </h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              Send a photo of the wall and the tile listing. We reply with the price and the quantity to order.
+              Send a photo of the wall and the box. We will price the job and confirm you have enough.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/get-estimate")} className="brutalist-cta">
-                Get Free Estimate <ArrowRight className="h-4 w-4" />
+              <button onClick={() => navigate("/book")} className="brutalist-cta">
+                Book a Visit <ArrowRight className="h-4 w-4" />
               </button>
-              <a href={site.phoneHref} className="brutalist-cta-on-dark">
+              <a href="tel:6093750098" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
             </div>
           </div>

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Phone, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
+import { Phone, Star, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-osama.jpg";
-import site from "@/data/site";
+import { RATING, RATING_NOTE } from "@/data/coreServices";
+import { site } from "@/data/site";
 
-// Ported from EBH's dual-path hero (Call/Text left, 3-field quick form right).
-// Princeton differences: the H1 leads with the head term ("princeton handyman",
-// 617 impressions at pos 31 with zero clicks, is THE target), and there is no
-// Google-rating badge because Princeton has no GBP yet. The trust chip credits
-// the same licensed team honestly instead of implying a local rating.
+// Hero with dual conversion paths (EBH structure): Call/Text primary on the
+// left, a 3-field quick form on the right for the segment that won't call.
+// The Google rating badge is honest about where the reviews came from:
+// Princeton has no GBP yet, so the figure is the LLC's East Brunswick profile.
 const Hero = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -40,14 +40,15 @@ const Hero = () => {
       <section className="py-10 md:py-16">
         <div className="w-full max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           <div>
-            <p className="brutalist-section-eyebrow mb-3">Princeton & Mercer County, New Jersey</p>
+            <p className="brutalist-section-eyebrow mb-3">Princeton &amp; Mercer County, New Jersey</p>
             <h1 className="font-headline font-semibold text-4xl md:text-5xl leading-[1.14] tracking-[-0.015em] text-foreground mb-5">
-              Licensed Handyman &amp; Home Repairs in Princeton, NJ
+              Licensed Handyman in Princeton, NJ
+              <span className="block text-muted-foreground mt-1">One flat price, settled before we start.</span>
             </h1>
             <p className="font-body text-xl leading-relaxed text-muted-foreground max-w-xl mb-7">
-              Owner-led, local, and priced flat before the work starts. The same licensed team
-              behind East Brunswick Handyman, now serving Princeton, West Windsor, Robbinsville,
-              and Lawrence. Never a stranger from an app.
+              Sticking doors, drywall patches, TV mounts, deck boards, dripping faucets, the list on
+              the fridge. Princeton, West Windsor, Plainsboro, Lawrence, and Montgomery. $345 visit,
+              up to two hours of work. Owner-run, not a franchise.
             </p>
 
             <div className="flex flex-wrap gap-3.5 mb-4">
@@ -57,11 +58,23 @@ const Hero = () => {
               </a>
               <a href={site.smsHref} className="brutalist-cta-secondary">
                 <MessageSquare className="h-5 w-5" />
-                Text a Photo of Your Job
+                Text Us a Photo
               </a>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 pt-5 mt-2 border-t border-border">
+              {/* Google rating as a visual badge, attributed to the profile it came from */}
+              <div className="bento-card px-4 py-3 flex items-center gap-3">
+                <span className="font-headline font-bold text-2xl text-foreground leading-none">{RATING.value}</span>
+                <span>
+                  <span className="inline-flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4" fill="#B98B3E" color="#B98B3E" strokeWidth={1} />
+                    ))}
+                  </span>
+                  <span className="block font-body text-sm text-muted-foreground">{RATING.count} Google reviews {RATING_NOTE}</span>
+                </span>
+              </div>
               <div className="font-body text-[17px] text-foreground/85">
                 <span className="inline-flex items-center gap-2">
                   <CheckCircle2 className="h-[18px] w-[18px] text-[#2E4A3B]" />
@@ -69,61 +82,53 @@ const Hero = () => {
                 </span>
                 <span className="block text-muted-foreground text-base">{site.license}</span>
               </div>
-              <div className="font-body text-[17px] text-foreground/85">
-                <span className="inline-flex items-center gap-2">
-                  <CheckCircle2 className="h-[18px] w-[18px] text-[#2E4A3B]" />
-                  {site.legalName}
-                </span>
-                <span className="block text-muted-foreground text-base">
-                  The team behind East Brunswick Handyman
-                </span>
-              </div>
             </div>
           </div>
 
           <div className="bento-card overflow-hidden">
-            <img src={heroImage} alt="Osama, owner of Princeton Handyman, on a job site"
+            <img src={heroImage} alt="Osama, owner of Princeton Handyman, at work on a job"
               className="w-full h-48 md:h-56 object-cover object-[65%_30%]" />
             <p className="font-body text-[15px] text-muted-foreground px-6 md:px-8 pt-3 m-0">
-              That's Osama, the owner. He answers the phone.
+              Osama, the owner. Licensed, insured, and the person who picks up when you call.
             </p>
             <div className="p-6 md:p-8 pt-4">
             {state === "done" ? (
               <div className="text-center py-8">
                 <CheckCircle2 className="h-10 w-10 text-[#2E4A3B] mx-auto mb-3" />
-                <p className="brutalist-headline text-2xl text-foreground mb-2">Got it, {name.split(" ")[0] || "thanks"}.</p>
+                <p className="brutalist-headline text-2xl text-foreground mb-2">Thanks, {name.split(" ")[0] || "got it"}.</p>
                 <p className="font-body text-lg text-muted-foreground">
-                  We reply the same day during business hours. Faster answer:{" "}
+                  You will hear from us the same business day. Need it faster?{" "}
                   <a href={site.phoneHref} className="text-primary underline">call now</a>.
                 </p>
               </div>
             ) : (
               <form onSubmit={submit}>
-                <p className="brutalist-headline text-2xl text-foreground mb-1">Get a free estimate</p>
+                <p className="brutalist-headline text-2xl text-foreground mb-1">Get a flat price</p>
                 <p className="font-body text-base text-muted-foreground mb-5">
-                  Fast, easy, no obligation. The price is agreed before any work begins.
+                  Quick and no strings. The labor price is settled before anyone starts; materials at cost.
                 </p>
                 <div className="grid gap-3.5">
                   <input value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your name"
                     className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
-                  <input value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" inputMode="tel" autoComplete="tel" placeholder="Mobile number (we text you back)"
+                  <input value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" inputMode="tel" autoComplete="tel" placeholder="Mobile number (we reply by text)"
                     className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
                   <textarea value={details} onChange={(e) => setDetails(e.target.value)} required rows={3}
-                    placeholder="What needs doing? A sentence is plenty."
+                    placeholder="What needs fixing? One line per item is fine."
                     className="rounded-[12px] border-2 border-[#E0D5C2] bg-background p-4 font-body text-lg" />
                   <button type="submit" disabled={state === "sending"} className="brutalist-cta w-full disabled:opacity-50">
-                    {state === "sending" ? "Sending…" : "Get my free estimate"} <ArrowRight className="h-5 w-5" />
+                    {state === "sending" ? "Sending…" : "Send the list"} <ArrowRight className="h-5 w-5" />
                   </button>
                 </div>
                 {state === "error" && (
                   <p className="font-body text-base text-primary mt-3">
-                    Could not send. Call or text {site.phoneDisplay} instead.
+                    That didn't go through. Call or text {site.phoneDisplay} instead.
                   </p>
                 )}
                 <p className="font-body text-sm text-muted-foreground mt-3 m-0">
-                  By submitting, you agree we may text you about your request
-                  (msg &amp; data rates may apply, reply STOP to opt out). Your
-                  information is never shared.
+                  Submitting means we may text you about this request (msg &amp; data
+                  rates may apply, reply STOP to opt out). We never share your details.
+                  Rather pick a package first?{" "}
+                  <a href="/book" className="text-primary underline">Request a visit online</a>.
                 </p>
               </form>
             )}
@@ -132,10 +137,11 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Risk-reversal strip */}
+      {/* Risk-reversal strip: the guarantees in one band */}
       <section className="bg-foreground text-background py-3.5">
         <div className="w-full max-w-6xl mx-auto px-5 md:px-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 font-body text-[15.5px] text-background/90">
-          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Price agreed before any work begins</span>
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Price settled before we start</span>
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Materials billed at cost</span>
           <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />One-year labor warranty</span>
           <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Licensed &amp; insured, {site.license}</span>
         </div>

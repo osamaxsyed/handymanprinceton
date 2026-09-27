@@ -1,27 +1,28 @@
 import { Star, ArrowRight } from "lucide-react";
+import { RATING } from "@/data/coreServices";
 
 const Testimonials = () => {
-  // Real Google reviews collected through East Brunswick Handyman, the
-  // sister brand operated by the same licensed contractor (Central Jersey
-  // Home Services LLC, NJ HIC #13VH13918800).
+  // Real, public Google reviews of Central Jersey Home Services LLC, earned
+  // through the East Brunswick Handyman profile (same crew, same license).
+  // Quotes are verbatim. The section says where they came from.
   const reviews = [
     {
       quote:
-        "The level of precision East Brunswick Handyman brings to facility improvements is top-tier. He managed extensive drywall work and painting with a flawless finish, handled the technical task of cutting and installing brand-new doors at our East Brunswick and Lake Como/Belmar offices, and his ability to schedule major projects on weekends ensured patient care was uninterrupted.",
-      name: "Mana Physical Therapy",
-      location: "Central NJ",
+        "Osama is amazing at what he does! He works with honesty, integrity, and leaves the customer with quality work! Highly recommend booking him for any handyman services and home improvements needed.",
+      name: "Tahir M.",
+      location: "Google review, East Brunswick Handyman",
     },
     {
       quote:
-        "Professional, knowledgeable, and easy to coordinate with throughout the process. He demonstrated a strong understanding of construction practices, especially when addressing structural considerations on site. His attention to detail and willingness to collaborate helped ensure the project moved forward efficiently and safely.",
-      name: "Joseph A.",
-      location: "Central NJ",
+        "I highly recommend reaching out to Osama if you need a reliable and professional handyman. Even though he was fully booked, he took the time to discuss my project, offered a very fair and transparent estimate, and gave me great advice.",
+      name: "Serhii K.",
+      location: "Google review, East Brunswick Handyman",
     },
     {
       quote:
-        "Osama creatively and efficiently fixed the interior woodworkings of my dining couch. It's actually more sturdy now than before. If you're in Edison or Middlesex County, you should always at least get an estimate from this guy. He can walk you through the most efficient way to fix your home repair or remodel work.",
-      name: "Faisal M.",
-      location: "Central NJ",
+        "We are very satisfied with the work done by Osama. From the very first contact, the entire service and communication process was seamless and smooth. The final finish on the projects looks absolutely perfect and professional.",
+      name: "Mei",
+      location: "Google review, East Brunswick Handyman",
     },
   ];
 
@@ -31,7 +32,7 @@ const Testimonials = () => {
         <div className="text-center mb-12">
           <div className="brutalist-section-eyebrow text-background/70">Customer Reviews</div>
           <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
-            5.0 Stars on Google
+            {RATING.value} on Google
           </h2>
           <div className="flex items-center justify-center gap-1 mb-4">
             {[...Array(5)].map((_, i) => (
@@ -45,7 +46,7 @@ const Testimonials = () => {
             ))}
           </div>
           <p className="font-body text-sm md:text-base text-background/80 max-w-2xl mx-auto">
-            Reviews collected through our sister brand, East Brunswick Handyman, operated by the same licensed contractor.
+            {RATING.count} public reviews for the same licensed crew, collected under our East Brunswick Handyman brand. Princeton customers meet the same people and the same standard.
           </p>
         </div>
 
@@ -86,7 +87,7 @@ const Testimonials = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-headline font-bold uppercase tracking-wider text-sm text-background border-b-2 border-background hover:gap-3 transition-all pb-1"
           >
-            Read More Reviews on East Brunswick Handyman's Google
+            See All Reviews on Google
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

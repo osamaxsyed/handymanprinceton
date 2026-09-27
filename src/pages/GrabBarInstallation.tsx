@@ -1,5 +1,3 @@
-// Ported from EBH (structure verbatim, prose rewritten through the
-// Princeton/Mercer lens per the factory duplicate-content rule).
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -8,33 +6,32 @@ import TodoBlock from "@/components/TodoBlock";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, ShieldCheck, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import site from "@/data/site";
 
 const faqs = [
   {
     question: "What does it cost to have grab bars installed?",
     answer:
-      "A typical install of two or three bars, walkthrough included, sits comfortably inside the $295 handyman visit. The visit covers up to two hours of skilled work, and the price is quoted before anything goes on the calendar, so there is nothing to negotiate at the door.",
+      "Nearly every grab bar job is a single visit with a price set before we come out. Two or three bars, anchored into framing, fit in one trip along with the walkthrough where we settle on heights and positions. The number is confirmed by text before anything goes on the calendar.",
   },
   {
-    question: "Can you mount bars in a tiled or fiberglass shower?",
+    question: "Will the bars hold in tile or a fiberglass surround?",
     answer:
-      "Both, with the right hardware for each. Tile wants a carbide bore and stud or rated-anchor backing; a fiberglass surround needs load spread across engineered anchors so the shell never flexes. The bar itself is never the weak point. What it is fastened to is, and that is the part we get right.",
+      "Yes, provided the right anchor goes into the right material. Tile, fiberglass, and drywall each call for a different fastener, and getting that wrong is why a bar pulls loose. We screw into studs wherever possible and use engineered anchors rated far above body weight where a stud is not there.",
   },
   {
-    question: "How do you decide where each bar goes?",
+    question: "How do you decide where the bars go?",
     answer:
-      "By watching how the person actually moves. Getting into the shower, standing up from the toilet, crossing a raised threshold: each motion has a natural hand position, and the bar goes there. We walk the bathroom with the person using it, or with you standing in for a parent, before drilling anything.",
+      "By watching how the person actually moves: stepping over the tub edge, turning in the shower, rising from the toilet. We walk the room with you or with your parent and put bars where a hand lands in a slip, not where a catalog drawing suggests.",
   },
   {
-    question: "My mother is in Plainsboro and I live out of state. How does that work?",
+    question: "I live out of state and my mother is in Princeton. Can you work with me?",
     answer:
-      "You book and pay from wherever you are. We do the walkthrough with your mother, call you with the plan and the price before any work starts, and text photos of the finished installs the same day. Adult children coordinate most of these jobs and never set foot in the house.",
+      "Yes, this is a routine arrangement for us across Princeton, Plainsboro, and the surrounding towns. Adult children often arrange and pay from a distance. We do the walkthrough on site, call you to confirm the layout and the price, and text photos when the bars are in.",
   },
   {
-    question: "What else do you handle for aging in place?",
+    question: "Is there more you can do to make the bathroom safer?",
     answer:
-      "Grab bars are the entry point, not the whole conversation. Handheld heads on slide bars, raised toilet seats, brighter task lighting, threshold transitions, and full walk-in shower or tub-to-shower projects all come from the same licensed team, so the bathroom can be upgraded in stages.",
+      "Grab bars are the usual starting point. Handheld shower heads on a slide bar, a taller toilet seat, brighter lighting, non-slip treatment on the floor, and a smoother threshold can all be added on the same visit if you want them.",
   },
 ];
 
@@ -43,8 +40,8 @@ const GrabBarInstallation = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Grab Bar Installation Princeton NJ | Done in One Visit"
-        description="Grab bars fastened into studs and rated anchors for showers, tubs, and toilets. Princeton, West Windsor, Plainsboro, Robbinsville, Lawrence. NJ HIC #13VH13918800."
+        title="Grab Bar Installation in Princeton NJ | Anchored Into Framing"
+        description="Grab bars fastened into studs and rated anchors for showers, tubs, and toilets, usually in one visit. Princeton, Plainsboro, West Windsor, Lawrence NJ. NJ HIC #13VH13918800."
         canonical="/grab-bar-installation"
       />
       <FaqSchema faqs={faqs} />
@@ -55,27 +52,27 @@ const GrabBarInstallation = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow text-background/70">
               <ShieldCheck className="inline h-3 w-3 mr-2" />
-              Aging-in-Place
+              Bathroom Safety
             </div>
             <h1 className="brutalist-headline text-4xl md:text-7xl text-background mb-6 leading-[0.95]">
               Grab Bar Installation.
               <br />
-              <span className="text-background/70">Into Studs. In One Visit.</span>
+              <span className="text-background/70">Into the Studs. One Trip.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              Suction cups and drywall screws fail on the exact day they are needed.
+              A bar held by drywall anchors will let go the first time someone really needs it.
               <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit"> Princeton Handyman</Link> fastens
-              every bar into framing or engineered anchors, in Princeton, West Windsor, Plainsboro,
-              Robbinsville, and Lawrence Township bathrooms.
+              grab bars into framing and rated backing for homes in Princeton, Plainsboro, West
+              Windsor, Lawrence Township, and Pennington.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={site.phoneHref} className="brutalist-cta">
+              <a href="tel:6093750098" className="brutalist-cta">
                 <Phone className="h-5 w-5" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
-              <a href={site.smsHref} className="brutalist-cta-on-dark">
+              <a href="sms:6093750098" className="brutalist-cta-on-dark">
                 <MessageSquare className="h-5 w-5" />
-                Text a Photo of Your Bathroom
+                Text a Photo of the Shower
               </a>
             </div>
           </div>
@@ -86,22 +83,22 @@ const GrabBarInstallation = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Why Now</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-6">
-              The Call Usually Comes From Out of Town.
+              The Call Usually Comes From a Son or Daughter.
             </h2>
             <p className="font-body text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-              A slip that was almost worse, a parent in a house near the university that has not
-              changed since the closing, and a son or daughter three time zones away doing the
-              worrying. Bars are the quickest real improvement, and today's hardware in matte black
-              or brushed nickel looks like it belongs in the bathroom rather than in a hospital.
+              A slip that was almost a fall, a parent who says everything is fine, and a bathroom
+              laid out decades before anyone thought about aging in it. Bars are the quickest and
+              least expensive fix that genuinely lowers the risk, and the current brushed nickel
+              and matte black styles pass for towel bars until the day they are needed.
             </p>
             <div className="grid md:grid-cols-2 gap-3">
               {[
-                "Entry bars at the shower and tub",
-                "Vertical bars where the door swings",
+                "Horizontal bars along the tub and shower wall",
+                "Vertical bars at the shower entry",
                 "Bars and safety frames beside the toilet",
                 "Slide-bar handheld shower heads",
-                "Anti-slip floor treatment inside the shower",
-                "Raised seats and threshold transitions",
+                "Non-slip floor treatment and secure bath mats",
+                "Raised toilet seats and smoothed thresholds",
               ].map((f) => (
                 <div key={f} className="bento-card bg-background p-5 flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-foreground flex-shrink-0 mt-0.5" />
@@ -117,38 +114,15 @@ const GrabBarInstallation = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Recent Work</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Rated for Weight, Not for Looks.
+              Fastened, Not Guessed.
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <TodoBlock note="Photo of a finished Princeton-area grab bar install in a tiled shower, town in caption and alt text." />
+              <TodoBlock note="Photo of a completed grab bar install in a tiled shower, with the town in the caption and alt text." />
               <GoogleReview
                 quote="My wife and I recently purchased a home in a 55+ community in Monroe Township. Unfortunately the home had a major flaw - a laundry room too small to accommodate a modern washer dryer. We hired East Brunswick Handyman to fix this and they did."
                 name="Frank M."
-                detail="55+ community, East Brunswick service area"
+                detail="55+ community, via East Brunswick Handyman"
               />
-            </div>
-            <p className="font-body text-sm text-muted-foreground mt-4 max-w-2xl">
-              {site.reviewAttribution}
-            </p>
-          </div>
-        </section>
-
-        {/* Big stuff band */}
-        <section className="py-20 bg-background heavy-border-b">
-          <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
-            <div className="bento-card bg-foreground text-background p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div>
-                <h2 className="brutalist-headline text-2xl md:text-3xl text-background mb-2">
-                  Sometimes the Tub Has to Go.
-                </h2>
-                <p className="font-body text-base text-background/80 max-w-xl">
-                  Bars reduce the risk of the climb over the tub wall, but a conversion eliminates
-                  the climb itself: a low-threshold walk-in shower, four working days, one written price.
-                </p>
-              </div>
-              <Link to="/tub-to-shower-conversion" className="brutalist-cta-on-dark flex-shrink-0">
-                Tub-to-Shower <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
         </section>
@@ -158,7 +132,7 @@ const GrabBarInstallation = () => {
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">FAQ</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Grab Bar Questions.
+              Grab Bars, Answered.
             </h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
@@ -175,18 +149,18 @@ const GrabBarInstallation = () => {
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
-              Solve It Before the Next Slip.
+              Safer Bathroom by the Weekend.
             </h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              Tell us who the bars are for and what the bathroom looks like. We take it from there.
+              Tell us who will be using the bars and where they live. We take it from there.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/get-estimate")} className="brutalist-cta">
+              <button onClick={() => navigate("/book")} className="brutalist-cta">
                 Book a Visit <ArrowRight className="h-4 w-4" />
               </button>
-              <a href={site.phoneHref} className="brutalist-cta-on-dark">
+              <a href="tel:6093750098" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
             </div>
           </div>

@@ -1,50 +1,45 @@
-// Ported from EBH (structure verbatim, prose rewritten through the
-// Princeton/Mercer lens). Target query: "commercial handyman near me"
-// (186 impressions, pos 31.5 in this property's GSC).
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import FaqSchema from "@/components/FaqSchema";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, Building2, CheckCircle2, MessageSquare } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import site from "@/data/site";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
     question: "How is commercial work priced?",
     answer:
-      "The same way as everything else we do: a written number before anyone touches a tool. One-off repairs are quoted per job; standing punch-list arrangements get a scope and a monthly figure, so the person approving invoices never meets a surprise. Hourly meters do not exist here.",
+      "The same way as a home visit: a written number before anyone starts. For standing punch-list accounts we agree a scope and a cadence up front, so the office manager knows the monthly figure in advance. There is no hourly clock running in the background.",
   },
   {
-    question: "Can the work happen when we are closed?",
+    question: "Can the work happen after hours?",
     answer:
-      "That is the default for customer-facing spaces. Evening and weekend slots keep drills and paint smell away from your clients, and the space opens the next morning as if nothing happened except the repairs.",
+      "Yes. Medical practices, offices, and storefronts along Route 1 and in downtown Princeton get evening and weekend slots so patients and customers never see a ladder in the hallway. That is the normal arrangement for our facility clients.",
   },
   {
-    question: "Can you provide insurance documentation?",
+    question: "Are you covered for commercial jobs?",
     answer:
-      "Yes. Central Jersey Home Services LLC is a licensed and insured NJ home improvement contractor, NJ HIC #13VH13918800, and a certificate of insurance goes to your file before the first visit.",
+      "Yes. Registered New Jersey home improvement contractor, insured, NJ HIC #13VH13918800. We send a certificate of insurance for your file before the first visit.",
   },
   {
-    question: "What kinds of businesses do you work with?",
+    question: "What types of buildings do you handle?",
     answer:
-      "Professional offices, medical and therapy suites, small retail, and landlords along the Route 1 corridor and the surrounding towns. The work is the small-breakage layer every space accumulates: walls, doors, fixtures, mounting, trim, and the leaks nobody can find.",
+      "Professional offices, medical and therapy suites, small retail, and the properties that a manager keeps a running list for. The work itself is drywall and paint, door hardware and closers, fixture and shelf mounting, and the everyday breakage that any busy space accumulates.",
   },
   {
-    question: "Is recurring maintenance an option?",
+    question: "Will you come on a regular schedule?",
     answer:
-      "It is the arrangement that ends up making the most sense: a scheduled visit that flushes the accumulated list in one pass, one vendor and one invoice instead of chasing separate trades for ten small problems.",
+      "Yes, and for a busy building it is the arrangement that works best: a standing visit that knocks out the accumulated list in one pass. One vendor and one invoice instead of three trades chased for three small jobs.",
   },
 ];
 
 const CommercialHandyman = () => {
-  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Commercial Handyman Princeton NJ | Offices & Facilities"
-        description="Facility punch lists for offices, medical suites, and retail around Princeton and the Route 1 corridor. After-hours scheduling, COI on file. NJ HIC #13VH13918800."
+        title="Commercial Handyman in Princeton NJ | Offices, Medical, Retail"
+        description="Punch lists, drywall, doors, and fixture mounting for offices, medical suites, and shops in Princeton and Mercer County. Evening and weekend slots. NJ HIC #13VH13918800."
         canonical="/commercial-handyman"
       />
       <FaqSchema faqs={faqs} />
@@ -60,22 +55,22 @@ const CommercialHandyman = () => {
             <h1 className="brutalist-headline text-4xl md:text-7xl text-background mb-6 leading-[0.95]">
               Commercial Handyman.
               <br />
-              <span className="text-background/70">The Small-Breakage Vendor.</span>
+              <span className="text-background/70">The Small Stuff, Off Your Desk.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> keeps
-              offices, medical suites, and storefronts presentable across Princeton, West Windsor,
-              Plainsboro, and the Route 1 corridor, on a schedule that works around your business
-              hours instead of through them.
+              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> takes
+              care of the running repair list for offices, medical suites, and small storefronts in
+              Princeton, West Windsor, Plainsboro, Lawrence Township, and the Route 1 corridor.
+              Evenings and weekends on request so the doors stay open.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={site.phoneHref} className="brutalist-cta">
+              <a href="tel:6093750098" className="brutalist-cta">
                 <Phone className="h-5 w-5" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
-              <a href={site.smsHref} className="brutalist-cta-on-dark">
+              <a href="sms:6093750098" className="brutalist-cta-on-dark">
                 <MessageSquare className="h-5 w-5" />
-                Text Your Punch List
+                Text the Punch List
               </a>
             </div>
           </div>
@@ -85,17 +80,17 @@ const CommercialHandyman = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Scope</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              The Standing Facility List.
+              What Ends Up on a Facility List.
             </h2>
             <div className="grid md:grid-cols-2 gap-3">
               {[
-                "Wall patches and repaints to client-ready finish",
-                "Door closers, hinges, and hardware kept working",
-                "Shelving, signage, and equipment mounted right",
-                "Dropped-ceiling tiles and trim swapped out",
-                "Caulk lines, weatherstripping, and mystery drips",
-                "Lease turnover and move-in punch lists",
-                "Evening and weekend work windows",
+                "Wall patches and repainting finished to a client-facing standard",
+                "Door closers, hinges, and commercial hardware adjusted or replaced",
+                "Shelving, signage, monitors, and equipment mounted into framing",
+                "Drop-ceiling tiles and damaged trim swapped",
+                "Caulk, weatherstripping, and the source of small drips tracked down",
+                "Lease turnover and move-in punch lists cleared",
+                "Evening and weekend scheduling",
                 "Standing monthly maintenance visits",
               ].map((f) => (
                 <div key={f} className="bento-card bg-background p-5 flex items-start gap-3">
@@ -111,16 +106,13 @@ const CommercialHandyman = () => {
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">From a Commercial Client</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Facility Work, Reviewed.
+              What a Facility Client Said.
             </h2>
             <GoogleReview
               quote="The level of precision East Brunswick Handyman brings to facility improvements is top-tier. He managed extensive drywall work and painting with a flawless finish and handled the technical task of cutting and installing brand-new doors at both our East Brunswick flagship and Lakehurst location."
               name="Mana Physical Therapy NJ"
-              detail="Medical facility, two locations (East Brunswick service area)"
+              detail="Medical facility, two locations, via East Brunswick Handyman"
             />
-            <p className="font-body text-sm text-muted-foreground mt-4">
-              {site.reviewAttribution}
-            </p>
           </div>
         </section>
 
@@ -140,18 +132,18 @@ const CommercialHandyman = () => {
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
-              Stop Collecting Vendors.
+              One Call for Everything Under a Trade.
             </h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              Send the punch list, get one written price back, COI included. Managing rental units instead? See our <a href="/property-managers" className="underline text-inherit">property manager accounts</a>.
+              Send the list by text or email and get a single written price back, COI included on request. Running rental units instead? See our <a href="/property-managers" className="underline text-inherit">property manager program</a>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/get-estimate")} className="brutalist-cta">
-                Send the List <ArrowRight className="h-4 w-4" />
-              </button>
-              <a href={site.phoneHref} className="brutalist-cta-on-dark">
+              <a href="sms:6093750098" className="brutalist-cta">
+                Text the List <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="tel:6093750098" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
             </div>
           </div>

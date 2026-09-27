@@ -8,15 +8,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { formType, name, email, phone, address, serviceType, description, preferredDate, submittedAt } = req.body;
+    const { formType, name, email, phone, address, serviceType, description, preferredDate, submittedAt, sourcePage } = req.body;
 
-    // Validate required fields
+    // Hero quick form collects name + phone only; other forms collect email.
     if (!name || (!email && !phone)) {
-      return res.status(400).json({ error: 'Name and email are required' });
+      return res.status(400).json({ error: 'Name and an email or phone number are required' });
     }
 
-    // Create transporter using Gmail or your preferred email service
-    // You'll need to set these environment variables in Vercel
+    // Gmail transport; EMAIL_USER / EMAIL_PASS are set in the Vercel project.
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -29,8 +28,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const SITE_TAG = '[Princeton]';
     const SITE_NAME = 'handymanprinceton.com';
 
-    const isApplication = formType === 'application';
-
     // Form values land in an HTML email, so escape before interpolating.
     const esc = (v: unknown) =>
       String(v ?? '')
@@ -40,6 +37,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
 
+    const row = (label: string, value: unknown) =>
+      value ? `<p><strong>${label}:</strong> ${esc(value)}</p>` : '';
+
+    // Subject format is parsed by the owner's handler: "[Princeton] New (Booking|Estimate) Request from ..."
     const emailSubject = formType === 'booking'
       ? `${SITE_TAG} New Booking Request from ${name}`
       : `${SITE_TAG} New Estimate Request from ${name}`;
@@ -47,32 +48,31 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const emailBody = `
       <h2>${formType === 'booking' ? 'New Booking Request' : 'New Estimate Request'}</h2>
       <p><strong>Source Site:</strong> ${SITE_NAME}</p>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-      ${address ? `<p><strong>Address:</strong> ${address}</p>` : ''}
-      ${serviceType ? `<p><strong>Service Type:</strong> ${serviceType}</p>` : ''}
-      ${description ? `<p><strong>Description:</strong> ${description}</p>` : ''}
-      ${preferredDate ? `<p><strong>Preferred Date:</strong> ${preferredDate}</p>` : ''}
-      <p><strong>Submitted:</strong> ${submittedAt}</p>
+      ${row('Name', name)}
+      ${row('Email', email)}
+      <p><strong>Phone:</strong> ${esc(phone || 'Not provided')}</p>
+      ${row('Address', address)}
+      ${row('Service Type', serviceType)}
+      ${row('Came from', sourcePage)}
+      ${description ? `<p><strong>Description:</strong> ${esc(description)}</p>` : ''}
+      ${row('Preferred Date', preferredDate)}
+      ${row('Submitted', submittedAt)}
     `;
 
-    // Send email
     // The owner notification is the only send the HTTP response waits on.
     await transporter.sendMail({
       from: `Princeton Handyman <${inboxAddress}>`,
       to: inboxAddress,
       subject: emailSubject,
       html: emailBody,
-      replyTo: email,
+      replyTo: email || undefined,
     });
 
-    // Email receipt to the customer, mirroring the booking flow: the text is the
-    // moment, the email is the record they can find again later. Best-effort and
-    // skipped for job applications.
+    // Email receipt to the customer: the text is the moment, the email is the
+    // record they can find again later. Best-effort.
     const followUps: Promise<unknown>[] = [];
 
-    if (email && !isApplication) {
+    if (email) {
       followUps.push(
         transporter.sendMail({
           from: `Princeton Handyman <${inboxAddress}>`,
@@ -80,14 +80,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           to: email,
           subject: `We got your request - Princeton Handyman`,
           html: `
-            <p>Thanks ${esc(String(name).trim().split(/\s+/)[0])}, your estimate request is in.</p>
+            <p>Thanks ${esc(String(name).trim().split(/\s+/)[0])}, your request is in.</p>
             <p>Osama reviews these personally and gets back to you the same business day.
                If you have photos of the job, text them to (609) 375-0098: it is the fastest
                way to get you a real price without a second trip.</p>
-            <h3 style="margin-bottom:6px">Flat pricing, agreed before any work starts</h3>
-            <p style="margin-top:0">Handyman Visit $295 (up to 2 hours) &middot; Half Day $495 &middot; Full Day $895<br>
-               Bathroom projects get one fixed written price at a free in-home estimate.
-               Materials at cost. No hourly meters.</p>
+            <h3 style="margin-bottom:6px">Flat pricing, settled before any work starts</h3>
+            <p style="margin-top:0">Handyman Visit $345 (up to 2 hours) &middot; Half Day $595 &middot; Full Day $1,095<br>
+               Bigger one-to-three-day jobs get one written price. Materials at cost. No hourly meters.</p>
             <p>- Princeton Handyman &middot; NJ HIC #13VH13918800<br>
                <a href="https://handymanprinceton.com">handymanprinceton.com</a></p>`,
         }).catch((receiptError) => {
@@ -96,39 +95,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       );
     }
 
-    // Auto-acknowledge estimate requests by text from the Quo line (the same
-    // number Osama texts from, so replies land in his normal thread). Photos
-    // are the point: EBH prices from photos. Best-effort — never fails the
-    // form submission, and job applications are excluded.
-    const quoKey = process.env.QUO_API_KEY;
-    const quoFrom = process.env.QUO_PHONE_NUMBER_ID;
-    const digits = String(phone || '').replace(/\D/g, '');
-    const e164 =
-      digits.length === 10 ? `+1${digits}`
-      : digits.length === 11 && digits.startsWith('1') ? `+${digits}`
-      : null;
-    if (quoKey && quoFrom && e164 && !isApplication) {
-      const firstName = String(name).trim().split(/\s+/)[0];
-      followUps.push(
-        fetch('https://api.openphone.com/v1/messages', {
-          method: 'POST',
-          headers: { Authorization: quoKey, 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            from: quoFrom,
-            to: [e164],
-            content:
-              `Hi ${firstName}, this is Princeton Handyman — we got your estimate request and Osama will reach out shortly. ` +
-              `If you have photos of the job, reply with them here. It helps us get you a price faster.`,
-          }),
-        }).catch((smsError) => {
-          console.error('Quo auto-text failed (form still delivered):', smsError);
-        })
-      );
-    }
-
-    // Bounded wait: give the follow-ups a moment to finish, but never let a
-    // slow SMTP or SMS round trip run the function into Vercel's 10s ceiling
-    // and surface as a failure to a customer whose request already landed.
+    // Bounded wait: give the follow-up a moment to finish, but never let a
+    // slow SMTP round trip run the function into Vercel's 10s ceiling and
+    // surface as a failure to a customer whose request already landed.
     if (followUps.length) {
       await Promise.race([
         Promise.allSettled(followUps),

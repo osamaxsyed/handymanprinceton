@@ -1,7 +1,3 @@
-// Ported from EBH (structure verbatim, prose rewritten through the
-// Princeton/Mercer lens per the factory duplicate-content rule). Cabinet
-// repair leads here deliberately: "cabinet repair near me" (104 impr, pos 12.4)
-// and "small job carpenter near me" (99 impr) are this page's target queries.
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -9,33 +5,32 @@ import FaqSchema from "@/components/FaqSchema";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, Hammer, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import site from "@/data/site";
 
 const faqs = [
   {
-    question: "What do small carpentry jobs cost?",
+    question: "What does small carpentry work cost around Princeton?",
     answer:
-      "Almost all of them land inside the $295 visit: a cabinet hinge rebuilt, a run of baseboard swapped, a handrail re-anchored, a door planed to close right. When the project grows into a build, it moves to the flat Half Day ($495), Full Day ($895), or a written estimate. The number always comes before the sawdust.",
+      "A loose stair rail, a run of damaged baseboard, or a single built-in shelf fits the $345 Visit, which covers up to 2 hours of general repairs. Longer builds move to the flat Half Day ($595) or Full Day ($1,095), and anything bigger gets one written price before we schedule. You never hear the number after the saw is already running.",
   },
   {
-    question: "Do you repair cabinets or only install new ones?",
+    question: "What do you mean by a small job?",
     answer:
-      "Repair is the specialty. Sagging doors rehung, worn hinges and slides replaced, drawer boxes reglued, peeling veneer and chipped corners patched, soft-close hardware retrofitted. Most kitchens do not need new cabinets; they need two hours of someone who knows why the old ones stopped working.",
+      "The work a framing crew will not drive out for: one split piece of casing, a pantry shelf that bows, a door that needs a quarter inch off the bottom, a rotted corner of exterior trim, a banister you can wiggle. Those are the jobs we built the business around, not the ones we squeeze in between bigger projects.",
   },
   {
-    question: "Can you match the trim in an older house?",
+    question: "Can you match the old trim in my house?",
     answer:
-      "Usually. Profiles from the mid-century and earlier can often be recreated by combining stock moldings or layering cuts, and homes around Princeton give us regular practice. When a true match does not exist we show you the nearest profile and let you decide, rather than nailing up a surprise.",
+      "Usually. Many of the older houses in Princeton and Lawrenceville village have profiles that no longer come off the shelf, but they can often be rebuilt from stock pieces layered together. When a true match is not possible we show you the nearest option at the estimate and let you decide.",
   },
   {
-    question: "Do you build shelving and built-ins?",
+    question: "Do you build shelving and storage?",
     answer:
-      "Yes: pantries, closets, garage walls, alcove built-ins, window seats. Everything lands on studs or rated anchors and is sized for real loads, because a bookshelf that cannot hold books is decoration, not carpentry.",
+      "Yes: pantry shelves, closet systems, garage racks, mudroom cubbies, and built-ins around a fireplace or under a window. Solid stock, screwed into framing, sized to hold what you actually plan to put on it.",
   },
   {
-    question: "What about rot on the outside of the house?",
+    question: "What about rotted wood on the outside of the house?",
     answer:
-      "A steady part of the week: door frames, sill noses, trim boards, deck rails, and shed doors. The rot gets cut back to sound wood, the area treated, and the rebuild done in material rated for the weather it will live in.",
+      "Common call, especially on north-facing door frames and trim that never dries out. We cut back to sound wood, treat what stays, and rebuild the piece with material rated for the weather it sits in.",
   },
 ];
 
@@ -44,8 +39,8 @@ const Carpentry = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Carpentry & Cabinet Repair Princeton NJ | Small Jobs Welcome"
-        description="Cabinet repair, trim, shelving, railings, rot, and doors: the small carpentry work bigger crews ignore. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800."
+        title="Carpentry & Trim Repair in Princeton NJ | Small Jobs Welcome"
+        description="Casing, baseboard, shelving, railings, rot repair, and doors from a carpenter who takes small jobs. Princeton, West Windsor, Lawrence, Montgomery NJ. NJ HIC #13VH13918800."
         canonical="/carpentry"
       />
       <FaqSchema faqs={faqs} />
@@ -56,27 +51,26 @@ const Carpentry = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow text-background/70">
               <Hammer className="inline h-3 w-3 mr-2" />
-              Small Jobs Welcome
+              No Job Too Small
             </div>
             <h1 className="brutalist-headline text-4xl md:text-7xl text-background mb-6 leading-[0.95]">
-              Carpentry &amp; Cabinets.
+              Carpentry.
               <br />
-              <span className="text-background/70">Jobs Too Small for a Crew. Not for Us.</span>
+              <span className="text-background/70">For the Jobs Nobody Else Will Quote.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> handles
-              the wood work that never gets a callback from the big outfits: cabinet doors that
-              sag, trim that split, a rail that moves when it should not, in Princeton, West
-              Windsor, Robbinsville, and Lawrence Township.
+              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> does
+              the trim, shelving, railing, rot, and door work that bigger contractors pass on, for
+              homes in Princeton, Lawrence Township, West Windsor, Montgomery, and Pennington.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={site.phoneHref} className="brutalist-cta">
+              <a href="tel:6093750098" className="brutalist-cta">
                 <Phone className="h-5 w-5" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
-              <a href={site.smsHref} className="brutalist-cta-on-dark">
+              <a href="sms:6093750098" className="brutalist-cta-on-dark">
                 <MessageSquare className="h-5 w-5" />
-                Text a Photo of Your Job
+                Text a Photo of the Job
               </a>
             </div>
           </div>
@@ -86,18 +80,18 @@ const Carpentry = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Scope</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              On the Bench This Week.
+              Carpentry We Take On.
             </h2>
             <div className="grid md:grid-cols-2 gap-3">
               {[
-                "Cabinet doors, hinges, and drawer slides repaired",
-                "Baseboard, casing, and crown patched or replaced",
-                "Shelving systems for pantries, closets, garages",
-                "Loose banisters and railings re-anchored",
-                "Exterior rot cut out and rebuilt to last",
-                "Doors planed, shimmed, and re-hung square",
-                "Cabinet frames and furniture regluing",
-                "Window sills, aprons, and stool caps replaced",
+                "Baseboard, casing, and crown repaired or replaced to match",
+                "Built-in shelving for pantries, closets, and garages",
+                "Banisters and stair rails tightened back into framing",
+                "Exterior trim and door frames with rot cut out and rebuilt",
+                "Doors trimmed, planed, and rehung so they close",
+                "Cabinet frames, drawers, and furniture joints repaired",
+                "Deck boards and railings swapped",
+                "Window sills, stools, and aprons replaced",
               ].map((f) => (
                 <div key={f} className="bento-card bg-background p-5 flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-foreground flex-shrink-0 mt-0.5" />
@@ -112,16 +106,13 @@ const Carpentry = () => {
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Reviewed Work</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Built and Loaded Up.
+              Shelves That Hold Weight.
             </h2>
             <GoogleReview
               quote="Extremely happy with the pantry shelves installed in my home. If you're looking for a professional with great service I highly recommend Syed."
               name="Muhmmad A."
-              detail="Pantry shelving, East Brunswick service area"
+              detail="Pantry shelving, via East Brunswick Handyman"
             />
-            <p className="font-body text-sm text-muted-foreground mt-4">
-              {site.reviewAttribution}
-            </p>
           </div>
         </section>
 
@@ -130,15 +121,15 @@ const Carpentry = () => {
             <div className="bento-card bg-foreground text-background p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
               <div>
                 <h2 className="brutalist-headline text-2xl md:text-3xl text-background mb-2">
-                  While the Tools Are Out.
+                  Add the Other Odds and Ends.
                 </h2>
                 <p className="font-body text-base text-background/80 max-w-xl">
-                  The $295 visit is priced for the time block, not the task, so the carpentry item
-                  on your list can share its visit with the caulk, the fixture, and the sticking door.
+                  Trim and shelving share the same $345 Visit as the sticking door and the drywall
+                  ding. One trip, one number, and most lists are cleared before lunch.
                 </p>
               </div>
               <Link to="/handyman" className="brutalist-cta-on-dark flex-shrink-0">
-                The $295 Visit <ArrowRight className="h-4 w-4" />
+                See the $345 Visit <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -148,7 +139,7 @@ const Carpentry = () => {
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">FAQ</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Carpentry Questions.
+              Carpentry, Answered.
             </h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
@@ -164,18 +155,18 @@ const Carpentry = () => {
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
-              Show Us the Broken Bit.
+              Something Wooden Giving Up?
             </h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              A photo and a sentence gets you an honest answer and a firm number.
+              Send a picture. You get a plain answer and a firm price, not a callback that never comes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/get-estimate")} className="brutalist-cta">
-                Get Free Estimate <ArrowRight className="h-4 w-4" />
+              <button onClick={() => navigate("/book")} className="brutalist-cta">
+                Book a Visit <ArrowRight className="h-4 w-4" />
               </button>
-              <a href={site.phoneHref} className="brutalist-cta-on-dark">
+              <a href="tel:6093750098" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
             </div>
           </div>

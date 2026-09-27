@@ -1,7 +1,5 @@
-// EBH header, ported for Princeton: same lockup, services dropdown, nav row,
-// and the phone number as the top-right primary action.
 import { ChevronDown, Phone } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,25 +8,34 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import site from "@/data/site";
+import { useNavigate } from "react-router-dom";
+import { site } from "@/data/site";
 
+// EBH header structure with the Princeton lockup: same services dropdown,
+// same nav row, same call button. The brand word above the wordmark is the town.
 type MenuEntry = { group: string } | { name: string; href: string; external?: boolean };
 
 const Header = () => {
   const navigate = useNavigate();
 
   const servicesMenu: MenuEntry[] = [
-    { group: "Bathrooms" },
-    { name: "Tub-to-Shower Conversion", href: "/tub-to-shower-conversion" },
-    { name: "Walk-In Showers", href: "/walk-in-showers" },
-    { name: "Grab Bar Installation", href: "/grab-bar-installation" },
-    { name: "Bathroom Remodeling", href: "/bathroom-remodel" },
-    { group: "Around the House" },
-    { name: "Handyman Visit ($295)", href: "/handyman" },
+    { group: "Core Services" },
+    { name: "Handyman Visit", href: "/handyman" },
     { name: "Drywall Repair", href: "/drywall-repair" },
-    { name: "Carpentry & Cabinets", href: "/carpentry" },
+    { name: "Doors & Locks", href: "/doors" },
+    { name: "Carpentry & Trim", href: "/carpentry" },
+    { name: "TV Mounting & Assembly", href: "/tv-mounting" },
+    { name: "Deck & Fence Repair", href: "/deck-fence-repair" },
+    { name: "Tile, Grout & Caulk", href: "/tile-grout-caulk" },
+    { name: "Fixture & Faucet Swaps", href: "/fixture-swaps" },
+    { name: "Painting Touch-Ups", href: "/painting-touch-ups" },
+    { name: "Home Maintenance", href: "/home-maintenance" },
+    { group: "Bigger Jobs" },
+    { name: "Backsplash", href: "/backsplash" },
+    { name: "Storage Sheds", href: "/storage-sheds" },
+    { name: "Grab Bars & Shower Doors", href: "/grab-bar-installation" },
     { group: "" },
-    { name: "All services", href: "/handyman" },
+    { name: "All services", href: "/#services" },
   ];
 
   const navLinks = [
@@ -36,6 +43,7 @@ const Header = () => {
     { name: "Towns Served", href: "/service-areas" },
     { name: "FAQ", href: "/faq" },
     { name: "Book a Visit", href: "/book" },
+    { name: "Careers", href: "/careers" },
   ];
 
   return (
@@ -111,7 +119,7 @@ const Header = () => {
 
       {/* Mobile: always-visible scrollable nav row */}
       <div className="lg:hidden flex gap-1 overflow-x-auto px-3 pb-2.5 border-t border-border/60 [scrollbar-width:none]">
-        {[{ name: "Home", href: "/" }, { name: "Bathrooms", href: "/bathroom-remodel" }, { name: "Tub-to-Shower", href: "/tub-to-shower-conversion" }, { name: "Handyman $295", href: "/handyman" }, ...navLinks].map((l) => (
+        {[{ name: "Home", href: "/" }, { name: "Handyman Visit", href: "/handyman" }, { name: "Drywall", href: "/drywall-repair" }, { name: "Doors", href: "/doors" }, { name: "TV Mounting", href: "/tv-mounting" }, { name: "Decks & Fences", href: "/deck-fence-repair" }, { name: "Fixtures", href: "/fixture-swaps" }, ...navLinks].map((l) => (
           <Link
             key={l.href}
             to={l.href}

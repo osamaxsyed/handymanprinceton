@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LocalTestimonials from "@/components/LocalTestimonials";
 import NotFound from "@/pages/NotFound";
 import { Phone, MapPin, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 import locations from "@/data/locations.json";
@@ -20,8 +21,8 @@ const ServiceLocationPage = () => {
 
   if (!locationData || !serviceData) return <NotFound />;
 
-  const pageTitle = `${serviceData.name} in ${locationData.name}, ${locationData.state} | Princeton Handyman`;
-  const pageDescription = `Professional ${serviceData.name.toLowerCase()} services in ${locationData.name}, NJ. ${uniqueDescription} Licensed, insured. Free estimates! Call (609) 375-0098`;
+  const pageTitle = `${serviceData.name} in ${locationData.name}, NJ | Flat-Rate Handyman | Princeton Handyman`;
+  const pageDescription = `${serviceData.name} for ${locationData.name}, NJ homes at one flat price. ${uniqueDescription} $345 visit, agreed before we start. NJ HIC #13VH13918800. Text (609) 375-0098.`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -50,7 +51,7 @@ const ServiceLocationPage = () => {
       containedInPlace: { "@type": "State", name: "New Jersey" },
     },
     description: serviceData.description,
-    priceRange: serviceData.priceRange,
+    priceRange: (String(serviceData.priceRange || "$$").match(/^(\$+)/) || ["", "$$"])[1],
   };
 
   return (
@@ -97,11 +98,11 @@ const ServiceLocationPage = () => {
               <span className="text-background/70">{locationData.name}, NJ.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              {uniqueDescription}
+              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> handles {serviceData.name.toLowerCase()} for homeowners in {locationData.name}, NJ. {uniqueDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => navigate("/get-estimate")} className="brutalist-cta bg-background text-foreground border-background/30">
-                Get Free Estimate <ArrowRight className="h-4 w-4" />
+              <button onClick={() => navigate("/book")} className="brutalist-cta bg-background text-foreground border-background/30">
+                Request a Visit <ArrowRight className="h-4 w-4" />
               </button>
               <a
                 href="tel:6093750098"
@@ -118,9 +119,9 @@ const ServiceLocationPage = () => {
         <section className="py-20 bg-background heavy-border-b">
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
-              <div className="brutalist-section-eyebrow">What We Offer</div>
+              <div className="brutalist-section-eyebrow">What's Covered</div>
               <h2 className="brutalist-headline text-2xl md:text-3xl text-foreground mb-6">
-                {serviceData.name} in {locationData.name}
+                {serviceData.name} for {locationData.name} Homes
               </h2>
               <ul className="space-y-3">
                 {serviceData.features.map((feature: string) => (
@@ -134,9 +135,9 @@ const ServiceLocationPage = () => {
             <div className="space-y-4">
               <div className="bento-card bg-foreground text-background p-6">
                 <MapPin className="h-6 w-6 mb-3" />
-                <h3 className="brutalist-headline text-lg mb-2">Service Area</h3>
+                <h3 className="brutalist-headline text-lg mb-2">Where We Go</h3>
                 <p className="font-body text-sm text-background/80 mb-3">
-                  Serving {locationData.name} and surrounding neighborhoods.
+                  All of {locationData.name}, including these neighborhoods:
                 </p>
                 <ul className="font-body text-xs text-background/70 space-y-1 mb-3">
                   {locationData.neighborhoods.slice(0, 5).map((n: string) => (
@@ -150,52 +151,28 @@ const ServiceLocationPage = () => {
 
               <div className="bento-card p-6">
                 <Clock className="h-6 w-6 text-foreground mb-3" />
-                <h3 className="brutalist-headline text-lg text-foreground mb-2">Project Timeline</h3>
+                <h3 className="brutalist-headline text-lg text-foreground mb-2">How Long It Takes</h3>
                 <p className="brutalist-headline text-2xl text-foreground mb-2">{serviceData.averageTimeline}</p>
                 <p className="font-body text-xs text-muted-foreground">
-                  Actual timeline depends on project scope. Detailed schedules during estimates.
+                  A typical range. Your job gets its own timeline with the written price, before anything starts.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Bathroom calculator CTA */}
-        {service === "bathroom-remodel" && (
-          <section className="py-20 bg-muted heavy-border-b">
-            <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
-              <div className="bento-card bg-background p-8 md:p-12 text-center">
-                <h2 className="brutalist-headline text-2xl md:text-4xl text-foreground mb-4">
-                  Get Your Bathroom Estimate
-                </h2>
-                <p className="font-body text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Use our interactive calculator for an instant price range on your {locationData.name} bathroom remodel.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button onClick={() => navigate("/bathroom-remodel-calculator")} className="brutalist-cta">
-                    Calculate Project Cost <ArrowRight className="h-4 w-4" />
-                  </button>
-                  <button onClick={() => navigate("/bathroom-refresh")} className="brutalist-cta-secondary">
-                    Quick 1-Day Refresh
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-
         {/* Why us */}
         <section className="py-20 bg-muted heavy-border-b">
           <div className="w-full max-w-5xl mx-auto px-6 md:px-10">
-            <div className="brutalist-section-eyebrow">Why Choose Us</div>
+            <div className="brutalist-section-eyebrow">Why Us</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-12">
-              Why {locationData.name} Homeowners Choose Us
+              What {locationData.name} Homeowners Get
             </h2>
             <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {[
-                ["Licensed & Insured", "Full liability coverage, bonded, and insured. NJ HIC #13VH13918800."],
-                ["Licensed & Local", `Licensed NJ home improvement contractor serving ${locationData.name} and central New Jersey.`],
-                ["Free Estimates", "Transparent pricing with detailed, no-obligation estimates for all services."],
+                ["Licensed & Insured", "Registered NJ home improvement contractor, bonded, with general liability coverage. NJ HIC #13VH13918800."],
+                ["A Crew That Knows the Area", `We are in ${locationData.name} and the surrounding Mercer County towns most weeks, working under a New Jersey contractor license.`],
+                ["No Hourly Meter", "$345 for a two-hour visit, $595 for a half day, $1,095 for a full day. The labor number is fixed before we start; materials are billed at cost."],
               ].map(([title, body]) => (
                 <div key={title} className="bento-card bg-background p-6">
                   <h3 className="brutalist-headline text-lg text-foreground mb-3">{title}</h3>
@@ -206,12 +183,15 @@ const ServiceLocationPage = () => {
           </div>
         </section>
 
+        {/* Real local reviews */}
+        <LocalTestimonials locationSlug={locationData.slug} locationName={locationData.name} />
+
         {/* Other services */}
         <section className="py-20 bg-background heavy-border-b">
           <div className="w-full max-w-5xl mx-auto px-6 md:px-10">
-            <div className="brutalist-section-eyebrow">Other Services</div>
+            <div className="brutalist-section-eyebrow">More in Town</div>
             <h2 className="brutalist-headline text-2xl md:text-4xl text-foreground mb-8">
-              Other Services in {locationData.name}
+              Also Available in {locationData.name}
             </h2>
             <div className="grid md:grid-cols-3 gap-3">
               {services
@@ -225,7 +205,7 @@ const ServiceLocationPage = () => {
                   >
                     <h3 className="brutalist-headline text-sm md:text-base mb-1">{rs.shortName}</h3>
                     <span className="font-body text-xs inline-flex items-center gap-1">
-                      Learn more <ArrowRight className="h-3 w-3" />
+                      See the page <ArrowRight className="h-3 w-3" />
                     </span>
                   </Link>
                 ))}
@@ -239,7 +219,7 @@ const ServiceLocationPage = () => {
             <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
               <div className="brutalist-section-eyebrow">Local Knowledge</div>
               <h2 className="brutalist-headline text-2xl md:text-4xl text-foreground mb-6">
-                Serving {locationData.name} Homeowners
+                What {locationData.name} Houses Tend to Need
               </h2>
               <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
                 {locationData.localContext}
@@ -261,7 +241,7 @@ const ServiceLocationPage = () => {
             <div className="w-full max-w-3xl mx-auto px-6 md:px-10">
               <div className="brutalist-section-eyebrow">FAQ</div>
               <h2 className="brutalist-headline text-2xl md:text-4xl text-foreground mb-8">
-                {serviceData.name} in {locationData.name}: FAQ
+                {locationData.name} Homeowners Ask About {serviceData.name}
               </h2>
               <div className="space-y-3">
                 {serviceData.faqs.map((faq: { question: string; answer: string }, i: number) => (
@@ -283,13 +263,13 @@ const ServiceLocationPage = () => {
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
-            <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">Ready to Get Started?</h2>
+            <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">Need {serviceData.name} in {locationData.name}?</h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              Free estimate on your {serviceData.name.toLowerCase()} project in {locationData.name}.
+              Text a photo and you will have one flat price for the job, settled before we arrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/get-estimate")} className="brutalist-cta bg-background text-foreground border-background/30">
-                Request Free Estimate <ArrowRight className="h-4 w-4" />
+              <button onClick={() => navigate("/book")} className="brutalist-cta bg-background text-foreground border-background/30">
+                Request a Visit <ArrowRight className="h-4 w-4" />
               </button>
               <a
                 href="tel:6093750098"

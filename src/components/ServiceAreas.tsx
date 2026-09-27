@@ -1,19 +1,10 @@
 import { MapPin, ArrowRight, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CORE_TOWNS, EXTENDED_TOWNS, townNames } from "@/data/coreServices";
+import { site } from "@/data/site";
 
 const ServiceAreas = () => {
-  const cities = [
-    { name: "Princeton", slug: "princeton" },
-    { name: "South Brunswick", slug: "south-brunswick" },
-    { name: "Cranbury", slug: "cranbury" },
-    { name: "Plainsboro", slug: "plainsboro" },
-    { name: "East Windsor", slug: "east-windsor" },
-    { name: "West Windsor", slug: "west-windsor" },
-    { name: "Lawrence Township", slug: "lawrence-township" },
-    { name: "Robbinsville", slug: "robbinsville" },
-    { name: "Pennington", slug: "pennington" },
-    { name: "Montgomery", slug: "montgomery" },
-  ];
+  const cities = [...CORE_TOWNS, ...EXTENDED_TOWNS];
 
   return (
     <section className="py-20 md:py-28 bg-background heavy-border-t">
@@ -22,11 +13,11 @@ const ServiceAreas = () => {
           <div>
             <div className="brutalist-section-eyebrow">Coverage Area</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground">
-              Where We Build
+              Towns We Serve
             </h2>
           </div>
           <p className="font-body text-base md:text-lg text-muted-foreground md:max-w-md">
-            Princeton, Mercer County, and the surrounding towns.
+            Princeton and the Mercer County ring around it, plus the Middlesex and Somerset towns that border it.
           </p>
         </div>
 
@@ -49,20 +40,30 @@ const ServiceAreas = () => {
             </Link>
           ))}
         </div>
+        <p className="font-body text-base text-muted-foreground mt-4 mb-0">
+          The Princeton ring is {townNames(CORE_TOWNS)}. We also cover {townNames(EXTENDED_TOWNS)} most weeks.
+        </p>
 
-        <div className="mt-10 flex flex-col md:flex-row items-center justify-between gap-4 pt-6 heavy-border-t">
+        <div className="mt-9 pt-6 heavy-border-t">
+          <img src="/mark-truck-charcoal.png" alt="" className="w-[168px] h-auto opacity-90" />
+          <p className="font-body text-[17px] text-[#795B41] mt-3 mb-0">
+            Spotted the red Tacoma on Route 1? That was us on the way to a job.
+          </p>
+        </div>
+
+        <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <Link
             to="/service-areas"
             className="font-headline font-bold uppercase tracking-wider text-sm text-foreground inline-flex items-center gap-2 hover:gap-3 transition-all"
           >
-            View All Areas <ArrowRight className="h-4 w-4" />
+            Every Town We Cover <ArrowRight className="h-4 w-4" />
           </Link>
           <a
-            href="tel:6093750098"
+            href={site.phoneHref}
             className="font-headline font-bold uppercase tracking-wider text-sm text-muted-foreground inline-flex items-center gap-2 hover:text-foreground transition-colors"
           >
             <Phone className="h-4 w-4" />
-            Don't see your city? Call (609) 375-0098
+            Town not listed? Call {site.phoneDisplay}
           </a>
         </div>
       </div>

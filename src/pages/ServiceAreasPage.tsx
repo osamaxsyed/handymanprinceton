@@ -15,10 +15,10 @@ const ServiceAreasPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Service Areas | Princeton Handyman - Central NJ"
-        description="We serve Princeton, Plainsboro, West Windsor, Lawrence Township, Montgomery, and surrounding Central NJ areas. Professional handyman services in your neighborhood."
+        title="Towns We Serve | Princeton Handyman, Mercer County NJ"
+        description="Flat-rate handyman visits in Princeton, West Windsor, Plainsboro, Lawrence Township, Montgomery, Pennington, South Brunswick, Cranbury, East Windsor, and Robbinsville. $345 visit, price fixed before we start."
         canonical="/service-areas"
-        keywords="handyman near me, Princeton handyman, Plainsboro repairs, West Windsor contractor, Central NJ home services"
+        keywords="handyman Princeton NJ, handyman West Windsor, Plainsboro handyman, Lawrence Township repairs, Mercer County home repairs"
       />
       <Header />
 
@@ -28,12 +28,12 @@ const ServiceAreasPage = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow text-background/70">Coverage Area</div>
             <h1 className="brutalist-headline text-4xl md:text-7xl text-background mb-6 leading-[0.95]">
-              Where We Build.
+              Towns We Serve.
               <br />
-              <span className="text-background/70">Central New Jersey.</span>
+              <span className="text-background/70">Princeton and the Route 1 Corridor.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              Mercer County, with parts of Monmouth, Somerset, and Mercer. Licensed and insured.
+              Ten towns across Mercer County and the neighboring edges of Middlesex and Somerset, all reached from Route 1, Route 206, and Route 130. Registered NJ home improvement contractor, bonded and insured. NJ HIC #13VH13918800.
             </p>
             <a
               href="tel:6093750098"
@@ -49,8 +49,8 @@ const ServiceAreasPage = () => {
         <section className="py-20 bg-background heavy-border-b">
           <div className="w-full max-w-7xl mx-auto px-6 md:px-10">
             <div className="mb-12 pb-6 heavy-border-b">
-              <div className="brutalist-section-eyebrow">Cities We Serve</div>
-              <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground">23+ Towns</h2>
+              <div className="brutalist-section-eyebrow">Pick Your Town</div>
+              <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground">{sortedLocations.length} Towns, One Flat Price</h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {sortedLocations.map((loc) => (
@@ -70,7 +70,7 @@ const ServiceAreasPage = () => {
                     ZIP: {loc.zipCodes.join(", ")}
                   </p>
                   <span className="font-headline font-bold uppercase tracking-wider text-xs inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                    View Services <ArrowRight className="h-3 w-3" />
+                    Open Town Page <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
               ))}
@@ -82,8 +82,8 @@ const ServiceAreasPage = () => {
         <section className="py-20 bg-muted heavy-border-b">
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="mb-12 pb-6 heavy-border-b">
-              <div className="brutalist-section-eyebrow">Service x Location Matrix</div>
-              <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground">Find Your Service</h2>
+              <div className="brutalist-section-eyebrow">By Service and Town</div>
+              <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground">Jump Straight to the Job</h2>
             </div>
             <div className="space-y-4">
               {featuredServices.map((s) => (
@@ -112,34 +112,16 @@ const ServiceAreasPage = () => {
           </div>
         </section>
 
-        {/* Stats */}
-        <section className="bg-background heavy-border-b">
-          <div className="w-full max-w-7xl mx-auto px-6 md:px-10">
-            <div className="grid grid-cols-3 heavy-border-b">
-              {[
-                ["15+", "Years"],
-                ["23+", "Cities"],
-                ["100%", "Insured"],
-              ].map(([num, label], i) => (
-                <div key={label} className={`p-8 md:p-12 text-center ${i < 2 ? "border-r-2 border-foreground" : ""}`}>
-                  <div className="brutalist-headline text-4xl md:text-6xl text-foreground mb-2">{num}</div>
-                  <div className="font-headline font-bold uppercase tracking-wider text-xs text-muted-foreground">{label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
-            <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">Don't See Your City?</h2>
+            <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">Your Town Not on the List?</h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              Give us a call. We may be able to help even if your town isn't listed.
+              If you are within a short drive of Princeton, call and ask. We often say yes to the towns just past the edge of the map.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/get-estimate")} className="brutalist-cta bg-background text-foreground border-background/30">
-                Request Free Estimate <ArrowRight className="h-4 w-4" />
+              <button onClick={() => navigate("/book")} className="brutalist-cta bg-background text-foreground border-background/30">
+                Request a Visit <ArrowRight className="h-4 w-4" />
               </button>
               <a
                 href="tel:6093750098"

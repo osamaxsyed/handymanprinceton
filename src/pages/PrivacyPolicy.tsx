@@ -5,50 +5,59 @@ import SEO from "@/components/SEO";
 const PrivacyPolicy = () => {
   const sections = [
     {
-      title: "Information We Collect",
-      intro: "We collect information you provide directly to us, such as when you:",
+      title: "What We Collect",
+      intro: "The personal details we hold are the ones you hand us yourself, for example when you:",
       list: [
-        "Request a quote or estimate",
-        "Schedule an appointment",
-        "Contact us via phone, email, or contact form",
-        "Subscribe to our newsletter",
-        "Leave a review or testimonial",
+        "Ask for a price or an estimate",
+        "Book or request a visit",
+        "Reach us by phone, text, email, or a form on this site",
+        "Post a review or send us a testimonial",
       ],
     },
     {
-      title: "How We Use Your Information",
-      intro: "We use the information we collect to:",
+      title: "What We Do With It",
+      intro: "That information is used to:",
       list: [
-        "Provide and improve our handyman services",
-        "Process and respond to your requests",
-        "Schedule appointments and coordinate service delivery",
-        "Send you important updates about your projects",
-        "Communicate about our services and promotions",
-        "Comply with legal obligations",
+        "Deliver and improve our repair services",
+        "Answer and act on the requests you send",
+        "Set appointments and coordinate the work at your home",
+        "Keep you posted on the status of your job",
+        "Tell you about our services and occasional offers",
+        "Meet our legal and record-keeping obligations",
       ],
     },
     {
-      title: "Information Sharing",
-      intro: "We do not sell, trade, or otherwise transfer your personal information to third parties except:",
+      title: "Who We Share It With",
+      intro: "Your personal information is not sold, traded, or passed to outside parties, with these exceptions:",
       list: [
-        "With your explicit consent",
-        "To service providers who assist us in operating our business",
-        "When required by law or to protect our rights",
-        "In connection with a business transfer or merger",
+        "When you have expressly agreed to it",
+        "With vendors that help us run the business, such as email and scheduling tools",
+        "Where the law requires it or where we need to defend our rights",
+        "As part of a sale, merger, or transfer of the business",
       ],
     },
     {
-      title: "Data Security",
-      body: "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.",
+      title: "Mobile Numbers and Texting",
+      intro: "Your mobile number, and any permission you give us to text it, get extra protection:",
+      list: [
+        "We never sell, rent, share, or trade personal information, your mobile number included, with third parties or affiliates for their marketing or promotions",
+        "Opt-in records and texting consent stay with us and are not disclosed to anyone else",
+        "Consent to receive texts covers only messages from Princeton Handyman and the affiliated service brands of Central Jersey Home Services LLC regarding your own inquiry or job",
+        "Reply STOP to any message to stop receiving texts at any time, or reply HELP for assistance",
+      ],
     },
     {
-      title: "Your Rights",
-      intro: "You have the right to:",
+      title: "Keeping It Safe",
+      body: "We use reasonable safeguards to keep your personal information from being accessed, changed, disclosed, or destroyed without authorization. That said, no transmission over the internet can be guaranteed fully secure.",
+    },
+    {
+      title: "What You Can Ask For",
+      intro: "At any time you may:",
       list: [
-        "Access, update, or delete your personal information",
-        "Opt out of marketing communications",
+        "See, correct, or delete the personal information we hold",
+        "Unsubscribe from marketing messages",
         "Request a copy of your data",
-        "File a complaint with relevant authorities",
+        "Raise a complaint with the appropriate regulator",
       ],
     },
   ];
@@ -57,7 +66,7 @@ const PrivacyPolicy = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Privacy Policy | Princeton Handyman"
-        description="Read the privacy policy for Princeton Handyman. Learn how we collect, use, and protect your personal information."
+        description="How Princeton Handyman handles the personal information you share with us: what we collect, how it is used, how texting consent is protected, and the choices you have."
         canonical="/privacy"
       />
       <Header />
@@ -71,7 +80,7 @@ const PrivacyPolicy = () => {
               Privacy Policy
             </h1>
             <p className="font-headline font-bold uppercase tracking-wider text-xs text-background/70">
-              Last Updated: March 1, 2024
+              Last Updated: September 27, 2026
             </p>
           </div>
         </section>
@@ -106,9 +115,9 @@ const PrivacyPolicy = () => {
             ))}
 
             <div className="heavy-border bg-foreground text-background p-6 md:p-8">
-              <h2 className="brutalist-headline text-xl md:text-2xl text-background mb-4">Contact Us</h2>
+              <h2 className="brutalist-headline text-xl md:text-2xl text-background mb-4">Questions About Privacy</h2>
               <p className="font-body text-base text-background/85 mb-4">
-                If you have any questions about this Privacy Policy, please contact us:
+                Anything in this policy unclear, or want to exercise one of the rights above? Reach us here:
               </p>
               <ul className="space-y-2 font-body text-base text-background/90">
                 <li><span className="font-headline font-bold uppercase tracking-wider text-xs text-background/70 mr-2">Email:</span> osama@handymanprinceton.com</li>

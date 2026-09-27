@@ -11,151 +11,62 @@
       "destination": "https://handymanprinceton.com/:path*",
       "permanent": true
     },
-    {
-      "source": "/concrete-grinding-trip-hazard/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/concrete-grinding-trip-hazard",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/services",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/service-areas/skillman",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
-      "source": "/:service/skillman",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
-      "source": "/service-areas/hopewell-borough",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
-      "source": "/:service/hopewell-borough",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
-      "source": "/service-areas/rocky-hill",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
-      "source": "/:service/rocky-hill",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
-      "source": "/service-areas/kingston",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
-      "source": "/:service/kingston",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
-      "source": "/bathroom-renovation/:city",
-      "destination": "/bathroom-remodel/:city",
-      "permanent": true
-    },
-    {
-      "source": "/bathroom-renovation",
-      "destination": "/bathroom-remodel",
-      "permanent": true
-    },
-    {
-      "source": "/electrical-services/:city",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/electrical-services",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/tile-installation/:city",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/tile-installation",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/ceiling-fan-installation/:city",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/ceiling-fan-installation",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/painting-services/:city",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/painting-services",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/book-repair",
-      "destination": "/get-estimate",
-      "permanent": true
-    },
-    {
-      "source": "/pergolas",
-      "destination": "/get-estimate",
-      "permanent": true
-    },
-    {
-      "source": "/custom-sheds",
-      "destination": "/get-estimate",
-      "permanent": true
-    },
-    {
-      "source": "/backyard-studios",
-      "destination": "https://gardenstateadu.com",
-      "permanent": true
-    },
-    {
-      "source": "/handyman-services",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:path+/",
-      "destination": "/:path+",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/concrete-grinding-trip-hazard/:slug*", "destination": "/handyman", "permanent": true },
+    { "source": "/concrete-grinding-trip-hazard", "destination": "/handyman", "permanent": true },
+    { "source": "/blog", "destination": "/", "permanent": true },
+    { "source": "/services", "destination": "/handyman", "permanent": true },
+    { "source": "/contact", "destination": "/book", "permanent": true },
+
+    { "source": "/service-areas/skillman", "destination": "/service-areas/montgomery", "permanent": true },
+    { "source": "/:service/skillman", "destination": "/service-areas/montgomery", "permanent": true },
+    { "source": "/service-areas/hopewell-borough", "destination": "/service-areas/pennington", "permanent": true },
+    { "source": "/:service/hopewell-borough", "destination": "/service-areas/pennington", "permanent": true },
+    { "source": "/service-areas/rocky-hill", "destination": "/service-areas/montgomery", "permanent": true },
+    { "source": "/:service/rocky-hill", "destination": "/service-areas/montgomery", "permanent": true },
+    { "source": "/service-areas/kingston", "destination": "/service-areas/south-brunswick", "permanent": true },
+    { "source": "/:service/kingston", "destination": "/service-areas/south-brunswick", "permanent": true },
+
+    { "source": "/bathroom-renovation/:city", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/bathroom-renovation", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/bathroom-remodel/:city", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/bathroom-remodel", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/bathroom-remodel-calculator", "destination": "/handyman", "permanent": true },
+    { "source": "/bathroom-refresh", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/tub-to-shower-conversion", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/walk-in-showers", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/aging-in-place", "destination": "/grab-bar-installation", "permanent": true },
+    { "source": "/kitchen-remodeling/:city", "destination": "/handyman", "permanent": true },
+    { "source": "/kitchen-remodeling", "destination": "/handyman", "permanent": true },
+    { "source": "/remodels", "destination": "/handyman", "permanent": true },
+    { "source": "/portfolio", "destination": "/handyman", "permanent": true },
+    { "source": "/rack-configurator", "destination": "/handyman", "permanent": true },
+    { "source": "/get-estimate", "destination": "/book", "permanent": true },
+    { "source": "/book-repair", "destination": "/book", "permanent": true },
+
+    { "source": "/handyman-services/:city", "destination": "/service-areas/:city", "permanent": true },
+    { "source": "/handyman-services", "destination": "/handyman", "permanent": true },
+    { "source": "/home-repairs/:city", "destination": "/service-areas/:city", "permanent": true },
+    { "source": "/home-repairs", "destination": "/handyman", "permanent": true },
+    { "source": "/home-repair", "destination": "/handyman", "permanent": true },
+    { "source": "/flooring-installation/:city", "destination": "/service-areas/:city", "permanent": true },
+    { "source": "/flooring-installation", "destination": "/home-maintenance", "permanent": true },
+    { "source": "/cabinet-installation/:city", "destination": "/carpentry", "permanent": true },
+    { "source": "/cabinet-installation", "destination": "/carpentry", "permanent": true },
+    { "source": "/carpentry-services/:city", "destination": "/carpentry", "permanent": true },
+    { "source": "/carpentry-services", "destination": "/carpentry", "permanent": true },
+
+    { "source": "/electrical-services/:city", "destination": "/fixture-swaps", "permanent": true },
+    { "source": "/electrical-services", "destination": "/fixture-swaps", "permanent": true },
+    { "source": "/ceiling-fan-installation/:city", "destination": "/fixture-swaps", "permanent": true },
+    { "source": "/ceiling-fan-installation", "destination": "/fixture-swaps", "permanent": true },
+    { "source": "/tile-installation/:city", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/tile-installation", "destination": "/tile-grout-caulk", "permanent": true },
+    { "source": "/painting-services/:city", "destination": "/painting-touch-ups", "permanent": true },
+    { "source": "/painting-services", "destination": "/painting-touch-ups", "permanent": true },
+    { "source": "/pergolas", "destination": "/storage-sheds", "permanent": true },
+    { "source": "/custom-sheds", "destination": "/storage-sheds", "permanent": true },
+    { "source": "/backyard-studios", "destination": "https://gardenstateadu.com", "permanent": true },
+
+    { "source": "/:path+/", "destination": "/:path+", "permanent": true }
   ]
 }

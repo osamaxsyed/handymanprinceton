@@ -10,30 +10,28 @@ const services = JSON.parse(readFileSync(join(__dirname, '../src/data/services.j
 
 const distDir = join(__dirname, '../dist');
 const indexHtmlPath = join(distDir, 'index.html');
+const serverEntryPath = join(__dirname, '../dist-server/entry-server.js');
 const SITE = 'https://handymanprinceton.com';
+const BRAND = 'Princeton Handyman';
 
 if (!existsSync(distDir)) {
-  console.log('⚠️  dist directory not found. Run vite build first.');
+  console.log('⚠️  dist directory not found. Run build first.');
   process.exit(1);
 }
+if (!existsSync(serverEntryPath)) {
+  console.log('⚠️  dist-server/entry-server.js not found. Run "npm run build:ssr" first.');
+  process.exit(1);
+}
+
+const { render } = await import(serverEntryPath);
 
 const baseHtml = readFileSync(indexHtmlPath, 'utf8');
-
-// SSR bundle built by `vite build --ssr src/entry-server.tsx --outDir dist-ssr`.
-// Renders the real React tree per route so every page ships full body HTML,
-// not just unique <head> tags.
-const ssrEntryPath = join(__dirname, '../dist-ssr/entry-server.js');
-if (!existsSync(ssrEntryPath)) {
-  console.log('⚠️  dist-ssr/entry-server.js not found. Run the SSR build first (npm run build).');
-  process.exit(1);
-}
-const { render } = await import(ssrEntryPath);
 
 const ensureDir = (dir) => {
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
 };
 
-// Schema.org priceRange must be a single tier; strip ranges to lower bound.
+// Schema.org priceRange must be a single tier — strip ranges to lower bound.
 const normalizePriceRange = (raw) => {
   if (!raw) return '$$';
   const m = String(raw).match(/^(\$+)/);
@@ -70,29 +68,16 @@ const buildServiceSchema = (service, location) => ({
   url: `${SITE}/${service.slug}/${location.slug}`,
 });
 
-const buildFaqSchema = (faqs) => ({
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((f) => ({
-    '@type': 'Question',
-    name: f.question,
-    acceptedAnswer: { '@type': 'Answer', text: f.answer },
-  })),
-});
+// NOTE: FAQPage schema is deliberately NOT emitted on service+location pages.
+// The same FAQ set repeated across town URLs gets flagged as duplicate
+// FAQPage markup in GSC. The FAQ content itself still renders in the page body.
 
-// Generate per-page HTML by overwriting the head tags of dist/index.html and
-// injecting the server-rendered body for the route into the root div. React
-// takes over client-side via createRoot().render() (replace, not hydrate), so
-// crawlers see full content in the initial HTML with zero hydration risk.
-const generateHtml = (title, description, url, extraSchemaBlocks = [], indexable = true) => {
+const generateHtml = (title, description, url, extraSchemaBlocks = [], bodyHtml = '') => {
   const canonical = `${SITE}${url || ''}`;
-  const appHtml = render(url || '/');
   let html = baseHtml
-    .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content=".*?"/, `<meta name="description" content="${description}"`)
     .replace(/<link rel="canonical" href=".*?"/, `<link rel="canonical" href="${canonical}"`)
-    .replace(/<meta name="robots" content=".*?"/, `<meta name="robots" content="${indexable ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' : 'noindex, follow'}"`)
     .replace(/<meta property="og:url" content=".*?"/, `<meta property="og:url" content="${canonical}"`)
     .replace(/<meta property="og:title" content=".*?"/, `<meta property="og:title" content="${title}"`)
     .replace(/<meta property="og:description" content=".*?"/, `<meta property="og:description" content="${description}"`)
@@ -105,24 +90,71 @@ const generateHtml = (title, description, url, extraSchemaBlocks = [], indexable
     html = html.replace('</head>', `    ${blocks}\n  </head>`);
   }
 
+  if (bodyHtml) {
+    html = html.replace('<div id="root"></div>', () => `<div id="root">${bodyHtml}</div>`);
+  }
+
   return html;
 };
 
+// Rotate meta description phrasing so the service+location pages do not
+// share a single stamped formula. Index by (service, location) so each page
+// gets a stable variant across builds.
+const serviceLocationDescription = (service, location, variant) => {
+  const svc = service.name;
+  const svcLower = svc.toLowerCase();
+  const city = location.name;
+  const templates = [
+    `${svc} for ${city}, NJ homes at one flat price. $345 visit covers up to 2 hours, fixed before we start. NJ HIC #13VH13918800. Call or text (609) 375-0098.`,
+    `Looking for ${svcLower} in ${city}, NJ? Flat-rate visits from $345, settled before the truck arrives. Licensed, bonded, insured, NJ HIC #13VH13918800.`,
+    `${city} ${svcLower} from a registered NJ contractor. $345 visit, $595 half day, $1,095 full day. One-year labor warranty, materials at cost.`,
+    `${svcLower.charAt(0).toUpperCase() + svcLower.slice(1)} in ${city}, NJ with no hourly meter. Price agreed first. NJ HIC #13VH13918800. Text a photo to (609) 375-0098.`,
+  ];
+  return templates[variant % templates.length];
+};
+
+const serviceLocationTitle = (service, location, variant) => {
+  const templates = [
+    `${service.name} in ${location.name}, NJ | ${BRAND}`,
+    `${service.name} ${location.name} NJ | Flat-Rate, Licensed`,
+    `${location.name} ${service.name} | Registered NJ Contractor`,
+  ];
+  return templates[variant % templates.length];
+};
+
+const renderRoute = (url) => {
+  try {
+    return render(url);
+  } catch (err) {
+    console.error(`✗ SSR failed for ${url}: ${err.message}`);
+    throw err;
+  }
+};
+
+// Combo-page indexing allowlist: the combos that were in the previous live
+// sitemap stay indexable. Every other service+location page ships
+// noindex,follow. Reversible; revisit after 6 weeks of GSC data.
+const INDEXED_COMBOS = new Set([
+  'door-installation/west-windsor',
+  'door-installation/princeton',
+  'drywall-repair/robbinsville',
+  'deck-staining/east-windsor',
+  'deck-staining/princeton',
+  'fence-repair/south-brunswick',
+  'fence-repair/princeton',
+]);
+const NOINDEX_STANDALONES = new Set([]);
+const addNoindex = (html) =>
+  html.replace('</title>', '</title>\n    <meta name="robots" content="noindex, follow" />');
+
 let generatedCount = 0;
 
-
-// EBH noindex-allowlist mechanism: every combo builds and renders, but only
-// allowlisted earners are indexable. See src/data/combo-plan.json.
-const comboPlan = JSON.parse(readFileSync(join(__dirname, '../src/data/combo-plan.json'), 'utf8'));
-const comboIndexable = (serviceSlug, locationSlug) =>
-  comboPlan.indexable.includes(`${serviceSlug}/${locationSlug}`);
-
-// Service x location pages
-services.forEach((service) => {
-  locations.forEach((location) => {
+// Service × location pages
+services.forEach((service, si) => {
+  locations.forEach((location, li) => {
     const url = `/${service.slug}/${location.slug}`;
-    const title = `${service.name} in ${location.name}, ${location.state} | Princeton Handyman`;
-    const description = `Professional ${service.name.toLowerCase()} services in ${location.name}, NJ. ${service.description} Licensed, insured. Free estimates!`;
+    const title = serviceLocationTitle(service, location, si + li);
+    const description = serviceLocationDescription(service, location, si * 3 + li);
 
     const breadcrumb = buildBreadcrumbList([
       { name: 'Home', item: SITE },
@@ -130,12 +162,10 @@ services.forEach((service) => {
       { name: location.name, item: `${SITE}/service-areas/${location.slug}` },
       { name: service.name, item: `${SITE}${url}` },
     ]);
-    const blocks = [breadcrumb, buildServiceSchema(service, location)];
-    if (Array.isArray(service.faqs) && service.faqs.length > 0) {
-      blocks.push(buildFaqSchema(service.faqs));
-    }
+    const serviceSchema = buildServiceSchema(service, location);
 
-    const html = generateHtml(title, description, url, blocks, comboIndexable(service.slug, location.slug));
+    let html = generateHtml(title, description, url, [breadcrumb, serviceSchema], renderRoute(url));
+    if (!INDEXED_COMBOS.has(`${service.slug}/${location.slug}`)) html = addNoindex(html);
     const pageDir = join(distDir, service.slug, location.slug);
     ensureDir(pageDir);
     writeFileSync(join(pageDir, 'index.html'), html, 'utf8');
@@ -144,10 +174,20 @@ services.forEach((service) => {
 });
 
 // Location pages
-locations.forEach((location) => {
+locations.forEach((location, li) => {
   const url = `/service-areas/${location.slug}`;
-  const title = `Handyman ${location.name} NJ | Licensed Local Repairs & Remodels`;
-  const description = `Professional handyman services in ${location.name}, NJ. Kitchen remodels, bathroom remodels, home repairs, and more. Licensed & insured. Free estimates!`;
+  const titles = [
+    `Flat-Rate Handyman in ${location.name}, NJ | ${BRAND}`,
+    `${location.name} NJ Handyman | Doors, Drywall, Decks, Mounting`,
+    `Handyman Services ${location.name} NJ | $345 Visit, Licensed & Insured`,
+  ];
+  const descriptions = [
+    `Doors, drywall, TV mounting, decks, trim, and the small-repair list in ${location.name}, NJ. $345 flat-rate visit, price fixed up front. NJ HIC #13VH13918800.`,
+    `Your ${location.name} handyman for repairs, carpentry, mounting, and the to-do list. Flat prices, our own crew, no hourly meter. Call (609) 375-0098.`,
+    `Home repairs for ${location.name} homeowners at one agreed price. Registered and insured, NJ HIC #13VH13918800. Nothing starts until the number is settled.`,
+  ];
+  const title = titles[li % titles.length];
+  const description = descriptions[li % descriptions.length];
 
   const breadcrumb = buildBreadcrumbList([
     { name: 'Home', item: SITE },
@@ -155,7 +195,7 @@ locations.forEach((location) => {
     { name: location.name, item: `${SITE}${url}` },
   ]);
 
-  const html = generateHtml(title, description, url, [breadcrumb]);
+  const html = generateHtml(title, description, url, [breadcrumb], renderRoute(url));
   const pageDir = join(distDir, 'service-areas', location.slug);
   ensureDir(pageDir);
   writeFileSync(join(pageDir, 'index.html'), html, 'utf8');
@@ -168,158 +208,158 @@ const serviceAreasBreadcrumb = buildBreadcrumbList([
   { name: 'Service Areas', item: `${SITE}/service-areas` },
 ]);
 const serviceAreasHtml = generateHtml(
-  'Service Areas | Princeton Handyman - Central NJ',
-  'We serve Princeton, South Brunswick, Cranbury, Plainsboro, East Windsor, West Windsor, Lawrence Township, Robbinsville, Pennington, and Montgomery. Professional handyman services in your neighborhood.',
+  `Towns We Serve | ${BRAND} - Princeton & Mercer County NJ`,
+  'Flat-rate handyman for Princeton, West Windsor, Plainsboro, Lawrence Township, Montgomery, Pennington, and the towns around them. $345 visit, price fixed before we start.',
   '/service-areas',
   [serviceAreasBreadcrumb],
+  renderRoute('/service-areas'),
 );
 const serviceAreasDir = join(distDir, 'service-areas');
 ensureDir(serviceAreasDir);
 writeFileSync(join(serviceAreasDir, 'index.html'), serviceAreasHtml, 'utf8');
 generatedCount++;
 
-// All non-dynamic routes from src/App.tsx. Each gets unique <head> tags and
-// a self-referencing canonical, ensuring no route falls through to the SPA
-// shell with the homepage canonical.
+// Standalone pages (prerender each at /<slug>/index.html). Covers every
+// non-dynamic route in src/App.tsx so each URL ships unique <head> tags, a
+// self-referencing canonical, and real server-rendered body content.
 const standalonePages = [
   {
-    slug: 'storage-sheds',
-    title: 'Storage Shed Assembly & Repair Princeton NJ | Level Base',
-    description: 'Prefab shed assembly, base prep, permits checked, and repairs to sheds that lean. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+    slug: 'handyman',
+    title: 'Handyman Services in Princeton NJ | $345 Flat-Rate Visit, No Hourly Meter',
+    description:
+      'A $345 visit covers up to two hours of repairs: doors, drywall, fixtures, mounts, the whole list. Princeton, West Windsor, Plainsboro, Lawrence, Montgomery. NJ HIC #13VH13918800.',
   },
   {
-    slug: 'careers',
-    title: 'Now Hiring Carpenters & Handymen | Princeton Handyman',
-    description: 'Hiring skilled craftsmen and helpers around Princeton and Mercer County NJ. Booked flat-rate jobs for established handymen, hourly work for helpers. Apply online.',
-    // The application form is structurally identical to EBH's (labels and
-    // questionnaire options), which pushes cross-site shingle overlap past the
-    // 15% rule. A hiring form is a utility page, not a ranking page: noindex.
-    indexable: false,
+    slug: 'doors',
+    title: 'Door Repair & Replacement in Princeton NJ | Locks, Storm Doors, Flat Rate',
+    description:
+      'Interior and exterior doors replaced in the same opening, sticking doors adjusted, storm doors, deadbolts and keypad locks. $345 flat-rate visits in Princeton, West Windsor, Plainsboro, Lawrence. NJ HIC #13VH13918800.',
   },
   {
-    slug: 'book',
-    title: 'Book a Handyman Visit in Princeton NJ | Pick a Slot',
-    description: 'Pick your flat-rate package, send your list and photos, and request a morning or afternoon slot. Confirmed within 24 hours. Princeton and Mercer County NJ.',
+    slug: 'tv-mounting',
+    title: 'TV Mounting & Furniture Assembly in Princeton NJ | $345 Flat-Rate Visit',
+    description:
+      'TV mounting into studs or masonry, cable concealment, IKEA and flat-pack assembly, grills, shelving, mirrors, blinds and curtain rods. One flat price in Princeton, West Windsor, Plainsboro and Mercer County NJ.',
   },
   {
-    slug: 'drywall-repair',
-    title: 'Drywall Repair Princeton NJ | Patches That Disappear',
-    description: 'Holes, cracks, ceilings, water damage, and the plaster walls older Princeton homes are full of. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+    slug: 'deck-fence-repair',
+    title: 'Deck & Fence Repair in Princeton NJ | Boards, Railings, Posts, Gates, Stain',
+    description:
+      'Deck board replacement, railing and stair fixes, cleaning and staining, fence post resets, panel and gate repair. Written price up front in Princeton, West Windsor, Lawrence, Plainsboro NJ. NJ HIC #13VH13918800.',
   },
   {
-    slug: 'carpentry',
-    title: 'Carpentry & Cabinet Repair Princeton NJ | Small Jobs Welcome',
-    description: 'Cabinet repair, trim, shelving, railings, rot, and doors: the small carpentry work bigger crews ignore. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
+    slug: 'tile-grout-caulk',
+    title: 'Tile Repair, Regrouting & Caulking in Princeton NJ | No-Demo Bathroom Fixes',
+    description:
+      'Showers and tubs regrouted and recaulked, cracked tiles replaced, grab bars anchored, shower doors installed. Flat-rate bathroom fixes without demolition in Princeton, West Windsor, Lawrence and Mercer County NJ. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'fixture-swaps',
+    title: 'Faucet, Toilet & Light Fixture Replacement in Princeton NJ | Flat-Rate Handyman',
+    description:
+      'Like-for-like swaps of faucets, toilets, vanities, light fixtures, ceiling fans, switches and outlets. Ordinary maintenance under NJ code, no permit. $345 visits in Princeton, West Windsor, Plainsboro, Lawrence NJ. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'painting-touch-ups',
+    title: 'Painting Touch-Ups & Small Room Painting in Princeton NJ | Flat-Rate Handyman',
+    description:
+      'Touch-ups after drywall repair, trim and door painting, powder rooms, hallways and single bedrooms. Flat pricing in Princeton, West Windsor, Lawrence, Montgomery and Mercer County NJ. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'home-maintenance',
+    title: 'Home Maintenance Handyman in Princeton NJ | Dryer Vents, Screens, Squeaks, Drafts',
+    description:
+      'Dryer vent cleaning, weatherstripping, screen repair, attic ladders, floor squeaks, smoke detectors, mailboxes, and the seasonal list. Flat-rate visits in Princeton, West Windsor, Plainsboro, Lawrence and Mercer County NJ.',
   },
   {
     slug: 'commercial-handyman',
-    title: 'Commercial Handyman Princeton NJ | Offices & Facilities',
-    description: 'Facility punch lists for offices, medical suites, and retail around Princeton and the Route 1 corridor. After-hours scheduling, COI on file. NJ HIC #13VH13918800.',
+    title: 'Commercial Handyman in Princeton & Mercer County NJ | Offices, Medical Suites',
+    description:
+      'Punch lists, drywall, doors, and fixture swaps for offices, medical practices, and small retail around Princeton and Route 1. Evenings and weekends available. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'book',
+    title: 'Request a Handyman Visit in Princeton NJ | Flat-Rate, Reply by Text',
+    description:
+      'Choose a flat-rate block, send your list, and tell us which days work. We text you a time, usually the same business day. Princeton, West Windsor, Plainsboro, Lawrence and Mercer County.',
   },
   {
     slug: 'property-managers',
-    title: 'Handyman for Property Managers Princeton NJ | Turnovers',
-    description: 'Standing punch-list accounts, make-readies, and tenant coordination for rentals around Princeton, Lawrence, and West Windsor. Photo-verified, COI on file. NJ HIC #13VH13918800.',
+    title: 'Handyman for Property Managers in Princeton & Mercer County NJ | Turnovers',
+    description:
+      'Standing punch-list accounts, unit turnovers, and tenant scheduling for property managers around Princeton, Plainsboro, and Lawrence. One vendor, photo reports, COI on file.',
+  },
+  {
+    slug: 'carpentry',
+    title: 'Small-Job Carpenter in Princeton NJ | Trim, Shelving, Railings, Rot Repair',
+    description:
+      'The carpenter who takes the small jobs: casing, baseboard, built-in shelving, loose railings, rotted trim, doors. Princeton, West Windsor, Lawrence, Montgomery NJ. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'drywall-repair',
+    title: 'Drywall & Plaster Repair in Princeton NJ | Patches That Disappear',
+    description:
+      'Holes, cracks, water damage, ceilings, and plaster in older homes, taped and blended so the repair vanishes under paint. Princeton, West Windsor, Plainsboro, Lawrence NJ. NJ HIC #13VH13918800.',
+  },
+  {
+    slug: 'storage-sheds',
+    title: 'Storage Shed Assembly & Repair in Princeton NJ | Level Base, Doors That Close',
+    description:
+      'Prefab shed assembly, gravel or paver base prep, and shed repairs in Princeton, Montgomery, West Windsor, and Mercer County NJ. One written price. NJ HIC #13VH13918800.',
   },
   {
     slug: 'grab-bar-installation',
-    title: 'Grab Bar Installation Princeton NJ | Done in One Visit',
-    description: 'Grab bars fastened into studs and rated anchors for showers, tubs, and toilets. Princeton, West Windsor, Plainsboro, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
-  },
-  {
-    slug: 'walk-in-showers',
-    title: 'Walk-In Shower Installation Princeton NJ | Written Pricing',
-    description: 'Low-threshold walk-in showers with benches and anchored bars, engineered for safety without the institutional look. Princeton, West Windsor, Robbinsville. NJ HIC #13VH13918800.',
+    title: 'Grab Bar Installation in Princeton NJ | Into Studs, Usually One Visit',
+    description:
+      'Grab bars anchored into framing or rated backing for showers, tubs, and toilets, plus handheld shower heads and raised seats. Princeton, Plainsboro, West Windsor, Lawrence NJ. NJ HIC #13VH13918800.',
   },
   {
     slug: 'shower-doors',
-    title: 'Shower Door Installation Princeton NJ | Measure-First Service',
-    description: 'Framed, semi-frameless, and frameless shower doors measured, hung, and sealed. Princeton, West Windsor, Robbinsville, Lawrence, Plainsboro. NJ HIC #13VH13918800.',
+    title: 'Shower Door Installation in Princeton NJ | Measured First, Sealed Clean',
+    description:
+      'Framed, semi-frameless, and frameless shower doors measured, hung, and sealed. Princeton, West Windsor, Plainsboro, Lawrence Township, and Montgomery NJ.',
   },
   {
     slug: 'backsplash',
-    title: 'Backsplash Installation Princeton NJ | 1-2 Day Tile Jobs',
-    description: 'Kitchen and vanity backsplash tile set straight and grouted tight, outlets and edges included. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
-  },
-  {
-    slug: 'tub-to-shower-conversion',
-    title: 'Tub to Shower Conversion Princeton NJ | Fixed Price, 4 Days',
-    description: 'Swap the unused tub for a walk-in shower in four working days. One written price covering demo, waterproofing, glass, and haul-away. Princeton, West Windsor, Robbinsville. NJ HIC #13VH13918800.',
-  },
-  {
-    slug: 'handyman',
-    title: 'Handyman & Home Repairs in Princeton NJ | $295 Visit',
-    description: 'A flat $295 visit covers up to 2 hours of skilled work: sticking doors, plaster and drywall, fixtures, the whole list. Princeton, West Windsor, Robbinsville, Lawrence. NJ HIC #13VH13918800.',
-  },
-  {
-    slug: 'remodels',
-    title: 'Kitchen & Bathroom Remodels in Princeton & Central NJ | Princeton Handyman',
-    description: 'Expert kitchen and bathroom remodeling services in Princeton and Central NJ. Full renovations, tile work, vanity installs, cabinet upgrades, and more. Licensed and insured. Free estimates.',
+    title: 'Backsplash Installation in Princeton NJ | One to Two Days of Tile Work',
+    description:
+      'Kitchen and bath backsplash tile set straight: layout, outlet cuts, grout, sealed edges. Princeton, West Windsor, Plainsboro, Montgomery NJ. Registered and insured contractor.',
   },
   {
     slug: 'about',
-    title: 'About | Princeton Handyman',
-    description: 'Princeton Handyman is operated by Osama Syed under Central Jersey Home Services LLC. Licensed, insured, and locally accountable. NJ HIC #13VH13918800.',
-  },
-  {
-    slug: 'portfolio',
-    title: 'Project Portfolio | Princeton Handyman',
-    description: 'See our completed kitchen remodels, bathroom remodels, and home repair projects across Princeton, West Windsor, Montgomery, and Central NJ. Before and after photos included.',
+    title: 'About Princeton Handyman | Central Jersey Home Services LLC',
+    description:
+      'Princeton Handyman is run by Osama Syed under Central Jersey Home Services LLC, a registered, bonded, and insured NJ contractor. Flat-rate small-job repairs for Princeton and Mercer County. NJ HIC #13VH13918800.',
   },
   {
     slug: 'faq',
-    title: 'Frequently Asked Questions | Princeton Handyman',
-    description: 'Got questions about our handyman services? Find answers about pricing, scheduling, service areas, and what to expect from Princeton Handyman.',
+    title: 'FAQ | Princeton Handyman Pricing, Scheduling & Service Area',
+    description:
+      'Straight answers on flat-rate pricing, deposits, warranty, which towns we cover, and what happens on the day. Princeton Handyman, Mercer County NJ.',
   },
   {
-    slug: 'get-estimate',
-    title: 'Get a Free Estimate | Princeton Handyman',
-    description: 'Request a free, no-obligation estimate for handyman services, kitchen remodels, bathroom remodels, and home repairs in Princeton and Central NJ.',
-  },
-  {
-    slug: 'bathroom-refresh',
-    title: '1-Day Bathroom Refresh Service | Princeton Handyman',
-    description: "Transform your bathroom in just one day. Single-sink specialty with zero-hassle Lowe's concierge pickup. Get your instant estimate for labor and logistics.",
-  },
-  {
-    slug: 'bathroom-remodel',
-    title: 'Bathroom Remodel in Princeton & Central NJ | Princeton Handyman',
-    description: 'Bathroom remodels in Princeton and Central NJ. Tile, vanities, fixtures, lighting, tub-to-shower conversions. Licensed and insured. Free estimates.',
-  },
-  {
-    slug: 'kitchen-remodeling',
-    title: 'Kitchen Remodeling in Princeton & Central NJ | Princeton Handyman',
-    description: 'Licensed kitchen remodeling in Princeton and Central NJ. Cabinets, countertops, tile, plumbing and electrical coordination, finish carpentry. NJ HIC #13VH13918800.',
-  },
-  {
-    slug: 'aging-in-place',
-    title: 'Aging-in-Place Home Modifications in Central NJ | Princeton Handyman',
-    description: 'Aging-in-place home modifications across Central New Jersey. Walk-in showers, grab bars, wider doorways, no-step entries. Licensed NJ contractor pursuing CAPS certification. NJ HIC #13VH13918800.',
-  },
-  {
-    slug: 'bathroom-remodel-calculator',
-    title: 'Bathroom Remodel Cost Calculator | Princeton Handyman',
-    description: 'Get an instant estimate for your bathroom remodel. Premium bathroom remodels for Princeton, Cranbury, Montgomery, and Central NJ. Calculate your project cost in seconds.',
-  },
-  {
-    slug: 'rack-configurator',
-    title: 'Custom Garage Storage Rack Builder | Princeton Handyman',
-    description: 'Build your perfect garage storage solution in seconds. Pick your size, see your price instantly, and transform your cluttered garage into an organized workspace.',
+    slug: 'careers',
+    title: 'Handyman Jobs Princeton NJ | $34-40/hr W-2 Flexible | Princeton Handyman',
+    description:
+      'Hiring one handyman technician for Princeton, Mercer County, and our Middlesex County routes. $34–40/hr W-2, flexible 1–3 days/week, weekly bonuses. Text HANDY to (609) 375-0098.',
   },
   {
     slug: 'privacy',
     title: 'Privacy Policy | Princeton Handyman',
-    description: 'Read the privacy policy for Princeton Handyman. Learn how we collect, use, and protect your personal information.',
+    description:
+      'How Princeton Handyman collects, uses, and protects the information you share with us, including your phone number and text-message consent.',
   },
   {
     slug: 'terms',
     title: 'Terms of Service | Princeton Handyman',
-    description: 'Terms of service for Princeton Handyman. Review the terms and conditions that apply to our handyman and home remodeling services in Central NJ.',
+    description:
+      'The terms that apply to Princeton Handyman repair services in Princeton and Mercer County NJ: pricing, deposits, warranty, and text messaging.',
   },
   {
     slug: 'sitemap',
     title: 'Sitemap | Princeton Handyman',
-    description: 'Browse all pages on the Princeton Handyman website, services, service areas, and more.',
+    description:
+      'Every page on the Princeton Handyman site: services, towns served, booking, and company information.',
   },
 ];
 
@@ -329,24 +369,39 @@ standalonePages.forEach((page) => {
     { name: 'Home', item: SITE },
     { name: page.title.split(' | ')[0], item: `${SITE}${url}` },
   ]);
-  const html = generateHtml(page.title, page.description, url, [breadcrumb], page.indexable !== false);
+  let html = generateHtml(page.title, page.description, url, [breadcrumb], renderRoute(url));
+  if (NOINDEX_STANDALONES.has(page.slug)) html = addNoindex(html);
   const pageDir = join(distDir, page.slug);
   ensureDir(pageDir);
   writeFileSync(join(pageDir, 'index.html'), html, 'utf8');
   generatedCount++;
 });
 
-// Homepage: dist/index.html keeps its own head tags but gets the rendered body.
-const homepageHtml = baseHtml.replace(
-  '<div id="root"></div>',
-  `<div id="root">${render('/')}</div>`,
+// Homepage: keep its existing head, inject the server-rendered body.
+const homeHtml = baseHtml.replace('<div id="root"></div>', () => `<div id="root">${renderRoute('/')}</div>`);
+writeFileSync(indexHtmlPath, homeHtml, 'utf8');
+generatedCount++;
+
+// 404 page: real NotFound content, no canonical (it is not a canonical page),
+// noindex so stray crawled 404s never enter the index. Vercel serves 404.html
+// with HTTP 404 for unknown paths once the SPA catch-all rewrite is gone.
+let notFoundHtml = generateHtml(
+  `Page Not Found | ${BRAND}`,
+  'That page is not here. Browse our services or text a photo of your job.',
+  '/404',
+  [],
+  renderRoute('/__page_not_found__'),
 );
-writeFileSync(indexHtmlPath, homepageHtml, 'utf8');
+notFoundHtml = notFoundHtml
+  .replace(/\s*<link rel="canonical"[^>]*>/, '')
+  .replace('</title>', '</title>\n    <meta name="robots" content="noindex" />');
+writeFileSync(join(distDir, '404.html'), notFoundHtml, 'utf8');
 generatedCount++;
 
 console.log(`✅ Prerendering completed!`);
-console.log(`📄 Generated ${generatedCount} HTML files`);
+console.log(`📄 Generated ${generatedCount} HTML files (with server-rendered bodies)`);
 console.log(`   - Service-location pages: ${services.length * locations.length}`);
 console.log(`   - Location pages: ${locations.length}`);
 console.log(`   - Hub pages: 1`);
 console.log(`   - Standalone pages: ${standalonePages.length}`);
+console.log(`   - Homepage + 404: 2`);

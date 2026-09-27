@@ -1,30 +1,34 @@
-import { ClipboardList, FileText, Hammer, CheckCircle2 } from "lucide-react";
+import { MessageSquare, Receipt, Truck, ShieldCheck } from "lucide-react";
+import { WARRANTY } from "@/data/coreServices";
+import { site } from "@/data/site";
 
+// The four things that actually happen, in order. No estimate-permit-build
+// process here: flat menu, no permits.
 const HowItWorks = () => {
   const steps = [
     {
       number: "01",
-      icon: <ClipboardList className="h-8 w-8" />,
-      title: "Estimate",
-      description: "Site visit, scope, and a written quote within 48 hours.",
+      icon: <MessageSquare className="h-8 w-8" />,
+      title: "Send the List",
+      description: `A photo and a line per item, texted to ${site.phoneDisplay}. You hear back the same business day.`,
     },
     {
       number: "02",
-      icon: <FileText className="h-8 w-8" />,
-      title: "Plan & Permit",
-      description: "We confirm zoning and pull township permits when needed.",
+      icon: <Receipt className="h-8 w-8" />,
+      title: "Agree the Number",
+      description: "We match the list to a Visit, a Half Day, or a Full Day and confirm the price before anything is scheduled.",
     },
     {
       number: "03",
-      icon: <Hammer className="h-8 w-8" />,
-      title: "Build",
-      description: "On-site execution with daily cleanup and zero surprise charges.",
+      icon: <Truck className="h-8 w-8" />,
+      title: "We Arrive",
+      description: "A name, an on-my-way text, and a truck with the tools, ladder, and common parts already on it. We clean up after.",
     },
     {
       number: "04",
-      icon: <CheckCircle2 className="h-8 w-8" />,
-      title: "Walk-Through",
-      description: "Final inspection, material care, and a satisfaction guarantee.",
+      icon: <ShieldCheck className="h-8 w-8" />,
+      title: "Finished and Backed",
+      description: `Half down holds the date, the rest is due at completion. ${WARRANTY.replace(" on every job", "")}.`,
     },
   ];
 
@@ -32,9 +36,9 @@ const HowItWorks = () => {
     <section className="py-20 md:py-28 bg-muted heavy-border-t heavy-border-b">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
-          <div className="brutalist-section-eyebrow">Our Process</div>
+          <div className="brutalist-section-eyebrow">How It Works</div>
           <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground">
-            Honest Build, Start to Finish
+            Four Steps, No Surprises
           </h2>
           <div className="w-24 h-1 bg-foreground mx-auto mt-6"></div>
         </div>

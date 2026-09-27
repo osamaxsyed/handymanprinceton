@@ -1,5 +1,3 @@
-// Ported from EBH (structure verbatim, prose rewritten through the
-// Princeton/Mercer lens per the factory duplicate-content rule).
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -8,33 +6,32 @@ import TodoBlock from "@/components/TodoBlock";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, PanelsTopLeft, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import site from "@/data/site";
 
 const faqs = [
   {
-    question: "What does it cost to have a shower door installed?",
+    question: "What does a shower door install cost?",
     answer:
-      "A standard slider or hinged door typically lands inside the $295 handyman visit, and you hear the number before anything is booked. Frameless glass weighs more, forgives less, and takes longer; if that is what you are hanging, we quote it that way from the start.",
+      "A standard framed or semi-frameless door is a one-visit job with a set price you get before we book it. Heavy frameless glass and openings that are noticeably out of square take more time, and we say that at the start rather than on the invoice.",
   },
   {
-    question: "Should I buy the door myself?",
+    question: "Should I buy the door first?",
     answer:
-      "Plenty of customers do, straight off the shelf at the big-box stores. The smarter order of operations is to have us measure first, because the opening dictates the door, not the other way around. Wrong-size glass is the most common reason these projects stall in a garage for months.",
+      "You can, and plenty of people pick one up at Lowe's or Home Depot and have us hang it. The safer sequence is to let us measure first, because buying the wrong width is the most common way a DIY door ends up back in the box.",
   },
   {
-    question: "Framed, semi-frameless, or frameless: how do I choose?",
+    question: "What is the difference between framed, semi-frameless, and frameless?",
     answer:
-      "Budget, look, and tolerance for weight. Framed is economical and forgiving. Semi-frameless trims most of the metal for a modest step up. Frameless is the showpiece, but the panels are heavy slabs of tempered glass that punish sloppy installation, which is the argument for not installing it yourself.",
+      "Framed is the least expensive and the most forgiving. Semi-frameless trims the metal down for a cleaner look at a modest step up. Frameless is the showpiece, but the glass is thick, heavy, and has no tolerance for a sloppy install, which is why you want it hung by someone who has done many of them.",
   },
   {
-    question: "The glass shattered but the frame is fine. Full replacement?",
+    question: "The glass cracked. Can only the door be replaced?",
     answer:
-      "Often the door alone can be swapped if the frame and rollers are still true. If the frame is corroded or racked, we say so plainly and price both routes, because forcing new glass into a failing frame just schedules the next breakage.",
+      "Often, as long as the frame and the opening are still sound. If the track has corroded or the frame has bent we will tell you plainly that a full replacement is the better spend.",
   },
   {
-    question: "The walls in my older house are not plumb. Will a door still fit?",
+    question: "My shower walls are not plumb. Does that rule out a door?",
     answer:
-      "Almost always. Homes around Princeton built before the 1980s are rarely square at the shower opening, and door systems carry adjustment ranges for exactly that reason. Reading the opening correctly during measurement is the skill; the install follows from it.",
+      "No, and it is the norm in the older homes around Princeton and Lawrenceville. Doors are built with adjustment range for exactly that; measuring correctly and using that range is most of the skill.",
   },
 ];
 
@@ -43,8 +40,8 @@ const ShowerDoors = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Shower Door Installation Princeton NJ | Measure-First Service"
-        description="Framed, semi-frameless, and frameless shower doors measured, hung, and sealed. Princeton, West Windsor, Robbinsville, Lawrence, Plainsboro. NJ HIC #13VH13918800."
+        title="Shower Door Installation in Princeton NJ | Measured and Sealed"
+        description="Framed, semi-frameless, and frameless shower doors installed and sealed, or a curtain swapped for glass. Princeton, West Windsor, Plainsboro, Lawrence Township NJ."
         canonical="/shower-doors"
       />
       <FaqSchema faqs={faqs} />
@@ -55,26 +52,26 @@ const ShowerDoors = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow text-background/70">
               <PanelsTopLeft className="inline h-3 w-3 mr-2" />
-              Measured. Hung. Sealed.
+              Measure Twice. Hang Once.
             </div>
             <h1 className="brutalist-headline text-4xl md:text-7xl text-background mb-6 leading-[0.95]">
               Shower Door Installation.
               <br />
-              <span className="text-background/70">Tempered Glass, Steady Hands.</span>
+              <span className="text-background/70">Heavy Glass, Steady Hands.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              First-time installs, broken-door swaps, and the jump from curtain to glass, by
-              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit"> Princeton Handyman</Link>, working
-              across Princeton, West Windsor, Robbinsville, Lawrence Township, and Plainsboro.
+              New doors, replacement doors, and the jump from shower curtain to glass, installed by
+              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit"> Princeton Handyman</Link> in
+              Princeton, West Windsor, Plainsboro, Lawrence Township, and Montgomery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={site.phoneHref} className="brutalist-cta">
+              <a href="tel:6093750098" className="brutalist-cta">
                 <Phone className="h-5 w-5" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
-              <a href={site.smsHref} className="brutalist-cta-on-dark">
+              <a href="sms:6093750098" className="brutalist-cta-on-dark">
                 <MessageSquare className="h-5 w-5" />
-                Text a Photo of Your Shower
+                Text a Photo of the Opening
               </a>
             </div>
           </div>
@@ -84,18 +81,18 @@ const ShowerDoors = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Scope</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              On the Install List.
+              Doors We Hang.
             </h2>
             <div className="grid md:grid-cols-2 gap-3">
               {[
-                "Sliding doors, framed and semi-frameless",
-                "Hinged and pivot frameless panels",
-                "Tub-track sliders and fixed screens",
-                "Swap-outs on existing shower openings",
-                "Measuring service before you order glass",
-                "Old door taken down and hauled off",
-                "Clean silicone lines, taped and tooled",
-                "Curtain-to-glass conversions",
+                "Sliding doors, framed or semi-frameless",
+                "Hinged and pivot frameless doors",
+                "Bathtub sliders and fixed tub screens",
+                "Swapping a worn door on an existing shower",
+                "Measuring before you order so the glass fits",
+                "Old door and track removed and hauled off",
+                "Clean silicone beads, wiped and tooled, not smeared",
+                "Retiring the curtain rod in favor of glass",
               ].map((f) => (
                 <div key={f} className="bento-card bg-background p-5 flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-foreground flex-shrink-0 mt-0.5" />
@@ -110,37 +107,15 @@ const ShowerDoors = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Recent Work</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Recent Doors.
+              Hung and Sealed.
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <TodoBlock note="Photo of a completed Princeton-area shower door install, town in caption and alt text." />
+              <TodoBlock note="Photo of a finished shower door install, with the town in the caption and alt text." />
               <GoogleReview
                 quote="Came back to make sure the doors were right.. amazing customer service.. definitely will hire for more house work."
                 name="Quynetta J."
-                detail="Door work, East Brunswick service area"
+                detail="Door work, via East Brunswick Handyman"
               />
-            </div>
-            <p className="font-body text-sm text-muted-foreground mt-4 max-w-2xl">
-              {site.reviewAttribution}
-            </p>
-          </div>
-        </section>
-
-        <section className="py-20 bg-background heavy-border-b">
-          <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
-            <div className="bento-card bg-foreground text-background p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div>
-                <h2 className="brutalist-headline text-2xl md:text-3xl text-background mb-2">
-                  Maybe the Door Is Not the Problem.
-                </h2>
-                <p className="font-body text-base text-background/80 max-w-xl">
-                  When the pan leaks or the walls are dated, new glass is money on a tired shower.
-                  A conversion or full remodel carries one written price and starts fresh behind the walls.
-                </p>
-              </div>
-              <Link to="/tub-to-shower-conversion" className="brutalist-cta-on-dark flex-shrink-0">
-                Tub-to-Shower <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
         </section>
@@ -149,7 +124,7 @@ const ShowerDoors = () => {
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">FAQ</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-              Shower Door Questions.
+              Shower Doors, Answered.
             </h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
@@ -165,18 +140,18 @@ const ShowerDoors = () => {
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
-              Start With a Photo.
+              Show Us the Shower.
             </h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              Text the shower and a tape measure across the opening, and we reply with what fits and the price.
+              A photo and the width of the opening is enough for us to say which door fits and what it will run.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/get-estimate")} className="brutalist-cta">
-                Get Free Estimate <ArrowRight className="h-4 w-4" />
+              <button onClick={() => navigate("/book")} className="brutalist-cta">
+                Book a Visit <ArrowRight className="h-4 w-4" />
               </button>
-              <a href={site.phoneHref} className="brutalist-cta-on-dark">
+              <a href="tel:6093750098" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
-                Call {site.phoneDisplay}
+                Call (609) 375-0098
               </a>
             </div>
           </div>

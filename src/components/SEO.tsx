@@ -9,8 +9,8 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Princeton Handyman | Home Improvement Contractor",
-  description = "Licensed NJ home improvement contractor in Princeton. Bathroom remodels, kitchen remodels, aging-in-place, ADUs, and trusted home repairs. NJ HIC #13VH13918800.",
+  title = "Princeton Handyman | Flat-Rate Home Repairs, $345 Visit",
+  description = "Licensed handyman for Princeton and Mercer County NJ: drywall, doors, TV mounting, decks, trim, tile and caulk. $345 visit covers up to 2 hours, price settled before we start. NJ HIC #13VH13918800.",
   canonical,
   ogImage = "https://handymanprinceton.com/og-image.jpg",
   keywords
@@ -35,14 +35,14 @@ const SEO = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Princeton Handyman - Professional Home Repair Services" />
+      <meta property="og:image:alt" content="Princeton Handyman, flat-rate home repairs in Princeton and Mercer County NJ" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content="Princeton Handyman - Professional Home Repair Services" />
+      <meta name="twitter:image:alt" content="Princeton Handyman, flat-rate home repairs in Princeton and Mercer County NJ" />
     </Helmet>
   );
 };

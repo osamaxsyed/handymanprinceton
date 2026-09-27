@@ -7,8 +7,8 @@ const FAQPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Frequently Asked Questions | Princeton Handyman"
-        description="Got questions about our handyman services? Find answers about pricing, scheduling, service areas, and what to expect from Princeton Handyman in Central NJ."
+        title="Handyman FAQ for Princeton NJ | Pricing, Towns, What We Fix"
+        description="Straight answers on how the $345 flat-rate visit works, which Princeton and Mercer County towns we cover, what repairs we take on, deposits, and the one-year labor warranty from Princeton Handyman."
         canonical="/faq"
       />
       <Header />

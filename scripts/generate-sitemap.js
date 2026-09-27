@@ -7,37 +7,35 @@ const __dirname = dirname(__filename);
 
 // Import data
 const locations = JSON.parse(readFileSync(join(__dirname, '../src/data/locations.json'), 'utf8'));
-const services = JSON.parse(readFileSync(join(__dirname, '../src/data/services.json'), 'utf8'));
 
 const baseUrl = 'https://handymanprinceton.com';
-const currentDate = new Date().toISOString().split('T')[0];
+// No lastmod: stamping every URL with the build date on each deploy teaches
+// Google to distrust the sitemap. lastmod is optional; omit it entirely.
 
-// Static pages
+// Static pages (same set as EBH; no bath/kitchen/portfolio pages exist here).
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
   { url: '/handyman', priority: '0.9', changefreq: 'monthly' },
-  { url: '/tub-to-shower-conversion', priority: '0.9', changefreq: 'monthly' },
+  { url: '/commercial-handyman', priority: '0.8', changefreq: 'monthly' },
+  { url: '/property-managers', priority: '0.7', changefreq: 'monthly' },
+  { url: '/carpentry', priority: '0.8', changefreq: 'monthly' },
+  { url: '/doors', priority: '0.8', changefreq: 'monthly' },
+  { url: '/tv-mounting', priority: '0.8', changefreq: 'monthly' },
+  { url: '/deck-fence-repair', priority: '0.8', changefreq: 'monthly' },
+  { url: '/tile-grout-caulk', priority: '0.8', changefreq: 'monthly' },
+  { url: '/fixture-swaps', priority: '0.8', changefreq: 'monthly' },
+  { url: '/painting-touch-ups', priority: '0.8', changefreq: 'monthly' },
+  { url: '/home-maintenance', priority: '0.8', changefreq: 'monthly' },
+  { url: '/drywall-repair', priority: '0.8', changefreq: 'monthly' },
+  { url: '/storage-sheds', priority: '0.7', changefreq: 'monthly' },
   { url: '/grab-bar-installation', priority: '0.9', changefreq: 'monthly' },
-  { url: '/walk-in-showers', priority: '0.9', changefreq: 'monthly' },
   { url: '/shower-doors', priority: '0.8', changefreq: 'monthly' },
   { url: '/backsplash', priority: '0.8', changefreq: 'monthly' },
-  { url: '/drywall-repair', priority: '0.8', changefreq: 'monthly' },
-  { url: '/carpentry', priority: '0.8', changefreq: 'monthly' },
-  { url: '/commercial-handyman', priority: '0.8', changefreq: 'monthly' },
-  { url: '/property-managers', priority: '0.8', changefreq: 'monthly' },
-  { url: '/storage-sheds', priority: '0.7', changefreq: 'monthly' },
-  { url: '/book', priority: '0.8', changefreq: 'monthly' },
-  { url: '/remodels', priority: '0.9', changefreq: 'monthly' },
-  { url: '/get-estimate', priority: '0.9', changefreq: 'monthly' },
+  { url: '/book', priority: '0.9', changefreq: 'monthly' },
   { url: '/about', priority: '0.7', changefreq: 'monthly' },
-  { url: '/portfolio', priority: '0.8', changefreq: 'weekly' },
   { url: '/faq', priority: '0.7', changefreq: 'monthly' },
-  { url: '/bathroom-remodel', priority: '0.9', changefreq: 'monthly' },
-  { url: '/bathroom-remodel-calculator', priority: '0.9', changefreq: 'monthly' },
-  { url: '/kitchen-remodeling', priority: '0.9', changefreq: 'monthly' },
-  { url: '/aging-in-place', priority: '0.9', changefreq: 'monthly' },
-  { url: '/bathroom-refresh', priority: '0.8', changefreq: 'monthly' },
   { url: '/service-areas', priority: '0.9', changefreq: 'monthly' },
+  { url: '/careers', priority: '0.6', changefreq: 'monthly' },
   { url: '/privacy', priority: '0.3', changefreq: 'yearly' },
   { url: '/terms', priority: '0.3', changefreq: 'yearly' },
 ];
@@ -49,22 +47,23 @@ const locationPages = locations.map(location => ({
   changefreq: 'monthly'
 }));
 
-// Generate service-location pages
-const serviceLocationPages = [];
-const comboPlan = JSON.parse(readFileSync(join(__dirname, '../src/data/combo-plan.json'), 'utf8'));
-const comboIndexable = (serviceSlug, locationSlug) =>
-  comboPlan.indexable.includes(`${serviceSlug}/${locationSlug}`);
-
-services.forEach(service => {
-  locations.forEach(location => {
-    if (!comboIndexable(service.slug, location.slug)) return;
-    serviceLocationPages.push({
-      url: `/${service.slug}/${location.slug}`,
-      priority: ((service.priority + location.priority) / 2).toFixed(1),
-      changefreq: 'monthly'
-    });
-  });
-});
+// Service-location pages: only the combos that were in the previous live
+// sitemap (the ones that had earned impressions) are indexable; everything
+// else ships noindex via prerender.js, so only these belong here.
+const INDEXED_COMBOS = [
+  'door-installation/west-windsor',
+  'door-installation/princeton',
+  'drywall-repair/robbinsville',
+  'deck-staining/east-windsor',
+  'deck-staining/princeton',
+  'fence-repair/south-brunswick',
+  'fence-repair/princeton',
+];
+const serviceLocationPages = INDEXED_COMBOS.map(path => ({
+  url: `/${path}`,
+  priority: '0.6',
+  changefreq: 'monthly'
+}));
 
 // Combine all pages
 const allPages = [...staticPages, ...locationPages, ...serviceLocationPages];
@@ -74,7 +73,6 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages.map(page => `  <url>
     <loc>${baseUrl}${page.url}</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`).join('\n')}
