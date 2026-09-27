@@ -21,6 +21,10 @@ const SERVICES = [
 
 const TOWNS = [...CORE_TOWNS.map((t) => t.name), ...EXTENDED_TOWNS.map((t) => t.name), "Another nearby town"];
 
+// Layer 1 bot filter: the API drops submissions that arrive under 3s after the
+// page loaded (and skips the check when ts is missing). Set once per bundle load.
+const PAGE_LOADED_AT = Date.now();
+
 const Book = () => {
   const [step, setStep] = useState(0);
   const [service, setService] = useState("");
@@ -55,6 +59,7 @@ const Book = () => {
           preferredDate: when,
           submittedAt: new Date().toISOString(),
           sourcePage: "/book",
+          ts: PAGE_LOADED_AT,
         }),
       });
       if (!r.ok) {

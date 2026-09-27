@@ -4,6 +4,10 @@ import heroImage from "@/assets/hero-osama.jpg";
 import { RATING, RATING_NOTE } from "@/data/coreServices";
 import { site } from "@/data/site";
 
+// Layer 1 bot filter: the API drops submissions that arrive under 3s after the
+// page loaded (and skips the check when ts is missing). Set once per bundle load.
+const PAGE_LOADED_AT = Date.now();
+
 // Hero with dual conversion paths (EBH structure): Call/Text primary on the
 // left, a 3-field quick form on the right for the segment that won't call.
 // The Google rating badge is honest about where the reviews came from:
@@ -27,6 +31,7 @@ const Hero = () => {
           serviceType: "Hero quick form",
           sourcePage: "homepage-hero",
           submittedAt: new Date().toISOString(),
+          ts: PAGE_LOADED_AT,
         }),
       });
       setState(r.ok ? "done" : "error");

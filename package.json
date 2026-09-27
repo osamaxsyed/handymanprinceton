@@ -12,7 +12,8 @@
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "prerender": "node scripts/prerender.js",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:spam": "node --experimental-strip-types scripts/test-spam.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

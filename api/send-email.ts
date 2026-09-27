@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
+import { spamReason } from './_spam.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Only allow POST requests
@@ -8,11 +9,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { formType, name, email, phone, address, serviceType, description, preferredDate, submittedAt, sourcePage } = req.body;
+    const { formType, name, email, phone, address, serviceType, description, preferredDate, submittedAt, sourcePage, ts } = req.body;
 
     // Hero quick form collects name + phone only; other forms collect email.
     if (!name || (!email && !phone)) {
       return res.status(400).json({ error: 'Name and an email or phone number are required' });
+    }
+
+    // Layer 1 bot filter (api/_spam.ts): a hit answers exactly like success and
+    // sends nothing, so no inbox, receipt, or Quo text fires for a bot.
+    const spam = spamReason({ phone, email, message: description, ts });
+    if (spam) {
+      console.log(`[spam] ${spam} handymanprinceton.com`);
+      return res.status(200).json({ success: true, message: 'Email sent successfully' });
     }
 
     // Gmail transport; EMAIL_USER / EMAIL_PASS are set in the Vercel project.
