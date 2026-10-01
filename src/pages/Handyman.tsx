@@ -22,7 +22,7 @@ const Handyman = () => {
           {
             question: "What does a handyman visit cost in Princeton?",
             answer:
-              "Three flat blocks and no clock: the Visit is $345 for up to two hours of general repairs, the Half Day is $595, and the Full Day is $1,095. Most household lists fit inside the Visit. Specialty installs (a prehung door, a vanity, a shower door, an attic ladder) are quoted per job. If your list is bigger than the block, you hear it before we start. Materials at cost.",
+              "Three flat blocks and no clock: the Visit is $345 for up to two hours of general repairs, the Half Day is $595, and the Full Day is $1,095. Most household lists fit inside the Visit. Specialty installs (a prehung door, a vanity, a shower door, an attic ladder) are quoted per job. If your list is bigger than the block, you hear it before we start. Materials are part of the quote.",
           },
           {
             question: "What belongs on the list?",
@@ -77,7 +77,7 @@ const Handyman = () => {
               Three Blocks. Zero Clock.
             </h2>
             <p className="font-body text-lg text-muted-foreground mb-10 max-w-2xl">
-              Choose the block that matches your list. The labor number is fixed before we arrive, and anything we supply is quoted with it at cost.
+              Choose the block that matches your list. The labor number is fixed before we arrive, and anything we supply is quoted with it.
             </p>
             <div className="grid md:grid-cols-3 gap-4">
               {[
@@ -94,7 +94,7 @@ const Handyman = () => {
               ))}
             </div>
             <p className="font-body text-base text-muted-foreground mt-6 max-w-2xl">
-              Materials are itemized at cost on the invoice. The truck carries the common parts, so
+              Materials are itemized on the quote. The truck carries the common parts, so
               most visits skip the store run. Specialty installs (doors, vanities, shower doors, attic ladders) are quoted per job.
             </p>
             <div className="mt-8">
@@ -204,7 +204,7 @@ const Handyman = () => {
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">Send the List.</h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              Price fixed before we start, materials at cost, one-year labor warranty on all of it.
+              Price fixed before we start, materials included in it, one-year labor warranty on all of it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={site.smsHref} className="brutalist-cta bg-background text-foreground border-background/30">

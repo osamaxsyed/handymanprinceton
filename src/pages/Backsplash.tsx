@@ -10,7 +10,7 @@ const faqs = [
   {
     question: "What does a backsplash cost to install?",
     answer:
-      "A typical kitchen run is a one or two day job with a single written price based on the wall area and the tile you pick. The tile itself goes on the quote at cost. A short accent wall or a bathroom vanity backsplash is often finished in a day.",
+      "A typical kitchen run is a one or two day job with a single written price based on the wall area and the tile you pick. The tile itself goes on the quote. A short accent wall or a bathroom vanity backsplash is often finished in a day.",
   },
   {
     question: "Do I have to buy the tile through you?",

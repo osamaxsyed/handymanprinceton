@@ -95,7 +95,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                way to get you a real price without a second trip.</p>
             <h3 style="margin-bottom:6px">Flat pricing, settled before any work starts</h3>
             <p style="margin-top:0">Handyman Visit $345 (up to 2 hours) &middot; Half Day $595 &middot; Full Day $1,095<br>
-               Bigger one-to-three-day jobs get one written price. Materials at cost. No hourly meters.</p>
+               Bigger one-to-three-day jobs get one written price. Materials on the quote. No hourly meters.</p>
             <p>- Princeton Handyman &middot; NJ HIC #13VH13918800<br>
                <a href="https://handymanprinceton.com">handymanprinceton.com</a></p>`,
         }).catch((receiptError) => {

@@ -90,7 +90,7 @@ const Footer = () => {
         <div className="pt-5 border-t border-border flex flex-wrap justify-between gap-3">
           <p className="font-body text-[16px] text-muted-foreground m-0">
             &copy; {new Date().getFullYear()} {site.brand}. Quotes are free. The labor price is
-            settled before any work starts; materials are billed at cost on your invoice.
+            settled before any work starts; materials are part of the same quote.
           </p>
           <p className="font-body text-[16px] text-muted-foreground m-0">
             <Link to="/careers" className="hover:text-primary">We're Hiring</Link>

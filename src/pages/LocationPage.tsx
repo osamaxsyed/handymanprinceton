@@ -194,7 +194,7 @@ const LocationPage = () => {
             <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {[
                 ["Licensed & Insured", "A registered NJ home improvement contractor (NJ HIC #13VH13918800), bonded, carrying general liability coverage on every job."],
-                ["The Price Comes First", `$345 for a two-hour visit, $595 for a half day, $1,095 for a full day. The number is set before we park in ${locationData.name}, and materials are billed at cost.`],
+                ["The Price Comes First", `$345 for a two-hour visit, $595 for a half day, $1,095 for a full day. The number is set before we park in ${locationData.name}, and materials are on the same quote.`],
                 ["Backed for a Year", "Our workmanship carries a one-year labor warranty. If something we did fails inside twelve months, we return and put it right at no charge."],
               ].map(([title, body]) => (
                 <div key={title} className="bento-card bg-background p-6">
@@ -213,7 +213,7 @@ const LocationPage = () => {
               Got a List in {locationData.name}?
             </h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              Send it with photos and you will have a flat price the same business day. Materials at cost, one-year labor warranty, no hourly meter.
+              Send it with photos and you will have a flat price the same business day. Materials on the quote, one-year labor warranty, no hourly meter.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="sms:6093750098" className="brutalist-cta bg-background text-foreground border-background/30">

@@ -210,7 +210,7 @@ export const coreServices: CoreService[] = [
       {
         question: "Do I need to buy the mount first?",
         answer:
-          "Only if you want to. If you have one, we use it. If not, the truck carries fixed and tilting mounts for common sizes, billed at cost on the invoice.",
+          "Only if you want to. If you have one, we use it. If not, the truck carries fixed and tilting mounts for common sizes, listed on the quote.",
       },
       {
         question: "Will you assemble IKEA furniture?",
@@ -388,7 +388,7 @@ export const coreServices: CoreService[] = [
       {
         question: "Do I buy the fixture or do you?",
         answer:
-          "Either works. If you have already picked one out, we install it. If not, tell us the look and the budget and we bring options at cost, itemized on the invoice. The truck stocks a couple of dependable toilets and faucets for the common cases.",
+          "Either works. If you have already picked one out, we install it. If not, tell us the look and the budget and we bring options, listed on the quote. The truck stocks a couple of dependable toilets and faucets for the common cases.",
       },
       {
         question: "It is leaking right now. How soon can you get here?",

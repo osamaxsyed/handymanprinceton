@@ -96,7 +96,7 @@ const Book = () => {
               <CheckCircle2 className="h-12 w-12 text-[#2E4A3B] mx-auto mb-4" />
               <h1 className="brutalist-headline text-3xl md:text-4xl text-foreground mb-3">Got your request.</h1>
               <p className="font-body text-lg text-muted-foreground mb-2">
-                We text back with a time, normally the same business day. The labor price is fixed before any work begins; anything we supply is quoted with it, at cost.
+                We text back with a time, normally the same business day. The labor price is fixed before any work begins; anything we supply is quoted with it.
               </p>
               <p className="font-body text-base text-muted-foreground mb-2">
                 Have photos of the jobs? Reply to that text with them, it helps us size the visit. {WARRANTY}.
@@ -114,7 +114,7 @@ const Book = () => {
                 {step === 2 && "Where, and when works?"}
               </h1>
               <p className="font-body text-lg text-muted-foreground mb-8">
-                {step === 0 && "Flat blocks of time. The labor price is fixed before any work begins; materials are quoted with it, at cost."}
+                {step === 0 && "Flat blocks of time. The labor price is fixed before any work begins; materials are quoted with it."}
                 {step === 1 && "Put down every item. The full list is what makes a flat block worth it."}
                 {step === 2 && "Give us a few days or times that suit you. This is a request; we reply by text with a confirmed time, usually the same day."}
               </p>

@@ -87,7 +87,7 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
             <div className="brutalist-section-eyebrow">Flat Pricing</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-4">Pick the Block</h2>
             <p className="font-body text-lg text-muted-foreground mb-10 max-w-2xl">
-              General repairs are sold by the block of time; specialty installs get a per-job quote. Both are fixed before we arrive, with materials at cost on the invoice.
+              General repairs are sold by the block of time; specialty installs get a per-job quote. Both are fixed before we arrive, with materials on the same quote.
             </p>
             <div className="grid md:grid-cols-3 gap-4">
               {PACKAGES.map((p) => (

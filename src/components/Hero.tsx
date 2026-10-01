@@ -94,7 +94,7 @@ const Hero = () => {
             <img src={heroImage} alt="Osama, owner of Princeton Handyman, at work on a job"
               className="w-full h-48 md:h-56 object-cover object-[65%_30%]" />
             <p className="font-body text-[15px] text-muted-foreground px-6 md:px-8 pt-3 m-0">
-              Osama, the owner. Licensed, insured, and the person who picks up when you call.
+              Osama, the owner. Licensed, insured, and when you call, we pick up.
             </p>
             <div className="p-6 md:p-8 pt-4">
             {state === "done" ? (
@@ -110,7 +110,7 @@ const Hero = () => {
               <form onSubmit={submit}>
                 <p className="brutalist-headline text-2xl text-foreground mb-1">Get a flat price</p>
                 <p className="font-body text-base text-muted-foreground mb-5">
-                  Quick and no strings. The labor price is settled before anyone starts; materials at cost.
+                  Quick and no strings. The labor price is settled before anyone starts; materials are part of the quote.
                 </p>
                 <div className="grid gap-3.5">
                   <input value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your name"
@@ -146,7 +146,7 @@ const Hero = () => {
       <section className="bg-foreground text-background py-3.5">
         <div className="w-full max-w-6xl mx-auto px-5 md:px-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 font-body text-[15.5px] text-background/90">
           <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Price settled before we start</span>
-          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Materials billed at cost</span>
+          <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Materials on the quote</span>
           <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />One-year labor warranty</span>
           <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4" />Licensed &amp; insured, {site.license}</span>
         </div>

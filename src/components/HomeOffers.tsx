@@ -14,7 +14,7 @@ const HomeOffers = () => (
   <section className="py-12 md:py-16 bg-muted border-y border-border">
     <div className="w-full max-w-6xl mx-auto px-5 md:px-8">
       <h2 className="brutalist-headline text-3xl md:text-4xl text-foreground mb-2">Pick a block of time, not a meter</h2>
-      <p className="font-body text-lg text-muted-foreground mb-8">The labor price is fixed before we pick up a tool. Anything we supply is billed at cost and quoted alongside it.</p>
+      <p className="font-body text-lg text-muted-foreground mb-8">The labor price is fixed before we pick up a tool. Anything we supply is quoted alongside it.</p>
       <div className="grid md:grid-cols-2 gap-6">
         <div className="bento-card p-7 md:p-9 flex flex-col">
           <p className="brutalist-section-eyebrow mb-2">Where most people start</p>
