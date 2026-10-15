@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import TodoBlock from "@/components/TodoBlock";
 import { ArrowRight, Phone, Warehouse, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -43,7 +42,6 @@ const StorageSheds = () => {
         description="Kit shed assembly, gravel or paver bases, and repairs to doors, roofs, and sunken corners. One written price in Princeton, Montgomery, West Windsor, Lawrence NJ. NJ HIC #13VH13918800."
         canonical="/storage-sheds"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

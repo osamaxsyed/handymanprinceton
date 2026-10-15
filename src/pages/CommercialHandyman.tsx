@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, Building2, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -42,7 +41,6 @@ const CommercialHandyman = () => {
         description="Punch lists, drywall, doors, and fixture mounting for offices, medical suites, and shops in Princeton and Mercer County. Evening and weekend slots. NJ HIC #13VH13918800."
         canonical="/commercial-handyman"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import { ArrowRight, Phone, KeyRound, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -41,7 +40,6 @@ const PropertyManagers = () => {
         description="Standing punch-list accounts, unit turnovers, and tenant scheduling for property managers across Princeton and Mercer County. One invoice, photo-verified, COI on file."
         canonical="/property-managers"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

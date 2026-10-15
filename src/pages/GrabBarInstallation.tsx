@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import TodoBlock from "@/components/TodoBlock";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, ShieldCheck, CheckCircle2, MessageSquare } from "lucide-react";
@@ -44,7 +43,6 @@ const GrabBarInstallation = () => {
         description="Grab bars fastened into studs and rated anchors for showers, tubs, and toilets, usually in one visit. Princeton, Plainsboro, West Windsor, Lawrence NJ. NJ HIC #13VH13918800."
         canonical="/grab-bar-installation"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

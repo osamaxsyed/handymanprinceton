@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import TodoBlock from "@/components/TodoBlock";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, PanelsTopLeft, CheckCircle2, MessageSquare } from "lucide-react";
@@ -44,7 +43,6 @@ const ShowerDoors = () => {
         description="Framed, semi-frameless, and frameless shower doors installed and sealed, or a curtain swapped for glass. Princeton, West Windsor, Plainsboro, Lawrence Township NJ."
         canonical="/shower-doors"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

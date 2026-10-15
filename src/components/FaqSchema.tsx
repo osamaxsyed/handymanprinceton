@@ -1,5 +1,5 @@
-// Per-page FAQPage JSON-LD. Safe against the duplicate-FAQPage GSC flag as long
-// as every page passes its own unique FAQ set (never shared data across URLs).
+// FAQPage JSON-LD. Homepage only: other pages keep their visible FAQs but
+// carry no FAQPage markup.
 const FaqSchema = ({ faqs }: { faqs: { question: string; answer: string }[] }) => (
   <script
     type="application/ld+json"

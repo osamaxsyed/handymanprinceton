@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import TodoBlock from "@/components/TodoBlock";
 import { ArrowRight, Phone, Grid3X3, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -43,7 +42,6 @@ const Backsplash = () => {
         description="Kitchen and vanity backsplash tile set straight, cut clean around outlets, and grouted tight in one to two days. Princeton, West Windsor, Plainsboro, Lawrence NJ. Licensed and insured."
         canonical="/backsplash"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

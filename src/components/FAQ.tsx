@@ -1,5 +1,4 @@
 import { Phone, Mail } from "lucide-react";
-import FaqSchema from "@/components/FaqSchema";
 import { CORE_TOWNS, EXTENDED_TOWNS, townNames } from "@/data/coreServices";
 import { site } from "@/data/site";
 
@@ -21,7 +20,6 @@ const FAQ = () => {
 
   return (
     <>
-      <FaqSchema faqs={faqs} />
       {/* Hero */}
       <section className="bg-foreground text-background heavy-border-b py-20 md:py-28">
         <div className="w-full max-w-6xl mx-auto px-6 md:px-10">

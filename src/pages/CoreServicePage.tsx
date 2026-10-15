@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import { Check, X, Phone, MessageSquare, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import GoogleReview from "@/components/GoogleReview";
@@ -20,7 +19,6 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
     <div className="min-h-screen bg-background">
       <SEO title={s.seoTitle} description={s.seoDescription} canonical={s.href} />
       <Header />
-      <FaqSchema faqs={s.faqs} />
 
       <main>
         {/* Hero */}

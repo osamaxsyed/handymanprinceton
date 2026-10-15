@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, PaintRoller, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -43,7 +42,6 @@ const DrywallRepair = () => {
         description="Holes, cracks, water damage, and ceilings taped and blended so the repair disappears. Princeton, West Windsor, Plainsboro, Lawrence Township. NJ HIC #13VH13918800."
         canonical="/drywall-repair"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, Hammer, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -43,7 +42,6 @@ const Carpentry = () => {
         description="Casing, baseboard, shelving, railings, rot repair, and doors from a carpenter who takes small jobs. Princeton, West Windsor, Lawrence, Montgomery NJ. NJ HIC #13VH13918800."
         canonical="/carpentry"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>
