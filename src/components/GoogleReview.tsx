@@ -1,5 +1,5 @@
 // A single real Google review, styled per the redesign. Quotes come verbatim
-// from the GBP export — never edit review text beyond truncation. On this site
+// from the GBP export; never edit review text beyond truncation. On this site
 // every review was earned under the East Brunswick Handyman profile (same LLC,
 // same crew); the `detail` prop carries that attribution.
 import { Star } from "lucide-react";

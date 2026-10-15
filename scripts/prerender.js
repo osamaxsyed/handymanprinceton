@@ -31,7 +31,7 @@ const ensureDir = (dir) => {
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
 };
 
-// Schema.org priceRange must be a single tier — strip ranges to lower bound.
+// Schema.org priceRange must be a single tier: strip ranges to lower bound.
 const normalizePriceRange = (raw) => {
   if (!raw) return '$$';
   const m = String(raw).match(/^(\$+)/);
@@ -341,7 +341,7 @@ const standalonePages = [
     slug: 'careers',
     title: 'Handyman Jobs Princeton NJ | $34-40/hr W-2 Flexible | Princeton Handyman',
     description:
-      'Hiring one handyman technician for Princeton, Mercer County, and Middlesex County jobs. $34–40/hr W-2, flexible 1–3 days/week, weekly bonuses. Text HANDY to (609) 375-0098.',
+      'Hiring one handyman technician for Princeton, Mercer County, and Middlesex County jobs. $34-40/hr W-2, flexible 1-3 days/week, weekly bonuses. Text HANDY to (609) 375-0098.',
   },
   {
     slug: 'privacy',

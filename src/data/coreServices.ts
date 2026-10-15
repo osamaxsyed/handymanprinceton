@@ -512,10 +512,10 @@ export const coreServices: CoreService[] = [
 // Jobs that run 1 to 3 days. Still one written price, 50% deposit to hold the date, balance on completion.
 // No draws, no permits.
 export const biggerJobs = [
-  { name: "Kitchen & Bath Backsplash", href: "/backsplash", days: "1–2 days" },
-  { name: "Storage Shed Assembly & Repair", href: "/storage-sheds", days: "1–2 days" },
-  { name: "Multi-Room Drywall Repair", href: "/drywall-repair", days: "2–3 days" },
-  { name: "Deck Resurfacing & Staining", href: "/deck-fence-repair", days: "1–3 days" },
+  { name: "Kitchen & Bath Backsplash", href: "/backsplash", days: "1-2 days" },
+  { name: "Storage Shed Assembly & Repair", href: "/storage-sheds", days: "1-2 days" },
+  { name: "Multi-Room Drywall Repair", href: "/drywall-repair", days: "2-3 days" },
+  { name: "Deck Resurfacing & Staining", href: "/deck-fence-repair", days: "1-3 days" },
 ];
 
 // Honest "not on the menu" list. NJ licensing, not preference.

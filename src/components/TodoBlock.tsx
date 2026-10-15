@@ -1,6 +1,6 @@
 // Placeholder for real content Osama must supply (photos, reviews, price
 // figures). Spec hard rule: never invent this content; show exactly what is needed.
-// Renders only in local dev — production visitors see nothing until the real
+// Renders only in local dev; production visitors see nothing until the real
 // content replaces the block. Master list: docs/CONTENT_NEEDED.md
 const TodoBlock = ({ note }: { note: string }) => {
   if (!import.meta.env.DEV) return null;
