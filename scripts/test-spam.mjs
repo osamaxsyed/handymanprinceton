@@ -1,6 +1,6 @@
 // Layer 1 bot-filter checks. Run: npm run test:spam
 // Known bot payloads (2026-09-27) must be rejected; realistic leads must pass.
-import { spamReason } from '../api/_spam.ts';
+import { spamReason, phoneFlag } from '../api/_spam.ts';
 
 const NOW = 1_800_000_000_000;
 const BOT_MSG = 'I would like more information. Please contact me by email —';
@@ -14,8 +14,9 @@ const cases = [
   ['bot: template with odd spacing/case', { message: 'i WOULD like  more information.  please contact me BY email' }, 'message-template'],
   ['bot: NANP-invalid exchange starting 1', { phone: '732-155-1234' }, 'phone-nanp'],
   ['bot: NANP-invalid area code starting 0', { phone: '032-555-1234' }, 'phone-nanp'],
-  ['bot: 9 digits', { phone: '73255512' }, 'phone-format'],
-  ['bot: 11 digits not starting with 1', { phone: '27325551234' }, 'phone-format'],
+  ['real: 8 digits is delivered (flagged check-phone, not dropped)', { phone: '73255512' }, null],
+  ['real: 11 digits not starting with 1 is delivered (flagged)', { phone: '27325551234' }, null],
+  ['real: 7 digits is delivered (flagged)', { phone: '555-1234' }, null],
   ['bot: submitted 1s after page load', { phone: '609-375-0098', ts: String(NOW - 1000) }, 'timing'],
   ['bot: yandex', { email: 'x@yandex.ru' }, 'email-domain'],
   // Real leads.
@@ -33,12 +34,30 @@ const cases = [
   ['real: message mentions email but is not the template', { message: 'Please contact me by email, I work nights' }, null],
 ];
 
+// Wrong-length phones are delivered with a flag; 10-digit NANP phones are not flagged.
+const flagCases = [
+  ['flag: 8 digits', '73255512', 'check-phone'],
+  ['flag: 7 digits', '555-1234', 'check-phone'],
+  ['flag: 11 digits not starting with 1', '27325551234', 'check-phone'],
+  ['flag: extension', '609-375-0098 x12', 'check-phone'],
+  ['flag: 10 digits', '(609) 375-0098', null],
+  ['flag: +1 and 10 digits', '+1 609 375 0098', null],
+  ['flag: empty phone', '', null],
+  ['flag: missing phone', undefined, null],
+];
+
 let failed = 0;
+for (const [label, phone, want] of flagCases) {
+  const got = phoneFlag(phone);
+  const ok = got === want;
+  if (!ok) failed++;
+  console.log(`${ok ? 'ok  ' : 'FAIL'} ${label} -> ${got}${ok ? '' : ` (want ${want})`}`);
+}
 for (const [label, fields, want] of cases) {
   const got = spamReason(fields, NOW);
   const ok = got === want;
   if (!ok) failed++;
   console.log(`${ok ? 'ok  ' : 'FAIL'} ${label} -> ${got}${ok ? '' : ` (want ${want})`}`);
 }
-console.log(failed ? `\n${failed} failing` : `\nall ${cases.length} passed`);
+console.log(failed ? `\n${failed} failing` : `\nall ${cases.length + flagCases.length} passed`);
 process.exit(failed ? 1 : 0);

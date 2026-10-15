@@ -63,13 +63,12 @@ const Book = () => {
         }),
       });
       if (!r.ok) {
-        const d = await r.json().catch(() => ({}));
-        setError(d.error || "That didn't go through. Call or text us instead.");
+        setError("That didn't go through.");
       } else {
         setDone(true);
       }
     } catch {
-      setError("We couldn't send your request. Call or text us instead.");
+      setError("We couldn't send your request.");
     }
     setSubmitting(false);
   }
@@ -162,7 +161,12 @@ const Book = () => {
                   <p className="font-body text-sm text-muted-foreground m-0">
                     We use this number to confirm a time and send a reminder the day before. Msg &amp; data rates may apply; reply STOP to opt out. Your details are never shared.
                   </p>
-                  {error && <p className="font-body text-base text-primary m-0">{error}</p>}
+                  {error && (
+                    <p className="font-body text-base text-primary m-0">
+                      {error} Call or text{" "}
+                      <a href={site.phoneHref} className="underline">{site.phoneDisplay}</a> instead.
+                    </p>
+                  )}
                 </div>
               )}
 

@@ -394,6 +394,8 @@ let notFoundHtml = generateHtml(
 );
 notFoundHtml = notFoundHtml
   .replace(/\s*<link rel="canonical"[^>]*>/, '')
+  // Drop the base page's "index, follow" so the 404 carries one robots tag.
+  .replace(/\s*<meta name="robots"[^>]*>/, '')
   .replace('</title>', '</title>\n    <meta name="robots" content="noindex" />');
 writeFileSync(join(distDir, '404.html'), notFoundHtml, 'utf8');
 generatedCount++;

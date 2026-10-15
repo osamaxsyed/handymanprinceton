@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "lucide-react";
+import { site } from "@/data/site";
 
 const NotFound = () => {
   const location = useLocation();
@@ -25,7 +26,8 @@ const NotFound = () => {
           <h1 className="brutalist-headline text-7xl md:text-9xl text-background mb-6">404</h1>
           <p className="brutalist-headline text-2xl md:text-4xl text-background/80 mb-8">Nothing at This Address</p>
           <p className="font-body text-base md:text-lg text-background/70 mb-10">
-            That page was moved, retired, or never existed. Head back to the homepage, or text a photo of your job to (609) 375-0098 and skip the browsing.
+            That page was moved, retired, or never existed. Head back to the homepage, or text a photo of your job to{" "}
+            <a href={site.phoneHref} className="underline text-background">{site.phoneDisplay}</a> and skip the browsing.
           </p>
           <Link
             to="/"
