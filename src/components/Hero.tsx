@@ -126,7 +126,8 @@ const Hero = () => {
                 </div>
                 {state === "error" && (
                   <p className="font-body text-base text-primary mt-3">
-                    That didn't go through. Call or text {site.phoneDisplay} instead.
+                    That didn't go through. Call or text{" "}
+                    <a href={site.phoneHref} className="underline">{site.phoneDisplay}</a> instead.
                   </p>
                 )}
                 <p className="font-body text-sm text-muted-foreground mt-3 m-0">

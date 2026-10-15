@@ -26,7 +26,6 @@ const DENY_DOMAINS = new Set([
 const MIN_FILL_MS = 3000;
 
 export type SpamReason =
-  | 'phone-format'
   | 'phone-nanp'
   | 'phone-555-01xx'
   | 'message-template'
@@ -40,13 +39,28 @@ export type SpamFields = {
   ts?: unknown;
 };
 
+// Digits of a submitted phone, with a leading US country code 1 removed.
+export function phoneDigits(phone: unknown): string {
+  if (phone == null) return '';
+  const d = String(phone).replace(/\D/g, '');
+  return d.length === 11 && d[0] === '1' ? d.slice(1) : d;
+}
+
+// A phone that isn't exactly 10 digits (7 digits, an extension, a typo) is
+// still a person: the lead is delivered with a 'check-phone' flag, not dropped.
+// An empty phone is not flagged (email-only submissions).
+export function phoneFlag(phone: unknown): 'check-phone' | null {
+  if (phone == null || String(phone).trim() === '') return null;
+  return phoneDigits(phone).length === 10 ? null : 'check-phone';
+}
+
 // NANP rules on the digits we were given. Only judged when a phone was
-// actually submitted; forms with an optional phone pass an empty value through.
+// actually submitted and has exactly 10 digits; anything else is flagged by
+// phoneFlag, never dropped here.
 export function phoneReason(phone: unknown): SpamReason | null {
   if (phone == null || String(phone).trim() === '') return null;
-  let d = String(phone).replace(/\D/g, '');
-  if (d.length === 11 && d[0] === '1') d = d.slice(1);
-  if (d.length !== 10) return 'phone-format';
+  const d = phoneDigits(phone);
+  if (d.length !== 10) return null;
   const area = d.slice(0, 3);
   const exchange = d.slice(3, 6);
   const line = d.slice(6);
