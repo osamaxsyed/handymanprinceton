@@ -323,5 +323,86 @@
       }
     ],
     "sources": "Sources: Census Bureau, American Community Survey 2020-2024 5-year estimates (West Windsor township housing); Wikipedia, West Windsor, New Jersey (history, hamlets, geography, census counts); N.J.A.C. 5:23-2.7; EPA RRP rule, 40 CFR 745; N.J.S.A. 56:8-151 and N.J.A.C. 13:45A-16.2; HomeGuide, Handyman Prices (Aug 2023), national figures."
+  },
+  "east-windsor": {
+    "sections": [
+      {
+        "eyebrow": "East Windsor Housing",
+        "title": "Attached Homes and Compact Floor Plans",
+        "body": [
+          "East Windsor's housing looks different from its neighbors'. The Census Bureau's American Community Survey finds that only 31% of homes are single-family detached, against 48% for Mercer County, and the median home has 5.0 rooms, below the county's 5.7. The median year built is 1976, 60% of homes went up before 1980, 18% were built in 2000 or later, and just 4% date to 1939 or earlier. About 61% of occupied homes are owner-occupied, out of a population of roughly 30,062.",
+          "The housing count kept climbing too, from 9,880 units in the 2000 census to 10,851 in 2010.",
+          "Smaller, attached homes usually mean a repair list that lives indoors. In homes approaching fifty years old, that tends to include bathroom tile and caulk, bifold and closet doors off their tracks, walls that have been patched more than once, and original light fixtures and faucets. Shared walls make careful anchoring matter more when mounting a TV or shelves. For a handyman in East Windsor, the work is mostly that interior list."
+        ]
+      },
+      {
+        "eyebrow": "The Township",
+        "title": "Twin Rivers and the Town Around Hightstown",
+        "body": [
+          "East Windsor and West Windsor were both formed when Windsor Township was split in 1797. Pieces of East Windsor later became Hightstown and Washington Township, which is now Robbinsville. Today East Windsor completely surrounds the independent borough of Hightstown, one of 21 such doughnut pairs in New Jersey.",
+          "Twin Rivers, a census-designated place of 7,878 people within the township, has been described as New Jersey's first planned unit development. Other place names include Etra, Allens Station, Hickory Corner, Locust Corner, and Washington Oak. The Meadow Lakes continuing care retirement community sits on a 100-acre site straddling the Hightstown line.",
+          "The township covers 15.66 square miles and borders Robbinsville and West Windsor in Mercer County, Cranbury, Monroe, and Plainsboro in Middlesex County, and Millstone and Upper Freehold in Monmouth County. Its municipal building, built in 1982, sits inside a landscaped man-made hill with only the south side exposed, a passive solar design from the energy crisis years."
+        ]
+      },
+      {
+        "eyebrow": "Associations",
+        "title": "Owner Items vs. Association Items",
+        "body": [
+          "In a planned community or a condominium, responsibility is often split. Interior finishes, doors, fixtures, and tile are typically the owner's, while roofs, siding, and some decks or fences may belong to the association. Every set of governing documents is different, so check yours before booking exterior work. When it is unclear who owns an item, a quick question to the association before booking saves a wasted trip."
+        ]
+      },
+      {
+        "eyebrow": "Bathrooms",
+        "title": "A Better Bathroom Without a Remodel",
+        "body": [
+          "Bathrooms in homes from the 1970s often look worse than they are. Before anyone talks about a gut renovation, which we do not do, it is worth seeing what a day of repairs gets you:"
+        ],
+        "items": [
+          "Black caulk cut out and replaced with silicone, grout repacked, via [tile, grout, and caulk](/tile-grout-caulk)",
+          "Cracked or loose wall and floor tiles swapped one at a time",
+          "A new faucet, toilet, or vanity light, like-for-like, through [fixture swaps](/fixture-swaps)",
+          "[Grab bars](/grab-bar-installation) anchored through tile into framing",
+          "A framed or frameless [shower door](/shower-doors) hung and sealed",
+          "Towel bars, hooks, and accessories reset, and the ceiling stain painted over with [painting touch-ups](/painting-touch-ups)"
+        ]
+      },
+      {
+        "eyebrow": "Elsewhere in the Home",
+        "title": "Other Jobs on an East Windsor List",
+        "body": [
+          "Outside the bathroom, East Windsor calls usually involve [doors](/doors) that drag or will not latch, closet doors back on their tracks, [drywall repair](/drywall-repair) for dents and old anchor holes, [TV mounting](/tv-mounting) into studs on shared walls, and a [home maintenance](/home-maintenance) sweep for dryer vents, screens, and detectors. Owners of detached houses add [deck and fence repair](/deck-fence-repair)."
+        ]
+      },
+      {
+        "eyebrow": "Code and Lead",
+        "title": "Permits and Pre-1978 Paint",
+        "body": [
+          "Under N.J.A.C. 5:23-2.7, New Jersey's construction code lets one- and two-family homes skip permits for ordinary maintenance: painting, trim, drywall or plaster patches under 25% of a wall area, doors replaced in the same opening, cabinets and bath accessories, and like-for-like replacement of faucets, fixtures, switches, and receptacles. That is the work we do. Rewiring, moving plumbing, or structural changes go through East Windsor's construction office for a permit, with a licensed trade or contractor.",
+          "Paint is the other rule to know. Six in ten East Windsor homes were built before 1980, and many of those before 1978. The EPA's Renovation, Repair and Painting rule (40 CFR 745) says that disturbing more than 6 square feet of painted surface per room inside a pre-1978 home, or more than 20 square feet outside, calls for lead-safe practices by an EPA-certified firm. Send your build year with your photos and we will tell you ahead of time whether a job crosses that line."
+        ]
+      },
+      {
+        "eyebrow": "Pricing",
+        "title": "What a Visit Costs Here",
+        "body": [
+          "There are three packages. $345 buys a Visit of up to 2 hours, $595 a Half Day of up to 4 hours, $1,095 a Full Day of up to 8 hours. Smaller itemized jobs bill at $175 an hour, never more than the matching package. Materials are spelled out on the quote first.",
+          "National context from HomeGuide's handyman price guide (August 2023): self-employed handymen average $50-$80 per hour and company handymen $75-$125 per hour, not counting materials; minimum charges run about $75-$200, and a trip to buy materials commonly adds $30-$80. HomeGuide's drywall guide puts patching a small hole at $300 to $500. None of these are East Windsor quotes.",
+          "For work over $500, New Jersey's Contractors' Registration Act and home improvement rules require a signed written contract with dates, the total price, and the contractor's registration number, here NJ HIC #13VH13918800. The homeowner may cancel within three business days."
+        ]
+      }
+    ],
+    "faqEyebrow": "East Windsor Questions",
+    "faqTitle": "Common East Windsor Questions",
+    "faqs": [
+      {
+        "question": "Can you work in a Twin Rivers townhouse or condo?",
+        "answer": "Yes, for owner items inside the home: doors, tile, fixtures, drywall, and mounting. For anything outside, confirm with your association first. Our [handyman page](/handyman) lists what fits each package."
+      },
+      {
+        "question": "Can a bathroom fix and a door repair share one trip?",
+        "answer": "Yes. Put both on the list with photos. If together they fit in two hours, that is one $345 Visit; if not, a [Half Day](/handyman) at $595."
+      }
+    ],
+    "sources": "Sources: Census Bureau, American Community Survey 2020-2024 5-year estimates (East Windsor township and Mercer County housing); Wikipedia, East Windsor, New Jersey (history, geography, Twin Rivers, census counts); N.J.A.C. 5:23-2.7; EPA RRP rule, 40 CFR 745; N.J.S.A. 56:8-151 and N.J.A.C. 13:45A-16.2; HomeGuide, Handyman Prices (Aug 2023) and Drywall Repair Cost (Oct 2025), national figures."
   }
 }
