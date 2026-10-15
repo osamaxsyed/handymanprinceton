@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import { ArrowRight, Phone, KeyRound, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -14,7 +13,7 @@ const faqs = [
   {
     question: "How quickly do you turn a list around?",
     answer:
-      "Routine punch lists are normally cleared within the week. Vacant units jump the queue, because an empty apartment in Plainsboro or Lawrence costs more per day than the repair list ever will.",
+      "We give you a date when the list comes in. Vacant units jump the queue, because an empty apartment in Plainsboro or Lawrence costs more per day than the repair list ever will.",
   },
   {
     question: "Will you deal with the tenant directly?",
@@ -41,7 +40,6 @@ const PropertyManagers = () => {
         description="Standing punch-list accounts, unit turnovers, and tenant scheduling for property managers across Princeton and Mercer County. One invoice, photo-verified, COI on file."
         canonical="/property-managers"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

@@ -5,6 +5,30 @@ import Footer from "@/components/Footer";
 import LocalTestimonials from "@/components/LocalTestimonials";
 import { Phone, MapPin, ArrowRight, MessageSquare, Wrench } from "lucide-react";
 import locations from "@/data/locations.json";
+import townDepth from "@/data/town-depth.json";
+
+// Extra long-form sections for a handful of towns (src/data/town-depth.json).
+// Inline links use [label](/path) and must point at existing routes.
+type DepthSection = { eyebrow: string; title: string; body: string[]; items?: string[] };
+type TownDepth = {
+  sections: DepthSection[];
+  faqEyebrow: string;
+  faqTitle: string;
+  faqs: { question: string; answer: string }[];
+  sources: string;
+};
+
+const renderLinks = (text: string) =>
+  text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    return m ? (
+      <Link key={i} to={m[2]} className="underline decoration-2 underline-offset-4 text-foreground hover:opacity-70">
+        {m[1]}
+      </Link>
+    ) : (
+      part
+    );
+  });
 
 
 const LocationPage = () => {
@@ -26,6 +50,8 @@ const LocationPage = () => {
       </div>
     );
   }
+
+  const depth = (townDepth as Record<string, TownDepth>)[locationData.slug];
 
   const pageTitle = `Handyman in ${locationData.name}, NJ | $345 Flat-Rate Visit | Princeton Handyman`;
   const pageDescription = `Licensed handyman for ${locationData.name} homes: doors, drywall, fixtures, decks, tile and the rest of the list. One flat $345 visit, price settled before we start. NJ HIC #13VH13918800. Text (609) 375-0098.`;
@@ -81,7 +107,7 @@ const LocationPage = () => {
               <span className="text-background/70">{locationData.name}, NJ.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> reaches {locationData.name} straight down the Route 1 corridor from our Middlesex County shop, and we are in the area most weeks.{" "}
+              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> serves {locationData.name} with flat-rate repairs.{" "}
               {locationData.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -183,6 +209,51 @@ const LocationPage = () => {
           </section>
         )}
 
+        {/* Town depth (only towns with an entry in town-depth.json) */}
+        {depth &&
+          depth.sections.map((sec, i) => (
+            <section key={sec.title} className={`py-20 ${i % 2 === 0 ? "bg-muted" : "bg-background"} heavy-border-b`}>
+              <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
+                <div className="brutalist-section-eyebrow">{sec.eyebrow}</div>
+                <h2 className="brutalist-headline text-2xl md:text-4xl text-foreground mb-6">{sec.title}</h2>
+                {sec.body.map((para, j) => (
+                  <p key={j} className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-5">
+                    {renderLinks(para)}
+                  </p>
+                ))}
+                {sec.items && (
+                  <ul className="grid sm:grid-cols-2 gap-3 mt-2">
+                    {sec.items.map((item, j) => (
+                      <li key={j} className="font-body text-sm md:text-base text-muted-foreground border-l-4 border-foreground pl-3 py-1">
+                        {renderLinks(item)}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </section>
+          ))}
+
+        {depth && (
+          <section className="py-20 bg-background heavy-border-b">
+            <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
+              <div className="brutalist-section-eyebrow">{depth.faqEyebrow}</div>
+              <h2 className="brutalist-headline text-2xl md:text-4xl text-foreground mb-8">{depth.faqTitle}</h2>
+              <div className="space-y-4">
+                {depth.faqs.map((f) => (
+                  <div key={f.question} className="bento-card bg-background p-6">
+                    <h3 className="brutalist-headline text-lg text-foreground mb-3">{f.question}</h3>
+                    <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">{renderLinks(f.answer)}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="font-body text-xs text-muted-foreground leading-relaxed mt-10 border-t-2 border-border pt-4">
+                {depth.sources}
+              </p>
+            </div>
+          </section>
+        )}
+
         {/* Real local reviews */}
         <LocalTestimonials locationSlug={locationData.slug} locationName={locationData.name} />
 
@@ -193,7 +264,7 @@ const LocationPage = () => {
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-12">Three Reasons</h2>
             <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {[
-                ["Licensed & Insured", "A registered NJ home improvement contractor (NJ HIC #13VH13918800), bonded, carrying general liability coverage on every job."],
+                ["Licensed & Insured", "A registered NJ home improvement contractor (NJ HIC #13VH13918800) carrying general liability insurance on every job."],
                 ["The Price Comes First", `$345 for a two-hour visit, $595 for a half day, $1,095 for a full day. The number is set before we park in ${locationData.name}, and materials are on the same quote.`],
                 ["Backed for a Year", "Our workmanship carries a one-year labor warranty. If something we did fails inside twelve months, we return and put it right at no charge."],
               ].map(([title, body]) => (
@@ -202,6 +273,34 @@ const LocationPage = () => {
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{body}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Nearby towns */}
+        <section className="py-16 bg-background heavy-border-b">
+          <div className="w-full max-w-5xl mx-auto px-6 md:px-10">
+            <div className="brutalist-section-eyebrow">Nearby</div>
+            <h2 className="brutalist-headline text-2xl md:text-4xl text-foreground mb-8">
+              Towns Next to {locationData.name}
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {locationData.nearby
+                .map((slug: string) => locations.find((loc) => loc.slug === slug))
+                .filter((loc): loc is (typeof locations)[number] => Boolean(loc))
+                .map((loc) => (
+                  <Link
+                    key={loc.slug}
+                    to={`/service-areas/${loc.slug}`}
+                    className="bento-card bg-background p-5 flex items-center justify-between font-headline font-bold uppercase tracking-wider text-sm hover:bg-foreground hover:text-background transition-colors"
+                  >
+                    <span className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 flex-shrink-0" />
+                      Handyman in {loc.name}
+                    </span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                ))}
             </div>
           </div>
         </section>

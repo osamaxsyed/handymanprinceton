@@ -21,13 +21,13 @@ const VALID_THROUGH = "2026-11-30";
 const PERKS = [
   {
     icon: DollarSign,
-    title: "$34–40/hr on a W-2",
+    title: "$34-40/hr on a W-2",
     body: "Set by experience. Paid as a proper W-2 employee, never cash under the table, never a 1099 workaround.",
   },
   {
     icon: Clock,
     title: "Your days, booked ahead",
-    body: "We schedule you 3–5 days out around the availability you give us. Most techs start at 1–3 days a week and add days as the calendar fills.",
+    body: "We schedule you 3-5 days out around the availability you give us. Most techs start at 1-3 days a week and add days as the calendar fills.",
   },
   {
     icon: TrendingUp,
@@ -46,8 +46,8 @@ const PERKS = [
   },
   {
     icon: MapPin,
-    title: "Short drives",
-    body: "Princeton, Mercer County, and our Middlesex County routes, no long hauls.",
+    title: "Local work",
+    body: "Jobs in Princeton, Mercer County, and Middlesex County.",
   },
   {
     icon: TrendingUp,
@@ -73,12 +73,12 @@ const jobPostingSchema = {
   description: [
     "<p>Princeton Handyman, operated by Central Jersey Home Services LLC, is adding one skilled technician. We are a 5.0-star locally owned repair company, not a franchise and not a gig app. Work the days you choose as jobs come in, with more days available as we grow.</p>",
     "<p><strong>What you get</strong></p><ul>",
-    "<li>$34–40/hr set by experience, paid on a W-2 (not cash, not 1099)</li>",
-    "<li>Flexible schedule: booked 3–5 days ahead around your availability, typically 1–3 days/week to start</li>",
+    "<li>$34-40/hr set by experience, paid on a W-2 (not cash, not 1099)</li>",
+    "<li>Flexible schedule: booked 3-5 days ahead around your availability, typically 1-3 days/week to start</li>",
     "<li>Performance bonuses paid weekly</li>",
     "<li>$500 tool credit line after 90 days</li>",
     "<li>Marketing, booking, and customer contact handled for you</li>",
-    "<li>Short drives: Princeton, Mercer County, and our Middlesex County routes, no long hauls</li>",
+    "<li>Local work: jobs in Princeton, Mercer County, and Middlesex County</li>",
     "<li>Early seat on a growing crew, with a path to more days and lead tech</li>",
     "</ul><p><strong>What we need</strong></p><ul>",
     ...REQUIREMENTS.map((r) => `<li>${r}</li>`),
@@ -139,7 +139,7 @@ const Careers = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Handyman Jobs Princeton NJ | $34-40/hr W-2 Flexible | Princeton Handyman"
-        description="One handyman technician opening with Princeton Handyman. $34–40/hr on a W-2, 1–3 flexible days a week, weekly bonuses, Princeton and Mercer County jobs plus Middlesex routes. Text HANDY to (609) 375-0098."
+        description="One handyman technician opening with Princeton Handyman. $34-40/hr on a W-2, 1-3 flexible days a week, weekly bonuses, Princeton and Mercer County jobs plus Middlesex County. Text HANDY to (609) 375-0098."
         canonical="/careers"
       />
       <script
@@ -154,7 +154,7 @@ const Careers = () => {
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow text-background/70">Hiring: One Technician</div>
             <h1 className="brutalist-headline text-3xl sm:text-4xl md:text-6xl text-background mb-6 leading-[1.05] md:leading-[0.95]">
-              Handyman Technician, $34–40/hr
+              Handyman Technician, $34-40/hr
               <br />
               <span className="text-background/70">Part-Time, Your Schedule | Princeton, NJ</span>
             </h1>

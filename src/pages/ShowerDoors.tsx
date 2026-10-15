@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import TodoBlock from "@/components/TodoBlock";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, PanelsTopLeft, CheckCircle2, MessageSquare } from "lucide-react";
@@ -31,7 +30,7 @@ const faqs = [
   {
     question: "My shower walls are not plumb. Does that rule out a door?",
     answer:
-      "No, and it is the norm in the older homes around Princeton and Lawrenceville. Doors are built with adjustment range for exactly that; measuring correctly and using that range is most of the skill.",
+      "No, and it is the norm in older homes. Doors are built with adjustment range for exactly that; measuring correctly and using that range is most of the skill.",
   },
 ];
 
@@ -44,7 +43,6 @@ const ShowerDoors = () => {
         description="Framed, semi-frameless, and frameless shower doors installed and sealed, or a curtain swapped for glass. Princeton, West Windsor, Plainsboro, Lawrence Township NJ."
         canonical="/shower-doors"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>

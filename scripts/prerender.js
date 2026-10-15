@@ -31,7 +31,7 @@ const ensureDir = (dir) => {
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
 };
 
-// Schema.org priceRange must be a single tier — strip ranges to lower bound.
+// Schema.org priceRange must be a single tier: strip ranges to lower bound.
 const normalizePriceRange = (raw) => {
   if (!raw) return '$$';
   const m = String(raw).match(/^(\$+)/);
@@ -106,7 +106,7 @@ const serviceLocationDescription = (service, location, variant) => {
   const city = location.name;
   const templates = [
     `${svc} for ${city}, NJ homes at one flat price. $345 visit covers up to 2 hours, fixed before we start. NJ HIC #13VH13918800. Call or text (609) 375-0098.`,
-    `Looking for ${svcLower} in ${city}, NJ? Flat-rate visits from $345, settled before the truck arrives. Licensed, bonded, insured, NJ HIC #13VH13918800.`,
+    `Looking for ${svcLower} in ${city}, NJ? Flat-rate visits from $345, settled before the truck arrives. Licensed and insured, NJ HIC #13VH13918800.`,
     `${city} ${svcLower} from a registered NJ contractor. $345 visit, $595 half day, $1,095 full day. One-year labor warranty, materials quoted up front.`,
     `${svcLower.charAt(0).toUpperCase() + svcLower.slice(1)} in ${city}, NJ with no hourly meter. Price agreed first. NJ HIC #13VH13918800. Text a photo to (609) 375-0098.`,
   ];
@@ -329,7 +329,7 @@ const standalonePages = [
     slug: 'about',
     title: 'About Princeton Handyman | Central Jersey Home Services LLC',
     description:
-      'Princeton Handyman is run by Osama Syed under Central Jersey Home Services LLC, a registered, bonded, and insured NJ contractor. Flat-rate small-job repairs for Princeton and Mercer County. NJ HIC #13VH13918800.',
+      'Princeton Handyman is run by Osama Syed under Central Jersey Home Services LLC, a registered and insured NJ contractor. Flat-rate small-job repairs for Princeton and Mercer County. NJ HIC #13VH13918800.',
   },
   {
     slug: 'faq',
@@ -341,7 +341,7 @@ const standalonePages = [
     slug: 'careers',
     title: 'Handyman Jobs Princeton NJ | $34-40/hr W-2 Flexible | Princeton Handyman',
     description:
-      'Hiring one handyman technician for Princeton, Mercer County, and our Middlesex County routes. $34–40/hr W-2, flexible 1–3 days/week, weekly bonuses. Text HANDY to (609) 375-0098.',
+      'Hiring one handyman technician for Princeton, Mercer County, and Middlesex County jobs. $34-40/hr W-2, flexible 1-3 days/week, weekly bonuses. Text HANDY to (609) 375-0098.',
   },
   {
     slug: 'privacy',

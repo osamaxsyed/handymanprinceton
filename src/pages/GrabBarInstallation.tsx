@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import TodoBlock from "@/components/TodoBlock";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, ShieldCheck, CheckCircle2, MessageSquare } from "lucide-react";
@@ -44,7 +43,6 @@ const GrabBarInstallation = () => {
         description="Grab bars fastened into studs and rated anchors for showers, tubs, and toilets, usually in one visit. Princeton, Plainsboro, West Windsor, Lawrence NJ. NJ HIC #13VH13918800."
         canonical="/grab-bar-installation"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>
@@ -149,7 +147,7 @@ const GrabBarInstallation = () => {
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
-              Safer Bathroom by the Weekend.
+              A Safer Bathroom, Bar by Bar.
             </h2>
             <p className="font-body text-lg text-background/80 mb-10">
               Tell us who will be using the bars and where they live. We take it from there.

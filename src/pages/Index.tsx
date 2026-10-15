@@ -3,7 +3,10 @@ import Hero from "@/components/Hero";
 import HomeOffers from "@/components/HomeOffers";
 import PriceCompare from "@/components/PriceCompare";
 import CredentialsSection from "@/components/CredentialsSection";
-import ServicesOverview from "@/components/ServicesOverview";
+import HomeServices from "@/components/home/HomeServices";
+import HousingNumbers from "@/components/home/HousingNumbers";
+import RulesAndCosts from "@/components/home/RulesAndCosts";
+import HomeFaq from "@/components/home/HomeFaq";
 import ServiceAreas from "@/components/ServiceAreas";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
@@ -21,12 +24,15 @@ const Index = () => {
       <main>
         <Hero />
         <HomeOffers />
-        <ServicesOverview />
+        <HomeServices />
         <PriceCompare />
         <Testimonials />
         <HowItWorks />
         <CredentialsSection />
+        <HousingNumbers />
+        <RulesAndCosts />
         <ServiceAreas />
+        <HomeFaq />
       </main>
       <Footer />
     </div>

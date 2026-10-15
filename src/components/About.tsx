@@ -8,7 +8,6 @@ const About = () => {
   const credentials = [
     "Registered NJ Home Improvement Contractor, #13VH13918800",
     "General liability insurance in force",
-    "Bonded in the State of New Jersey",
     `${RATING.value} on Google across ${RATING.count} public reviews (earned through our East Brunswick Handyman brand)`,
     "One-year labor warranty on every job",
   ];
@@ -28,7 +27,7 @@ const About = () => {
             Princeton Handyman
           </h1>
           <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl border-l-4 border-background pl-5">
-            Flat-rate small-job repairs for Princeton and Mercer County, done by a licensed, bonded, and insured contractor who answers for the work. A brand of {site.legalName}.
+            Flat-rate small-job repairs for Princeton and Mercer County, done by a licensed and insured contractor who answers for the work. A brand of {site.legalName}.
           </p>
         </div>
       </section>
@@ -45,7 +44,7 @@ const About = () => {
               Princeton Handyman is run by Osama Syed, who founded {site.legalName} and has spent more than fifteen years doing hands-on repair and carpentry work across central New Jersey. The rules have not changed in that time: agree the price first, arrive when promised, do the job the right way, and leave the room cleaner than it was.
             </p>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              The company holds a New Jersey home improvement contractor registration ({site.license}), carries a bond, and is insured. The people who work on your house are on our payroll and background-checked, and the owner stands behind each of them.
+              The company holds a New Jersey home improvement contractor registration ({site.license}) and carries general liability insurance. The people who work on your house are on our payroll and background-checked, and the owner stands behind each of them.
             </p>
           </div>
 
@@ -55,7 +54,7 @@ const About = () => {
               The Same Crew You'd Meet in East Brunswick
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              {site.legalName} runs two handyman brands: East Brunswick Handyman for Middlesex County, and Princeton Handyman for Princeton and the Mercer County ring. Same license, same insurance, same trucks and people. The Google reviews you see on this site were earned under the East Brunswick name, and we say so wherever they appear.
+              {site.legalName} runs two handyman brands: East Brunswick Handyman for Middlesex County, and Princeton Handyman for Princeton and the Mercer County towns around it. Same license, same insurance, same trucks and people. The Google reviews you see on this site were earned under the East Brunswick name, and we say so wherever they appear.
             </p>
           </div>
 
@@ -104,10 +103,10 @@ const About = () => {
               Towns We Serve
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-2">
-              Our Princeton ring is {townNames(CORE_TOWNS)}. We are also in {townNames(EXTENDED_TOWNS)} most weeks, all reached down Route 1, Route 27, and Route 130 from our Middlesex County shop.
+              We serve {townNames(CORE_TOWNS)}, plus {townNames(EXTENDED_TOWNS)}.
             </p>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              Just outside those towns? Call anyway. If it is on the way, we can usually make it work.
+              Just outside those towns? Call and ask.
             </p>
           </div>
 

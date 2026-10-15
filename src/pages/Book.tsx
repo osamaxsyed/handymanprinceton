@@ -101,7 +101,7 @@ const Book = () => {
                 Have photos of the jobs? Reply to that text with them, it helps us size the visit. {WARRANTY}.
               </p>
               <p className="font-body text-base text-muted-foreground">
-                In a hurry? <a href={smsHref} className="text-primary underline">Text us</a>. Same-week openings do come up.
+                In a hurry? <a href={smsHref} className="text-primary underline">Text us</a>.
               </p>
             </div>
           ) : (
@@ -190,7 +190,7 @@ const Book = () => {
 
               <div className="mt-10 bento-card p-5 flex flex-wrap items-center justify-between gap-3">
                 <p className="font-body text-base text-foreground m-0">
-                  Need it this week? Openings do come up.
+                  Rather talk it through?
                 </p>
                 <div className="flex gap-2.5">
                   <a href={smsHref} className="brutalist-cta-secondary !min-h-[48px] !px-4 !text-base"><MessageSquare className="h-4 w-4" /> Text us</a>

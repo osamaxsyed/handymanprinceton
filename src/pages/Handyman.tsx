@@ -4,7 +4,6 @@ import { Check, X, Phone, ArrowRight, MessageSquare } from "lucide-react";
 import { coreServices, biggerJobs, notOffered } from "@/data/coreServices";
 import { site } from "@/data/site";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import GoogleReview from "@/components/GoogleReview";
 import { Link } from "react-router-dom";
 
@@ -17,30 +16,6 @@ const Handyman = () => {
         canonical="/handyman"
       />
       <Header />
-      <FaqSchema
-        faqs={[
-          {
-            question: "What does a handyman visit cost in Princeton?",
-            answer:
-              "Three flat blocks and no clock: the Visit is $345 for up to two hours of general repairs, the Half Day is $595, and the Full Day is $1,095. Most household lists fit inside the Visit. Specialty installs (a prehung door, a vanity, a shower door, an attic ladder) are quoted per job. If your list is bigger than the block, you hear it before we start. Materials are part of the quote.",
-          },
-          {
-            question: "What belongs on the list?",
-            answer:
-              "All of it. You are buying a block of time rather than paying per task, so the more you bundle the better the value. The door that catches, the ding behind the couch, the wobbly towel bar, the caulk that has gone dark: send the whole thing.",
-          },
-          {
-            question: "Do you handle plumbing and electrical?",
-            answer:
-              "Like-for-like swaps only: faucets, toilets, vanities, disposals, light fixtures, ceiling fans, switches, and outlets, replaced where they are on the lines that are there. New Jersey's code calls that ordinary maintenance, no permit. New lines, new circuits, panels, gas, and water heaters are permit work for a licensed trade, and we say so before you buy anything.",
-          },
-          {
-            question: "Which towns do you work in?",
-            answer:
-              "Princeton, West Windsor, Plainsboro, Lawrence Township, Montgomery, and Pennington are the core ring. South Brunswick, Cranbury, East Windsor, and Robbinsville are on the calendar most weeks.",
-          },
-        ]}
-      />
       <main>
         {/* Hero */}
         <section className="bg-foreground text-background heavy-border-b py-20 md:py-28">

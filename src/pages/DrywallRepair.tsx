@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, PaintRoller, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -30,7 +29,7 @@ const faqs = [
   {
     question: "How soon can someone come out?",
     answer:
-      "Most drywall calls are booked inside the week. Send a photo of the damage by text and you will hear back the same business day on whether it is a Visit-sized patch or a larger job that needs a written price.",
+      "We give you a date when we book. Send a photo of the damage by text and you will hear back the same business day on whether it is a Visit-sized patch or a larger job that needs a written price.",
   },
 ];
 
@@ -43,7 +42,6 @@ const DrywallRepair = () => {
         description="Holes, cracks, water damage, and ceilings taped and blended so the repair disappears. Princeton, West Windsor, Plainsboro, Lawrence Township. NJ HIC #13VH13918800."
         canonical="/drywall-repair"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>
@@ -91,7 +89,7 @@ const DrywallRepair = () => {
                 "Sagging ceilings re-fastened or re-sheeted",
                 "Popcorn, knockdown, and orange peel textures matched",
                 "Move-out lists: anchors, screw pops, picture holes",
-                "Plaster in the older in-town houses repaired as plaster, not drywall",
+                "Plaster in older houses repaired as plaster, not drywall",
                 "Skim coats over rough walls, primed and ready for paint",
               ].map((f) => (
                 <div key={f} className="bento-card bg-background p-5 flex items-start gap-3">

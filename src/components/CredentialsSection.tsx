@@ -30,7 +30,7 @@ const CredentialsSection = () => {
             </h2>
 
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              Princeton Handyman is a brand of {site.legalName}, a registered New Jersey home improvement contractor that is bonded and insured, with more than fifteen years of repair and carpentry work behind it. You get one agreed price, a one-year labor warranty, and a phone number that a person answers.
+              Princeton Handyman is a brand of {site.legalName}, a registered New Jersey home improvement contractor with general liability insurance, with more than fifteen years of repair and carpentry work behind it. You get one agreed price, a one-year labor warranty, and a phone number that a person answers.
             </p>
 
             <div className="grid grid-cols-3 gap-4 mb-8 heavy-border bg-muted">

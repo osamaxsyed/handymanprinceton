@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import FaqSchema from "@/components/FaqSchema";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, Hammer, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,7 +19,7 @@ const faqs = [
   {
     question: "Can you match the old trim in my house?",
     answer:
-      "Usually. Many of the older houses in Princeton and Lawrenceville village have profiles that no longer come off the shelf, but they can often be rebuilt from stock pieces layered together. When a true match is not possible we show you the nearest option at the estimate and let you decide.",
+      "Usually. Many older houses have profiles that no longer come off the shelf, but they can often be rebuilt from stock pieces layered together. When a true match is not possible we show you the nearest option at the estimate and let you decide.",
   },
   {
     question: "Do you build shelving and storage?",
@@ -43,7 +42,6 @@ const Carpentry = () => {
         description="Casing, baseboard, shelving, railings, rot repair, and doors from a carpenter who takes small jobs. Princeton, West Windsor, Lawrence, Montgomery NJ. NJ HIC #13VH13918800."
         canonical="/carpentry"
       />
-      <FaqSchema faqs={faqs} />
       <Header />
 
       <main>
