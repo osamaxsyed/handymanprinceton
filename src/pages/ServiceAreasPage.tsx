@@ -33,7 +33,7 @@ const ServiceAreasPage = () => {
               <span className="text-background/70">Princeton and the Route 1 Corridor.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              Ten towns across Mercer County and the neighboring edges of Middlesex and Somerset, all reached from Route 1, Route 206, and Route 130. Registered NJ home improvement contractor, bonded and insured. NJ HIC #13VH13918800.
+              Ten towns across Mercer County and the neighboring edges of Middlesex and Somerset, all reached from Route 1, Route 206, and Route 130. Registered NJ home improvement contractor with general liability insurance. NJ HIC #13VH13918800.
             </p>
             <a
               href="tel:6093750098"

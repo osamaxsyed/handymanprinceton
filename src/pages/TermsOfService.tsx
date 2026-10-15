@@ -54,7 +54,7 @@ const TermsOfService = () => {
     },
     {
       title: "Insurance and Liability",
-      body: "Princeton Handyman holds a New Jersey home improvement contractor registration (NJ HIC #13VH13918800) and is bonded and insured. Our liability to you is capped at the amount you paid for the services in question. We carry general liability insurance, and workers' compensation coverage is in place for all employees.",
+      body: "Princeton Handyman holds a New Jersey home improvement contractor registration (NJ HIC #13VH13918800) and is insured. Our liability to you is capped at the amount you paid for the services in question. We carry general liability insurance, and workers' compensation coverage is in place for all employees.",
     },
     {
       title: "Cancellations",
