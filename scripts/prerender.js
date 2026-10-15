@@ -106,7 +106,7 @@ const serviceLocationDescription = (service, location, variant) => {
   const city = location.name;
   const templates = [
     `${svc} for ${city}, NJ homes at one flat price. $345 visit covers up to 2 hours, fixed before we start. NJ HIC #13VH13918800. Call or text (609) 375-0098.`,
-    `Looking for ${svcLower} in ${city}, NJ? Flat-rate visits from $345, settled before the truck arrives. Licensed and insured, NJ HIC #13VH13918800.`,
+    `Looking for ${svcLower} in ${city}, NJ? Flat-rate visits from $345, settled before the truck arrives. Licensed, bonded, insured, NJ HIC #13VH13918800.`,
     `${city} ${svcLower} from a registered NJ contractor. $345 visit, $595 half day, $1,095 full day. One-year labor warranty, materials quoted up front.`,
     `${svcLower.charAt(0).toUpperCase() + svcLower.slice(1)} in ${city}, NJ with no hourly meter. Price agreed first. NJ HIC #13VH13918800. Text a photo to (609) 375-0098.`,
   ];
@@ -329,7 +329,7 @@ const standalonePages = [
     slug: 'about',
     title: 'About Princeton Handyman | Central Jersey Home Services LLC',
     description:
-      'Princeton Handyman is run by Osama Syed under Central Jersey Home Services LLC, a registered and insured NJ contractor. Flat-rate small-job repairs for Princeton and Mercer County. NJ HIC #13VH13918800.',
+      'Princeton Handyman is run by Osama Syed under Central Jersey Home Services LLC, a registered, bonded, and insured NJ contractor. Flat-rate small-job repairs for Princeton and Mercer County. NJ HIC #13VH13918800.',
   },
   {
     slug: 'faq',

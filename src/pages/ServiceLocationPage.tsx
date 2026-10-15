@@ -170,7 +170,7 @@ const ServiceLocationPage = () => {
             </h2>
             <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {[
-                ["Licensed & Insured", "Registered NJ home improvement contractor with general liability insurance. NJ HIC #13VH13918800."],
+                ["Licensed & Insured", "Registered NJ home improvement contractor, bonded, with general liability coverage. NJ HIC #13VH13918800."],
                 ["Local and Registered", `We serve ${locationData.name} and the surrounding towns under a New Jersey home improvement contractor registration.`],
                 ["No Hourly Meter", "$345 for a two-hour visit, $595 for a half day, $1,095 for a full day. The labor number is fixed before we start; materials are on the same quote."],
               ].map(([title, body]) => (

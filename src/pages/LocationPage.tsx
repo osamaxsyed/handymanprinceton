@@ -264,7 +264,7 @@ const LocationPage = () => {
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-12">Three Reasons</h2>
             <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {[
-                ["Licensed & Insured", "A registered NJ home improvement contractor (NJ HIC #13VH13918800) carrying general liability insurance on every job."],
+                ["Licensed & Insured", "A registered NJ home improvement contractor (NJ HIC #13VH13918800), bonded, carrying general liability coverage on every job."],
                 ["The Price Comes First", `$345 for a two-hour visit, $595 for a half day, $1,095 for a full day. The number is set before we park in ${locationData.name}, and materials are on the same quote.`],
                 ["Backed for a Year", "Our workmanship carries a one-year labor warranty. If something we did fails inside twelve months, we return and put it right at no charge."],
               ].map(([title, body]) => (
