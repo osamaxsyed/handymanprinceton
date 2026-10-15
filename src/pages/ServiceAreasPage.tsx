@@ -33,7 +33,7 @@ const ServiceAreasPage = () => {
               <span className="text-background/70">Princeton and the Route 1 Corridor.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              Ten towns across Mercer County and the neighboring edges of Middlesex and Somerset, all reached from Route 1, Route 206, and Route 130. Registered NJ home improvement contractor with general liability insurance. NJ HIC #13VH13918800.
+              Ten towns across Mercer County and the neighboring edges of Middlesex and Somerset. Registered NJ home improvement contractor with general liability insurance. NJ HIC #13VH13918800.
             </p>
             <a
               href="tel:6093750098"
@@ -117,7 +117,7 @@ const ServiceAreasPage = () => {
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">Your Town Not on the List?</h2>
             <p className="font-body text-lg text-background/80 mb-10">
-              If you are within a short drive of Princeton, call and ask. We often say yes to the towns just past the edge of the map.
+              If your town is close to Princeton but not listed, call and ask.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button onClick={() => navigate("/book")} className="brutalist-cta bg-background text-foreground border-background/30">

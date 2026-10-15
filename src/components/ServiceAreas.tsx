@@ -17,7 +17,7 @@ const ServiceAreas = () => {
             </h2>
           </div>
           <p className="font-body text-base md:text-lg text-muted-foreground md:max-w-md">
-            Princeton and the Mercer County ring around it, plus the Middlesex and Somerset towns that border it.
+            Princeton and the Mercer County towns around it, plus the Middlesex and Somerset towns that border it.
           </p>
         </div>
 
@@ -41,14 +41,11 @@ const ServiceAreas = () => {
           ))}
         </div>
         <p className="font-body text-base text-muted-foreground mt-4 mb-0">
-          The Princeton ring is {townNames(CORE_TOWNS)}. We also cover {townNames(EXTENDED_TOWNS)} most weeks.
+          We serve {townNames(CORE_TOWNS)}, plus {townNames(EXTENDED_TOWNS)}.
         </p>
 
         <div className="mt-9 pt-6 heavy-border-t">
           <img src="/mark-truck-charcoal.png" alt="" className="w-[168px] h-auto opacity-90" />
-          <p className="font-body text-[17px] text-[#795B41] mt-3 mb-0">
-            Spotted the red Tacoma on Route 1? That was us on the way to a job.
-          </p>
         </div>
 
         <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">

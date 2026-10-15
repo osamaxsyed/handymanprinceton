@@ -46,8 +46,8 @@ const PERKS = [
   },
   {
     icon: MapPin,
-    title: "Short drives",
-    body: "Princeton, Mercer County, and our Middlesex County routes, no long hauls.",
+    title: "Local work",
+    body: "Jobs in Princeton, Mercer County, and Middlesex County.",
   },
   {
     icon: TrendingUp,
@@ -78,7 +78,7 @@ const jobPostingSchema = {
     "<li>Performance bonuses paid weekly</li>",
     "<li>$500 tool credit line after 90 days</li>",
     "<li>Marketing, booking, and customer contact handled for you</li>",
-    "<li>Short drives: Princeton, Mercer County, and our Middlesex County routes, no long hauls</li>",
+    "<li>Local work: jobs in Princeton, Mercer County, and Middlesex County</li>",
     "<li>Early seat on a growing crew, with a path to more days and lead tech</li>",
     "</ul><p><strong>What we need</strong></p><ul>",
     ...REQUIREMENTS.map((r) => `<li>${r}</li>`),
@@ -139,7 +139,7 @@ const Careers = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Handyman Jobs Princeton NJ | $34-40/hr W-2 Flexible | Princeton Handyman"
-        description="One handyman technician opening with Princeton Handyman. $34–40/hr on a W-2, 1–3 flexible days a week, weekly bonuses, Princeton and Mercer County jobs plus Middlesex routes. Text HANDY to (609) 375-0098."
+        description="One handyman technician opening with Princeton Handyman. $34–40/hr on a W-2, 1–3 flexible days a week, weekly bonuses, Princeton and Mercer County jobs plus Middlesex County. Text HANDY to (609) 375-0098."
         canonical="/careers"
       />
       <script

@@ -54,7 +54,7 @@ const About = () => {
               The Same Crew You'd Meet in East Brunswick
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              {site.legalName} runs two handyman brands: East Brunswick Handyman for Middlesex County, and Princeton Handyman for Princeton and the Mercer County ring. Same license, same insurance, same trucks and people. The Google reviews you see on this site were earned under the East Brunswick name, and we say so wherever they appear.
+              {site.legalName} runs two handyman brands: East Brunswick Handyman for Middlesex County, and Princeton Handyman for Princeton and the Mercer County towns around it. Same license, same insurance, same trucks and people. The Google reviews you see on this site were earned under the East Brunswick name, and we say so wherever they appear.
             </p>
           </div>
 
@@ -103,10 +103,10 @@ const About = () => {
               Towns We Serve
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-2">
-              Our Princeton ring is {townNames(CORE_TOWNS)}. We are also in {townNames(EXTENDED_TOWNS)} most weeks, all reached down Route 1, Route 27, and Route 130 from our Middlesex County shop.
+              We serve {townNames(CORE_TOWNS)}, plus {townNames(EXTENDED_TOWNS)}.
             </p>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              Just outside those towns? Call anyway. If it is on the way, we can usually make it work.
+              Just outside those towns? Call and ask.
             </p>
           </div>
 

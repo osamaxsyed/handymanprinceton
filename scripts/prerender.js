@@ -341,7 +341,7 @@ const standalonePages = [
     slug: 'careers',
     title: 'Handyman Jobs Princeton NJ | $34-40/hr W-2 Flexible | Princeton Handyman',
     description:
-      'Hiring one handyman technician for Princeton, Mercer County, and our Middlesex County routes. $34–40/hr W-2, flexible 1–3 days/week, weekly bonuses. Text HANDY to (609) 375-0098.',
+      'Hiring one handyman technician for Princeton, Mercer County, and Middlesex County jobs. $34–40/hr W-2, flexible 1–3 days/week, weekly bonuses. Text HANDY to (609) 375-0098.',
   },
   {
     slug: 'privacy',

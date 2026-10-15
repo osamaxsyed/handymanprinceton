@@ -31,7 +31,7 @@ const faqs = [
   {
     question: "My shower walls are not plumb. Does that rule out a door?",
     answer:
-      "No, and it is the norm in the older homes around Princeton and Lawrenceville. Doors are built with adjustment range for exactly that; measuring correctly and using that range is most of the skill.",
+      "No, and it is the norm in older homes. Doors are built with adjustment range for exactly that; measuring correctly and using that range is most of the skill.",
   },
 ];
 

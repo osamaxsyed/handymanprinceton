@@ -37,7 +37,7 @@ const Handyman = () => {
           {
             question: "Which towns do you work in?",
             answer:
-              "Princeton, West Windsor, Plainsboro, Lawrence Township, Montgomery, and Pennington are the core ring. South Brunswick, Cranbury, East Windsor, and Robbinsville are on the calendar most weeks.",
+              "Princeton, West Windsor, Plainsboro, Lawrence Township, Montgomery, and Pennington, plus South Brunswick, Cranbury, East Windsor, and Robbinsville.",
           },
         ]}
       />

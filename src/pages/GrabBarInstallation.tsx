@@ -149,7 +149,7 @@ const GrabBarInstallation = () => {
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
-              Safer Bathroom by the Weekend.
+              A Safer Bathroom, Bar by Bar.
             </h2>
             <p className="font-body text-lg text-background/80 mb-10">
               Tell us who will be using the bars and where they live. We take it from there.

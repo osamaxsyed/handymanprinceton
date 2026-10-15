@@ -20,7 +20,7 @@ const faqs = [
   {
     question: "Can you match the old trim in my house?",
     answer:
-      "Usually. Many of the older houses in Princeton and Lawrenceville village have profiles that no longer come off the shelf, but they can often be rebuilt from stock pieces layered together. When a true match is not possible we show you the nearest option at the estimate and let you decide.",
+      "Usually. Many older houses have profiles that no longer come off the shelf, but they can often be rebuilt from stock pieces layered together. When a true match is not possible we show you the nearest option at the estimate and let you decide.",
   },
   {
     question: "Do you build shelving and storage?",

@@ -81,7 +81,7 @@ const LocationPage = () => {
               <span className="text-background/70">{locationData.name}, NJ.</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-background/85 max-w-2xl mb-10 border-l-4 border-background pl-5">
-              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> reaches {locationData.name} straight down the Route 1 corridor from our Middlesex County shop, and we are in the area most weeks.{" "}
+              <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> serves {locationData.name} with flat-rate repairs.{" "}
               {locationData.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

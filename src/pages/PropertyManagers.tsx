@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "How quickly do you turn a list around?",
     answer:
-      "Routine punch lists are normally cleared within the week. Vacant units jump the queue, because an empty apartment in Plainsboro or Lawrence costs more per day than the repair list ever will.",
+      "We give you a date when the list comes in. Vacant units jump the queue, because an empty apartment in Plainsboro or Lawrence costs more per day than the repair list ever will.",
   },
   {
     question: "Will you deal with the tenant directly?",

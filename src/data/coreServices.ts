@@ -25,7 +25,7 @@ export interface CoreService {
 }
 
 // One list of towns, consumed everywhere (footer, FAQ, booking, town grid, schema).
-// Core = the Princeton ring we are in most often; extended = the outer ring.
+// Core = Princeton and the towns around it; extended = the next towns out.
 export const CORE_TOWNS = [
   { name: "Princeton", slug: "princeton" },
   { name: "West Windsor", slug: "west-windsor" },
@@ -172,7 +172,7 @@ export const coreServices: CoreService[] = [
     h1: "TV Mounting, Assembly & Hanging.",
     h1Sub: "Princeton & Mercer County, NJ.",
     intro:
-      "Nearly all of this fits inside one $345 visit. We find the framing, pick anchors that suit the wall (plaster and lath in the older in-town houses, drywall in the newer ones), build the flat-pack with no leftover hardware, and hang everything level on the first try. Stack the boxes in the room they belong in and leave the rest to us.",
+      "Nearly all of this fits inside one $345 visit. We find the framing, pick anchors that suit the wall (plaster and lath in older houses, drywall in newer ones), build the flat-pack with no leftover hardware, and hang everything level on the first try. Stack the boxes in the room they belong in and leave the rest to us.",
     seoTitle: "TV Mounting & Furniture Assembly in Princeton NJ | $345 Flat-Rate Visit",
     seoDescription:
       "TV mounting into studs or masonry, cable concealment, IKEA and flat-pack assembly, grills, shelving, mirrors, blinds and curtain rods. One flat price in Princeton, West Windsor, Plainsboro and Mercer County NJ.",
