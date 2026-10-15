@@ -8,7 +8,8 @@
     "neighborhoods": ["Western Section", "John Witherspoon", "Jugtown", "Cedar Grove", "Port Mercer", "Princeton Basin"],
     "localContext": "Princeton has some of the oldest housing stock in Mercer County. The Census Bureau's American Community Survey (2020-2024 5-year estimates) puts the median year built at 1965, with 64% of homes built before 1980 and almost a quarter (23%) built in 1939 or earlier. The former borough, which held Nassau Street and most of the town's urban area before the 2013 consolidation, and the Jugtown Historic District around Harrison and Nassau, whose buildings date to colonial times, are where the oldest of those houses sit. Older houses mean a repair list that leans toward fitting rather than replacing: a door trimmed to an opening that has moved, a piece of trim made to match its neighbors, grout and caulk renewed, and fixtures swapped like-for-like with no permit.",
     "priority": 1.0,
-    "county": "Mercer County"
+    "county": "Mercer County",
+    "nearby": ["west-windsor", "lawrence-township"]
   },
   {
     "slug": "west-windsor",
@@ -19,7 +20,8 @@
     "neighborhoods": ["Princeton Junction", "Dutch Neck", "Grovers Mill", "Penns Neck", "Berrien City", "Edinburg"],
     "localContext": "West Windsor grew fastest from the late 1970s through the 2000s, and the numbers show it: the Census Bureau's American Community Survey (2020-2024 5-year estimates) puts the median year built at 1990, with 32% of homes built in 2000 or later and only 23% before 1980. Most homes are owner-occupied (65%), and a little over half (55%) are single-family detached. Houses that age are past their first set of builder-grade parts, so the calls are interior doors that rub, faucets and light fixtures due for a swap, deck boards and stain, and drywall cracks at the corners of windows and doors. That is Half Day territory. We confirm by text, send an on-the-way message, and can work from arranged access for standing clients.",
     "priority": 0.9,
-    "county": "Mercer County"
+    "county": "Mercer County",
+    "nearby": ["princeton", "robbinsville"]
   },
   {
     "slug": "plainsboro",
@@ -30,7 +32,8 @@
     "neighborhoods": ["Princeton Collection", "Ravens Crest", "Hunters Glen", "Fox Run", "Plainsboro Village", "Princeton Meadows"],
     "localContext": "Plainsboro is townhome and condo country: Princeton Collection, Ravens Crest, Hunters Glen, Fox Run, and the rest of the communities along Plainsboro Road and Scudders Mill Road went up between the late 1970s and the 1990s. Inside those units the list is predictable and we know it well: bifold closet doors off their tracks, dated bath fixtures, caulk that has failed around tubs, ceiling fans that wobble, and TVs that need to go on a party wall properly. Exterior work in the associations is usually the HOA's job, so we keep to the inside unless the association says otherwise.",
     "priority": 0.9,
-    "county": "Middlesex County"
+    "county": "Middlesex County",
+    "nearby": ["princeton", "west-windsor"]
   },
   {
     "slug": "lawrence-township",
@@ -41,7 +44,8 @@
     "neighborhoods": ["Lawrenceville", "Eldridge Park", "Slackwood", "Colonial Lakelands", "Franklin Corner"],
     "localContext": "Lawrence Township sits between Princeton and Trenton and also borders Ewing, Hamilton, Hopewell, and West Windsor. Its housing is split almost down the middle by age: the Census Bureau's American Community Survey (2020-2024 5-year estimates) puts the median year built at 1979, with 51% of homes built before 1980 and 14% built in 2000 or later. About two thirds of homes (67%) are owner-occupied. A split like that gives two kinds of lists: on the older houses, doors that have shifted, worn weatherstripping, and trim that needs a matching piece; on the newer ones, builder fixtures, deck boards, and grout. One note, since people ask: additions and remodels are general contractor work, and we do not take them. We do the repairs, at one flat price agreed before we start.",
     "priority": 0.85,
-    "county": "Mercer County"
+    "county": "Mercer County",
+    "nearby": ["princeton", "west-windsor"]
   },
   {
     "slug": "montgomery",
@@ -52,7 +56,8 @@
     "neighborhoods": ["Skillman", "Belle Mead", "Blawenburg", "Montgomery Knoll", "Cherry Valley"],
     "localContext": "Montgomery Township is large-lot living along Route 206 and Route 518: colonials from the 1990s and 2000s subdivisions in Skillman and Belle Mead, older farmhouses and capes around Blawenburg, and a lot of decks, sheds, and exterior trim exposed to weather with nothing to block the wind. The newer houses have heavy millwork and built-ins that need matching when a piece is damaged, plus the usual first-round replacements of fixtures and doors. Many properties are on well and septic, which does not change our work but does mean we confirm shutoff locations before touching a faucet.",
     "priority": 0.85,
-    "county": "Somerset County"
+    "county": "Somerset County",
+    "nearby": ["princeton", "pennington"]
   },
   {
     "slug": "pennington",
@@ -63,7 +68,8 @@
     "neighborhoods": ["Main Street", "Brookside", "Curlis Lake", "Hopewell Township (08534)"],
     "localContext": "Pennington is a small borough with a Main Street of Victorians and Colonial Revivals, ringed by 1960s through 1990s neighborhoods like Brookside and the Hopewell Township streets that share the ZIP. The borough houses give us the careful jobs: casing and stair parts worth repairing rather than replacing, plaster cracks, and old doors tuned rather than tossed. The newer streets give us decks, fences, fixtures, and drywall. We stay on the repair side of the line here; exterior changes in the historic district are the borough's call, and we do not do renovations anyway. We price it like every other town: one number, agreed before we start.",
     "priority": 0.8,
-    "county": "Mercer County"
+    "county": "Mercer County",
+    "nearby": ["lawrence-township", "princeton"]
   },
   {
     "slug": "south-brunswick",
@@ -74,7 +80,8 @@
     "neighborhoods": ["Kendall Park", "Monmouth Junction", "Dayton", "Kingston", "Deans"],
     "localContext": "South Brunswick covers a lot of ground between Route 1 and Route 27, and the housing runs from the 1950s and 60s ranches and split-levels of Kendall Park to the 1990s and 2000s subdivisions in Dayton and Monmouth Junction. Kendall Park is where we see the original hollow-core doors, first-generation bath tile with failing grout, and trim that has been painted so many times the profile is gone. Dayton and Monmouth Junction are the 25-year list: builder fixtures, decks due for boards and stain, and drywall cracks at the window corners.",
     "priority": 0.85,
-    "county": "Middlesex County"
+    "county": "Middlesex County",
+    "nearby": ["princeton", "plainsboro"]
   },
   {
     "slug": "cranbury",
@@ -85,7 +92,8 @@
     "neighborhoods": ["Historic Village", "Cranbury Neck", "Old Trenton Road", "Cranbury Station"],
     "localContext": "Cranbury is a small township with a well-kept historic village along Main Street and Maplewood Avenue, and larger properties on the roads running out toward Cranbury Neck and Old Trenton Road. The village houses are 18th and 19th century in places, which means plaster, wide old casing, doors that have settled for generations, and the kind of small repairs that need patience more than power tools. We repair what is there rather than replacing it wholesale, and we stay inside the repair line: exterior changes in the historic district are for the township's preservation commission and a contractor who does that work.",
     "priority": 0.75,
-    "county": "Middlesex County"
+    "county": "Middlesex County",
+    "nearby": ["east-windsor", "plainsboro"]
   },
   {
     "slug": "east-windsor",
@@ -96,7 +104,8 @@
     "neighborhoods": ["Twin Rivers", "Etra", "Allens Station", "Hickory Corner", "Locust Corner", "Washington Oak"],
     "localContext": "East Windsor is home to Twin Rivers, described as New Jersey's first planned unit development, and the township completely surrounds the borough of Hightstown. The Census Bureau's American Community Survey (2020-2024 5-year estimates) puts East Windsor's median year built at 1976, with 60% of homes built before 1980. Only 31% of homes are single-family detached, and the median home has 5.0 rooms, so a lot of the work here happens inside attached homes and smaller floor plans: interior doors, bath fixtures, caulk and grout, and drywall that previous owners have patched more than once. Exterior items on attached homes often belong to an association, so check yours before booking deck or fence work.",
     "priority": 0.8,
-    "county": "Mercer County"
+    "county": "Mercer County",
+    "nearby": ["robbinsville", "west-windsor"]
   },
   {
     "slug": "robbinsville",
@@ -107,6 +116,7 @@
     "neighborhoods": ["Robbinsville Town Center", "Robbinsville Center", "New Sharon", "Windsor", "Carsons Mills", "Meadows Terrace"],
     "localContext": "Robbinsville, known as Washington Township until 2007, has young housing by Mercer County standards. The Census Bureau's American Community Survey (2020-2024 5-year estimates) puts the median year built at 1992, against 1969 for the county as a whole, with 29% of homes built in 2000 or later and only 19% before 1980. Eight in ten homes (80%) are owner-occupied. Robbinsville Town Center, near Route 130 and Route 33, adds about 1,000 housing units of its own: loft-style condominiums, townhouses, duplexes, and single-family homes. Newer houses still need work, it is just a different list: door hardware, faucets, disposals, ceiling fans, deck boards, and gate hinges reaching the end of their first life.",
     "priority": 0.8,
-    "county": "Mercer County"
+    "county": "Mercer County",
+    "nearby": ["east-windsor", "west-windsor"]
   }
 ]

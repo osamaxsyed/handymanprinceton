@@ -206,6 +206,34 @@ const LocationPage = () => {
           </div>
         </section>
 
+        {/* Nearby towns */}
+        <section className="py-16 bg-background heavy-border-b">
+          <div className="w-full max-w-5xl mx-auto px-6 md:px-10">
+            <div className="brutalist-section-eyebrow">Nearby</div>
+            <h2 className="brutalist-headline text-2xl md:text-4xl text-foreground mb-8">
+              Towns Next to {locationData.name}
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {locationData.nearby
+                .map((slug: string) => locations.find((loc) => loc.slug === slug))
+                .filter((loc): loc is (typeof locations)[number] => Boolean(loc))
+                .map((loc) => (
+                  <Link
+                    key={loc.slug}
+                    to={`/service-areas/${loc.slug}`}
+                    className="bento-card bg-background p-5 flex items-center justify-between font-headline font-bold uppercase tracking-wider text-sm hover:bg-foreground hover:text-background transition-colors"
+                  >
+                    <span className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 flex-shrink-0" />
+                      Handyman in {loc.name}
+                    </span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
