@@ -71,3 +71,8 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Sitemap lastmod + IndexNow
+
+- `<lastmod>` in `public/sitemap.xml` comes from the committed manifest `src/data/lastmod.json` (URL path -> newest git commit date of that page's own source/data files; shared chrome is ignored). The build never calls git. After content changes are committed, run `npm run lastmod` (needs a full, non-shallow clone) and commit the updated manifest. The URL list lives in `scripts/sitemap-pages.js`.
+- IndexNow key file: `public/1e4952d899dbb776d20c1213207fba1f.txt`. After a production deploy is live, run `npm run indexnow -- --days 2 --include-home [--dry-run]` (or `--since <previous-deploy-sha>` / `--urls a,b`). Manual only; caps at 100 URLs and checks the live key file first.

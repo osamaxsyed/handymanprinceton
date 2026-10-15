@@ -13,7 +13,9 @@
     "prerender": "node scripts/prerender.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test:spam": "node --experimental-strip-types scripts/test-spam.mjs"
+    "test:spam": "node --experimental-strip-types scripts/test-spam.mjs",
+    "lastmod": "node scripts/gen-lastmod.mjs",
+    "indexnow": "node scripts/indexnow-ping.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
