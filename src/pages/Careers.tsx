@@ -8,9 +8,9 @@ import { Check, MessageSquare, Clock, DollarSign, MapPin, TrendingUp, Wrench } f
 // the crew works both territories.
 
 const SITE = "https://handymanprinceton.com";
-const PHONE_DISPLAY = "(609) 375-0098";
+const PHONE_DISPLAY = "(609) 303-8627";
 // `?&body=` is the form that fills the message body on both iOS and Android.
-const SMS_HREF = "sms:+16093750098?&body=HANDY";
+const SMS_HREF = "sms:+16093038627?&body=HANDY";
 
 // Keep these two dates current. Google drops a JobPosting from its Jobs
 // results once validThrough passes; bump it (or datePosted) when re-running
@@ -139,7 +139,7 @@ const Careers = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Handyman Jobs Princeton NJ | $34-40/hr W-2 Flexible | Princeton Handyman"
-        description="One handyman technician opening with Princeton Handyman. $34-40/hr on a W-2, 1-3 flexible days a week, weekly bonuses, Princeton and Mercer County jobs plus Middlesex County. Text HANDY to (609) 375-0098."
+        description="One handyman technician opening with Princeton Handyman. $34-40/hr on a W-2, 1-3 flexible days a week, weekly bonuses, Princeton and Mercer County jobs plus Middlesex County. Text HANDY to (609) 303-8627."
         canonical="/careers"
       />
       <script

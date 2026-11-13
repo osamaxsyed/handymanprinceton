@@ -63,11 +63,11 @@ const DrywallRepair = () => {
               blended into the wall, never just a smear of spackle.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:6093750098" className="brutalist-cta">
+              <a href="tel:6093038627" className="brutalist-cta">
                 <Phone className="h-5 w-5" />
-                Call (609) 375-0098
+                Call (609) 303-8627
               </a>
-              <a href="sms:6093750098" className="brutalist-cta-on-dark">
+              <a href="sms:6093038627" className="brutalist-cta-on-dark">
                 <MessageSquare className="h-5 w-5" />
                 Text a Photo of the Wall
               </a>
@@ -170,9 +170,9 @@ const DrywallRepair = () => {
               <button onClick={() => navigate("/book")} className="brutalist-cta">
                 Book a Visit <ArrowRight className="h-4 w-4" />
               </button>
-              <a href="tel:6093750098" className="brutalist-cta-on-dark">
+              <a href="tel:6093038627" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
-                Call (609) 375-0098
+                Call (609) 303-8627
               </a>
             </div>
           </div>

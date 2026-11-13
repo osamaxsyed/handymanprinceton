@@ -22,7 +22,7 @@ const ServiceLocationPage = () => {
   if (!locationData || !serviceData) return <NotFound />;
 
   const pageTitle = `${serviceData.name} in ${locationData.name}, NJ | Flat-Rate Handyman | Princeton Handyman`;
-  const pageDescription = `${serviceData.name} for ${locationData.name}, NJ homes at one flat price. ${uniqueDescription} $345 visit, agreed before we start. NJ HIC #13VH13918800. Text (609) 375-0098.`;
+  const pageDescription = `${serviceData.name} for ${locationData.name}, NJ homes at one flat price. ${uniqueDescription} $345 visit, agreed before we start. NJ HIC #13VH13918800. Text (609) 303-8627.`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -42,7 +42,7 @@ const ServiceLocationPage = () => {
     provider: {
       "@type": "LocalBusiness",
       name: "Princeton Handyman",
-      telephone: "+16093750098",
+      telephone: "+16093038627",
       url: "https://handymanprinceton.com",
     },
     areaServed: {
@@ -105,11 +105,11 @@ const ServiceLocationPage = () => {
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </button>
               <a
-                href="tel:6093750098"
+                href="tel:6093038627"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground transition-all rounded-none"
               >
                 <Phone className="h-4 w-4" />
-                (609) 375-0098
+                (609) 303-8627
               </a>
             </div>
           </div>
@@ -272,11 +272,11 @@ const ServiceLocationPage = () => {
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </button>
               <a
-                href="tel:6093750098"
+                href="tel:6093038627"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground transition-all rounded-none"
               >
                 <Phone className="h-4 w-4" />
-                (609) 375-0098
+                (609) 303-8627
               </a>
             </div>
           </div>

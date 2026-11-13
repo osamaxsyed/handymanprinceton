@@ -1,17 +1,16 @@
 // Single source of truth for brand, contact, and license details.
 //
-// Phone is shared with East Brunswick Handyman by owner decision (2026-08-15).
-// Both operations run under Central Jersey Home Services LLC. If a dedicated
-// Princeton tracking number is ever provisioned, change PHONE_DISPLAY and
-// PHONE_RAW here and every page picks it up.
+// The published phone is Handyman Princeton's dedicated Quo line,
+// (609) 303-8627. To change it, update phoneDisplay and phoneRaw here and
+// every page that reads site.* picks it up.
 
 export const site = {
   brand: "Princeton Handyman",
   legalName: "Central Jersey Home Services LLC",
   license: "NJ HIC #13VH13918800",
 
-  phoneDisplay: "(609) 375-0098",
-  phoneRaw: "6093750098",
+  phoneDisplay: "(609) 303-8627",
+  phoneRaw: "6093038627",
   get phoneHref() {
     return `tel:${this.phoneRaw}`;
   },

@@ -54,7 +54,7 @@ const LocationPage = () => {
   const depth = (townDepth as Record<string, TownDepth>)[locationData.slug];
 
   const pageTitle = `Handyman in ${locationData.name}, NJ | $345 Flat-Rate Visit | Princeton Handyman`;
-  const pageDescription = `Licensed handyman for ${locationData.name} homes: doors, drywall, fixtures, decks, tile and the rest of the list. One flat $345 visit, price settled before we start. NJ HIC #13VH13918800. Text (609) 375-0098.`;
+  const pageDescription = `Licensed handyman for ${locationData.name} homes: doors, drywall, fixtures, decks, tile and the rest of the list. One flat $345 visit, price settled before we start. NJ HIC #13VH13918800. Text (609) 303-8627.`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -115,11 +115,11 @@ const LocationPage = () => {
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </button>
               <a
-                href="tel:6093750098"
+                href="tel:6093038627"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground transition-all rounded-none"
               >
                 <Phone className="h-4 w-4" />
-                (609) 375-0098
+                (609) 303-8627
               </a>
             </div>
           </div>
@@ -315,16 +315,16 @@ const LocationPage = () => {
               Send it with photos and you will have a flat price the same business day. Materials on the quote, one-year labor warranty, no hourly meter.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="sms:6093750098" className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href="sms:6093038627" className="brutalist-cta bg-background text-foreground border-background/30">
                 <MessageSquare className="h-4 w-4" />
                 Text Photos of the Job
               </a>
               <a
-                href="tel:6093750098"
+                href="tel:6093038627"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground transition-all rounded-none"
               >
                 <Phone className="h-4 w-4" />
-                (609) 375-0098
+                (609) 303-8627
               </a>
             </div>
           </div>

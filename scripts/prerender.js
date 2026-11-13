@@ -105,10 +105,10 @@ const serviceLocationDescription = (service, location, variant) => {
   const svcLower = svc.toLowerCase();
   const city = location.name;
   const templates = [
-    `${svc} for ${city}, NJ homes at one flat price. $345 visit covers up to 2 hours, fixed before we start. NJ HIC #13VH13918800. Call or text (609) 375-0098.`,
+    `${svc} for ${city}, NJ homes at one flat price. $345 visit covers up to 2 hours, fixed before we start. NJ HIC #13VH13918800. Call or text (609) 303-8627.`,
     `Looking for ${svcLower} in ${city}, NJ? Flat-rate visits from $345, settled before the truck arrives. Licensed, bonded, insured, NJ HIC #13VH13918800.`,
     `${city} ${svcLower} from a registered NJ contractor. $345 visit, $595 half day, $1,095 full day. One-year labor warranty, materials quoted up front.`,
-    `${svcLower.charAt(0).toUpperCase() + svcLower.slice(1)} in ${city}, NJ with no hourly meter. Price agreed first. NJ HIC #13VH13918800. Text a photo to (609) 375-0098.`,
+    `${svcLower.charAt(0).toUpperCase() + svcLower.slice(1)} in ${city}, NJ with no hourly meter. Price agreed first. NJ HIC #13VH13918800. Text a photo to (609) 303-8627.`,
   ];
   return templates[variant % templates.length];
 };
@@ -183,7 +183,7 @@ locations.forEach((location, li) => {
   ];
   const descriptions = [
     `Doors, drywall, TV mounting, decks, trim, and the small-repair list in ${location.name}, NJ. $345 flat-rate visit, price fixed up front. NJ HIC #13VH13918800.`,
-    `Your ${location.name} handyman for repairs, carpentry, mounting, and the to-do list. Flat prices, our own crew, no hourly meter. Call (609) 375-0098.`,
+    `Your ${location.name} handyman for repairs, carpentry, mounting, and the to-do list. Flat prices, our own crew, no hourly meter. Call (609) 303-8627.`,
     `Home repairs for ${location.name} homeowners at one agreed price. Registered and insured, NJ HIC #13VH13918800. Nothing starts until the number is settled.`,
   ];
   const title = titles[li % titles.length];
@@ -341,7 +341,7 @@ const standalonePages = [
     slug: 'careers',
     title: 'Handyman Jobs Princeton NJ | $34-40/hr W-2 Flexible | Princeton Handyman',
     description:
-      'Hiring one handyman technician for Princeton, Mercer County, and Middlesex County jobs. $34-40/hr W-2, flexible 1-3 days/week, weekly bonuses. Text HANDY to (609) 375-0098.',
+      'Hiring one handyman technician for Princeton, Mercer County, and Middlesex County jobs. $34-40/hr W-2, flexible 1-3 days/week, weekly bonuses. Text HANDY to (609) 303-8627.',
   },
   {
     slug: 'privacy',

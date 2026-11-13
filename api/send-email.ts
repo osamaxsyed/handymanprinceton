@@ -140,7 +140,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       html: `
             <p>Thanks ${esc(name.split(/\s+/)[0])}, your request is in.</p>
             <p>Osama reviews these personally and gets back to you the same business day.
-               If you have photos of the job, text them to (609) 375-0098: it is the fastest
+               If you have photos of the job, text them to (609) 303-8627: it is the fastest
                way to get you a real price without a second trip.</p>
             <h3 style="margin-bottom:6px">Flat pricing, settled before any work starts</h3>
             <p style="margin-top:0">Handyman Visit $345 (up to 2 hours) &middot; Half Day $595 &middot; Full Day $1,095<br>
