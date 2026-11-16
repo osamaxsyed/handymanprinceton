@@ -24,13 +24,11 @@ export const site = {
 
   primaryCity: "Princeton",
 
-  // Flat pricing ladder. Matches EBH (raised 2026-09 to $345/$595/$1,095).
-  // No hourly rate anywhere: the FAQ sells against hourly billing.
+  // Public pricing (2026-11-16, matches EBH): $345 minimum covering up to 2
+  // hours, one written price for bigger jobs. No hourly rate anywhere.
   pricing: {
-    visit: "$345",
-    halfDay: "$595",
-    fullDay: "$1,095",
-    visitScope: "Up to 2 hours of general repairs",
+    minimum: "$345",
+    minimumScope: "Up to 2 hours of work",
   },
 
   // Reviews shown on this site are real reviews of Central Jersey Home Services

@@ -6,7 +6,7 @@ import { CORE_TOWNS, EXTENDED_TOWNS, townNames } from "@/data/coreServices";
 const FAQS = [
   {
     question: "What does a handyman cost in Princeton with you?",
-    answer: "A Visit is $345 for up to 2 hours of work, a Half Day is $595 for up to 4 hours, and a Full Day is $1,095 for up to 8 hours. Itemized jobs are $175 an hour, capped at the package price. Materials are quoted up front.",
+    answer: "Small jobs have a $345 minimum, which covers up to 2 hours of work. A bigger job gets one written price for the whole thing, set before we start. Materials are quoted up front, and there is no hourly meter.",
   },
   {
     question: "Are you licensed and insured?",

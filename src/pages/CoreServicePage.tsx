@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import { Check, X, Phone, MessageSquare, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import GoogleReview from "@/components/GoogleReview";
-import { getCoreService, coreServices, PACKAGES, WARRANTY } from "@/data/coreServices";
+import { getCoreService, coreServices, MINIMUM, WARRANTY } from "@/data/coreServices";
 import { site } from "@/data/site";
 
 // One template for the data-driven core-service pages (doors, tv-mounting,
@@ -79,22 +79,25 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
           </div>
         </section>
 
-        {/* Which package */}
+        {/* How the price works */}
         <section className="py-16 md:py-20 bg-muted heavy-border-b">
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Flat Pricing</div>
-            <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-4">Pick the Block</h2>
+            <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-4">What It Costs</h2>
             <p className="font-body text-lg text-muted-foreground mb-10 max-w-2xl">
-              General repairs are sold by the block of time; specialty installs get a per-job quote. Both are fixed before we arrive, with materials on the same quote.
+              A short list costs the {MINIMUM.price} minimum; anything longer gets a single written number for the job. Both are fixed before we arrive, with materials on the same quote.
             </p>
-            <div className="grid md:grid-cols-3 gap-4">
-              {PACKAGES.map((p) => (
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { key: "small", name: "Small jobs", price: MINIMUM.price, sub: `The minimum, good for ${MINIMUM.hours} of work`, items: s.fits.visit },
+                { key: "bigger", name: "Bigger jobs", price: "One price", sub: "Written for the whole job before work starts", items: [...s.fits.halfDay, ...s.fits.fullDay] },
+              ].map((p) => (
                 <div key={p.key} className="bento-card bg-background p-7 flex flex-col">
                   <p className="brutalist-section-eyebrow mb-1">{p.name}</p>
                   <p className="font-headline font-bold text-[38px] leading-none text-primary mb-2">{p.price}</p>
                   <p className="font-body text-base font-semibold text-foreground mb-4">{p.sub}</p>
                   <ul className="space-y-2">
-                    {s.fits[p.key].map((item) => (
+                    {p.items.map((item) => (
                       <li key={item} className="flex items-start gap-2 font-body text-base">
                         <Check className="h-4 w-4 text-foreground flex-shrink-0 mt-1" />
                         <span className="text-muted-foreground">{item}</span>
@@ -151,7 +154,7 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
               <div>
                 <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-3">Whenever You're Ready.</h2>
                 <p className="font-body text-lg text-background/80 max-w-xl mb-6">
-                  A photo and one line is enough. You get a reply the same business day with the block that fits.
+                  A photo and one line is enough. You get a reply the same business day with the price.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href={site.smsHref} className="brutalist-cta">

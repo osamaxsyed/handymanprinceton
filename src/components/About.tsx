@@ -132,7 +132,7 @@ const About = () => {
               Have a List?
             </h3>
             <p className="font-body text-base text-background/80 mb-6 max-w-md mx-auto">
-              Text it over with a photo or two. You get a reply the same business day with the block that fits.
+              Text it over with a photo or two. You get a reply the same business day with a price for the job.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href={site.smsHref} className="brutalist-cta">

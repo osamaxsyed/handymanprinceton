@@ -16,7 +16,7 @@ const HowItWorks = () => {
       number: "02",
       icon: <Receipt className="h-8 w-8" />,
       title: "Agree the Number",
-      description: "We match the list to a Visit, a Half Day, or a Full Day and confirm the price before anything is scheduled.",
+      description: "A short list falls under the $345 minimum; a longer one gets one written price. Either way it is confirmed before anything is scheduled.",
     },
     {
       number: "03",

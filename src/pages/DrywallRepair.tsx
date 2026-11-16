@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "What does drywall repair cost in Princeton?",
     answer:
-      "Doorknob holes, hairline cracks, and anchor damage nearly always land inside the $345 Visit, which buys up to 2 hours of general repairs, and two or three patches usually share that one visit. A longer list moves up to the flat Half Day ($595) or Full Day ($1,095). Ceilings and water damage get a single written number once we have seen what is behind the paper.",
+      "Doorknob holes, hairline cracks, and anchor damage nearly always land inside the $345 Visit, which buys up to 2 hours of general repairs, and two or three patches usually share that one visit. A longer list gets one written price for all of it, set before we start. Ceilings and water damage get a single written number once we have seen what is behind the paper.",
   },
   {
     question: "Am I going to see the patch afterward?",

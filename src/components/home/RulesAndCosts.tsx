@@ -50,13 +50,13 @@ const RulesAndCosts = () => (
 
       <div className="grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 items-start">
         <div>
-          <h3 className="brutalist-headline text-2xl md:text-3xl text-foreground mb-4">Our packages against the national figures</h3>
+          <h3 className="brutalist-headline text-2xl md:text-3xl text-foreground mb-4">Our pricing against the national figures</h3>
           <p className="font-body text-base md:text-lg text-muted-foreground mb-4">
-            A Visit costs $345 and covers up to two hours. A Half Day is $595 for up to four, and a Full Day is $1,095 for up to eight. A list priced item by item runs at $175 an hour, but the total stops at the price of the package it fits inside. Parts and materials are listed on the same quote before you agree to anything.
+            Small jobs carry a $345 minimum, which covers up to two hours of work and as many items as fit in that time. Anything larger is priced as one job, with a written number that is set before any work starts. Parts and materials are listed on the same quote before you agree to anything.
           </p>
           <p className="font-body text-base md:text-lg text-muted-foreground m-0">
-            HomeGuide's handyman price guide (August 2023) gives the national ranges at right. They are U.S. averages, not New Jersey quotes, and an hourly rate leaves the final bill open where a package does not. For a single wall repair, HomeGuide's drywall guide (October 2025) has a hole under 4 inches at $300-$500; our{" "}
-            <Link to="/drywall-repair" className="text-primary underline">drywall repair</Link> page shows what fits in a Visit.
+            HomeGuide's handyman price guide (August 2023) gives the national ranges at right. They are U.S. averages, not New Jersey quotes, and an hourly rate leaves the final bill open where a fixed price does not. For a single wall repair, HomeGuide's drywall guide (October 2025) has a hole under 4 inches at $300-$500; our{" "}
+            <Link to="/drywall-repair" className="text-primary underline">drywall repair</Link> page shows what fits under the minimum.
           </p>
         </div>
         <div className="bento-card p-6 md:p-7">

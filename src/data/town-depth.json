@@ -16,14 +16,14 @@
         "body": [
           "Princeton as a single municipality is young. The borough split from Princeton Township in 1894 in a dispute over school taxes, and the two governed separately until voters in both approved a merger in November 2011. The combined municipality took effect on January 1, 2013. Earlier merger attempts kept failing over zoning, because the old borough was densely built while the township around it had more widely spaced properties.",
           "Today the town covers 18.41 square miles just south of Princeton Ridge and borders seven municipalities: Hopewell Township, Lawrence Township, and West Windsor in Mercer County, Plainsboro and South Brunswick in Middlesex, and Franklin and Montgomery in Somerset. Older place names such as Cedar Grove, Port Mercer, Princeton Basin, and Jugtown still carry their own identities inside it.",
-          "That old split between a compact center and a spread-out township can still shape a repair list. A house on a tighter lot often has a list that stays indoors: a loose stair rail, an interior door, a plaster crack, a fixture. A house on a larger parcel tends to add a gate, a run of fence, or a few deck boards. The flat packages are the same in 08540 and 08542 either way."
+          "That old split between a compact center and a spread-out township can still shape a repair list. A house on a tighter lot often has a list that stays indoors: a loose stair rail, an interior door, a plaster crack, a fixture. A house on a larger parcel tends to add a gate, a run of fence, or a few deck boards. The pricing rules are the same in 08540 and 08542 either way."
         ]
       },
       {
         "eyebrow": "Common Jobs",
         "title": "What Princeton Owners Ask Us to Fix",
         "body": [
-          "Most visits bundle several small items into one trip. These are the categories we take on, each with its own page explaining what fits a Visit, a Half Day, or a Full Day:"
+          "Most visits bundle several small items into one trip. These are the categories we take on, each with its own page explaining what fits under the minimum and what gets its own price:"
         ],
         "items": [
           "[Drywall and plaster repair](/drywall-repair): cracks, holes, and stained ceilings, with plaster repaired as plaster",
@@ -54,9 +54,9 @@
       },
       {
         "eyebrow": "Pricing",
-        "title": "Flat Packages, National Numbers, Written Terms",
+        "title": "Flat Prices, National Numbers, Written Terms",
         "body": [
-          "We price by package. A Visit is $345 for up to 2 hours, a Half Day is $595 for up to 4 hours, and a Full Day is $1,095 for up to 8 hours. An itemized job is billed at $175 an hour but never above the package it fits in, and materials are quoted up front on the same estimate.",
+          "We price the job, not the hour. The minimum is $345, and it covers up to 2 hours of work on as many small items as fit. A bigger job gets a single written price for all of it before anyone starts, and materials are quoted up front on the same estimate.",
           "For comparison, HomeGuide's national handyman cost guide (August 2023) lists $50-$80 an hour for self-employed handymen and $75-$125 an hour for company handymen, plus materials, with minimum charges commonly $75-$200 and a $30-$80 trip charge when someone has to go buy supplies. Its drywall guide puts patching a hole under 4 inches at $300-$500. Those are national averages, not Princeton quotes, but they are a fair yardstick when you compare home repair services.",
           "Any home improvement job over $500 gets a written, signed contract, as New Jersey's Contractors' Registration Act and the state's home improvement regulations require: start and completion dates, the total price, and our registration number, NJ HIC #13VH13918800. You then have three business days to cancel."
         ]
@@ -71,7 +71,7 @@
       },
       {
         "question": "Can one trip cover several small items?",
-        "answer": "That is how most Princeton jobs go. Send the whole list with photos. If it fits in two hours it is the $345 [Visit](/handyman); if not, we quote a Half Day or Full Day before you book."
+        "answer": "That is how most Princeton jobs go. Send the whole list with photos. If it fits in two hours it is the $345 [minimum](/handyman); if not, we quote one price for the whole list before you book."
       }
     ],
     "sources": "Sources: Census Bureau, American Community Survey 2020-2024 5-year estimates (Princeton and Mercer County housing); Wikipedia, Princeton, New Jersey (history, geography, consolidation); N.J.A.C. 5:23-2.7 (ordinary maintenance); EPA Renovation, Repair and Painting rule, 40 CFR 745; N.J.S.A. 56:8-151 and N.J.A.C. 13:45A-16.2 (contracts and cancellation); HomeGuide, Handyman Prices (Aug 2023) and Drywall Repair Cost (Oct 2025), national figures."
@@ -138,7 +138,7 @@
         "eyebrow": "Cost",
         "title": "How Our Prices Compare",
         "body": [
-          "Three flat packages: Visit, $345, up to 2 hours; Half Day, $595, up to 4 hours; Full Day, $1,095, up to 8 hours. Single items are priced at $175 an hour, capped at the package they fall into. Materials appear on the quote before you agree to anything.",
+          "Two rules. Small jobs cost a $345 minimum, which pays for up to 2 hours of work. Bigger jobs are priced as a whole, one written figure, settled before any work begins. Materials appear on the quote before you agree to anything.",
           "HomeGuide's national survey of handyman prices, published August 2023, gives hourly rates of $50 to $80 for independent handymen and $75 to $125 for corporate ones, materials extra. It also reports minimum charges usually between $75 and $200 and trip charges of $30 to $80 for supply runs. These are national numbers rather than Lawrence quotes.",
           "Jobs over $500 come with a signed written contract showing start and completion dates, the full price, and our New Jersey registration number, as the Contractors' Registration Act and state home improvement rules require. After signing you have three business days to cancel."
         ]
@@ -153,7 +153,7 @@
       },
       {
         "question": "My mailing address says Princeton or Trenton. Do you cover me?",
-        "answer": "Yes. Part of Lawrence Township uses Princeton or Trenton mailing addresses. If the house is in the township, the flat packages on our [handyman page](/handyman) apply."
+        "answer": "Yes. Part of Lawrence Township uses Princeton or Trenton mailing addresses. If the house is in the township, the flat pricing on our [handyman page](/handyman) applies."
       }
     ],
     "sources": "Sources: Census Bureau, American Community Survey 2020-2024 5-year estimates (Lawrence township and Mercer County housing); Wikipedia, Lawrence Township, Mercer County, New Jersey (history, geography); N.J.A.C. 5:23-2.7; EPA RRP rule, 40 CFR 745; N.J.S.A. 56:8-151 and N.J.A.C. 13:45A-16.2; HomeGuide, Handyman Prices (Aug 2023), national figures."
@@ -166,7 +166,7 @@
         "body": [
           "Robbinsville has some of the youngest housing in Mercer County. The Census Bureau's American Community Survey puts the median year built at 1992, compared with 1969 for the county, and 29% of homes were built in 2000 or later. Just 19% predate 1980 and only 3% go back to 1939 or earlier. Eight in ten occupied homes (80%) are owner-occupied, about half (49%) are single-family detached, and the median home has 6.6 rooms, well above the county's 5.7.",
           "The growth shows up in older counts as well. The 2000 census found 4,163 housing units in the township; by 2010 there were 5,277, and the 2020 census recorded 15,476 residents, the most ever.",
-          "Newer construction does not mean a short repair list, it means a different one. Houses from the 1990s and 2000s commonly reach the point where builder-grade faucets drip, interior door hardware loosens, caulk lines around tubs pull away, and deck boards that were never restained start to split. Drywall in a newer house can also show nail pops and corner cracks as framing dries and settles. If you are looking for a handyman in Robbinsville for that sort of list, a list like that often fits a Half Day."
+          "Newer construction does not mean a short repair list, it means a different one. Houses from the 1990s and 2000s commonly reach the point where builder-grade faucets drip, interior door hardware loosens, caulk lines around tubs pull away, and deck boards that were never restained start to split. Drywall in a newer house can also show nail pops and corner cracks as framing dries and settles. If you are looking for a handyman in Robbinsville for that sort of list, a list like that often runs past the minimum and gets one written price."
         ]
       },
       {
@@ -219,9 +219,9 @@
       },
       {
         "eyebrow": "Prices",
-        "title": "Our Packages Next to National Averages",
+        "title": "Our Pricing Next to National Averages",
         "body": [
-          "Every job is quoted as one of three packages: $345 for a Visit (up to 2 hours), $595 for a Half Day (up to 4 hours), or $1,095 for a Full Day (up to 8 hours). Line-item work runs $175 per hour and stops at the package cap. Materials are listed on the quote up front.",
+          "Every job is quoted as a whole. Short lists come in at the $345 minimum, good for up to 2 hours of work; anything longer gets one written price before the first tool comes out. Materials are listed on the quote up front.",
           "HomeGuide's August 2023 handyman price guide, which reports national figures, has independent handymen at $50 to $80 per hour and company handymen at $75 to $125 per hour before materials. It also notes typical minimums of $75 to $200 and $30 to $80 trip charges for buying materials.",
           "When a job tops $500, New Jersey's Contractors' Registration Act and home improvement regulations call for a signed written contract listing start and finish dates, the total price, and the contractor's registration number (ours is NJ HIC #13VH13918800). You can cancel within three business days of signing."
         ]
@@ -236,7 +236,7 @@
       },
       {
         "question": "Is a house this new worth a handyman call?",
-        "answer": "Usually, yes. Builder parts in twenty- and thirty-year-old houses tend to wear out around then. Bundle the items into one [Visit or Half Day](/handyman) instead of calling a separate trade for each."
+        "answer": "Usually, yes. Builder parts in twenty- and thirty-year-old houses tend to wear out around then. Bundle the items into [one priced trip](/handyman) instead of calling a separate trade for each."
       }
     ],
     "sources": "Sources: Census Bureau, American Community Survey 2020-2024 5-year estimates (Robbinsville township and Mercer County housing); Wikipedia, Robbinsville Township, New Jersey (history, geography, census counts); N.J.A.C. 5:23-2.7; EPA RRP rule, 40 CFR 745; N.J.S.A. 56:8-151 and N.J.A.C. 13:45A-16.2; HomeGuide, Handyman Prices (Aug 2023), national figures."
@@ -302,9 +302,9 @@
       },
       {
         "eyebrow": "Pricing",
-        "title": "Package Prices and Contract Terms",
+        "title": "Flat Prices and Contract Terms",
         "body": [
-          "Pick the package by time on site: Visit, $345 for up to 2 hours; Half Day, $595 for up to 4 hours; Full Day, $1,095 for up to 8 hours. Itemized jobs are $175 per hour with the package price as the ceiling. Materials are quoted before you agree.",
+          "The price follows the job, not the clock. A small list is the $345 minimum, which covers up to 2 hours; a larger one gets one written price for the full scope before work starts. Materials are quoted before you agree.",
           "For a national benchmark, HomeGuide (August 2023) reports hourly handyman rates between $50 and $80 for self-employed workers and between $75 and $125 for corporate handymen, materials not included, along with minimum charges commonly $75 to $200 and $30 to $80 trip fees for material runs.",
           "Anything over $500 is written up in a signed contract with start and completion dates, the total price, and our registration number, per New Jersey's Contractors' Registration Act and home improvement regulations. You keep a three business day window to cancel."
         ]
@@ -319,7 +319,7 @@
       },
       {
         "question": "My address says Princeton Junction. Is that West Windsor?",
-        "answer": "Yes. Princeton Junction is a census-designated place inside West Windsor Township, and the [flat packages](/handyman) apply there like anywhere else in the township."
+        "answer": "Yes. Princeton Junction is a census-designated place inside West Windsor Township, and the [flat pricing](/handyman) applies there like anywhere else in the township."
       }
     ],
     "sources": "Sources: Census Bureau, American Community Survey 2020-2024 5-year estimates (West Windsor township housing); Wikipedia, West Windsor, New Jersey (history, hamlets, geography, census counts); N.J.A.C. 5:23-2.7; EPA RRP rule, 40 CFR 745; N.J.S.A. 56:8-151 and N.J.A.C. 13:45A-16.2; HomeGuide, Handyman Prices (Aug 2023), national figures."
@@ -385,7 +385,7 @@
         "eyebrow": "Pricing",
         "title": "What a Visit Costs Here",
         "body": [
-          "There are three packages. $345 buys a Visit of up to 2 hours, $595 a Half Day of up to 4 hours, $1,095 a Full Day of up to 8 hours. Smaller itemized jobs bill at $175 an hour, never more than the matching package. Materials are spelled out on the quote first.",
+          "There is a $345 minimum, and it buys up to 2 hours of work on the small stuff. A job past that gets one written price for everything on the list, agreed before we begin. Materials are spelled out on the quote first.",
           "National context from HomeGuide's handyman price guide (August 2023): self-employed handymen average $50-$80 per hour and company handymen $75-$125 per hour, not counting materials; minimum charges run about $75-$200, and a trip to buy materials commonly adds $30-$80. HomeGuide's drywall guide puts patching a small hole at $300 to $500. None of these are East Windsor quotes.",
           "For work over $500, New Jersey's Contractors' Registration Act and home improvement rules require a signed written contract with dates, the total price, and the contractor's registration number, here NJ HIC #13VH13918800. The homeowner may cancel within three business days."
         ]
@@ -396,11 +396,11 @@
     "faqs": [
       {
         "question": "Can you work in a Twin Rivers townhouse or condo?",
-        "answer": "Yes, for owner items inside the home: doors, tile, fixtures, drywall, and mounting. For anything outside, confirm with your association first. Our [handyman page](/handyman) lists what fits each package."
+        "answer": "Yes, for owner items inside the home: doors, tile, fixtures, drywall, and mounting. For anything outside, confirm with your association first. Our [handyman page](/handyman) explains how each job is priced."
       },
       {
         "question": "Can a bathroom fix and a door repair share one trip?",
-        "answer": "Yes. Put both on the list with photos. If together they fit in two hours, that is one $345 Visit; if not, a [Half Day](/handyman) at $595."
+        "answer": "Yes. Put both on the list with photos. If together they fit in two hours, that is the $345 minimum; if not, [one written price](/handyman) for both."
       }
     ],
     "sources": "Sources: Census Bureau, American Community Survey 2020-2024 5-year estimates (East Windsor township and Mercer County housing); Wikipedia, East Windsor, New Jersey (history, geography, Twin Rivers, census counts); N.J.A.C. 5:23-2.7; EPA RRP rule, 40 CFR 745; N.J.S.A. 56:8-151 and N.J.A.C. 13:45A-16.2; HomeGuide, Handyman Prices (Aug 2023) and Drywall Repair Cost (Oct 2025), national figures."

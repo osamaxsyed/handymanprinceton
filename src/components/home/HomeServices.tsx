@@ -85,7 +85,7 @@ const HomeServices = () => (
             ))}
           </ul>
           <Link to="/handyman" className="brutalist-cta-on-dark mt-auto w-fit">
-            Packages and examples <ArrowRight className="h-5 w-5" />
+            Pricing and examples <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
       </div>

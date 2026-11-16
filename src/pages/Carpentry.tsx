@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "What does small carpentry work cost around Princeton?",
     answer:
-      "A loose stair rail, a run of damaged baseboard, or a single built-in shelf fits the $345 Visit, which covers up to 2 hours of general repairs. Longer builds move to the flat Half Day ($595) or Full Day ($1,095), and anything bigger gets one written price before we schedule. You never hear the number after the saw is already running.",
+      "A loose stair rail, a run of damaged baseboard, or a single built-in shelf fits the $345 Visit, which covers up to 2 hours of general repairs. Longer builds are priced as a whole, with one written number agreed before we schedule. You never hear the number after the saw is already running.",
   },
   {
     question: "What do you mean by a small job?",
