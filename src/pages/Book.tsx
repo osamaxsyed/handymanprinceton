@@ -13,10 +13,11 @@ import { Phone, MessageSquare, ArrowRight, ArrowLeft, CheckCircle2 } from "lucid
 import { CORE_TOWNS, EXTENDED_TOWNS, WARRANTY } from "@/data/coreServices";
 import { site } from "@/data/site";
 
+// Two choices so the request carries a rough size. Public pricing is a $345
+// minimum (up to 2 hours) or one written price for anything bigger.
 const SERVICES = [
-  { key: "visit", name: "Handyman Visit", price: "$345", sub: "Up to two hours of general repairs. Most lists land here; specialty installs are quoted per job." },
-  { key: "halfday", name: "Half Day", price: "$595", sub: "Up to four hours on site for the longer list." },
-  { key: "fullday", name: "Full Day", price: "$1,095", sub: "A full working day. The whole backlog in one go." },
+  { key: "small", name: "A few small repairs", price: "$345", sub: "That is the minimum, and it covers up to two hours of work. Most short lists land here." },
+  { key: "bigger", name: "A bigger job or a long list", price: "Quoted", sub: "We send one written price for the whole job before anything starts." },
 ];
 
 const TOWNS = [...CORE_TOWNS.map((t) => t.name), ...EXTENDED_TOWNS.map((t) => t.name), "Another nearby town"];
@@ -83,7 +84,7 @@ const Book = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Request a Handyman Visit in Princeton NJ | Flat-Rate, Reply by Text"
-        description="Choose a flat-rate block, send your list, and tell us which days work. We text you a time, usually the same business day. Princeton, West Windsor, Plainsboro, Lawrence and Mercer County."
+        description="Send your list and tell us which days work. Small jobs have a $345 minimum; bigger ones get one written price. We text you a time, usually the same business day. Princeton, West Windsor, Plainsboro, Lawrence and Mercer County."
         canonical="/book"
       />
       <Header />
@@ -108,13 +109,13 @@ const Book = () => {
             <>
               <p className="brutalist-section-eyebrow mb-2">Request a Visit</p>
               <h1 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-2">
-                {step === 0 && "Which block fits?"}
+                {step === 0 && "How big is the job?"}
                 {step === 1 && "What needs doing?"}
                 {step === 2 && "Where, and when works?"}
               </h1>
               <p className="font-body text-lg text-muted-foreground mb-8">
-                {step === 0 && "Flat blocks of time. The labor price is fixed before any work begins; materials are quoted with it."}
-                {step === 1 && "Put down every item. The full list is what makes a flat block worth it."}
+                {step === 0 && "Rough size is enough. The labor price is fixed before any work begins; materials are quoted with it."}
+                {step === 1 && "Put down every item. The full list is how we get the price right."}
                 {step === 2 && "Give us a few days or times that suit you. This is a request; we reply by text with a confirmed time, usually the same day."}
               </p>
 

@@ -35,7 +35,7 @@ const TermsOfService = () => {
     },
     {
       title: "Prices and Payment",
-      intro: "We price by flat package rather than by the hour: the Handyman Visit ($345), the Half Day ($595), and the Full Day ($1,095), or a single written price for larger jobs, in every case agreed before any work starts. Payment works as follows:",
+      intro: "We price by the job rather than by the hour: a $345 minimum for small jobs, covering up to two hours of work, or a single written price for larger jobs, in every case agreed before any work starts. Payment works as follows:",
       list: [
         "A written price stands for 30 days unless it says otherwise",
         "Once the price is agreed, a 50% deposit holds your date. It is figured on the labor price plus the high end of the estimated materials, and the remaining balance is due when the work is complete. We do not bill in draws",

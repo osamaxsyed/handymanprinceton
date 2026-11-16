@@ -172,7 +172,7 @@ const ServiceLocationPage = () => {
               {[
                 ["Licensed & Insured", "Registered NJ home improvement contractor, bonded, with general liability coverage. NJ HIC #13VH13918800."],
                 ["Local and Registered", `We serve ${locationData.name} and the surrounding towns under a New Jersey home improvement contractor registration.`],
-                ["No Hourly Meter", "$345 for a two-hour visit, $595 for a half day, $1,095 for a full day. The labor number is fixed before we start; materials are on the same quote."],
+                ["No Hourly Meter", "A $345 minimum covers up to two hours; larger jobs get one written price. The labor number is fixed before we start; materials are on the same quote."],
               ].map(([title, body]) => (
                 <div key={title} className="bento-card bg-background p-6">
                   <h3 className="brutalist-headline text-lg text-foreground mb-3">{title}</h3>

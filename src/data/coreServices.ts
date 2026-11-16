@@ -50,11 +50,11 @@ export const RATING = { value: "5.0", count: 28 } as const;
 export const RATING_NOTE = "via East Brunswick Handyman, our sister brand";
 export const WARRANTY = "One-year labor warranty on every job";
 
-export const PACKAGES = [
-  { key: "visit", name: "Visit", price: "$345", sub: "Up to 2 hours of general repairs" },
-  { key: "halfDay", name: "Half Day", price: "$595", sub: "Up to 4 hours on site" },
-  { key: "fullDay", name: "Full Day", price: "$1,095", sub: "A full working day" },
-] as const;
+// Public pricing (2026-11-16): a $345 minimum that covers up to 2 hours, and one
+// written price for anything bigger. The Half/Full Day blocks are an internal
+// calculator only and never appear on the site. Each service's `fits` keeps its
+// visit/halfDay/fullDay keys; halfDay + fullDay render together as "Bigger jobs".
+export const MINIMUM = { price: "$345", hours: "up to 2 hours" } as const;
 
 export const coreServices: CoreService[] = [
   {
@@ -445,7 +445,7 @@ export const coreServices: CoreService[] = [
       {
         question: "Do you paint whole rooms?",
         answer:
-          "Small ones. A powder room, a bedroom, or a hallway fits a Half Day or a Full Day. A whole floor or the outside of the house is work for a painting crew, and we will tell you so.",
+          "Small ones. A powder room, a bedroom, or a hallway gets one price for the room. A whole floor or the outside of the house is work for a painting crew, and we will tell you so.",
       },
     ],
     related: ["/drywall-repair", "/carpentry", "/handyman"],

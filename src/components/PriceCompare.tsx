@@ -9,7 +9,7 @@ const ROWS = [
   { label: "Rounding", them: "Up to the next quarter hour", us: "None. The price does not move" },
   { label: "The hardware-store run", them: "Billed as time", us: "Common parts ride on the truck" },
   { label: "If it takes longer", them: "The clock keeps going", us: "That is on us, not you" },
-  { label: "If the list grows", them: "More hours on the bill", us: "We pause and price the next block first" },
+  { label: "If the list grows", them: "More hours on the bill", us: "We pause and price the added work first" },
 ];
 
 const PriceCompare = () => (

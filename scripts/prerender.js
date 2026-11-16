@@ -107,7 +107,7 @@ const serviceLocationDescription = (service, location, variant) => {
   const templates = [
     `${svc} for ${city}, NJ homes at one flat price. $345 visit covers up to 2 hours, fixed before we start. NJ HIC #13VH13918800. Call or text (609) 303-8627.`,
     `Looking for ${svcLower} in ${city}, NJ? Flat-rate visits from $345, settled before the truck arrives. Licensed, bonded, insured, NJ HIC #13VH13918800.`,
-    `${city} ${svcLower} from a registered NJ contractor. $345 visit, $595 half day, $1,095 full day. One-year labor warranty, materials quoted up front.`,
+    `${city} ${svcLower} from a registered NJ contractor. $345 minimum for small jobs, one written price for bigger ones. One-year labor warranty, materials quoted up front.`,
     `${svcLower.charAt(0).toUpperCase() + svcLower.slice(1)} in ${city}, NJ with no hourly meter. Price agreed first. NJ HIC #13VH13918800. Text a photo to (609) 303-8627.`,
   ];
   return templates[variant % templates.length];
@@ -281,7 +281,7 @@ const standalonePages = [
     slug: 'book',
     title: 'Request a Handyman Visit in Princeton NJ | Flat-Rate, Reply by Text',
     description:
-      'Choose a flat-rate block, send your list, and tell us which days work. We text you a time, usually the same business day. Princeton, West Windsor, Plainsboro, Lawrence and Mercer County.',
+      'Send your list and tell us which days work. Small jobs have a $345 minimum; bigger ones get one written price. We text you a time, usually the same business day. Princeton, West Windsor, Plainsboro, Lawrence and Mercer County.',
   },
   {
     slug: 'property-managers',

@@ -133,7 +133,7 @@ const Hero = () => {
                 <p className="font-body text-sm text-muted-foreground mt-3 m-0">
                   Submitting means we may text you about this request (msg &amp; data
                   rates may apply, reply STOP to opt out). We never share your details.
-                  Rather pick a package first?{" "}
+                  Prefer to describe the job step by step?{" "}
                   <a href="/book" className="text-primary underline">Request a visit online</a>.
                 </p>
               </form>

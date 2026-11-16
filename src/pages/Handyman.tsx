@@ -44,21 +44,20 @@ const Handyman = () => {
           </div>
         </section>
 
-        {/* Pricing: flat packages only. No hourly anywhere. */}
+        {/* Pricing: $345 minimum + one written price for bigger jobs. No hourly anywhere. */}
         <section className="py-20 bg-muted heavy-border-b">
           <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
             <div className="brutalist-section-eyebrow">Flat Pricing</div>
             <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-4">
-              Three Blocks. Zero Clock.
+              One Number. Zero Clock.
             </h2>
             <p className="font-body text-lg text-muted-foreground mb-10 max-w-2xl">
-              Choose the block that matches your list. The labor number is fixed before we arrive, and anything we supply is quoted with it.
+              Send the list and we send back one number. The labor price is fixed before we arrive, and anything we supply is quoted with it.
             </p>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 gap-4">
               {[
-                ["Visit", "$345", "Up to 2 hours of general repairs", "A dripping faucet, a door that catches, two patches, a TV on the wall. The typical list fits here."],
-                ["Half Day", "$595", "Up to 4 hours on site", "A room of drywall, a set of interior doors, a closet system, the longer list."],
-                ["Full Day", "$1,095", "A full working day", "Move-in or move-out lists, several rooms, the backlog that built up over years."],
+                ["Small jobs", "$345", "The minimum, up to 2 hours of work", "A dripping faucet, a door that catches, two patches, a TV on the wall. The typical list fits here."],
+                ["Bigger jobs", "One price", "Written for the whole job before we start", "A room of drywall, a set of interior doors, a closet system, move-in or move-out lists, the backlog that built up over years."],
               ].map(([name, price, sub, body]) => (
                 <div key={name} className="bento-card bg-background p-7 flex flex-col">
                   <p className="brutalist-section-eyebrow mb-1">{name}</p>
