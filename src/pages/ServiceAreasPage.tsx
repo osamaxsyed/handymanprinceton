@@ -5,10 +5,9 @@ import SEO from "@/components/SEO";
 import { MapPin, Phone, ArrowRight } from "lucide-react";
 import locations from "@/data/locations.json";
 import services from "@/data/services.json";
-import { useNavigate } from "react-router-dom";
+import { BOOKING_URL } from "@/data/coreServices";
 
 const ServiceAreasPage = () => {
-  const navigate = useNavigate();
   const sortedLocations = [...locations].sort((a, b) => b.priority - a.priority);
   const featuredServices = services.slice(0, 8);
 
@@ -120,9 +119,9 @@ const ServiceAreasPage = () => {
               If your town is close to Princeton but not listed, call and ask.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/book")} className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href={BOOKING_URL} className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
               <a
                 href="tel:6093038627"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground transition-all rounded-none"

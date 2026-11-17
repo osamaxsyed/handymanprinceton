@@ -3,7 +3,9 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import TodoBlock from "@/components/TodoBlock";
 import { ArrowRight, Phone, Warehouse, CheckCircle2, MessageSquare } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BOOKING_URL } from "@/data/coreServices";
+import EstimateLink from "@/components/EstimateLink";
 
 const faqs = [
   {
@@ -34,7 +36,6 @@ const faqs = [
 ];
 
 const StorageSheds = () => {
-  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -142,14 +143,15 @@ const StorageSheds = () => {
               base and the assembly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/book")} className="brutalist-cta">
+              <a href={BOOKING_URL} className="brutalist-cta">
                 Book a Visit <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
               <a href="tel:6093038627" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
                 Call (609) 303-8627
               </a>
             </div>
+            <EstimateLink variant="dark" className="mt-6" />
           </div>
         </section>
       </main>

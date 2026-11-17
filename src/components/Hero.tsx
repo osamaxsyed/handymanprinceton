@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Phone, Star, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-osama.jpg";
-import { RATING, RATING_NOTE } from "@/data/coreServices";
+import { RATING, RATING_NOTE, BOOKING_URL } from "@/data/coreServices";
 import { site } from "@/data/site";
 
 // Layer 1 bot filter: the API drops submissions that arrive under 3s after the
@@ -134,7 +134,7 @@ const Hero = () => {
                   Submitting means we may text you about this request (msg &amp; data
                   rates may apply, reply STOP to opt out). We never share your details.
                   Prefer to describe the job step by step?{" "}
-                  <a href="/book" className="text-primary underline">Request a visit online</a>.
+                  <a href={BOOKING_URL} className="text-primary underline">Request a visit online</a>.
                 </p>
               </form>
             )}

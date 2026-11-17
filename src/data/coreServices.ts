@@ -56,6 +56,15 @@ export const WARRANTY = "One-year labor warranty on every job";
 // visit/halfDay/fullDay keys; halfDay + fullDay render together as "Bigger jobs".
 export const MINIMUM = { price: "$345", hours: "up to 2 hours" } as const;
 
+// The one Housecall Pro booking page. It lists all three services (Small Jobs
+// Visit $345, Free Photo Quote, In-Person Estimate $49); HCP has no per-service
+// links. Every Book button on the site goes here directly (/book redirects too).
+export const BOOKING_URL = "https://book.housecallpro.com/book/East-Brunswick-Handyman/a91b9c888f6345d58f520a3f91f1d191?v2=true";
+
+// $49 in-person estimate for bigger jobs (credited to the job if the customer
+// goes ahead). Bigger-job paths only; never on small-job copy or the hero.
+export const ESTIMATE = { price: "$49", url: BOOKING_URL } as const;
+
 export const coreServices: CoreService[] = [
   {
     slug: "drywall-repair",

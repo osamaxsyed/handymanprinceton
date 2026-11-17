@@ -1,58 +1,59 @@
-// "Two ways to start": the $345 minimum for a short list, and one written price
-// for anything bigger. Both agreed before any work begins.
-import { CheckCircle2, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+// "Three ways to start": the same three services, in the same order, as the
+// Housecall Pro booking page every button goes to. Small jobs have a $345
+// minimum; bigger jobs get a free photo quote or a $49 in-person estimate
+// credited to the job. Cards stay short so all three sit side by side on
+// desktop and stack on mobile.
+import { ArrowRight } from "lucide-react";
+import { BOOKING_URL, ESTIMATE, MINIMUM } from "@/data/coreServices";
 
-const Check = ({ text }: { text: string }) => (
-  <li className="flex gap-2.5 items-start font-body text-lg text-muted-foreground">
-    <CheckCircle2 className="h-5 w-5 text-[#2E4A3B] flex-shrink-0 mt-1" />
-    {text}
-  </li>
-);
+const OFFERS = [
+  {
+    name: "Small Jobs Visit",
+    price: MINIMUM.price,
+    body: "Our minimum. Up to 2 hours of work, as many small repairs as fit.",
+    cta: "Book a small job",
+    primary: true,
+  },
+  {
+    name: "Free Photo Quote",
+    price: "Free",
+    body: "For bigger jobs. Send photos and we reply with one written price. Most jobs are priced this way.",
+    cta: "Get a free quote",
+    primary: false,
+  },
+  {
+    name: "In-Person Estimate",
+    price: ESTIMATE.price,
+    body: `When photos can't show it all, like water damage or decks. We come out and price it; the ${ESTIMATE.price} comes off the job.`,
+    cta: "Book an estimate",
+    primary: false,
+  },
+];
 
 const HomeOffers = () => (
-  <section className="py-12 md:py-16 bg-muted border-y border-border">
+  <section id="packages" className="py-10 md:py-12 bg-muted border-y border-border scroll-mt-24">
     <div className="w-full max-w-6xl mx-auto px-5 md:px-8">
-      <h2 className="brutalist-headline text-3xl md:text-4xl text-foreground mb-2">One agreed price, not a meter</h2>
-      <p className="font-body text-lg text-muted-foreground mb-8">The labor price is fixed before we pick up a tool. Anything we supply is quoted alongside it.</p>
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bento-card p-7 md:p-9 flex flex-col">
-          <p className="brutalist-section-eyebrow mb-2">Where most people start</p>
-          <h3 className="brutalist-headline text-2xl text-foreground mb-1">Handyman Visit</h3>
-          <div className="flex items-baseline gap-3 mb-4 flex-wrap">
-            <p className="font-headline font-bold text-[40px] leading-none text-primary m-0">$345</p>
-          </div>
-          <p className="font-body text-lg text-foreground/85 mb-4">
-            Our minimum, and it buys up to two hours of repairs. Send the whole list, not just the worst item.
-          </p>
-          <ul className="flex flex-col gap-2.5 mb-6 list-none p-0">
-            <Check text="A door that drags, a dripping faucet, two drywall patches, a TV on the wall" />
-            <Check text="Most small lists are finished in the one trip" />
-            <Check text="Tools, ladder, common parts, and cleanup come with it" />
-            <Check text="Specialty installs get their own quoted price, agreed first" />
-          </ul>
-          <Link to="/book" className="brutalist-cta mt-auto w-fit">
-            Request a visit <ArrowRight className="h-5 w-5" />
-          </Link>
-        </div>
-        <div className="bento-card p-7 md:p-9 flex flex-col">
-          <p className="brutalist-section-eyebrow mb-2">When the list is long</p>
-          <h3 className="brutalist-headline text-2xl text-foreground mb-1">Bigger Jobs</h3>
-          <div className="flex items-baseline gap-3 mb-4 flex-wrap">
-            <p className="font-headline font-bold text-[40px] leading-none text-primary m-0">Quoted</p>
-          </div>
-          <p className="font-body text-lg text-foreground/85 mb-4">
-            A floor of doors, a room of drywall, every fixture in a new house, or the backlog from the last owner. Same rule: one price, agreed first.
-          </p>
-          <ul className="flex flex-col gap-2.5 mb-6 list-none p-0">
-            <Check text="Photos or a list in, one written number back for the whole job" />
-            <Check text="Set before any work starts, with materials on the same quote" />
-            <Check text="Multi-day jobs (backsplash, sheds, deck resurfacing): one written price, half down to hold the date" />
-          </ul>
-          <Link to="/handyman" className="brutalist-cta-secondary mt-auto w-fit">
-            How we price a job <ArrowRight className="h-5 w-5" />
-          </Link>
-        </div>
+      <h2 className="brutalist-headline text-2xl md:text-3xl text-foreground mb-1">Three ways to start</h2>
+      <p className="font-body text-base md:text-lg text-muted-foreground mb-6">
+        Nothing is charged when you book. Every price is agreed before any work begins.
+      </p>
+      <div className="grid md:grid-cols-3 gap-4">
+        {OFFERS.map((o) => (
+          <a
+            key={o.name}
+            href={BOOKING_URL}
+            className="bento-card p-5 flex flex-col hover:border-primary transition-colors"
+          >
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="brutalist-headline text-lg md:text-xl text-foreground">{o.name}</span>
+              <span className="font-headline font-bold text-2xl leading-none text-primary whitespace-nowrap">{o.price}</span>
+            </div>
+            <p className="font-body text-base text-muted-foreground mt-2 mb-4">{o.body}</p>
+            <span className={`${o.primary ? "brutalist-cta" : "brutalist-cta-secondary"} mt-auto w-fit !min-h-[44px] !text-base`}>
+              {o.cta} <ArrowRight className="h-4 w-4" />
+            </span>
+          </a>
+        ))}
       </div>
     </div>
   </section>

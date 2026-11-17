@@ -278,12 +278,6 @@ const standalonePages = [
       'Punch lists, drywall, doors, and fixture swaps for offices, medical practices, and small retail around Princeton and Route 1. Evenings and weekends available. NJ HIC #13VH13918800.',
   },
   {
-    slug: 'book',
-    title: 'Request a Handyman Visit in Princeton NJ | Flat-Rate, Reply by Text',
-    description:
-      'Send your list and tell us which days work. Small jobs have a $345 minimum; bigger ones get one written price. We text you a time, usually the same business day. Princeton, West Windsor, Plainsboro, Lawrence and Mercer County.',
-  },
-  {
     slug: 'property-managers',
     title: 'Handyman for Property Managers in Princeton & Mercer County NJ | Turnovers',
     description:

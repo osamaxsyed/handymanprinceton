@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/book", "destination": "https://book.housecallpro.com/book/East-Brunswick-Handyman/a91b9c888f6345d58f520a3f91f1d191?v2=true", "permanent": false },
     {
       "source": "/:path*",
       "has": [
@@ -40,8 +41,8 @@
     { "source": "/remodels", "destination": "/handyman", "permanent": true },
     { "source": "/portfolio", "destination": "/handyman", "permanent": true },
     { "source": "/rack-configurator", "destination": "/handyman", "permanent": true },
-    { "source": "/get-estimate", "destination": "/book", "permanent": true },
-    { "source": "/book-repair", "destination": "/book", "permanent": true },
+    { "source": "/get-estimate", "destination": "https://book.housecallpro.com/book/East-Brunswick-Handyman/a91b9c888f6345d58f520a3f91f1d191?v2=true", "permanent": false },
+    { "source": "/book-repair", "destination": "https://book.housecallpro.com/book/East-Brunswick-Handyman/a91b9c888f6345d58f520a3f91f1d191?v2=true", "permanent": false },
 
     { "source": "/handyman-services/:city", "destination": "/service-areas/:city", "permanent": true },
     { "source": "/handyman-services", "destination": "/handyman", "permanent": true },
