@@ -23,13 +23,14 @@ export const PHOTOS = {
   shedReroof2: p("shed-reroof-2-underlayment", "Shed roof with new sheathing and underlayment", "2. Sheathing and underlayment"),
   shedReroof3: p("shed-reroof-3-shingles", "New shingles and ridge cap going on a shed roof", "3. Shingles and ridge cap"),
   shedReroof4: p("shed-reroof-4-finished", "Finished shed with a new shingle roof", "4. Finished"),
+  shedReroofDone: p("shed-reroof-4-finished", "Shed with a new shingle roof", "Shed re-roof"),
   tubDoor: p("shower-door-sliding-tub", "Framed sliding glass door on a tiled tub", "Sliding tub door"),
   showerGlass: p("shower-glass-enclosure", "Frameless glass shower enclosure in a tiled bathroom", "Glass shower enclosure"),
 } as const;
 
 export const HOME_PHOTOS: WorkPhoto[] = [
   PHOTOS.deckStained,
-  PHOTOS.shedReroof4,
+  PHOTOS.shedReroofDone,
   PHOTOS.deckComposite,
   PHOTOS.shedNew,
   PHOTOS.stairsRailing,
