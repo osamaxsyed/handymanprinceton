@@ -1,11 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import TodoBlock from "@/components/TodoBlock";
 import { ArrowRight, Phone, Warehouse, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BOOKING_URL } from "@/data/coreServices";
 import EstimateLink from "@/components/EstimateLink";
+import WorkPhotos from "@/components/WorkPhotos";
+import { SHED_REROOF } from "@/data/workPhotos";
 
 const faqs = [
   {
@@ -102,21 +103,14 @@ const StorageSheds = () => {
           </div>
         </section>
 
-        {/* Section is all placeholders, hidden in production until content lands */}
-        {import.meta.env.DEV && (
-          <section className="py-20 bg-muted heavy-border-b">
-            <div className="w-full max-w-6xl mx-auto px-6 md:px-10">
-              <div className="brutalist-section-eyebrow">Recent Work</div>
-              <h2 className="brutalist-headline text-3xl md:text-5xl text-foreground mb-10">
-                Recent Shed Builds.
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <TodoBlock note="Photo of a finished shed assembly or repair, with the town in the caption and alt text." />
-                <TodoBlock note="A review from a shed or exterior customer when one lands: verbatim text plus first name and town." />
-              </div>
-            </div>
-          </section>
-        )}
+        <WorkPhotos
+          photos={SHED_REROOF}
+          title="A Shed Re-Roof, Start to Finish."
+          intro="Old roof off, new sheathing, underlayment and shingles. One shed, one price agreed before we started."
+          cols={4}
+          aspect="aspect-[3/4]"
+          bg="bg-muted"
+        />
 
         <section className="py-20 bg-muted heavy-border-b">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10">
