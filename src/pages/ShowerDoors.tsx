@@ -1,10 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import TodoBlock from "@/components/TodoBlock";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, PanelsTopLeft, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { PhotoGrid } from "@/components/WorkPhotos";
+import { PHOTOS } from "@/data/workPhotos";
 
 const faqs = [
   {
@@ -108,7 +109,7 @@ const ShowerDoors = () => {
               Hung and Sealed.
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <TodoBlock note="Photo of a finished shower door install, with the town in the caption and alt text." />
+              <PhotoGrid photos={[PHOTOS.tubDoor, PHOTOS.showerGlass]} cols={2} aspect="aspect-[3/4]" />
               <GoogleReview
                 quote="Came back to make sure the doors were right.. amazing customer service.. definitely will hire for more house work."
                 name="Quynetta J."

@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import GoogleReview from "@/components/GoogleReview";
 import { getCoreService, coreServices, MINIMUM, WARRANTY } from "@/data/coreServices";
 import { site } from "@/data/site";
+import WorkPhotos from "@/components/WorkPhotos";
+import { SERVICE_PHOTOS } from "@/data/workPhotos";
 
 // One template for the data-driven core-service pages (doors, tv-mounting,
 // deck-fence-repair, tile-grout-caulk, fixture-swaps, painting-touch-ups,
@@ -117,6 +119,13 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
             </div>
           </div>
         </section>
+
+        {SERVICE_PHOTOS[s.slug] && (
+
+          <WorkPhotos photos={SERVICE_PHOTOS[s.slug]} title="Recent Decks, Stairs and Fences." intro="From our own jobs: decks, stairs, railings and gates." bg="bg-muted" />
+
+        )}
+
 
         {/* Proof */}
         {s.review && (

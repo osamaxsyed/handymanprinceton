@@ -12,6 +12,8 @@ import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import WorkPhotos from "@/components/WorkPhotos";
+import { HOME_PHOTOS } from "@/data/workPhotos";
 
 const Index = () => {
   return (
@@ -25,6 +27,7 @@ const Index = () => {
         <Hero />
         <HomeOffers />
         <HomeServices />
+        <WorkPhotos photos={HOME_PHOTOS} title="Real Jobs, Photographed On Site." intro="Decks, stairs, sheds and doors from recent jobs. Every photo is our own work." />
         <PriceCompare />
         <Testimonials />
         <HowItWorks />
