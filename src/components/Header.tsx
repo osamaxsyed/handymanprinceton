@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useNavigate } from "react-router-dom";
+import { BOOKING_URL } from "@/data/coreServices";
 import { site } from "@/data/site";
 
 // EBH header structure with the Princeton lockup: same services dropdown,
@@ -42,7 +43,7 @@ const Header = () => {
     { name: "About", href: "/about" },
     { name: "Towns Served", href: "/service-areas" },
     { name: "FAQ", href: "/faq" },
-    { name: "Book a Visit", href: "/book" },
+    { name: "Book Online", href: BOOKING_URL },
     { name: "Careers", href: "/careers" },
   ];
 
@@ -96,15 +97,17 @@ const Header = () => {
               )}
             </DropdownMenuContent>
           </DropdownMenu>
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              to={l.href}
-              className="font-body font-medium text-lg px-3.5 py-3 rounded-[10px] text-foreground hover:bg-muted transition-colors"
-            >
-              {l.name}
-            </Link>
-          ))}
+          {navLinks.map((l) =>
+            l.href.startsWith("http") ? (
+              <a key={l.href} href={l.href} className="font-body font-medium text-lg px-3.5 py-3 rounded-[10px] text-foreground hover:bg-muted transition-colors">
+                {l.name}
+              </a>
+            ) : (
+              <Link key={l.href} to={l.href} className="font-body font-medium text-lg px-3.5 py-3 rounded-[10px] text-foreground hover:bg-muted transition-colors">
+                {l.name}
+              </Link>
+            ),
+          )}
         </nav>
 
         <a
@@ -119,15 +122,17 @@ const Header = () => {
 
       {/* Mobile: always-visible scrollable nav row */}
       <div className="lg:hidden flex gap-1 overflow-x-auto px-3 pb-2.5 border-t border-border/60 [scrollbar-width:none]">
-        {[{ name: "Home", href: "/" }, { name: "Handyman Visit", href: "/handyman" }, { name: "Drywall", href: "/drywall-repair" }, { name: "Doors", href: "/doors" }, { name: "TV Mounting", href: "/tv-mounting" }, { name: "Decks & Fences", href: "/deck-fence-repair" }, { name: "Fixtures", href: "/fixture-swaps" }, ...navLinks].map((l) => (
-          <Link
-            key={l.href}
-            to={l.href}
-            className="flex-none font-body font-medium text-[17px] px-3 py-2.5 text-muted-foreground whitespace-nowrap"
-          >
-            {l.name}
-          </Link>
-        ))}
+        {[{ name: "Home", href: "/" }, { name: "Handyman Visit", href: "/handyman" }, { name: "Drywall", href: "/drywall-repair" }, { name: "Doors", href: "/doors" }, { name: "TV Mounting", href: "/tv-mounting" }, { name: "Decks & Fences", href: "/deck-fence-repair" }, { name: "Fixtures", href: "/fixture-swaps" }, ...navLinks].map((l) =>
+            l.href.startsWith("http") ? (
+              <a key={l.href} href={l.href} className="flex-none font-body font-medium text-[17px] px-3 py-2.5 text-muted-foreground whitespace-nowrap">
+                {l.name}
+              </a>
+            ) : (
+              <Link key={l.href} to={l.href} className="flex-none font-body font-medium text-[17px] px-3 py-2.5 text-muted-foreground whitespace-nowrap">
+                {l.name}
+              </Link>
+            ),
+          )}
       </div>
     </header>
   );

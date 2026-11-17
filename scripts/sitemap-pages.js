@@ -30,7 +30,6 @@ const staticPages = [
   { url: '/grab-bar-installation', priority: '0.9', changefreq: 'monthly', entry: P('GrabBarInstallation') },
   { url: '/shower-doors', priority: '0.8', changefreq: 'monthly', entry: P('ShowerDoors') },
   { url: '/backsplash', priority: '0.8', changefreq: 'monthly', entry: P('Backsplash') },
-  { url: '/book', priority: '0.9', changefreq: 'monthly', entry: P('Book') },
   { url: '/about', priority: '0.7', changefreq: 'monthly', entry: P('AboutPage') },
   { url: '/faq', priority: '0.7', changefreq: 'monthly', entry: P('FAQPage') },
   { url: '/service-areas', priority: '0.9', changefreq: 'monthly', entry: P('ServiceAreasPage') },

@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, Hammer, CheckCircle2, MessageSquare } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BOOKING_URL } from "@/data/coreServices";
 
 const faqs = [
   {
@@ -34,7 +35,6 @@ const faqs = [
 ];
 
 const Carpentry = () => {
-  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -159,9 +159,9 @@ const Carpentry = () => {
               Send a picture. You get a plain answer and a firm price, not a callback that never comes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/book")} className="brutalist-cta">
+              <a href={BOOKING_URL} className="brutalist-cta">
                 Book a Visit <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
               <a href="tel:6093038627" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />
                 Call (609) 303-8627

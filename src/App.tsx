@@ -13,7 +13,6 @@ import PropertyManagers from "./pages/PropertyManagers";
 import Carpentry from "./pages/Carpentry";
 import DrywallRepair from "./pages/DrywallRepair";
 import StorageSheds from "./pages/StorageSheds";
-import Book from "./pages/Book";
 import AboutPage from "./pages/AboutPage";
 import FAQPage from "./pages/FAQPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -67,7 +66,6 @@ export const AppRoutes = () => (
           <Route path="/grab-bar-installation" element={<GrabBarInstallation />} />
           <Route path="/shower-doors" element={<ShowerDoors />} />
           <Route path="/backsplash" element={<Backsplash />} />
-          <Route path="/book" element={<Book />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/careers" element={<Careers />} />

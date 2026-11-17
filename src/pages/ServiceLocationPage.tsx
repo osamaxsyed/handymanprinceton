@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,10 +8,10 @@ import { Phone, MapPin, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 import locations from "@/data/locations.json";
 import services from "@/data/services.json";
 import uniqueContent from "@/data/unique-city-content.json";
+import { BOOKING_URL } from "@/data/coreServices";
 
 const ServiceLocationPage = () => {
   const { service, location } = useParams();
-  const navigate = useNavigate();
 
   const locationData = locations.find((loc) => loc.slug === location);
   const serviceData = services.find((svc) => svc.slug === service);
@@ -101,9 +101,9 @@ const ServiceLocationPage = () => {
               <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> handles {serviceData.name.toLowerCase()} for homeowners in {locationData.name}, NJ. {uniqueDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => navigate("/book")} className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href={BOOKING_URL} className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
               <a
                 href="tel:6093038627"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground transition-all rounded-none"
@@ -268,9 +268,9 @@ const ServiceLocationPage = () => {
               Text a photo and you will have one flat price for the job, settled before we arrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/book")} className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href={BOOKING_URL} className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
               <a
                 href="tel:6093038627"
                 className="inline-flex items-center justify-center gap-2 font-headline font-black uppercase tracking-wider text-sm px-8 py-4 bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground transition-all rounded-none"
