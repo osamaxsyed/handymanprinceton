@@ -15,8 +15,9 @@ export const PHOTOS = {
   deckStainedWide: p("deck-stained-wide", "Stained wood deck with railings and stairs off a sliding door", "Deck and railings, stained"),
   deckComposite: p("deck-composite-black-rail", "Composite deck with black metal balusters and steps", "Composite deck and railing"),
   deckCompositeSteps: p("deck-composite-steps", "Composite steps and railing at a side door", "Composite steps and railing"),
-  stairsRailing: p("stairs-pressure-treated-railing", "Pressure-treated back stairs with railings on both sides", "Back stairs and railings"),
-  stairsBuild: p("stairs-pressure-treated-build", "New pressure-treated stairs being built at a back door", "New stairs, mid-build"),
+  stairsBefore: p("stairs-rebuild-1-before", "Worn, weathered back stairs and railings before the rebuild", "Before: worn-out back stairs"),
+  stairsDuring: p("stairs-rebuild-2-during", "New pressure-treated stairs going in at the same back door", "During: new stairs going in"),
+  stairsAfter: p("stairs-rebuild-3-after", "Rebuilt pressure-treated back stairs with new railings", "After: new stairs and railings"),
   gate: p("fence-chain-link-gate", "Chain-link fence and double gate along a house", "Chain-link fence and gate"),
   shedNew: p("shed-new-barn", "New barn-style storage shed with black hinges", "New barn-style shed"),
   shedReroof1: p("shed-reroof-1-framing", "Shed with the old roof removed down to the framing", "1. Old roof off, framing exposed"),
@@ -33,7 +34,7 @@ export const HOME_PHOTOS: WorkPhoto[] = [
   PHOTOS.shedReroofDone,
   PHOTOS.deckComposite,
   PHOTOS.shedNew,
-  PHOTOS.stairsRailing,
+  PHOTOS.deckCompositeSteps,
   PHOTOS.tubDoor,
 ];
 
@@ -42,11 +43,11 @@ export const SHED_REROOF: WorkPhoto[] = [PHOTOS.shedReroof1, PHOTOS.shedReroof2,
 /** Extra photo sets on CoreServicePage, keyed by service slug. */
 export const SERVICE_PHOTOS: Record<string, WorkPhoto[]> = {
   "deck-fence-repair": [
+    PHOTOS.stairsBefore,
+    PHOTOS.stairsDuring,
+    PHOTOS.stairsAfter,
     PHOTOS.deckStainedWide,
     PHOTOS.deckComposite,
-    PHOTOS.deckCompositeSteps,
-    PHOTOS.stairsRailing,
-    PHOTOS.stairsBuild,
     PHOTOS.gate,
   ],
 };
