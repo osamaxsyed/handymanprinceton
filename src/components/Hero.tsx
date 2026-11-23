@@ -1,19 +1,56 @@
-import { Phone, Star, MessageSquare, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { Phone, Star, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-osama.jpg";
 import { RATING, RATING_NOTE, BOOKING_URL } from "@/data/coreServices";
 import { site } from "@/data/site";
 
-// 2026-11-19: the quick form is Housecall Pro's lead form (iframe), so a
-// request lands in HCP's Job inbox + Pipeline instead of an email. Heights
-// measured from the live form: 876px at 280px wide, 744px at 420px.
-const HCP_LEAD_FORM_URL =
-  "https://book.housecallpro.com/lead-form/Central-Jersey-Home-Services-LLC/5b5ad57894ac4416b896c6cdd90c907e";
+// Layer 1 bot filter: the API drops submissions that arrive under 3s after the
+// page loaded (and skips the check when ts is missing). Set once per bundle load.
+const PAGE_LOADED_AT = Date.now();
+
+// 2026-11-23: the quick form posts to /api/lead, which hands it to CNJ Dash so
+// the Housecall Pro lead is tagged "Handyman Princeton" (the HCP lead-form
+// iframe tagged every lead as East Brunswick). If Dash doesn't take it, the
+// function falls back to the owner email. One clientRef per page load makes a
+// double click or retry land as the same lead.
+const CLIENT_REF =
+  typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
 
 // Hero with dual conversion paths (EBH structure): Call/Text primary on the
 // left, a 3-field quick form on the right for the segment that won't call.
 // The Google rating badge is honest about where the reviews came from:
 // Princeton has no GBP yet, so the figure is the LLC's East Brunswick profile.
 const Hero = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [details, setDetails] = useState("");
+  const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    setState("sending");
+    try {
+      const r = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "estimate",
+          name, phone, description: details,
+          serviceType: "Hero quick form",
+          sourcePage: "homepage-hero",
+          submittedAt: new Date().toISOString(),
+          ts: PAGE_LOADED_AT,
+          clientRef: CLIENT_REF,
+        }),
+      });
+      setState(r.ok ? "done" : "error");
+    } catch {
+      setState("error");
+    }
+  }
+
   return (
     <>
       <section className="py-10 md:py-16">
@@ -71,15 +108,47 @@ const Hero = () => {
               Osama, the owner. Licensed, insured, and when you call, we pick up.
             </p>
             <div className="p-6 md:p-8 pt-4">
-            <iframe
-              src={HCP_LEAD_FORM_URL}
-              title="Request a visit"
-              className="block w-full h-[900px] md:h-[780px] border-0"
-            />
-            <p className="font-body text-sm text-muted-foreground mt-3 m-0">
-              Prefer to pick a time yourself?{" "}
-              <a href={BOOKING_URL} className="text-primary underline">Book online</a>.
-            </p>
+            {state === "done" ? (
+              <div className="text-center py-8">
+                <CheckCircle2 className="h-10 w-10 text-[#2E4A3B] mx-auto mb-3" />
+                <p className="brutalist-headline text-2xl text-foreground mb-2">Thanks, {name.split(" ")[0] || "got it"}.</p>
+                <p className="font-body text-lg text-muted-foreground">
+                  You will hear from us the same business day. Need it faster?{" "}
+                  <a href={site.phoneHref} className="text-primary underline">call now</a>.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={submit}>
+                <p className="brutalist-headline text-2xl text-foreground mb-1">Get a flat price</p>
+                <p className="font-body text-base text-muted-foreground mb-5">
+                  Quick and no strings. The labor price is settled before anyone starts; materials are part of the quote.
+                </p>
+                <div className="grid gap-3.5">
+                  <input value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your name"
+                    className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
+                  <input value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" inputMode="tel" autoComplete="tel" placeholder="Mobile number (we reply by text)"
+                    className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
+                  <textarea value={details} onChange={(e) => setDetails(e.target.value)} required rows={3}
+                    placeholder="What needs fixing? One line per item is fine."
+                    className="rounded-[12px] border-2 border-[#E0D5C2] bg-background p-4 font-body text-lg" />
+                  <button type="submit" disabled={state === "sending"} className="brutalist-cta w-full disabled:opacity-50">
+                    {state === "sending" ? "Sending…" : "Send the list"} <ArrowRight className="h-5 w-5" />
+                  </button>
+                </div>
+                {state === "error" && (
+                  <p className="font-body text-base text-primary mt-3">
+                    That didn't go through. Call or text{" "}
+                    <a href={site.phoneHref} className="underline">{site.phoneDisplay}</a> instead.
+                  </p>
+                )}
+                <p className="font-body text-sm text-muted-foreground mt-3 m-0">
+                  Submitting means we may text you about this request (msg &amp; data
+                  rates may apply, reply STOP to opt out). We never share your details.
+                  Prefer to describe the job step by step?{" "}
+                  <a href={BOOKING_URL} className="text-primary underline">Request a visit online</a>.
+                </p>
+              </form>
+            )}
             </div>
           </div>
         </div>
