@@ -1,17 +1,17 @@
-// "Three ways to start": the same three services, in the same order, as the
-// Housecall Pro booking page every button goes to. Small jobs have a $345
+// "Three ways to start": every card goes to the homepage quick form (#quote);
+// online booking removed 2026-11-24, SYS-12. Small jobs have a $345
 // minimum; bigger jobs get a free photo quote or a $49 in-person estimate
 // credited to the job. Cards stay short so all three sit side by side on
 // desktop and stack on mobile.
 import { ArrowRight } from "lucide-react";
-import { BOOKING_URL, ESTIMATE, MINIMUM } from "@/data/coreServices";
+import { ESTIMATE, MINIMUM } from "@/data/coreServices";
 
 const OFFERS = [
   {
     name: "Small Jobs Visit",
     price: MINIMUM.price,
     body: "Our minimum. Up to 2 hours of work, as many small repairs as fit.",
-    cta: "Book a small job",
+    cta: "Request a small job",
     primary: true,
   },
   {
@@ -25,7 +25,7 @@ const OFFERS = [
     name: "In-Person Estimate",
     price: ESTIMATE.price,
     body: `When photos can't show it all, like water damage or decks. We come out and price it; the ${ESTIMATE.price} comes off the job.`,
-    cta: "Book an estimate",
+    cta: "Request an estimate",
     primary: false,
   },
 ];
@@ -35,13 +35,13 @@ const HomeOffers = () => (
     <div className="w-full max-w-6xl mx-auto px-5 md:px-8">
       <h2 className="brutalist-headline text-2xl md:text-3xl text-foreground mb-1">Three ways to start</h2>
       <p className="font-body text-base md:text-lg text-muted-foreground mb-6">
-        Nothing is charged when you book. Every price is agreed before any work begins.
+        Nothing is charged when you send a request. Every price is agreed before any work begins.
       </p>
       <div className="grid md:grid-cols-3 gap-4">
         {OFFERS.map((o) => (
           <a
             key={o.name}
-            href={BOOKING_URL}
+            href="#quote"
             className="bento-card p-5 flex flex-col hover:border-primary transition-colors"
           >
             <div className="flex items-baseline justify-between gap-3">

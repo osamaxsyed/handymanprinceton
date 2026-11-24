@@ -4,7 +4,6 @@ import SEO from "@/components/SEO";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, PaintRoller, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
-import { BOOKING_URL } from "@/data/coreServices";
 
 const faqs = [
   {
@@ -167,8 +166,8 @@ const DrywallRepair = () => {
               One photo and you will know today whether it is a single Visit or a bigger repair with a written price.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} className="brutalist-cta">
-                Book a Visit <ArrowRight className="h-4 w-4" />
+              <a href="/#quote" className="brutalist-cta">
+                Get a Quote <ArrowRight className="h-4 w-4" />
               </a>
               <a href="tel:6093038627" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />

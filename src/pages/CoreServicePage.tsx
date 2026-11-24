@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import { Check, X, Phone, MessageSquare, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import GoogleReview from "@/components/GoogleReview";
-import { getCoreService, coreServices, MINIMUM, WARRANTY, BOOKING_URL } from "@/data/coreServices";
+import { getCoreService, coreServices, MINIMUM, WARRANTY } from "@/data/coreServices";
 import EstimateLink from "@/components/EstimateLink";
 import { site } from "@/data/site";
 import WorkPhotos from "@/components/WorkPhotos";
@@ -112,8 +112,8 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
               ))}
             </div>
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-              <a href={BOOKING_URL} className="brutalist-cta w-fit">
-                Request a visit online <ArrowRight className="h-5 w-5" />
+              <a href="/#quote" className="brutalist-cta w-fit">
+                Send us your job <ArrowRight className="h-5 w-5" />
               </a>
               <span className="font-body text-base text-muted-foreground inline-flex items-center gap-2">
                 <Check className="h-4 w-4 text-primary" /> {WARRANTY}
@@ -172,7 +172,7 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
                     <MessageSquare className="h-5 w-5" />
                     Text {site.phoneDisplay}
                   </a>
-                  <a href={BOOKING_URL} className="brutalist-cta-on-dark">
+                  <a href="/#quote" className="brutalist-cta-on-dark">
                     Request online <ArrowRight className="h-5 w-5" />
                   </a>
                 </div>

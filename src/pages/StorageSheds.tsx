@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { ArrowRight, Phone, Warehouse, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
-import { BOOKING_URL } from "@/data/coreServices";
 import EstimateLink from "@/components/EstimateLink";
 import WorkPhotos from "@/components/WorkPhotos";
 import { SHED_REROOF } from "@/data/workPhotos";
@@ -137,8 +136,8 @@ const StorageSheds = () => {
               base and the assembly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} className="brutalist-cta">
-                Book a Visit <ArrowRight className="h-4 w-4" />
+              <a href="/#quote" className="brutalist-cta">
+                Get a Quote <ArrowRight className="h-4 w-4" />
               </a>
               <a href="tel:6093038627" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />

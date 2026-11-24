@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Check, X, Phone, ArrowRight, MessageSquare } from "lucide-react";
-import { coreServices, biggerJobs, notOffered, BOOKING_URL } from "@/data/coreServices";
+import { coreServices, biggerJobs, notOffered } from "@/data/coreServices";
 import EstimateLink from "@/components/EstimateLink";
 import { site } from "@/data/site";
 import SEO from "@/components/SEO";
@@ -74,8 +74,8 @@ const Handyman = () => {
             </p>
             <EstimateLink className="mt-4" />
             <div className="mt-8">
-              <a href={BOOKING_URL} className="brutalist-cta w-fit">
-                Request a visit online <ArrowRight className="h-5 w-5" />
+              <a href="/#quote" className="brutalist-cta w-fit">
+                Send us your job <ArrowRight className="h-5 w-5" />
               </a>
             </div>
           </div>

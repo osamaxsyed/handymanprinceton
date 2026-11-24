@@ -6,7 +6,6 @@ import LocalTestimonials from "@/components/LocalTestimonials";
 import { Phone, MapPin, ArrowRight, MessageSquare, Wrench } from "lucide-react";
 import locations from "@/data/locations.json";
 import townDepth from "@/data/town-depth.json";
-import { BOOKING_URL } from "@/data/coreServices";
 
 // Extra long-form sections for a handful of towns (src/data/town-depth.json).
 // Inline links use [label](/path) and must point at existing routes.
@@ -111,7 +110,7 @@ const LocationPage = () => {
               {locationData.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={BOOKING_URL} className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href="/#quote" className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </a>
               <a

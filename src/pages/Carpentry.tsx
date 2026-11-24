@@ -4,7 +4,6 @@ import SEO from "@/components/SEO";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, Hammer, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
-import { BOOKING_URL } from "@/data/coreServices";
 
 const faqs = [
   {
@@ -159,8 +158,8 @@ const Carpentry = () => {
               Send a picture. You get a plain answer and a firm price, not a callback that never comes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} className="brutalist-cta">
-                Book a Visit <ArrowRight className="h-4 w-4" />
+              <a href="/#quote" className="brutalist-cta">
+                Get a Quote <ArrowRight className="h-4 w-4" />
               </a>
               <a href="tel:6093038627" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />

@@ -4,7 +4,6 @@ import SEO from "@/components/SEO";
 import GoogleReview from "@/components/GoogleReview";
 import { ArrowRight, Phone, PanelsTopLeft, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
-import { BOOKING_URL } from "@/data/coreServices";
 import { PhotoGrid } from "@/components/WorkPhotos";
 import { PHOTOS } from "@/data/workPhotos";
 
@@ -145,8 +144,8 @@ const ShowerDoors = () => {
               A photo and the width of the opening is enough for us to say which door fits and what it will run.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} className="brutalist-cta">
-                Book a Visit <ArrowRight className="h-4 w-4" />
+              <a href="/#quote" className="brutalist-cta">
+                Get a Quote <ArrowRight className="h-4 w-4" />
               </a>
               <a href="tel:6093038627" className="brutalist-cta-on-dark">
                 <Phone className="h-4 w-4" />

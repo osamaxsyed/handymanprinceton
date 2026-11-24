@@ -5,7 +5,6 @@ import SEO from "@/components/SEO";
 import { MapPin, Phone, ArrowRight } from "lucide-react";
 import locations from "@/data/locations.json";
 import services from "@/data/services.json";
-import { BOOKING_URL } from "@/data/coreServices";
 
 const ServiceAreasPage = () => {
   const sortedLocations = [...locations].sort((a, b) => b.priority - a.priority);
@@ -119,7 +118,7 @@ const ServiceAreasPage = () => {
               If your town is close to Princeton but not listed, call and ask.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href="/#quote" className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </a>
               <a

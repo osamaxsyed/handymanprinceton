@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Phone, Star, MessageSquare, CheckCircle2, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-osama.jpg";
-import { RATING, RATING_NOTE, BOOKING_URL } from "@/data/coreServices";
+import { RATING, RATING_NOTE } from "@/data/coreServices";
 import { site } from "@/data/site";
 
 // Layer 1 bot filter: the API drops submissions that arrive under 3s after the
@@ -101,7 +101,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="bento-card overflow-hidden">
+          <div id="quote" className="bento-card overflow-hidden scroll-mt-24">
             <img src={heroImage} alt="Osama, owner of Princeton Handyman, at work on a job"
               className="w-full h-48 md:h-56 object-cover object-[65%_30%]" />
             <p className="font-body text-[15px] text-muted-foreground px-6 md:px-8 pt-3 m-0">
@@ -144,8 +144,6 @@ const Hero = () => {
                 <p className="font-body text-sm text-muted-foreground mt-3 m-0">
                   Submitting means we may text you about this request (msg &amp; data
                   rates may apply, reply STOP to opt out). We never share your details.
-                  Prefer to describe the job step by step?{" "}
-                  <a href={BOOKING_URL} className="text-primary underline">Request a visit online</a>.
                 </p>
               </form>
             )}
