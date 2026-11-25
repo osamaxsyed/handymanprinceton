@@ -26,17 +26,20 @@ const DENY_DOMAINS = new Set([
 const MIN_FILL_MS = 3000;
 
 export type SpamReason =
+  | 'honeypot'
   | 'phone-nanp'
   | 'phone-555-01xx'
   | 'message-template'
   | 'email-domain'
-  | 'timing';
+  | 'timing'
+  | 'timing-missing';
 
 export type SpamFields = {
   phone?: unknown;
   email?: unknown;
   message?: unknown;
   ts?: unknown;
+  honeypot?: unknown;
 };
 
 // Digits of a submitted phone, with a leading US country code 1 removed.
@@ -71,6 +74,21 @@ export function phoneReason(phone: unknown): SpamReason | null {
   return null;
 }
 
+// The one phone check shared by the quick form (src/components/QuoteForm.tsx)
+// and api/lead.ts: 10 digits after a leading 1 is dropped from 11, with the area
+// code and the exchange each starting 2-9. A number that fails is a person who
+// mistyped: the form asks them to fix it, it is never treated as spam.
+export function isValidUsPhone(phone: unknown): boolean {
+  return /^[2-9]\d{2}[2-9]\d{6}$/.test(phoneDigits(phone));
+}
+
+// The hidden "company_website" field on the quick form: off-screen, skipped by
+// keyboard and screen readers, so only a bot fills it in.
+export function honeypotReason(value: unknown): SpamReason | null {
+  if (value == null) return null;
+  return String(value).trim() !== '' ? 'honeypot' : null;
+}
+
 export function messageReason(message: unknown): SpamReason | null {
   if (!message) return null;
   const m = String(message).toLowerCase().replace(/\s+/g, ' ');
@@ -85,14 +103,14 @@ export function emailReason(email: unknown): SpamReason | null {
   return DENY_DOMAINS.has(e.slice(at + 1)) ? 'email-domain' : null;
 }
 
-// `ts` is the page-load time (ms since epoch) sent along with the form. Missing
-// or unparsable (old cached page, JS off, direct POST from a script that never
-// read the form): no timing verdict. Only a submission that carries a real
-// page-load time and arrives within MIN_FILL_MS is judged.
+// `ts` is the page-load time (ms since epoch) the quick form always sends. A
+// missing or non-numeric ts means the POST did not come from the form (a script
+// that never loaded the page): spam. A real page-load time that arrives within
+// MIN_FILL_MS is too fast for a person.
 export function timingReason(ts: unknown, now: number = Date.now()): SpamReason | null {
-  if (ts == null || ts === '') return null;
+  if (ts == null || String(ts).trim() === '') return 'timing-missing';
   const t = Number(ts);
-  if (!Number.isFinite(t) || t <= 0) return null;
+  if (!Number.isFinite(t) || t <= 0) return 'timing-missing';
   const elapsed = now - t;
   // A client clock more than a minute ahead of ours says nothing about speed.
   if (elapsed < -60_000) return null;
@@ -101,10 +119,11 @@ export function timingReason(ts: unknown, now: number = Date.now()): SpamReason 
 
 // First matching reason wins; null means "let it through".
 export function spamReason(
-  { phone, email, message, ts }: SpamFields = {},
+  { phone, email, message, ts, honeypot }: SpamFields = {},
   now: number = Date.now(),
 ): SpamReason | null {
   return (
+    honeypotReason(honeypot) ||
     phoneReason(phone) ||
     messageReason(message) ||
     emailReason(email) ||

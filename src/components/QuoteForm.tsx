@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { CheckCircle2, ArrowRight, MessageSquare } from "lucide-react";
 import { site } from "@/data/site";
+// The same phone check api/lead.ts runs, from the one shared module.
+import { isValidUsPhone } from "../../api/_spam";
 
 // The quick form, shared by the homepage hero and the service and town pages
 // (SYS-16). It posts to /api/lead, which hands it to CNJ Dash so the Housecall
@@ -8,7 +10,8 @@ import { site } from "@/data/site";
 // function falls back to the owner email.
 
 // Layer 1 bot filter: the API drops submissions that arrive under 3s after the
-// page loaded (and skips the check when ts is missing). Set once per bundle load.
+// page loaded, and any submission without this ts. Set once per bundle load and
+// sent on every submit.
 const PAGE_LOADED_AT = Date.now();
 
 const newClientRef = () =>
@@ -22,13 +25,22 @@ const QuoteForm = ({ sourcePage }: { sourcePage?: string }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [details, setDetails] = useState("");
-  const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [state, setState] = useState<"idle" | "sending" | "done" | "error" | "limited">("idle");
+  const [phoneError, setPhoneError] = useState(false);
+  const phoneErrorId = useId();
   // One clientRef per form makes a double click or retry land as the same
   // lead. A form on another page is a new request and gets its own.
   const [clientRef] = useState(newClientRef);
 
-  async function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // Read from the DOM, not React state, so a bot that sets .value directly is caught too.
+    const honeypot = (e.currentTarget.elements.namedItem("company_website") as HTMLInputElement | null)?.value ?? "";
+    if (!isValidUsPhone(phone)) {
+      setPhoneError(true);
+      return;
+    }
+    setPhoneError(false);
     setState("sending");
     try {
       const r = await fetch("/api/lead", {
@@ -42,9 +54,19 @@ const QuoteForm = ({ sourcePage }: { sourcePage?: string }) => {
           submittedAt: new Date().toISOString(),
           ts: PAGE_LOADED_AT,
           clientRef,
+          company_website: honeypot,
         }),
       });
-      setState(r.ok ? "done" : "error");
+      if (r.ok) return setState("done");
+      if (r.status === 429) return setState("limited");
+      if (r.status === 400) {
+        const data = await r.json().catch(() => null);
+        if (data?.error === "phone") {
+          setPhoneError(true);
+          return setState("idle");
+        }
+      }
+      setState("error");
     } catch {
       setState("error");
     }
@@ -83,11 +105,20 @@ const QuoteForm = ({ sourcePage }: { sourcePage?: string }) => {
       <div className="grid gap-3.5">
         <input value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your name"
           className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
-        <input value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" inputMode="tel" autoComplete="tel" placeholder="Mobile number (we reply by text)"
+        <input value={phone} onChange={(e) => { setPhone(e.target.value); setPhoneError(false); }} required type="tel" aria-invalid={phoneError || undefined} aria-describedby={phoneError ? phoneErrorId : undefined} inputMode="tel" autoComplete="tel" placeholder="Mobile number (we reply by text)"
           className="min-h-[54px] rounded-[12px] border-2 border-[#E0D5C2] bg-background px-4 font-body text-lg" />
+        {phoneError && (
+          <p id={phoneErrorId} role="alert" className="font-body text-base text-primary m-0">
+            Please check your phone number.
+          </p>
+        )}
         <textarea value={details} onChange={(e) => setDetails(e.target.value)} required rows={3}
           placeholder="What needs fixing? One line per item is fine."
           className="rounded-[12px] border-2 border-[#E0D5C2] bg-background p-4 font-body text-lg" />
+        {/* Honeypot: off-screen (not display:none), out of the tab order and hidden
+            from screen readers, so a person never fills it. Any value = spam. */}
+        <input type="text" name="company_website" defaultValue="" tabIndex={-1} autoComplete="off" aria-hidden="true"
+          style={{ position: "absolute", left: "-10000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }} />
         <button type="submit" disabled={state === "sending"} className="brutalist-cta w-full disabled:opacity-50">
           {state === "sending" ? "Sending…" : "Get my price"} <ArrowRight className="h-5 w-5" />
         </button>
@@ -100,6 +131,12 @@ const QuoteForm = ({ sourcePage }: { sourcePage?: string }) => {
           That didn't go through.{" "}
           <a href={site.phoneHref} className="underline whitespace-nowrap">Call {site.phoneDisplay}</a> or{" "}
           <a href={site.smsHref} className="underline">text us</a> instead.
+        </p>
+      )}
+      {state === "limited" && (
+        <p className="font-body text-base text-primary mt-3">
+          Please call or text us at{" "}
+          <a href={site.phoneHref} className="underline whitespace-nowrap">{site.phoneDisplay}</a>.
         </p>
       )}
       <p className="font-body text-sm text-muted-foreground mt-3 m-0">

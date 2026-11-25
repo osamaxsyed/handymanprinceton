@@ -45,7 +45,7 @@ const About = () => {
               Princeton Handyman is run by Osama Syed, who founded {site.legalName} and has spent more than fifteen years doing hands-on repair and carpentry work across central New Jersey. The rules have not changed in that time: agree the price first, arrive when promised, do the job the right way, and leave the room cleaner than it was.
             </p>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed">
-              The company holds a New Jersey home improvement contractor registration ({site.license}), carries a bond, and is insured. The people who work on your house are on our payroll and background-checked, and the owner stands behind each of them.
+              The company holds a New Jersey home improvement contractor registration ({site.license}), carries a bond, and is insured. The people who work on your house are background-checked, vetted, insured local craftsmen, and the owner stands behind each of them.
             </p>
           </div>
 

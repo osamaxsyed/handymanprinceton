@@ -18,6 +18,7 @@ registerHooks({
 });
 
 const { makeHandler, default: defaultHandler } = await import('../api/lead.ts');
+const { default: publicSendEmail } = await import('../api/send-email.ts');
 
 delete process.env.VERCEL_ENV;
 delete process.env.WEB_LEAD_DRY_RUN;
@@ -398,6 +399,109 @@ for (const [label, over] of [['missing name', { name: '' }], ['missing phone', {
 {
   const r = await withEnv({}, () => run({ dryRun: 'env', method: 'GET' }));
   check('GET in dry-run env -> 405', r.res.statusCode === 405 && noCalls(r));
+}
+
+// Form hardening (2026-11-25): honeypot, missing ts, invalid phone -> 400,
+// per-IP rate limit, and the closed public /api/send-email route.
+async function capture(fn) {
+  const saved = { log: console.log, error: console.error, warn: console.warn };
+  const lines = [];
+  for (const k of Object.keys(saved)) console[k] = (...a) => lines.push(a.map(String).join(' '));
+  try { return { value: await fn(), lines }; } finally { Object.assign(console, saved); }
+}
+{
+  const r = await run({ reqBody: body({ company_website: 'https://spam.example' }) });
+  check('honeypot filled -> 200 success, zero fetch, no fallback',
+    r.res.statusCode === 200 && r.res.payload?.success === true && r.calls.length === 0 && r.fallbackCalls.length === 0, JSON.stringify(r.res));
+  check('honeypot -> exactly one [spam] line, reason honeypot',
+    r.logs.filter((l) => l.startsWith('[spam]')).length === 1 && r.logs.includes('[spam] honeypot handymanprinceton.com'), r.logs.join(' | '));
+}
+{
+  const r = await run({ reqBody: body({ company_website: '' }) });
+  check('honeypot empty -> delivered as normal', r.calls.length === 1 && r.res.payload?.success === true);
+}
+for (const [label, over] of [['missing ts', { ts: undefined }], ['empty ts', { ts: '' }], ['non-numeric ts', { ts: 'abc' }]]) {
+  const r = await run({ reqBody: body(over) });
+  check(`${label} -> silent success, zero fetch, no fallback`,
+    r.res.statusCode === 200 && r.res.payload?.success === true && r.calls.length === 0 && r.fallbackCalls.length === 0, JSON.stringify(r.res));
+  check(`${label} -> logs [spam] timing-missing`, r.logs.includes('[spam] timing-missing handymanprinceton.com'), r.logs.join(' | '));
+}
+for (const bad of ['555-1234', '732-155-1234', '032-555-1234', '27325551234', '73255512345', '732-555-1234 x12']) {
+  const r = await run({ reqBody: body({ phone: bad }) });
+  check(`invalid phone ${JSON.stringify(bad)} -> 400 { error: 'phone' }, nothing sent, not logged as spam`,
+    r.res.statusCode === 400 && r.res.payload?.error === 'phone' && r.calls.length === 0 && r.fallbackCalls.length === 0 &&
+    !r.logs.some((l) => l.startsWith('[spam]')), JSON.stringify(r.res));
+}
+{
+  const r = await withEnv({}, () => run({ dryRun: 'env', reqBody: body({ phone: '555-1234' }) }));
+  check('invalid phone -> 400 before dry-run', r.res.statusCode === 400 && r.res.payload?.error === 'phone' && noCalls(r), JSON.stringify(r.res));
+}
+for (const good of ['(732) 555-8642', '+1 732 555 8642', '17325558642', '732.555.8642']) {
+  const r = await run({ reqBody: body({ phone: good }) });
+  check(`valid phone ${JSON.stringify(good)} -> delivered`, r.res.statusCode === 200 && r.calls.length === 1 && r.fallbackCalls.length === 0, JSON.stringify(r.res));
+}
+{
+  const r = await run({ reqBody: body({ phone: '+12025550179' }) });
+  check('555-01xx is still silent spam, not a 400', r.res.statusCode === 200 && r.res.payload?.success === true && r.calls.length === 0);
+}
+// Rate limit: one handler instance, injected clock, 6 POSTs from one IP inside 10 minutes.
+{
+  process.env.WEB_LEAD_SECRET = SECRET;
+  let clock = 1_800_000_000_000;
+  let dash = 0;
+  const h = makeHandler({
+    fetch: async () => { dash++; return jsonResponse(200, { delivered: true }); },
+    fallback: (_q, s) => s.status(200).json({ success: true }),
+    dryRun: false,
+    now: () => clock,
+  });
+  const call = async (xff) => {
+    const res = mockRes();
+    await h({ method: 'POST', headers: xff === undefined ? {} : { 'x-forwarded-for': xff }, body: body() }, res);
+    return res;
+  };
+  const { value: first5, lines } = await capture(async () => {
+    const out = [];
+    for (let i = 0; i < 5; i++) out.push(await call(i % 2 ? '203.0.113.7' : '203.0.113.7, 10.0.0.1'));
+    return out;
+  });
+  check('rate limit: first 5 from one IP -> 200, 5 dash posts', first5.every((r) => r.statusCode === 200) && dash === 5, JSON.stringify(first5.map((r) => r.statusCode)));
+  const { value: sixth, lines: l6 } = await capture(() => call('203.0.113.7'));
+  check('rate limit: 6th within 10 min -> 429, no dash post', sixth.statusCode === 429 && dash === 5, JSON.stringify(sixth));
+  check('rate limit: 429 JSON says call or text (609) 303-8627', sixth.payload?.error === 'rate-limit' && sixth.payload?.message === 'Please call or text us at (609) 303-8627', JSON.stringify(sixth.payload));
+  check('rate limit: logs [rate-limit] without the IP', l6.includes('[rate-limit] handymanprinceton.com') && !l6.some((l) => l.includes('203.0.113.7')) && !lines.some((l) => l.includes('203.0.113.7')), l6.join(' | '));
+  const { value: other } = await capture(() => call('198.51.100.9'));
+  check('rate limit: another IP still -> 200', other.statusCode === 200 && dash === 6);
+  const { value: noIp } = await capture(() => call(undefined));
+  check('rate limit: no x-forwarded-for -> not limited', noIp.statusCode === 200);
+  clock += 10 * 60 * 1000 + 1;
+  const { value: later } = await capture(() => call('203.0.113.7'));
+  check('rate limit: same IP after the 10-minute window -> 200', later.statusCode === 200, JSON.stringify(later));
+  const fresh = makeHandler({ fetch: async () => jsonResponse(200, { delivered: true }), dryRun: false });
+  const { value: freshRes } = await capture(async () => {
+    const res = mockRes();
+    await fresh({ method: 'POST', headers: { 'x-forwarded-for': '203.0.113.7' }, body: body() }, res);
+    return res;
+  });
+  check('rate limit: counter is per handler instance', freshRes.statusCode === 200);
+}
+// The public route is closed; the private module is what lead.ts falls back to.
+{
+  const nodemailer = (await import('nodemailer')).default;
+  const realCreate = nodemailer.createTransport;
+  const realFetch = globalThis.fetch;
+  let transports = 0;
+  let fetched = 0;
+  nodemailer.createTransport = () => { transports++; return { sendMail: async () => ({}) }; };
+  globalThis.fetch = async () => { fetched++; return jsonResponse(200, {}); };
+  const post = mockRes();
+  await publicSendEmail({ method: 'POST', body: body({ formType: 'estimate', email: 'x@example.com' }) }, post);
+  const get = mockRes();
+  await publicSendEmail({ method: 'GET' }, get);
+  nodemailer.createTransport = realCreate;
+  globalThis.fetch = realFetch;
+  check('public POST /api/send-email -> 410, no mail transport, no fetch', post.statusCode === 410 && transports === 0 && fetched === 0, JSON.stringify(post));
+  check('public GET /api/send-email -> 405', get.statusCode === 405);
 }
 
 console.log = orig.log;

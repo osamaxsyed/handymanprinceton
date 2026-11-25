@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/book", "destination": "/#quote", "permanent": false },
+    { "source": "/book", "destination": "/#quote", "permanent": true },
+    { "source": "/book/", "destination": "/#quote", "permanent": true },
     {
       "source": "/:path*",
       "has": [
@@ -16,7 +17,8 @@
     { "source": "/concrete-grinding-trip-hazard", "destination": "/handyman", "permanent": true },
     { "source": "/blog", "destination": "/", "permanent": true },
     { "source": "/services", "destination": "/handyman", "permanent": true },
-    { "source": "/contact", "destination": "/book", "permanent": true },
+    { "source": "/contact", "destination": "/#quote", "permanent": true },
+    { "source": "/contact/", "destination": "/#quote", "permanent": true },
 
     { "source": "/service-areas/skillman", "destination": "/service-areas/montgomery", "permanent": true },
     { "source": "/:service/skillman", "destination": "/service-areas/montgomery", "permanent": true },
@@ -41,7 +43,8 @@
     { "source": "/remodels", "destination": "/handyman", "permanent": true },
     { "source": "/portfolio", "destination": "/handyman", "permanent": true },
     { "source": "/rack-configurator", "destination": "/handyman", "permanent": true },
-    { "source": "/get-estimate", "destination": "/#quote", "permanent": false },
+    { "source": "/get-estimate", "destination": "/#quote", "permanent": true },
+    { "source": "/get-estimate/", "destination": "/#quote", "permanent": true },
     { "source": "/book-repair", "destination": "/#quote", "permanent": false },
 
     { "source": "/handyman-services/:city", "destination": "/service-areas/:city", "permanent": true },

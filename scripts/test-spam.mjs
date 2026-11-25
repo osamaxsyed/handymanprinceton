@@ -1,8 +1,10 @@
 // Layer 1 bot-filter checks. Run: npm run test:spam
 // Known bot payloads (2026-09-27) must be rejected; realistic leads must pass.
-import { spamReason, phoneFlag } from '../api/_spam.ts';
+import { spamReason, phoneFlag, isValidUsPhone } from '../api/_spam.ts';
 
 const NOW = 1_800_000_000_000;
+// The quick form always sends ts; cases that don't set one get a human fill time.
+const HUMAN_TS = String(NOW - 45_000);
 const BOT_MSG = 'I would like more information. Please contact me by email —';
 const cases = [
   // The four verified bot payloads.
@@ -24,8 +26,13 @@ const cases = [
   ['real: +1 609 375 0098', { phone: '+1 609 375 0098', email: 'b@aol.com', message: 'Fence quote for 120 ft' }, null],
   ['bot: 555-0100 is the first number of the fictional block', { phone: '9085550100', email: 'c@gmail.com', message: 'Roof leaking near the chimney' }, 'phone-555-01xx'],
   ['real: 555-0200 is outside the fictional block', { phone: '908-555-0200', email: 'c@gmail.com', message: 'Roof leaking near the chimney' }, null],
-  ['real: missing ts (cached page / JS off) is not judged on timing', { phone: '7323334444', email: 'd@yahoo.com', message: 'Hero quick form' }, null],
-  ['real: garbage ts ignored', { phone: '7323334444', ts: 'abc' }, null],
+  ['bot: missing ts (POST that never loaded the form)', { phone: '7323334444', email: 'd@yahoo.com', message: 'Hero quick form', ts: undefined }, 'timing-missing'],
+  ['bot: empty ts', { phone: '7323334444', ts: '' }, 'timing-missing'],
+  ['bot: non-numeric ts', { phone: '7323334444', ts: 'abc' }, 'timing-missing'],
+  ['bot: honeypot filled', { phone: '7323334444', message: 'Door sticks', honeypot: 'https://example.com' }, 'honeypot'],
+  ['bot: honeypot wins over other reasons', { phone: '+12025550179', honeypot: 'x', ts: undefined }, 'honeypot'],
+  ['real: honeypot empty', { phone: '7323334444', honeypot: '' }, null],
+  ['real: honeypot whitespace only', { phone: '7323334444', honeypot: '   ' }, null],
   ['real: submitted 45s after page load', { phone: '7323334444', ts: String(NOW - 45_000) }, null],
   ['real: page loaded yesterday', { phone: '7323334444', ts: String(NOW - 86_400_000) }, null],
   ['real: client clock 2 minutes ahead', { phone: '7323334444', ts: String(NOW + 120_000) }, null],
@@ -46,7 +53,32 @@ const flagCases = [
   ['flag: missing phone', undefined, null],
 ];
 
+// isValidUsPhone: the shared form + /api/lead check (invalid -> 400 'phone').
+const validCases = [
+  ['valid: (732) 555-1234', '(732) 555-1234', true],
+  ['valid: +1 609 375 0098', '+1 609 375 0098', true],
+  ['valid: 16093750098', '16093750098', true],
+  ['valid: 202-555-0179 (fiction block is spam, not a typo)', '202-555-0179', true],
+  ['invalid: 7 digits', '555-1234', false],
+  ['invalid: 9 digits', '732555123', false],
+  ['invalid: 11 digits not starting with 1', '27325551234', false],
+  ['invalid: 12 digits', '173255512345', false],
+  ['invalid: area code starts 0', '032-555-1234', false],
+  ['invalid: area code starts 1', '132-555-1234', false],
+  ['invalid: exchange starts 0', '732-055-1234', false],
+  ['invalid: exchange starts 1', '732-155-1234', false],
+  ['invalid: extension', '732-555-1234 x12', false],
+  ['invalid: empty', '', false],
+  ['invalid: missing', undefined, false],
+];
+
 let failed = 0;
+for (const [label, phone, want] of validCases) {
+  const got = isValidUsPhone(phone);
+  const ok = got === want;
+  if (!ok) failed++;
+  console.log(`${ok ? 'ok  ' : 'FAIL'} ${label} -> ${got}${ok ? '' : ` (want ${want})`}`);
+}
 for (const [label, phone, want] of flagCases) {
   const got = phoneFlag(phone);
   const ok = got === want;
@@ -54,10 +86,10 @@ for (const [label, phone, want] of flagCases) {
   console.log(`${ok ? 'ok  ' : 'FAIL'} ${label} -> ${got}${ok ? '' : ` (want ${want})`}`);
 }
 for (const [label, fields, want] of cases) {
-  const got = spamReason(fields, NOW);
+  const got = spamReason({ ts: HUMAN_TS, ...fields }, NOW);
   const ok = got === want;
   if (!ok) failed++;
   console.log(`${ok ? 'ok  ' : 'FAIL'} ${label} -> ${got}${ok ? '' : ` (want ${want})`}`);
 }
-console.log(failed ? `\n${failed} failing` : `\nall ${cases.length + flagCases.length} passed`);
+console.log(failed ? `\n${failed} failing` : `\nall ${cases.length + flagCases.length + validCases.length} passed`);
 process.exit(failed ? 1 : 0);
