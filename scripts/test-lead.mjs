@@ -1,5 +1,7 @@
 // /api/lead checks. Run: npm run test:lead
 // fetch and the email fallback are injected, so nothing leaves this machine.
+// Real-path checks pass dryRun: false; the dry-run checks at the end cover the
+// VERCEL_ENV switch.
 import { registerHooks } from 'node:module';
 
 // The api files import siblings as './x.js' (what Vercel needs); map those to
@@ -16,6 +18,9 @@ registerHooks({
 });
 
 const { makeHandler, default: defaultHandler } = await import('../api/lead.ts');
+
+delete process.env.VERCEL_ENV;
+delete process.env.WEB_LEAD_DRY_RUN;
 
 const SECRET = 'test-secret-0123456789-abcdefghij';
 const PHONE = '(609) 375-0098';
@@ -53,7 +58,8 @@ console.error = (...a) => logs.push(a.join(' '));
 const jsonResponse = (status, data) =>
   new Response(typeof data === 'string' ? data : JSON.stringify(data), { status });
 
-async function run({ method = 'POST', reqBody = body(), secret = SECRET, url, fetchImpl, timeoutMs } = {}) {
+// dryRun: false (real path) unless the test passes 'env' to let the handler decide.
+async function run({ method = 'POST', reqBody = body(), secret = SECRET, url, fetchImpl, timeoutMs, dryRun = false } = {}) {
   logs = [];
   if (secret === null) delete process.env.WEB_LEAD_SECRET;
   else process.env.WEB_LEAD_SECRET = secret;
@@ -70,7 +76,7 @@ async function run({ method = 'POST', reqBody = body(), secret = SECRET, url, fe
     fallbackCalls.push(req);
     return res.status(200).json({ success: true, message: 'Email sent successfully' });
   };
-  const handler = makeHandler({ fetch, fallback, timeoutMs });
+  const handler = makeHandler({ fetch, fallback, timeoutMs, ...(dryRun === 'env' ? {} : { dryRun }) });
   const res = mockRes();
   await handler({ method, body: reqBody }, res);
   return { res, calls, fallbackCalls, logs: [...logs] };
@@ -250,6 +256,7 @@ for (const [label, fetchImpl, reason] of [
   const handler = makeHandler({
     fetch: async () => jsonResponse(500, {}),
     fallback: (_req, res) => res.status(500).json({ error: 'Failed to send email' }),
+    dryRun: false,
   });
   const res = mockRes();
   await handler({ method: 'POST', body: body() }, res);
@@ -267,12 +274,22 @@ for (const [label, fetchImpl, reason] of [
   const savedUser = process.env.EMAIL_USER;
   delete process.env.EMAIL_USER;
   delete process.env.WEB_LEAD_SECRET;
+  // The deployed handler decides dry-run from the environment; this is Production.
+  process.env.VERCEL_ENV = 'production';
   const realFetch = globalThis.fetch;
   let fetched = 0;
   globalThis.fetch = async () => { fetched++; return jsonResponse(200, { delivered: true }); };
   logs = [];
   const res = mockRes();
   await defaultHandler({ method: 'POST', body: body() }, res);
+  // Same handler off Production: dry-run, so no fetch and no email.
+  delete process.env.VERCEL_ENV;
+  const mailsBefore = mails.length;
+  const dryRes = mockRes();
+  await defaultHandler({ method: 'POST', body: body() }, dryRes);
+  check('default export: VERCEL_ENV unset -> dry-run, zero fetch, no email',
+    dryRes.statusCode === 200 && dryRes.payload?.dry_run === true && fetched === 0 && mails.length === mailsBefore,
+    JSON.stringify(dryRes.payload));
   globalThis.fetch = realFetch;
   nodemailer.createTransport = realCreate;
   if (savedUser !== undefined) process.env.EMAIL_USER = savedUser;
@@ -282,6 +299,105 @@ for (const [label, fetchImpl, reason] of [
     mails[0].subject === '[Princeton] New Estimate Request from Jane Q Public', JSON.stringify(mails.map((m) => m.subject)));
   check('default export: send-email response is ours',
     res.statusCode === 200 && res.payload?.message === 'Email sent successfully');
+}
+
+// Dry-run: decided per request from VERCEL_ENV / WEB_LEAD_DRY_RUN when the
+// option is not given. Never calls fetch or the fallback.
+async function withEnv(env, fn) {
+  const keys = ['VERCEL_ENV', 'WEB_LEAD_DRY_RUN'];
+  const saved = Object.fromEntries(keys.map((k) => [k, process.env[k]]));
+  for (const k of keys) {
+    if (env[k] === undefined) delete process.env[k];
+    else process.env[k] = env[k];
+  }
+  try {
+    return await fn();
+  } finally {
+    for (const k of keys) {
+      if (saved[k] === undefined) delete process.env[k];
+      else process.env[k] = saved[k];
+    }
+  }
+}
+const isDry = (r) => r.res.statusCode === 200 && r.res.payload?.dry_run === true && r.res.payload?.success === true;
+const noCalls = (r) => r.calls.length === 0 && r.fallbackCalls.length === 0;
+{
+  const r = await withEnv({}, () => run({ dryRun: 'env' }));
+  check('(a) VERCEL_ENV unset -> dry-run', isDry(r) && r.res.payload.vercel_env === null, JSON.stringify(r.res.payload));
+  check('(a) VERCEL_ENV unset -> no fetch, no fallback', noCalls(r));
+  check('(a) logs one [lead] path=dry-run line', r.logs.filter((l) => l.startsWith('[lead] path=dry-run ')).length === 1 && r.logs.length === 1, r.logs.join(' | '));
+  const w = r.res.payload?.would_post || {};
+  const want = {
+    url_host: 'dash.cnjhomeservicesllc.com', brand_key: 'princeton', ref: `site:princeton:${REF}`, source: 'site', phone: '***0098',
+    first_name: 'Jane', last_name: 'Q Public', description: 'Sticking door in the kitchen',
+    service: 'Hero quick form', page_url: 'https://handymanprinceton.com/',
+  };
+  check('(a) would_post exact', JSON.stringify(w) === JSON.stringify(want), JSON.stringify(w));
+  check('(a) secret_present + secret_ok', r.res.payload?.secret_present === true && r.res.payload?.secret_ok === true && r.res.payload?.spam === null);
+}
+{
+  const r = await withEnv({}, () => run({ dryRun: 'env', secret: 'short' }));
+  check('dry-run reports short secret', isDry(r) && r.res.payload.secret_present === true && r.res.payload.secret_ok === false && noCalls(r));
+  const r2 = await withEnv({}, () => run({ dryRun: 'env', secret: null }));
+  check('dry-run reports missing secret', isDry(r2) && r2.res.payload.secret_present === false && r2.res.payload.secret_ok === false && noCalls(r2));
+}
+{
+  const r = await withEnv({ VERCEL_ENV: 'preview' }, () => run({ dryRun: 'env' }));
+  check('(b) VERCEL_ENV=preview -> dry-run, no calls', isDry(r) && r.res.payload.vercel_env === 'preview' && noCalls(r), JSON.stringify(r.res.payload));
+}
+{
+  const r = await withEnv({ VERCEL_ENV: 'development' }, () => run({ dryRun: 'env' }));
+  check('VERCEL_ENV=development -> dry-run, no calls', isDry(r) && noCalls(r));
+}
+{
+  const r = await withEnv({ VERCEL_ENV: 'production' }, () => run({ dryRun: 'env' }));
+  const sent = r.calls[0]?.body || {};
+  check('(c) VERCEL_ENV=production -> real path, fetch once, no fallback',
+    r.calls.length === 1 && r.fallbackCalls.length === 0 && r.res.payload?.dry_run === undefined && r.res.payload?.success === true, JSON.stringify(r.res.payload));
+  check('(c) production body brand_key princeton, ref site:princeton:', sent.brand_key === 'princeton' && sent.ref?.startsWith('site:princeton:'), JSON.stringify(sent));
+  check('(c) production response has no dry-run fields', JSON.stringify(r.res.payload) === JSON.stringify({ success: true }), JSON.stringify(r.res.payload));
+}
+{
+  const r = await withEnv({ VERCEL_ENV: 'production', WEB_LEAD_DRY_RUN: '0' }, () => run({ dryRun: 'env' }));
+  check('production + WEB_LEAD_DRY_RUN=0 -> real path', r.calls.length === 1 && r.res.payload?.dry_run === undefined);
+}
+{
+  const r = await withEnv({ VERCEL_ENV: 'production', WEB_LEAD_DRY_RUN: '1' }, () => run({ dryRun: 'env' }));
+  check('(d) production + WEB_LEAD_DRY_RUN=1 -> dry-run, no calls', isDry(r) && r.res.payload.vercel_env === 'production' && noCalls(r), JSON.stringify(r.res.payload));
+}
+{
+  const r = await withEnv({ VERCEL_ENV: 'production' }, () => run({ dryRun: true }));
+  check('dryRun: true option overrides production', isDry(r) && noCalls(r));
+}
+{
+  const r = await withEnv({}, () => run({ dryRun: 'env', reqBody: body({ phone: '732-555-0123' }) }));
+  check('(e) dry-run spam phone -> spam phone-555-01xx', isDry(r) && r.res.payload.spam === 'phone-555-01xx', JSON.stringify(r.res.payload));
+  check('(e) dry-run spam -> no calls, no [spam] line', noCalls(r) && !r.logs.some((l) => l.startsWith('[spam]')), r.logs.join(' | '));
+}
+{
+  const r = await withEnv({}, () => run({ dryRun: 'env', reqBody: body({ description: 'x'.repeat(500) }) }));
+  check('dry-run description capped at 200', r.res.payload?.would_post?.description?.length === 200);
+}
+{
+  const r = await withEnv({}, () => run({ dryRun: 'env', reqBody: body({ sourcePage: '/drywall-repair/princeton' }) }));
+  check('dry-run page_url carries the real path', r.res.payload?.would_post?.page_url === 'https://handymanprinceton.com/drywall-repair/princeton', JSON.stringify(r.res.payload?.would_post));
+}
+{
+  const r = await withEnv({}, () => run({ dryRun: 'env' }));
+  const out = JSON.stringify(r.res.payload);
+  check('(f) dry-run response never contains the secret', !out.includes(SECRET) && !out.includes('Bearer'), out);
+  check('(f) dry-run response masks the phone', !out.replace(/\D/g, '').includes('6093750098') && !out.includes(PHONE) && r.res.payload?.would_post?.phone === '***0098', out);
+  check('(f) dry-run logs never contain the secret or full phone', noLeak(r), r.logs.join(' | '));
+}
+for (const [label, over] of [['missing name', { name: '' }], ['missing phone', { phone: '' }]]) {
+  for (const env of [{}, { VERCEL_ENV: 'preview' }]) {
+    const r = await withEnv(env, () => run({ dryRun: 'env', reqBody: body(over) }));
+    check(`(g) ${label} (${env.VERCEL_ENV || 'unset'}) -> 400 before dry-run`, r.res.statusCode === 400 && r.res.payload?.dry_run === undefined && noCalls(r), JSON.stringify(r.res.payload));
+  }
+}
+{
+  const r = await withEnv({}, () => run({ dryRun: 'env', method: 'GET' }));
+  check('GET in dry-run env -> 405', r.res.statusCode === 405 && noCalls(r));
 }
 
 console.log = orig.log;

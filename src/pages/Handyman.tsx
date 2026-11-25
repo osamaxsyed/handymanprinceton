@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { QuoteSection } from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
 import { Check, X, Phone, ArrowRight, MessageSquare } from "lucide-react";
 import { coreServices, biggerJobs, notOffered } from "@/data/coreServices";
@@ -33,13 +34,13 @@ const Handyman = () => {
               Lawrence Township, and Montgomery. Everything we do, and everything we don't, is below.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={site.phoneHref} className="brutalist-cta">
-                <Phone className="h-5 w-5" />
-                Call {site.phoneDisplay}
-              </a>
-              <a href={site.smsHref} className="brutalist-cta-on-dark">
+              <a href={site.smsHref} className="brutalist-cta">
                 <MessageSquare className="h-5 w-5" />
                 Text Us a Photo
+              </a>
+              <a href={site.phoneHref} className="brutalist-cta-secondary-on-dark">
+                <Phone className="h-5 w-5" />
+                Call {site.phoneDisplay}
               </a>
             </div>
           </div>
@@ -74,12 +75,14 @@ const Handyman = () => {
             </p>
             <EstimateLink className="mt-4" />
             <div className="mt-8">
-              <a href="/#quote" className="brutalist-cta w-fit">
+              <a href="#quote" className="brutalist-cta w-fit">
                 Send us your job <ArrowRight className="h-5 w-5" />
               </a>
             </div>
           </div>
         </section>
+
+        <QuoteSection />
 
         {/* Core services (single source: src/data/coreServices.ts) */}
         <section className="py-20 bg-background heavy-border-b">

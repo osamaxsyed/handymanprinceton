@@ -163,6 +163,11 @@ All colors MUST be HSL.
     @apply inline-flex items-center justify-center gap-2.5 font-body font-semibold text-lg px-7 py-4 min-h-[60px] bg-primary text-primary-foreground rounded-[14px] hover:bg-[#8E1418] transition-colors;
   }
 
+  /* Second button next to a primary CTA on the dark bands (Call beside Text). */
+  .brutalist-cta-secondary-on-dark {
+    @apply inline-flex items-center justify-center gap-2.5 font-body font-semibold text-lg px-7 py-4 min-h-[60px] bg-transparent text-background rounded-[14px] border-2 border-background/40 hover:border-background transition-colors;
+  }
+
   .brutalist-section-eyebrow {
     @apply font-body font-semibold uppercase tracking-[0.14em] text-sm text-[#795B41] mb-3;
   }

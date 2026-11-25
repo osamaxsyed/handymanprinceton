@@ -1,4 +1,6 @@
 import Header from "@/components/Header";
+import { site } from "@/data/site";
+import { QuoteSection } from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { ArrowRight, Phone, KeyRound, CheckCircle2, MessageSquare } from "lucide-react";
@@ -61,13 +63,13 @@ const PropertyManagers = () => {
               completion, tenant scheduling done for you, a single invoice per property.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:6093038627" className="brutalist-cta">
-                <Phone className="h-5 w-5" />
-                Call (609) 303-8627
-              </a>
-              <a href="sms:6093038627" className="brutalist-cta-on-dark">
+              <a href={site.smsHref} className="brutalist-cta">
                 <MessageSquare className="h-5 w-5" />
                 Text a Unit's List
+              </a>
+              <a href="tel:6093038627" className="brutalist-cta-secondary-on-dark">
+                <Phone className="h-5 w-5" />
+                Call (609) 303-8627
               </a>
             </div>
           </div>
@@ -116,6 +118,8 @@ const PropertyManagers = () => {
           </div>
         </section>
 
+        <QuoteSection />
+
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
             <h2 className="brutalist-headline text-3xl md:text-5xl text-background mb-4">
@@ -125,10 +129,10 @@ const PropertyManagers = () => {
               Text the list and a few photos from the unit. Decide about the rest of the portfolio after that one.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="sms:6093038627" className="brutalist-cta">
+              <a href={site.smsHref} className="brutalist-cta">
                 Text a Punch List <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="tel:6093038627" className="brutalist-cta-on-dark">
+              <a href="tel:6093038627" className="brutalist-cta-secondary-on-dark">
                 <Phone className="h-4 w-4" />
                 Call (609) 303-8627
               </a>

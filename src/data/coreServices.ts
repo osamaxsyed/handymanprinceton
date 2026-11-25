@@ -56,8 +56,9 @@ export const WARRANTY = "One-year labor warranty on every job";
 // visit/halfDay/fullDay keys; halfDay + fullDay render together as "Bigger jobs".
 export const MINIMUM = { price: "$345", hours: "up to 2 hours" } as const;
 
-// Online booking removed 2026-11-24 (SYS-12): every booking CTA goes to the homepage quick form (/#quote).
-
+// Online booking removed 2026-11-24 (SYS-12): every booking CTA goes to the quick form (#quote).
+// The $49 on-site visit is ours to suggest when photos fall short; the customer
+// does not pick it as a product (SYS-16).
 export const ESTIMATE = { price: "$49", url: "/#quote" } as const;
 
 export const coreServices: CoreService[] = [

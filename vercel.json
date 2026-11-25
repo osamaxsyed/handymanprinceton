@@ -1,6 +1,6 @@
 {
   "redirects": [
-    { "source": "/book", "destination": "/", "permanent": false },
+    { "source": "/book", "destination": "/#quote", "permanent": false },
     {
       "source": "/:path*",
       "has": [
@@ -41,8 +41,8 @@
     { "source": "/remodels", "destination": "/handyman", "permanent": true },
     { "source": "/portfolio", "destination": "/handyman", "permanent": true },
     { "source": "/rack-configurator", "destination": "/handyman", "permanent": true },
-    { "source": "/get-estimate", "destination": "/", "permanent": false },
-    { "source": "/book-repair", "destination": "/", "permanent": false },
+    { "source": "/get-estimate", "destination": "/#quote", "permanent": false },
+    { "source": "/book-repair", "destination": "/#quote", "permanent": false },
 
     { "source": "/handyman-services/:city", "destination": "/service-areas/:city", "permanent": true },
     { "source": "/handyman-services", "destination": "/handyman", "permanent": true },

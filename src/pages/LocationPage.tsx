@@ -1,4 +1,6 @@
 import { useParams, Link } from "react-router-dom";
+import { site } from "@/data/site";
+import { QuoteSection } from "@/components/QuoteForm";
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -110,7 +112,7 @@ const LocationPage = () => {
               {locationData.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="/#quote" className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href="#quote" className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </a>
               <a
@@ -304,6 +306,8 @@ const LocationPage = () => {
           </div>
         </section>
 
+        <QuoteSection />
+
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
@@ -314,7 +318,7 @@ const LocationPage = () => {
               Send it with photos and you will have a flat price the same business day. Materials on the quote, one-year labor warranty, no hourly meter.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="sms:6093038627" className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href={site.smsHref} className="brutalist-cta bg-background text-foreground border-background/30">
                 <MessageSquare className="h-4 w-4" />
                 Text Photos of the Job
               </a>

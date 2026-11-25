@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { QuoteSection } from "@/components/QuoteForm";
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -100,7 +101,7 @@ const ServiceLocationPage = () => {
               <Link to="/" className="underline decoration-2 underline-offset-4 text-inherit">Princeton Handyman</Link> handles {serviceData.name.toLowerCase()} for homeowners in {locationData.name}, NJ. {uniqueDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="/#quote" className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href="#quote" className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </a>
               <a
@@ -259,6 +260,8 @@ const ServiceLocationPage = () => {
           </section>
         )}
 
+        <QuoteSection />
+
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
@@ -267,7 +270,7 @@ const ServiceLocationPage = () => {
               Text a photo and you will have one flat price for the job, settled before we arrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/#quote" className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href="#quote" className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </a>
               <a

@@ -8,6 +8,10 @@ import sendEmail from './send-email.js';
 // function never texts anyone. If Dash isn't configured, times out, errors or
 // answers delivered:false (intake off / shadow), the request falls back to the
 // owner email in send-email.ts so no lead is lost.
+//
+// Dry-run: on every deployment except Vercel Production (and on Production when
+// WEB_LEAD_DRY_RUN=1) the function reports what it would send and sends
+// nothing: no Dash call, no email, no text. Preview and local testing are safe.
 
 const DEFAULT_DASH_URL = 'https://dash.cnjhomeservicesllc.com/api/hcp/?web_lead=1';
 const SITE_URL = 'https://handymanprinceton.com/';
@@ -23,16 +27,30 @@ const cap = (v: unknown, max: number): string => str(v).slice(0, max);
 
 const last4 = (phone: string) => `***${phone.replace(/\D/g, '').slice(-4)}`;
 
+const dashUrl = (): string => process.env.CNJ_DASH_WEB_LEAD_URL || DEFAULT_DASH_URL;
+
+const urlHost = (url: string): string => {
+  try {
+    return new URL(url).host;
+  } catch {
+    return 'invalid-url';
+  }
+};
+
+const isDryRun = (): boolean =>
+  process.env.VERCEL_ENV !== 'production' || process.env.WEB_LEAD_DRY_RUN === '1';
+
 type Handler = (req: VercelRequest, res: VercelResponse) => unknown;
 
 type Deps = {
   fetch?: typeof fetch;
   fallback?: Handler;
   timeoutMs?: number;
+  dryRun?: boolean;
 };
 
 // Injectable for scripts/test-lead.mjs; the deployed function is makeHandler().
-export function makeHandler({ fetch: doFetch, fallback = sendEmail, timeoutMs = 6000 }: Deps = {}) {
+export function makeHandler({ fetch: doFetch, fallback = sendEmail, timeoutMs = 6000, dryRun }: Deps = {}) {
   return async function handler(req: VercelRequest, res: VercelResponse) {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Method not allowed' });
@@ -53,14 +71,58 @@ export function makeHandler({ fetch: doFetch, fallback = sendEmail, timeoutMs = 
       return res.status(400).json({ error: 'Name and a phone number are required' });
     }
 
-    // Layer 1 bot filter: answer like success, send nothing.
     const spam = spamReason({ phone, message: description, ts });
+    const secret = process.env.WEB_LEAD_SECRET || '';
+    const ref = `site:princeton:${REF_RE.test(clientRef) ? clientRef : crypto.randomUUID()}`;
+    const [first, ...rest] = name.split(/\s+/);
+    const path = PATH_RE.test(sourcePage) && !sourcePage.includes('..') ? sourcePage.slice(1) : '';
+    // Built in one place, so the dry-run reports exactly what the real path posts.
+    const dashBody = {
+      brand_key: 'princeton',
+      ref,
+      source: 'site',
+      phone,
+      first_name: first,
+      last_name: rest.join(' '),
+      description,
+      service: 'Hero quick form',
+      page_url: SITE_URL + path,
+    };
+
+    if (dryRun ?? isDryRun()) {
+      const vercelEnv = process.env.VERCEL_ENV || null;
+      const host = urlHost(dashUrl());
+      console.log(`[lead] path=dry-run ${JSON.stringify({
+        site: 'handymanprinceton.com',
+        vercel_env: vercelEnv,
+        spam,
+        url_host: host,
+        ref,
+        phone: last4(phone),
+        secret_ok: secret.length >= 24,
+      })}`);
+      return res.status(200).json({
+        success: true,
+        dry_run: true,
+        vercel_env: vercelEnv,
+        spam,
+        would_post: {
+          url_host: host,
+          ...dashBody,
+          phone: last4(phone),
+          description: description.slice(0, 200),
+        },
+        secret_present: secret.length > 0,
+        secret_ok: secret.length >= 24,
+      });
+    }
+
+    // Layer 1 bot filter: answer like success, send nothing.
     if (spam) {
       console.log(`[spam] ${spam} handymanprinceton.com`);
       return res.status(200).json({ success: true });
     }
 
-    const ref = `site:princeton:${REF_RE.test(clientRef) ? clientRef : crypto.randomUUID()}`;
     console.log(`[lead] ${JSON.stringify({
       site: 'handymanprinceton.com',
       ref,
@@ -94,29 +156,16 @@ export function makeHandler({ fetch: doFetch, fallback = sendEmail, timeoutMs = 
 
     // Returns 'delivered' or a short reason for the email fallback.
     async function sendToDash(): Promise<string> {
-      const secret = process.env.WEB_LEAD_SECRET || '';
       if (secret.length < 24) return secret ? 'secret-too-short' : 'no-secret';
 
-      const [first, ...rest] = name.split(/\s+/);
-      const path = PATH_RE.test(sourcePage) && !sourcePage.includes('..') ? sourcePage.slice(1) : '';
       try {
-        const r = await (doFetch ?? fetch)(process.env.CNJ_DASH_WEB_LEAD_URL || DEFAULT_DASH_URL, {
+        const r = await (doFetch ?? fetch)(dashUrl(), {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${secret}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            brand_key: 'princeton',
-            ref,
-            source: 'site',
-            phone,
-            first_name: first,
-            last_name: rest.join(' '),
-            description,
-            service: 'Hero quick form',
-            page_url: SITE_URL + path,
-          }),
+          body: JSON.stringify(dashBody),
           signal: AbortSignal.timeout(timeoutMs),
         });
         if (r.status !== 200) return `http-${r.status}`;

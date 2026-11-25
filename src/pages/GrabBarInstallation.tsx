@@ -1,4 +1,6 @@
 import Header from "@/components/Header";
+import { site } from "@/data/site";
+import { QuoteSection } from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import TodoBlock from "@/components/TodoBlock";
@@ -63,13 +65,13 @@ const GrabBarInstallation = () => {
               Windsor, Lawrence Township, and Pennington.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:6093038627" className="brutalist-cta">
-                <Phone className="h-5 w-5" />
-                Call (609) 303-8627
-              </a>
-              <a href="sms:6093038627" className="brutalist-cta-on-dark">
+              <a href={site.smsHref} className="brutalist-cta">
                 <MessageSquare className="h-5 w-5" />
                 Text a Photo of the Shower
+              </a>
+              <a href="tel:6093038627" className="brutalist-cta-secondary-on-dark">
+                <Phone className="h-5 w-5" />
+                Call (609) 303-8627
               </a>
             </div>
           </div>
@@ -142,6 +144,8 @@ const GrabBarInstallation = () => {
           </div>
         </section>
 
+        <QuoteSection />
+
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
@@ -152,10 +156,10 @@ const GrabBarInstallation = () => {
               Tell us who will be using the bars and where they live. We take it from there.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/#quote" className="brutalist-cta">
+              <a href="#quote" className="brutalist-cta">
                 Get a Quote <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="tel:6093038627" className="brutalist-cta-on-dark">
+              <a href="tel:6093038627" className="brutalist-cta-secondary-on-dark">
                 <Phone className="h-4 w-4" />
                 Call (609) 303-8627
               </a>

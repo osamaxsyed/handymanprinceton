@@ -14,8 +14,9 @@ export const site = {
   get phoneHref() {
     return `tel:${this.phoneRaw}`;
   },
+  // Opens a new text to our line with the first words already written (SYS-16).
   get smsHref() {
-    return `sms:${this.phoneRaw}`;
+    return `sms:+1${this.phoneRaw}?&body=${encodeURIComponent("Hi, I need a price for: ")}`;
   },
 
   domain: "handymanprinceton.com",

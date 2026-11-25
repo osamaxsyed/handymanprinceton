@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { QuoteSection } from "@/components/QuoteForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -110,6 +111,8 @@ const ServiceAreasPage = () => {
           </div>
         </section>
 
+        <QuoteSection />
+
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="w-full max-w-4xl mx-auto px-6 md:px-10 text-center">
@@ -118,7 +121,7 @@ const ServiceAreasPage = () => {
               If your town is close to Princeton but not listed, call and ask.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/#quote" className="brutalist-cta bg-background text-foreground border-background/30">
+              <a href="#quote" className="brutalist-cta bg-background text-foreground border-background/30">
                 Request a Visit <ArrowRight className="h-4 w-4" />
               </a>
               <a

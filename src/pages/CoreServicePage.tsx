@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { QuoteSection } from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Check, X, Phone, MessageSquare, ArrowRight } from "lucide-react";
@@ -38,13 +39,13 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
               Plainsboro, Lawrence Township, Montgomery, and the towns around them.{s.intro ? ` ${s.intro}` : ""}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={site.phoneHref} className="brutalist-cta">
-                <Phone className="h-5 w-5" />
-                Call {site.phoneDisplay}
-              </a>
-              <a href={site.smsHref} className="brutalist-cta-on-dark">
+              <a href={site.smsHref} className="brutalist-cta">
                 <MessageSquare className="h-5 w-5" />
                 Text Us a Photo
+              </a>
+              <a href={site.phoneHref} className="brutalist-cta-secondary-on-dark">
+                <Phone className="h-5 w-5" />
+                Call {site.phoneDisplay}
               </a>
             </div>
           </div>
@@ -112,7 +113,7 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
               ))}
             </div>
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-              <a href="/#quote" className="brutalist-cta w-fit">
+              <a href="#quote" className="brutalist-cta w-fit">
                 Send us your job <ArrowRight className="h-5 w-5" />
               </a>
               <span className="font-body text-base text-muted-foreground inline-flex items-center gap-2">
@@ -121,6 +122,8 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
             </div>
           </div>
         </section>
+
+        <QuoteSection />
 
         {SERVICE_PHOTOS[s.slug] && (
 
@@ -172,7 +175,7 @@ const CoreServicePage = ({ slug }: { slug: string }) => {
                     <MessageSquare className="h-5 w-5" />
                     Text {site.phoneDisplay}
                   </a>
-                  <a href="/#quote" className="brutalist-cta-on-dark">
+                  <a href="#quote" className="brutalist-cta-on-dark">
                     Request online <ArrowRight className="h-5 w-5" />
                   </a>
                 </div>

@@ -137,7 +137,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href={site.smsHref} className="brutalist-cta">
                 <MessageSquare className="h-4 w-4" />
-                Text {site.phoneDisplay}
+                Text Us a Photo
               </a>
               <a
                 href={site.phoneHref}
