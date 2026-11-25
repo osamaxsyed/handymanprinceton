@@ -82,7 +82,7 @@ export function isValidUsPhone(phone: unknown): boolean {
   return /^[2-9]\d{2}[2-9]\d{6}$/.test(phoneDigits(phone));
 }
 
-// The hidden "company_website" field on the quick form: off-screen, skipped by
+// The hidden "qf_alt_ref" field on the quick form: off-screen, skipped by
 // keyboard and screen readers, so only a bot fills it in.
 export function honeypotReason(value: unknown): SpamReason | null {
   if (value == null) return null;

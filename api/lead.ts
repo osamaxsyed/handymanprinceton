@@ -105,7 +105,7 @@ export function makeHandler({ fetch: doFetch, fallback = sendEmail, timeoutMs = 
     // of being truncated into a valid one.
     const clientRef = cap(raw.clientRef, 65);
     // Hidden honeypot input on the quick form; only a bot fills it.
-    const honeypot = cap(raw.company_website, 200);
+    const honeypot = cap(raw.qf_alt_ref, 200);
 
     if (!name || !phone) {
       return res.status(400).json({ error: 'Name and a phone number are required' });

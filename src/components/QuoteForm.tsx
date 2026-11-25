@@ -35,7 +35,7 @@ const QuoteForm = ({ sourcePage }: { sourcePage?: string }) => {
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     // Read from the DOM, not React state, so a bot that sets .value directly is caught too.
-    const honeypot = (e.currentTarget.elements.namedItem("company_website") as HTMLInputElement | null)?.value ?? "";
+    const honeypot = (e.currentTarget.elements.namedItem("qf_alt_ref") as HTMLInputElement | null)?.value ?? "";
     if (!isValidUsPhone(phone)) {
       setPhoneError(true);
       return;
@@ -54,7 +54,7 @@ const QuoteForm = ({ sourcePage }: { sourcePage?: string }) => {
           submittedAt: new Date().toISOString(),
           ts: PAGE_LOADED_AT,
           clientRef,
-          company_website: honeypot,
+          qf_alt_ref: honeypot,
         }),
       });
       if (r.ok) return setState("done");
@@ -117,7 +117,7 @@ const QuoteForm = ({ sourcePage }: { sourcePage?: string }) => {
           className="rounded-[12px] border-2 border-[#E0D5C2] bg-background p-4 font-body text-lg" />
         {/* Honeypot: off-screen (not display:none), out of the tab order and hidden
             from screen readers, so a person never fills it. Any value = spam. */}
-        <input type="text" name="company_website" defaultValue="" tabIndex={-1} autoComplete="off" aria-hidden="true"
+        <input type="text" name="qf_alt_ref" defaultValue="" tabIndex={-1} autoComplete="off" aria-hidden="true"
           style={{ position: "absolute", left: "-10000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }} />
         <button type="submit" disabled={state === "sending"} className="brutalist-cta w-full disabled:opacity-50">
           {state === "sending" ? "Sending…" : "Get my price"} <ArrowRight className="h-5 w-5" />

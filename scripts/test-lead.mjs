@@ -410,14 +410,14 @@ async function capture(fn) {
   try { return { value: await fn(), lines }; } finally { Object.assign(console, saved); }
 }
 {
-  const r = await run({ reqBody: body({ company_website: 'https://spam.example' }) });
+  const r = await run({ reqBody: body({ qf_alt_ref: 'https://spam.example' }) });
   check('honeypot filled -> 200 success, zero fetch, no fallback',
     r.res.statusCode === 200 && r.res.payload?.success === true && r.calls.length === 0 && r.fallbackCalls.length === 0, JSON.stringify(r.res));
   check('honeypot -> exactly one [spam] line, reason honeypot',
     r.logs.filter((l) => l.startsWith('[spam]')).length === 1 && r.logs.includes('[spam] honeypot handymanprinceton.com'), r.logs.join(' | '));
 }
 {
-  const r = await run({ reqBody: body({ company_website: '' }) });
+  const r = await run({ reqBody: body({ qf_alt_ref: '' }) });
   check('honeypot empty -> delivered as normal', r.calls.length === 1 && r.res.payload?.success === true);
 }
 for (const [label, over] of [['missing ts', { ts: undefined }], ['empty ts', { ts: '' }], ['non-numeric ts', { ts: 'abc' }]]) {
